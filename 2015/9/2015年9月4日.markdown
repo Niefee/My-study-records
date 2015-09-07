@@ -1,12 +1,9 @@
 ﻿# 2015年9月4日
 
-标签（空格分隔）： jQuery 极客学院 前端
-
----
 
 ##jQuery UI
 
-**应用**
+###应用
 
 ```
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -16,7 +13,7 @@
 
 ---
 
-**交互**
+###交互
 
  - `draggable()`：拖动；
  - `droppable()`：被放置；
@@ -39,8 +36,8 @@ $("#div3").on("drop",function(event,ui){
 
 ---
 
-**HTML框架**
-页面框架
+###HTML框架
+####页面框架
 ```
 <html>
     <frameset cols="25%,50%,25%" >
@@ -55,7 +52,7 @@ $("#div3").on("drop",function(event,ui){
 ```
 > `<frameset></frameset>` **不能**与标签一起使用 `<body></body>` 标签。
 
-内联框架
+####内联框架
 
 ```
 <iframe src="abc.html" marginwidth="50">
@@ -79,7 +76,7 @@ $("#div3").on("drop",function(event,ui){
 ```
 >框架内会显示`src`所指引的页面。
 
-**URL**
+###URL
 
 **URL - Uniform Resource Locator**
 当您点击 HTML 页面中的某个链接时，对应的 <a> 标签指向万维网上的一个地址。

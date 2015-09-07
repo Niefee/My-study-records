@@ -1,9 +1,6 @@
-﻿#2015年8月31日
+#2015年8月31日
 
-
-标签 ： 前端 极客学院 jQuery
-
-##极客学院笔记
+##jQuery样式
 
 ```
     var myjq=$.noConflict();
@@ -41,9 +38,9 @@
     $("obj").outHeight(true);height+padding+boeder+maigin;
 ```
 
-###元素遍历
+##元素遍历
 
-####向下遍历
+###向下遍历
 ```
 $("#div1").children("a").css({border:"5px solid#FF00FF"});
 ```
@@ -51,7 +48,7 @@ $("#div1").children("a").css({border:"5px solid#FF00FF"});
 
 ---
 
-####向上遍历
+###向上遍历
 ```
 $("#div1").find("a").css({border:"5px solid #FF00FF"});
 ```
@@ -66,7 +63,7 @@ $("a").parents().css({border:"5px solid #0f0"});//所有祖先元素，
 $("a").parentsUntil("#div1").css({border:"5px solid #0f0"});//区间之间的元素
 	
 ```
-####同级遍历
+###同级遍历
 ```
 $("h4").siblings().css({border:"3px solid red"});
 //所有同级元素修改。
@@ -83,7 +80,7 @@ $("h4").nextUntil("h6").css({border:"3px solid red"})
 >prev() 、preAll() 、preUntil()同上。
 
 ---
-####元素过滤
+###元素过滤
 ```
 $("div p").first().css("background-color","red");
 //选择第一个。
