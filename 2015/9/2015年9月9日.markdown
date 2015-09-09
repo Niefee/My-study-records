@@ -1,0 +1,19 @@
+#2015年9月9日
+##jQuery Mobile 事件
+
+ - `pageinit()`：加载完后触发。
+ - `tap()`：点击后触发。
+ - `taphold()`:长按后触发。
+ - `swipe()/swipeleft()/swiperight()`：滑动触发。
+ - `scrollstart()/scrolstop()`：开始或者结束滑动时触发。
+ - `orientationchange()`:屏幕方向改变。
+
+
+##AngularJS
+AngularJS的四个核心思想
+
+ 1. 依赖注入
+ 2. 模块化
+ 3. 双向绑定
+ 4. 语义化标签
+
