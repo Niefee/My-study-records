@@ -1,0 +1,65 @@
+#2015年9月10日
+##Angularjs
+###MVC框架
+**MVC**全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写。
+
+AngularJS 模块（**Module**） 定义了 AngularJS 应用。
+AngularJS 控制器（**Controller**） 用于控制 AngularJS 应用。
+ng-app指令定义了应用, ng-controller 定义了控制器。
+
+###双向绑定数据
+```
+<body style="padding:10px;" ng-app="">
+
+    <input type="text" ng-model="uName">
+    <h1>{{uName}}</h1>
+    <h1 ng-cloak="" class="ng-clock">{{uName}}</h1>
+    <div ng-if="uName.length>0">{{'UserName:'+uName}}</div>
+    <div ng-bind="'用户名：'+uName" ng-if="uName.length>0"></div>
+    <div class="{{uName}}">{{uName}}</div>
+
+    <script src="js/angular.min.js"></script>
+</body>
+```
+效果图：
+![](http://i.imgur.com/bvNbEO0.jpg)
+
+###Controllers 的使用
+```
+<div ng-controller="NextCtrl">
+  <input type="text" ng-model="msg">
+  <h1 ng-bind="msg"></h1>
+</div>
+
+
+angular.module("app",[])
+    .controller('FirstCtrl',function($scope){
+        $scope.msg="hello  world";
+})
+```
+
+ - 定义controller
+ - 在controller中声明变量
+ - 使用ng-bind绑定数据并显示controller的作用域
+
+### $scope 上声明变量和方法
+示例代码：
+```
+<div ng-controller="MyCtrl">
+	<input type="text" ng-model="user.uName">
+	<input type="text" ng-model="user.pwd">
+	<div class="button" ng-click="login()">login up</div>
+	<div  ng-show="errormsg.length>0" class="alert-box">{{errormsg}}</div>
+</div>
+
+
+$scope.login=function(){
+    console.log($scope.user);
+    if($scope.user.uName=="admin" && $scope.user.pwd=="123"){
+        alert("ok");
+    }else{
+       $scope.errormsg="用户名或者密码错误。";
+    }
+}
+
+```
