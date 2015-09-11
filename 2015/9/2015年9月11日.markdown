@@ -53,10 +53,6 @@ value的值可以改变。
 <img ng-src="{{user.icon}}" ng-show="user.isShowImg" ng-class="{'tx':user.showicon}">
 <img ng-src="{{user.icon}}" ng-hide="user.isShowImg" ng-class="{'tx':user.showicon}">
 <img ng-src="{{user.icon}}" ng-ig="user.isShowImg" ng-class="{'tx':user.showicon}">
-
-
-
-
 ```
 显示与否取决于 `inShowImg` 的值是`true`或者`false`。
 
