@@ -1,0 +1,57 @@
+#2015年9月17日
+##javascript模块化
+参看文章：http://www.ruanyifeng.com/blog/2012/10/javascript_module.html 。
+
+
+**匿名函数自调用**
+```
+(function foo() {...})// 这里是故意换行，实际上可以和下面的括号连起来
+();
+
+这就等价于：
+
+var foo = function () {...};// 这就不是定义，而是表达式了。
+foo();
+```
+>` (function(){...})()` 与 `(function(){...}())`没有区别。
+
+函数的定义，大致可分为三种方式
+
+第一种：这也是最常规的一种
+```
+function double(x){
+    return 2 * x;   
+}
+```
+
+第二种：这种方法使用了Function构造函数，把参数列表和函数体都作为字符串，很不方便，不建议使用。
+```
+var double = new Function('x', 'return 2 * x;');
+```
+
+第三种：
+```
+var double = function(x) { return 2* x; }
+```
+注意“=”右边的函数就是一个匿名函数，创造完毕函数后，又将该函数赋给了变量double。
+
+>上面三种方法定义了同一个方法函数fnMethodName，第1种就是最常用的方法，后两种都是把一个函数复制给变量fnMethodName，而这个函数是没有名字的，即匿名函数。
+
+
+**闭包**
+```　　
+function f1(){
+　　　　var n=999;
+　　　　function f2(){
+　　　　　　alert(n); 
+　　　　}
+　　　　return f2;
+　　}
+　　var result=f1();
+　　result(); // 999
+```
+>代码中的f2函数，就是**闭包**。
+各种专业文献上的"闭包"（closure）定义非常抽象，很难看懂。我的理解是，闭包就是能够读取其他函数内部变量的函数。
+由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成"定义在一个函数内部的函数"。
+所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
+
