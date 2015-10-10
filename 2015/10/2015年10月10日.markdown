@@ -1,0 +1,72 @@
+#2015年10月10日
+##javascript
+
+ - addEventListener是一个侦听事件并处理相应的函数。
+
+**语法**
+
+    element.addEventListener(event, function, useCapture)
+
+>第一个参数是需要绑定的事件，第二个参数是触发事件后要执行的函数。而第三个参数默认值是false，表示在事件冒泡的阶段调用事件处理函数，如果参数为true，则表示在事件捕获阶段调用处理函数。
+
+**事件冒泡**
+
+微软提出了名为事件冒泡(event bubbling)的事件流。事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。也就是说，事件会从最内层的元素开始发生，一直向上传播，直到document对象。
+
+因此上面的例子在事件冒泡的概念下发生click事件的顺序应该是p -> div -> body -> html -> document
+
+**事件捕获**
+
+网景提出另一种事件流名为事件捕获(event capturing)。与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。
+
+上面的例子在事件捕获的概念下发生click事件的顺序应该是document -> html -> body -> div -> p
+
+```javascript
+document.getElementById("myP").addEventListener("click", function() {
+    alert("你点击了 P 元素!");
+}, false);
+
+document.getElementById("myDiv").addEventListener("click", function() {
+    alert("你点击了 DIV 元素!");
+}, false);
+
+document.getElementById("myP2").addEventListener("click", function() {
+    alert("你点击了 P 元素!");
+}, true);
+
+document.getElementById("myDiv2").addEventListener("click", function() {
+    alert("你点击了 DIV 元素!");
+}, true);
+```
+>详情查看[连接](http://sandbox.runjs.cn/show/lsxcibvm)
+
+**兼容**
+要兼容旧版本的IE浏览器，可以使用IE的attachEvent函数。
+
+    object.attachEvent(event, function)
+
+两个参数与addEventListener相似，分别是事件和处理函数，默认是事件冒泡阶段调用处理函数，要注意的是，写事件名时候要加上"on"前缀（"onload"、"onclick"等）。
+
+##Python
+
+```python
+#TempConvert.py
+val = input("请输入带温度表示符号的温度值(例如: 32C): ")
+if val[-1] in ['C','c']:
+    f = 1.8 * float(val[0:-1]) + 32
+    print("转换后的温度为: %.2fF"%f)
+elif val[-1] in ['F','f']:
+    c = (float(val[0:-1]) - 32) / 1.8
+    print("转换后的温度为: %.2fC"%c)
+else:
+    print("输入有误")
+
+```
+
+>`%.2f`保留表示小数点后面两位。
+
+ - 注释
+
+    方式：
+     - 单行一`#`开头；
+     - 多行一`'''`开头与结尾；
