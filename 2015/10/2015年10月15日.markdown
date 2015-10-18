@@ -35,3 +35,15 @@
 |< string>.find()| 搜索指定字符串|
 |< string>.replace()| 字符串替换|
 |for < var> in < string>|字符串迭代 |
+
+```python
+<!-- 月份输出代码 -->
+# month.py
+months="JanFebMarAprMayJunJulAugSepOctNovDec"
+n=input("请输入月份数（1-12）：")
+pos=(int(n)-1)*3
+monthAbbrev=months[pos:pos+3]
+print("月份数是"+monthAbbrev+".")
+    
+
+```
