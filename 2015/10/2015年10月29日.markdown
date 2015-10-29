@@ -1,0 +1,11 @@
+#2015年10月29日
+##css
+
+**content-box**：此值为其默认值，其让元素维持W3C的标准Box Model，也就是说元素的宽度/高度（width/height）等于元素边框宽度（border）加上元素内边距（padding）加上元素内容宽度 /高度（content width/height）即：Element Width/Height = border+padding+content width/height。
+
+**border-box**:此值让元素维持IE传统的Box Model（IE6以下版本），也就是说元素的宽度/高度等于元素内容的宽度/高度。这里的content width/height包含了元素的border,padding,内容的width/height。即此处的内容宽度/高度=width /height-border-padding。
+
+![txt](img/box-sizing.png)
+
+**z-index**
+决定元素层次的属性，拥有较高堆叠数值的元素在上层。
