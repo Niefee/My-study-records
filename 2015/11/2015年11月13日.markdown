@@ -1,0 +1,30 @@
+#2015年11月13日
+##HTML&CSS
+**CSS content内容生成技术以及应用**
+
+```css
+    h2:before {
+   content: "我是额外文字！";
+}
+```
+
+>h2标签前面添加文字；
+
+```
+a.content:after {
+   content: attr(href);
+}
+<a class="content" href="http://www.zhangxinxu.com/">此标签的href值是：</a>
+```
+
+>结果："此标签的href值是：http ://www.zhangxinxu.com/" ;
+
+>content属性的值除了使用文本值外，还可以使用标签的一些属性值，方法是attr()
+
+**HTMLElement.dataset**
+
+自定义的数据属性名称是以 data- 开头的。
+
+带连字符连接的名称在使用的时候需要命名驼峰化，即大小写组合书写.
+
+`data-meal-time`，则我们要获取相应的值可以使用：`expenseday2.dataset.mealTime`
