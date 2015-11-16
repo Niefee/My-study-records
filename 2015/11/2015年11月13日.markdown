@@ -10,7 +10,7 @@
 
 >h2标签前面添加文字；
 
-```
+```html5
 a.content:after {
    content: attr(href);
 }
@@ -24,7 +24,26 @@ a.content:after {
 **HTMLElement.dataset**
 
 自定义的数据属性名称是以 data- 开头的。
+这种方式通过访问一个元素的`dataset` 属性来存取 `data-*` 自定义属性的值。这个 dataset 属性是HTML5 JavaScript API的一部分，用来返回一个所有选择元素 data- 属性的DOMStringMap对象。
+
+使用这种方法时，不是使用完整的属性名，如 `data-uid` 来存取数据，应该去掉`data-` 前缀。
 
 带连字符连接的名称在使用的时候需要命名驼峰化，即大小写组合书写.
 
 `data-meal-time`，则我们要获取相应的值可以使用：`expenseday2.dataset.mealTime`
+
+```js
+<div id="user" data-id="1234567890" data-name="愚人码头" data-date-of-birth>码头</div>
+<script type="text/javascript">
+var el = document.querySelector('#user');
+console.log(el.id); // 'user'
+console.log(el.dataset);//一个DOMStringMap
+console.log(el.dataset.id); // '1234567890'
+console.log(el.dataset.name); // '愚人码头'
+console.log(el.dataset.dateOfBirth); // ''
+el.dataset.dateOfBirth = '1985-01-05'; // 设置data-date-of-birth的值.
+console.log('someDataAttr' in el.dataset);//false
+el.dataset.someDataAttr = 'mydata';
+console.log('someDataAttr' in el.dataset);//true
+</script>s
+```

@@ -1,0 +1,105 @@
+#2015年11月16日
+##JavaScript
+`this`当前发生事件的元素.
+
+JavaScript组成:
+ - ECMAscript   翻译\核心\解析器
+ - DOM
+ - BOM
+
+
+**变量的类型**:
+
+number,string,boolean,,function,object,undefined
+
+`typeof`可以返还变量的类型;
+
+`parseInt()`把字符串转换成字符串,遇到不是数字的东西,就会停止,把前面的内容返还出去.
+
+NaN与任何数字相加,都等于NaN.
+
+NaN+a=NaN;
+
+用`isNaN()`可以检测是否是NaN;
+
+`parseInt()`只能转换成整数,`parseFloat()`可以转换成小数.
+
+**作用域与闭包**
+局部变量:在函数内部的使用
+
+全局变量:在所有地方都能使用
+
+
+子函数使用父函数的变量
+
+```js
+function aa(){      //父函数
+    var a=12;
+    function bb(){  //子函数
+        alert(a);
+    }
+    bb();
+}
+aa();
+
+```
+
+命名规范
+![](2015-11-16-1.jpg)
+
+**运算符**
+
+%取模
+    12%5=2;
+
+`&&`:与;
+`||`:或;
+`!`:否;
+
+```js
+switch(value){
+    case value1:
+        语句1
+        break;
+    case value2:
+        语句2
+        break;
+    ......
+    default:
+        语句n;
+}
+```
+
+`break`:把整个循环都终端;
+`continue`:跳过本次循环;
+
+真:true,非零数字,非空字符串,非空对象
+假:false,数字0,空字符串,null,空对象,undefined
+
+**JSON**
+```js
+var json={a:12,b:3,c:43};
+var arr=[12,3,43];
+alert(json['a']);
+alert(arr[0]);
+
+//循环json
+for(var i in json){
+    alert(json[i]);
+}
+
+```
+
+##python
+**常用编码**
+ Unicode
+ - 跨语言、跨平台进行文本转换和处理
+ - 对每种语言中字符设定统一且唯一的二进制编码
+ - 每个字符两个字节长
+ - 65536(256*256) 个字符的编码空间
+ - “严”：Unicode的十六进制数为4E25
+
+UTF-8编码
+ - 可变长度的Unicode的实现方式
+ - “严”：十六进制数为E4B8A5
+
