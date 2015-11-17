@@ -1,0 +1,58 @@
+#2015年11月17日
+##JavaScript
+
+ 一个函数只返回一种类型的值;
+
+arguments       可变参 不定参(参数可变,个数必定)
+
+`argument.length`可以返还函数的个数值;
+
+**取非行间样式**
+
+`getComputedStyle`是一个可以获取当前元素所有**最终使用的CSS属性值**。返回的是一个CSS样式声明对象`([object CSSStyleDeclaration])`，只读。
+
+var style = window.getComputedStyle("元素", "伪类");
+>第二个参数“伪类”是必需的（如果不是伪类，设置为null），不过现在嘛，不是必需参数了。
+
+oDivStyle=oDiv.currentStyle||getComputedStyle(oDiv);
+>兼容IE,FF,Chrome.
+
+复合样式:background,border
+
+单一样式:width,height,
+
+###数组
+
+数组方法
+
+ - 添加
+     + push(元素),将一个或多个新元素添加到数组结尾，并返回数组新长度
+     + unshift(元素),将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度
+
+ - 删除
+     + pop(),移除最后一个元素并返回该元素值
+     + shift(),移除最前一个元素并返回该元素值，数组中元素自动前移
+
+ - 插入,删除
+     + splice(起点,删除长度,添加元素)
+     语法:splice(insertPos,0,[item1[, item2[, . . . [,itemN]]]])
+
+ - 连接
+     + concat(),a.concat(b);
+     + join(),用指定连接符连接数组每一个元素.
+
+ - 排序
+     + sort(), `arr.sort()`;
+     
+```js
+//比较函数
+arr.sort(function(n1,n2){
+    if(n1<n2){
+        return -1;
+    }else if(n1>n2){
+        return 1;
+    }else{
+        return 0;
+    }
+    })
+```
