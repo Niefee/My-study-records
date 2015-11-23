@@ -1,0 +1,45 @@
+#2015年11月23日
+##javascript
+###缓冲运动
+
+`Math.ceil()`:向上取整；
+`Math.floor()`:向下取整；
+
+```js
+<input type="button"  value="开始运动" id="btn" >
+<script type="text/javascript">
+    window.onload=function(){
+        function startMove(){
+            var oDiv=document.getElementById("div1");
+            timer=setInterval(function(){
+                var speed=(300-oDiv.offsetLeft)/10;
+                speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                
+                oDiv.style.left=oDiv.offsetLeft+speed+"px";
+                document.title=oDiv.offsetLeft+"--"+speed;
+            },30)
+        }
+
+        var btn=document.getElementById("btn");
+        btn.onclick=function (){
+            startMove();
+        }        
+    }
+</script>
+```
+
+###各浏览器下 scrollTop的差异 
+
+**IE6/7/8:**
+对于没有doctype声明的页面里可以使用  document.body.scrollTop 来获取 **scrollTop高度 ；**
+对于有doctype声明的页面则可以使用 document.documentElement.scrollTop； 
+**Safari:**
+safari 比较特别，有自己获取scrollTop的函数 ： window.pageYOffset ； 
+**Firefox:**
+火狐等等相对标准些的浏览器就省心多了，直接用 document.documentElement.scrollTop ； 
+
+
+**各参数细分**
+
+`clientHeight`是内容可视区域的高度，也就是说页面浏览器中可以看
+到内容的这个区域的高度。
