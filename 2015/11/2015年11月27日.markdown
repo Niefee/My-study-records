@@ -1,0 +1,11 @@
+#2015年11月27日
+##javascript
+**json**
+json循环用`for in `的方式。
+
+```json
+var json={a:12,b=15};
+for(var i in json){
+    alert(a+'='+json[i])
+}
+```

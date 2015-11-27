@@ -1,0 +1,16 @@
+#2015年11月25日
+##Python
+图素法和像素法的区别：
+图形---矢量图
+图像---像素图
+
+图形用户界面
+GUI
+
+Tkinter--Python 标准GUI
+
+Graphics--基于Tkinter扩展
+
+Turtle--Python内置的图形库
+
+
