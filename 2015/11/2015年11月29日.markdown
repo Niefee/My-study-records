@@ -1,0 +1,23 @@
+#2015年11月29日
+##javascript
+
+**默认行为**
+
+```javascript
+document.oncontextmenu=function(ev){
+    var oEvent=ev||event;
+        var oDiv=document.getElementById('div1');
+        oDiv.style.display='block';
+        oDiv.style.left=oEvent.clientX+'px';
+        oDiv.style.top=oEvent.clientY+'px';
+
+        return false;//阻止默认事件；
+    }
+```
+
+>阻止默认的右键菜单，弹出自定义菜单；
+
+**事件绑定**
+
+
+
