@@ -13,3 +13,14 @@ post：不通过网址，容量大（2G），安全性好一点；
 最安全是使用HTTPS；
 
 网址的长度是有限的，
+
+```
+var a=12;
+alert(a)=window.alert(window.a);//全局变量是window上的一个属性。
+
+```
+
+用没有定义的变量---报错；
+用没有定义的属性---underfined
+
+
