@@ -1,0 +1,86 @@
+#2015年12月7日
+##javascript
+
+**把面向过程的程序，改写成面向对象的形式**
+
+ - 原则
+     + 不能有函数套函数，但可以有全局 变量
+ - 过程
+     + onload  >>>>     构造函数
+     + 全局变量>>>>     属性
+     + 函数    >>>>     方法
+
+
+##json与面向对象
+
+```js
+var json={
+    name:'blue',
+    qq:'23214323',
+    showName:function(){
+        alert('我的名字叫：'+this.name);
+    },
+    showQQ:function(){
+        alert("我的QQ号是："+this.qq);
+    }
+};
+json.showName();
+josn.showQQ();
+```
+
+**call**
+`call`可以改变改变`this`的指向对象；
+
+```js 
+function a(){alert(this)};
+a();//object Window
+a.call(12);//12
+```
+
+**原形的继承**
+
+```js
+for(var i in A.prototype){
+    B.prototype[i]=A.prototype[i];
+}
+B.prototype.fn=function(){
+    alert("abc");
+}//函数B特有的方法。
+```
+
+**本地对象**（非静态对象）
+常用对象：`Object`,`Function`,`Array`,`String`,`Boolean`,`Number`,`Date`,`RegExp`,`Error`。
+
+**内置对象**（静态对象）
+
+`Math()`，直接使用它的方法就可以了（例如`Math.ceil()`)。
+
+
+##BOM
+    window.open("http://www.163.com");//打开一个窗口
+
+`write()`：可以识别**标签**。
+
+`window.navigator.userAgent`:可以显示浏览器信息。
+
+`window.lacation`:可以显示当前页面的地址，或者可以赋值转到某地址。
+
+`document.documentElement.clientWidth`:可视区的宽；
+`document.documentElement.clientHeight`:可视区的高
+
+IE:`document.documentElement.scrollTop`:滚动距离（上面隐藏的距离）；
+
+Chrome:`document.body.scrollTop`:滚动距离（上面隐藏的距离）；
+
+**系统对话框**
+
+ - 警告框：alert（"内容"),没有返回值。
+ - 选择框：confirm("提问的内容")，返回`boolean`;
+ - 输入框：prompt(),返回字符串或null。
+
+
+**widow对象常用事件**
+
+ - onload
+ - onscroll（滚动事件）
+ - onresize（调节窗口大小事件）
