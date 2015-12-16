@@ -1,0 +1,205 @@
+#2015年12月16日
+##css3
+
+###Animation
+
+综合语法：
+
+```html5
+  @keyframes IDENT {
+     from {
+       Properties:Properties value;
+     }
+     Percentage {
+       Properties:Properties value;
+     }
+     to {
+       Properties:Properties value;
+     }
+   }
+   或者全部写成百分比的形式：
+   @keyframes IDENT {
+      0% {
+         Properties:Properties value;
+      }
+      Percentage {
+         Properties:Properties value;
+      }
+      100% {
+         Properties:Properties value;
+      }
+    }
+```
+
+`INENT`:是动画名称；
+`Percentage`:过程的百分比，可以添加多个。
+`value`：属性的属性值。
+
+**1.animation-name**
+
+```css3
+animation-name: none | IDENT[,none | IDENT]*;
+```
+
+`animation-name`:是用来定义一个动画的名称，其主要有两个值：IDENT是由Keyframes创建的动画名，换句话说此处的IDENT要和Keyframes中的IDENT一致。
+
+**2.animation-duration**
+
+```css3
+animation-duration: <time>[,<time>]*
+```
+
+animation-duration是用来指定元素播放动画所持续的时间长，取值:<time>为数值，单位为s （秒.）其默认值为“0”。这个属性跟transition中的transition-duration使用方法是一样的。
+
+**3.animation-timing-function**
+
+```css3
+animation-timing-function:ease | linear | ease-in | ease-out | ease-in-out |step-start | step-end | steps(<integer>[, [ start | end ] ]?)| cubic-bezier(<number>, <number>, <number>, <number>) [, ease | linear | ease-in | ease-out | ease-in-out |step-start | step-end | steps(<integer>[, [ start | end ] ]?)| cubic-bezier(<number>, <number>, <number>, <number>)]* 
+
+```
+
+**step-start**：等同于 steps(1, start);
+**step-end**：等同于 steps(1, end);
+**steps(<integer&gt;[, [ start | end ] ]?)**：接受两个参数的步进函数。第一个参数必须为正整数，指定函数的步数。第二个参数取值可以是start或end，指定每一步的值发生变化的时间点。第二个参数是可选的，默认值为end。;
+
+animation-timing-function:是指元素根据时间的推进来改变属性值的变换速率，说得简单点就是动画的播放方式。
+
+**4.animation-delay**
+
+```css3
+animation-delay: <time>[,<time>]*
+```
+
+animation-delay:是用来指定元素动画开始时间。取值为<time>为数值，单位为s(秒)，其默认值也是0。
+
+**5.animation-iteration-count**
+
+```css3
+animation-iteration-count:infinite | <number> [, infinite | <number>]*
+```
+
+animation-iteration-count是用来指定元素播放动画的循环次数，其可以取值<number>为数字，其默认值为“1”；infinite为无限次数循环。
+
+**6.animation-diretion**
+
+```css3
+animation-direction: normal | reverse | alternate | alternate-reverse [,normal | reverse | alternate | alternate-reverse]* 
+```
+
+animation-direction是用来指定元素动画播放的方向，取值:
+normal：正常方向;
+reverse：反方向运行;
+alternate：动画先正常运行再反方向运行，并持续交替运行;
+alternate-reverse:动画先反运行再正方向运行，并持续交替运行;
+
+**7.animation-play-state**
+
+```css3
+animation-play-state:running | paused [, running | paused]* 
+```
+
+animation-play-state主要是用来控制元素动画的播放状态。其主要有两个值，running和paused其中running为默认值。可以通过paused将正在播放的动画停下了，也可以通过running将暂停的动画重新播放，我们这里的重新播放不一定是从元素动画的开始播放，而是从你暂停的那个位置开始播放。
+
+
+**总结**
+
+![](img/animation-pro.png)
+
+综合语法：
+
+```css3
+ animation:[<animation-name> || <animation-duration> || <animation-timing-function> || <animation-delay> || <animation-iteration-count> || <animation-direction>] [, [<animation-name> || <animation-duration> || <animation-timing-function> || <animation-delay> || <animation-iteration-count> || <animation-direction>] ]* 
+```
+
+**补充：animation-fill-mode**
+
+```css3
+animation-fill-mode：<single-animation-fill-mode>[,<single-animation-fill-mode>]*
+<single-animation-fill-mode> = none | forwards | backwards | both
+```
+
+**none**：默认值。不设置对象动画之外的状态;
+**forwards**：设置对象状态为动画结束时的状态;
+**backwards**：设置对象状态为动画开始时的状态;
+**both**：设置对象状态为动画结束或开始的状态;
+
+
+###box-shadow
+
+语法：
+
+```html5
+E {box-shadow: <length> <length> <length>?<length>?||<color>}
+也就是：
+E {box-shadow:inset x-offset y-offset blur-radius spread-radius color}
+换句说：
+对象选择器 {box-shadow:投影方式 X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色}
+```
+
+>box-shadow和text-shadow一样可以使用一个或多个投影，如果使用多个投影时必须需要用逗号“，”分开。
+
+**阴影类型**：此参数是一个可选值，如果不设值，其默认的投影方式是外阴影；如果取其唯一值“inset”,就是将外阴影变成内阴影，也就是说设置阴影类型为“inset”时，其投影就是内阴影；
+
+**X-offset**:是指阴影水平偏移量其值可以是正负值可以取正负值，如果值为正值，则阴影在对象的右边，反之其值为负值时，阴影在对象的左边；
+
+**Y-offset**:是指阴影的垂直偏移量，其值也可以是正负值，如果为正值，阴影在对象的底部，反之其值为负值时，阴影在对象的顶部；
+
+**阴影模糊半径**：此参数是可选，，但其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；
+
+**阴影扩展半径**：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值是，则缩小
+
+**阴影颜色**：此参数可选，如果不设定任何颜色时，浏览器会取默认色，但各浏览器默认色不一样，特别是在webkit内核下的safari和chrome浏览器将无色，也就是透明，建议不要省略此参数。
+
+盒子模型可添加颜色的属性的层次：
+
+**边框>内阴影>背景图片>背景颜色>外阴影**
+
+因为大家都知道，我们的背景图片是在背景颜色之上的。
+
+
+###linear-gradient
+
+语法：
+
+** < linear-gradient>** = linear-gradient([ [ < angle> | to < side-or-corner> ] ,]? < color-stop>[, < color-stop>]+)
+** < side-or-corner> **= [left | right] || [top | bottom]
+** < color-stop>** = < color> [ < length> | < percentage> ]?
+
+** < angle>**：用角度值指定渐变的方向（或角度）。
+**to left**：设置渐变为从右到左。相当于: 270deg
+**to right**：设置渐变从左到右。相当于: 90deg
+**to top**:设置渐变从下到上。相当于: 0deg
+**to bottom**:设置渐变从上到下。相当于: 180deg。这是默认值，等同于留空不写。
+** < color-stop>**: 用于指定渐变的起止颜色：
+** < color>**指定颜色。
+** < length>**：用长度值指定起止色位置。不允许负值
+** < percentage>**：用百分比指定起止色位置。
+
+例子：
+
+```html5
+linear-gradient(#fff, #333);
+linear-gradient(to bottom, #fff 20px, #333);
+linear-gradient(to top, #333, #fff);
+linear-gradient(180deg, #fff, #333);
+linear-gradient(to bottom, #fff 0%, #333 100%);
+```
+
+###repeating-linear-gradient()
+
+**用重复的线性渐变创建图像。**
+
+ - repeating-linear-gradient()的语法与linear-gradient()相同。
+ - 示例：
+
+```css3
+background:repeating-linear-gradient(#f00, #ff0 10%, #f00 15%);
+background:repeating-linear-gradient(to bottom, #f00, #ff0 10%, #f00 15%);
+background:repeating-linear-gradient(180deg, #f00, #ff0 10%, #f00 15%);
+background:repeating-linear-gradient(to top, #f00, #ff0 10%, #f00 15%);
+```
+
+效果：
+![](img/repeating-linear-gradient.png)
+
+
