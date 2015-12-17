@@ -1,0 +1,9 @@
+/*清楚浮动*/
+u-cf:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    content: '.';
+}
