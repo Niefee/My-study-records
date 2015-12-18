@@ -1,0 +1,72 @@
+#2015年12月18日
+##javascript
+###面向对象
+
+```js
+oDiv.onclick=function(){
+    alert(this);
+}
+```
+
+>给一对象添加**事件**（click事件），等于给一个对象添加**方法**（function）；
+
+**this**
+
+ - 当前发生事件的对象
+ - 当前的方法属于谁，this就是谁。
+
+**对象的组成**
+
+ - 方法——函数：过程、动态的
+ - 属性——变量：状态、静态的
+
+ **类与对象**
+
+ 类：模子
+ 对象：产品
+
+    var arr=new Array(1,2,3,4,5)
+
+Array----- 类
+arr  ----- 对象
+
+用构造函数加属性
+用原型加方法
+
+**继承**
+
+```javascript
+A.prototype.show=function ()
+{
+    alert(this.abc);
+};
+for(var i in A.prototype)
+{
+    B.prototype[i]=A.prototype[i];
+
+}
+B.prototype.fn=function(){
+    alert('abc');
+}
+var objA=new A();
+var objB=new B();
+
+objA.fn();//error.
+
+```
+
+`call()`:可以改变函数`this`的指向。
+
+```javascript
+function A(){
+    this.abc=12;
+}
+
+function B(){
+    //这里的this指-->new B(),把A的this指向了B的this，本来给A加的属性，变成给B加的属性。
+    A.call(this);
+}
+```
+
+
+
