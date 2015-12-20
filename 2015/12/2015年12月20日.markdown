@@ -229,6 +229,11 @@ function getByClass(oParent, sClass)
 </tr>
 
 <tr>
+<td><a href="/jquery/selector_input.asp" title="jQuery :input 选择器">:input</a></td>
+<td>$(":input")</td>
+<td>所有 &lt;input&gt; 元素</td>
+</tr>
+
 <tr>
 <td><a href="/jquery/selector_input_text.asp" title="jQuery :text 选择器">:text</a></td>
 <td>$(":text")</td>
