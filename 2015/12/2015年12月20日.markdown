@@ -345,3 +345,41 @@ function getByClass(oParent, sClass)
      - **E[attr$="value"]**：指定了属性名，并且有属性值，而且属性值是以value结束的；
      - **E[attr*="value"]**：指定了属性名，并且有属性值，而且属值中包含了value；
      - **E[attr|="value"]**：指定了属性名，并且属性值是value或者以“value-”开头的值（比如说zh-cn）; 
+
+ - jQuery设计思想写法
+
+**方法函数化**
+
+```js
+window.onload=function(){};//原生写法
+$(function(){});//jQuery写法
+
+$();//相当于有一个函数function $(){};
+
+innerHTML = 123;
+html(123);
+function html(){};
+
+onclick = function(){};
+click(function(){});
+function click(){};
+```
+
+ - javascript与jQuery不能混用
+
+```js 
+$(function(){
+    
+    $('#div1').click(function(){
+        
+        //alert( $(this).html() );  //jq的写法
+        
+        //alert( this.innerHTML );  //js的写法
+        
+        alert( $(this).innerHTML );  //错误的
+        alert( this.html() );  //错误的 
+    });    
+});
+
+```
+
