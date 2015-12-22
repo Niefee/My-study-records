@@ -33,7 +33,7 @@ $(function(){
 
  - has()
 
-    `has()`是包含的意思，是操作元素的子节点。
+    `has()`是包含的意思，是操作元素的子节点。保留包含特定后代的元素，去掉那些不含有指定后代的元素。
 
 ```js
 $(function(){
@@ -94,7 +94,7 @@ $(function(){
 
  - width()、innerWidth()、outerWidth
 
-    ```js
+```js
     alert( $('div').width() );  //width
    // $('div').width(200);  //width=200
     
@@ -103,7 +103,7 @@ $(function(){
     alert( $('div').outerWidth() );  //width + padding + border
     
     alert( $('div').outerWidth(true) );  //width + padding + border + margin
-    ```
+```
 
 >设置或者获取相关容器的宽度，同理`height()`、`innerHeight()`、`outerHeight()`。
 
@@ -221,3 +221,28 @@ $(function(){
 
     `resize()`事件是当调整浏览器窗口的大小时，发生 resize 事件。
     `scroll()`事件是当用户滚动指定的元素时，会发生 scroll 事件。scroll 事件适用于所有可滚动的元素和 window 对象（浏览器窗口）。
+
+ - ev  pageX  which  
+
+    ```js
+    //ev : event对象,相当于'ev||window.event';
+        
+    //ev.pageX(相对于文档的鼠标位置,包括滚动条) : clientX(相对于可视区)。
+    //ev.pageY同理。
+        
+    //ev.which : 相当于keyCode。
+        
+    ```
+
+ - preventDefault  stopPropagation
+
+    `ev.preventDefault()`:阻止默认事件
+        
+    `ev.stopPropagation()`:阻止冒泡的操作
+        
+    `return false`:阻止默认事件 + 阻止冒泡的操作
+
+
+ - one()
+
+    `one()`表示事件只能执行一次。
