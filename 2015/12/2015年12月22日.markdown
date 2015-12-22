@@ -40,3 +40,51 @@
     `function()`:为每个匹配元素规定运行的函数。
     `index `:选择器的 index 位置
     `element `: 当前的元素（也可使用 "this" 选择器）
+
+
+ - hover()
+    
+    `hover(inFunction,outFunction)` 方法规定当鼠标指针悬停在被选元素上时要运行的两个函数。
+
+    `inFunction`:必需。规定 mouseenter 事件发生时运行的函数。
+
+    `outFunction`:可选。规定 mouseleave 事件发生时运行的函数。
+
+    ```js 
+    $("td").hover(
+        function () {
+        $(this).addClass("hover");
+        },
+    function () {
+        $(this).removeClass("hover");
+        }
+    );
+    ```
+
+
+ - show()  hide()   
+
+    `show([speed,[easing],[fn]])`:显示隐藏的匹配元素。
+
+    `hide([speed,[easing],[fn]])`:隐藏匹配元素。
+    
+
+    **speed**:三种预定速度之一的字符串("slow","normal", or "fast")或表示动画时长的毫秒数值(如：1000)；
+
+    **easing**:(Optional) 用来指定切换效果，默认是"swing（两边慢，中间快）"，可用参数"linear（匀速）"
+    **fn**:在动画完成时执行的函数，每个元素执行一次。
+
+
+ - fadeOut()    fadeIn()   fadeTo()
+
+    `fadeOut([speed],[easing],[fn])`:通过不透明度的变化来实现所有匹配元素的**淡出**效果，并在动画完成后可选地触发一个回调函数。
+
+    `fadeIn([speed],[easing],[fn])`:通过不透明度的变化来实现所有匹配元素的**淡入**效果，并在动画完成后可选地触发一个回调函数。
+
+    `fadeTo([speed],[easing],[fn])`:把所有匹配元素的不透明度以渐进方式调整到指定的不透明度，并在动画完成后可选地触发一个回调函数。
+
+ - slideUp()    slideDown()
+
+    `slideUp([speed,[easing],[fn]])`:通过高度变化（向上减小）来动态地**隐藏**所有匹配的元素，在隐藏完成后可选地触发一个回调函数。
+
+    `slideDown([speed],[easing],[fn])`:概述通过高度变化（向下增大）来动态地**显示**所有匹配的元素，在显示完成后可选地触发一个回调函数。
