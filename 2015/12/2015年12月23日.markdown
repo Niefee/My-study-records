@@ -1,0 +1,122 @@
+#2015年12月23日
+##jQuery
+
+
+ - get()
+
+    `get()`方法就是把JQ转成原生JS。
+
+    ```js
+    $('#div1').get(0).innerHTML
+    //document.getElementById('div1').innerHTML
+
+    for(var i=0;i<$('li').length;i++){
+        $('li').get(i).style.background = 'red';
+    }
+    ```
+
+    `get([index])`取得第 index 个位置上的元素。
+
+    `get()`取得所有匹配的 DOM 元素集合。
+
+    取得其中一个匹配的元素。num表示取得第几个匹配的元素。从0开始，返回的是DOM对象，类似的有eq(index),不过eq(index)返回的是jQuery对象。
+
+ - outerWidth()
+
+    ```js 
+    $('div').width() //width
+    // $('div').width(200);  //width=200
+    // 
+    $('div').innerWidth();  //width + padding
+
+    $('div').outerWidth();  //width + padding + border
+
+     $('div').outerWidth(true);  //width + padding + border + margin
+    ```
+
+
+>`offsetWidth()`:是获取不到隐藏元素的值。
+
+ - text()
+
+    `text()`取得所有匹配元素的内容。结果是由所有匹配元素包含的文本内容组合起来的文本。
+
+
+
+ - remove()     detach()
+
+    `remove()`从DOM中删除所有匹配的元素。
+    这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。但除了这个元素本身得以保留之外，其他的比如绑定的事件，附加的数据等都会被移除。
+
+    `detach()`与`remove()`不同的是，所有绑定的事件、附加的数据等都会保留下来。
+
+    ```js
+    $(function(){
+
+        $('div').click(function(){
+            alert(123);
+        });
+
+        var oDiv = $('div').remove();
+        
+        $('body').append( oDiv );
+        
+
+    });
+    ```
+    
+
+ - $:$(document).ready(function(){})
+
+    完整版：
+    ```js
+    $(document).ready(function(){});
+    ```
+
+    简略版：
+    ```js
+    $(function(){});
+    //DOMContentLoaded，DOM加载完就触发的事件。
+    ```
+
+>等DOM加载完就可以执行了，性能要好。
+
+
+`window.onload=function(){}`:整个页面文档加载完才触发。
+
+
+ - parents()
+
+`parents()`方法返回被选元素的**所有**祖先元素,参数就是筛选功能。
+
+`parent()`方法返回被选元素的直接父元素。
+
+`closest()`方法返回被选元素的**第一个**祖先元素(包括当前元素自身),必须要写筛选的参数,只能找到**一个**元素。
+
+ - siblings()
+
+`siblings()`:找所有的兄弟节点，参数也是筛选功能。
+
+`nextAll()` :下面所有的兄弟节点，参数也是筛选功能。
+
+`prevAll()` : 上面所有的兄弟节点。
+
+ - parentsUntil()   nextUntil()     prevUntil()
+
+`parentsUntil([expr|element][,filter])`查找当前元素的所有的**父辈元素**，直到遇到匹配的那个元素为止。
+
+`nextUntil([exp|ele][,fil])`查找当前元素**之后**所有的同辈元素，直到遇到匹配的那个元素为止。
+
+`prevUntil([exp|ele][,fil])`查找当前元素**之前**所有的同辈元素，直到遇到匹配的那个元素为止。
+
+|[ expr][,filter]|    String,String|
+|---|--|
+
+**expr**: 用于筛选祖先元素的表达式
+**filter**: 一个字符串，其中包含一个选择表达式匹配元素。
+
+|[element][,filter]| DOMElement,String|
+|---|---|
+
+**element**:用于筛选祖先元素的DOM元素
+**filter**: 一个字符串，其中包含一个选择表达式匹配元素。

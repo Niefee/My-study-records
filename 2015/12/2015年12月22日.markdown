@@ -5,12 +5,12 @@
  - offset()  position()
 
     ```javascript
-    alert( $('#div2').offset().left );  //获取到屏幕的左距离
+     $('#div2').offset().left;  //获取到屏幕的左距离
     
-    alert( $('#div2').position().left );  //到有定位的父级的left值,把当前元素转化成类似定位的形式
+     $('#div2').position().left;  //到有定位的父级的left值,把当前元素转化成类似定位的形式
     ```
 
-    `offsetLeft()`是指元素的`margin`外边沿相对于已定位的父级元素的`border`的内边沿的距离。
+    `offsetLeft()`是指元素的`margin`外边沿相对于已定位的父级元素的`padding`的内边沿的距离。
 
     `offsetParent()`是offsetParent属性返回一个对象的引用，这个对象是距离调用 offsetParent的元素最近的。
 
@@ -75,7 +75,7 @@
     **fn**:在动画完成时执行的函数，每个元素执行一次。
 
 
- - fadeOut()    fadeIn()   fadeTo()
+ - fadeOut()     fadeIn()    fadeTo()
 
     `fadeOut([speed],[easing],[fn])`:通过不透明度的变化来实现所有匹配元素的**淡出**效果，并在动画完成后可选地触发一个回调函数。
 
