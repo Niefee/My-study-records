@@ -120,3 +120,61 @@
 
 **element**:用于筛选祖先元素的DOM元素
 **filter**: 一个字符串，其中包含一个选择表达式匹配元素。
+
+ - clone()
+
+`clone()` 克隆匹配的DOM元素并且选中这些克隆的副本,在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。
+
+>可以加一个参数（true 或者 false，默认值是：false），指示事件处理函数是否会被复制。
+
+ - wrap()
+
+`wrap()` : 包装,把所有匹配的元素用其他元素的结构化标记包裹起来。
+
+`wrapAll()`: 整体包装，将所有匹配的元素用单个元素包裹起来
+
+`wrapInner()` : 内部包装,将每一个匹配的元素的子内容(包括文本节点)用一个HTML结构包裹起来
+
+`unwrap()` : 删除包装 ( 删除父级 : 不包括body ),这个方法将移出元素的父元素
+
+ - add()
+
+`add()` 方法把元素添加到已存在的元素组合中。
+
+```js
+var elem = $('div');
+    
+var elem2 = elem.add('span');
+    
+elem.css('color','red');
+
+elem2.css('background','yellow');
+//elem2包括div、span元素。
+```
+
+ - slice()
+
+`slice()` 选取一个匹配的子集;
+
+```js
+$('li').slice(1,4).css('background','red');
+```
+
+ - serialize()  serializeArray()
+
+`serialize() `序列表表格内容为字符串。
+
+`serializeArray()`序列化表格元素 (类似 '.serialize()' 方法) 返回 JSON 数据结构数据。
+
+```js
+    console.log($('form').serialize());  
+    //string : a=1&b=2&c=3
+    
+
+    console.log( $('form').serializeArray() );    
+    [
+        { name : 'a' , value : '1' },
+        { name : 'b' , value : '2' },
+        { name : 'c' , value : '3' }
+    ]
+```
