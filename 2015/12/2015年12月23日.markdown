@@ -25,13 +25,14 @@
 
     ```js 
     $('div').width() //width
+
     // $('div').width(200);  //width=200
-    // 
+   
     $('div').innerWidth();  //width + padding
 
     $('div').outerWidth();  //width + padding + border
 
-     $('div').outerWidth(true);  //width + padding + border + margin
+    $('div').outerWidth(true);  //width + padding + border + margin
     ```
 
 
@@ -109,6 +110,12 @@
 
 `prevUntil([exp|ele][,fil])`查找当前元素**之前**所有的同辈元素，直到遇到匹配的那个元素为止。
 
+```js
+$('span').nextUntil('h2').css('background','red');
+//查找当前元素之后所有的同辈元素，直到h2标签为止。
+
+```
+
 |[ expr][,filter]|    String,String|
 |---|--|
 
@@ -162,7 +169,7 @@ $('li').slice(1,4).css('background','red');
 
  - serialize()  serializeArray()
 
-`serialize() `序列表表格内容为字符串。
+`serialize() `序列化表格内容为字符串。
 
 `serializeArray()`序列化表格元素 (类似 '.serialize()' 方法) 返回 JSON 数据结构数据。
 
@@ -171,10 +178,10 @@ $('li').slice(1,4).css('background','red');
     //string : a=1&b=2&c=3
     
 
-    console.log( $('form').serializeArray() );    
-    [
-        { name : 'a' , value : '1' },
-        { name : 'b' , value : '2' },
-        { name : 'c' , value : '3' }
-    ]
+    console.log( $('form').serializeArray() );
+
+    //[{ name : 'a' , value : '1' },{ name : 'b' , value : '2' },{ name : 'c' , value : '3' ]
+    
 ```
+
+>注意，此方法返回的是JSON对象而非JSON字符串。需要使用插件或者第三方库进行字符串化操作。
