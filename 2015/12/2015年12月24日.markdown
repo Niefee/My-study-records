@@ -25,7 +25,34 @@
 
 `delay()` 延迟一定的毫秒数后运行函数。
 
+
+```js
+$('#div1').click(function(){
+        
+        /*$(this).animate({width : 300} , 2000 , 'linear',function(){
+            $(this).animate({height : 300});
+        });*/
+        //链式操作。
+        $(this).animate({width : 300} , 2000).delay(1000).animate({height : 300} , 2000);
+        //延迟1秒后触发。
+});
+    
+    
+$('#div2').click(function(){
+        
+        //$('#div1').stop();   //默认 : 只会阻止当前运动
+        
+        //$('#div1').stop(true); //阻止后续的运动
+        
+        //$('#div1').stop(true,true); //可以立即停止到指定的目标点
+        
+        $('#div1').finish();  //立即停止到所有指定的目标点
+        
+});
+```
+
  - delegate()
+
 
 `delegate()`方法为指定的元素（属于被选元素的子元素）添加一个或多个事件处理程序，并规定当这些事件发生时运行的函数。
 
@@ -49,6 +76,16 @@
 **selector**:需要删除事件处理程序的选择器。
 **type**:需要删除处理函数的一个或多个事件类型。 由空格分隔多个事件值。必须是有效的事件。
 **fn**:要删除的具体事件处理函数。
+
+```js 
+$('ul').delegate('li','click',function(){
+        
+        this.style.background = 'red';
+        
+        $('ul').undelegate();
+        
+    });//点击一次后，这方法就会被删除。
+```
 
  -  trigger()
 
