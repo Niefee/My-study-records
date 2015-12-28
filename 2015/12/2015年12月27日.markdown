@@ -1,0 +1,38 @@
+#2015年12月27日
+##bootstrap
+
+```html5
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 在IE运行最新的渲染模式   -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 初始化移动浏览显示。
+    'width=device-widt'表示宽度等于设备的宽度，'initial-scale=1'表示初始的缩放比例为1，就是不缩放。 -->
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 很多 CSS3 属性和 HTML5 元素 - - 例如，圆角矩形和投影  - - 是肯定不被支持的，所以要引入js文件解决。 Internet Explorer 8 需要 Respond.js 配合才能实现对媒体查询（media query）的支持。 -->
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+```
