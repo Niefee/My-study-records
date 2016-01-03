@@ -208,9 +208,9 @@ Bootstrap还为表格的行元素`<tr>`提供了五种不同的类名，每种�
 
 **复选框与单选框**
 
- 1、不管是checkbox还是radio都使用label包起来了
- 2、checkbox连同label标签放置在一个名为“.checkbox”的容器内
- 3、radio连同label标签放置在一个名为“.radio”的容器内
+1、不管是`checkbox`还是`radio`都使用`label`包起来了
+2、`checkbox`连同`label`标签放置在一个名为`.checkbox`的容器内
+3、`radio`连同`label`标签放置在一个名为`.radio`的容器内
 
 ```html 
 <div class="checkbox">
@@ -220,3 +220,21 @@ Bootstrap还为表格的行元素`<tr>`提供了五种不同的类名，每种�
     </label>
 </div>
 ```
+
+1、如果checkbox需要水平排列，只需要在`labe`l标签上添加类名`checkbox-inline`
+
+2、如果radio需要水平排列，只需要在`label`标签上添加类名`radio-inline`
+
+ - 按钮
+
+按钮也是表单重要控件之一,制作按钮通常使用下面代码来实现：
+
+     + input[type=“submit”]
+
+     + input[type=“button”]
+
+     + input[type=“reset”]
+
+     + < button>
+
+![](img/bs-btn.jpg)
