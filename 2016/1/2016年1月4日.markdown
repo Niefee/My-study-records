@@ -86,3 +86,37 @@
 **效果如下：：**
 
 ![](img/btn-1.jpg)
+
+
+###下拉菜单
+
+**一般框架代码**
+
+```html 
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+   <!-- 通过类名添加一个标题 -->
+    <li class="dropdown-header">Dropdown header</li>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+   <!--  通过类名'.disabled'禁用菜单项 -->
+    <li class="disabled"><a href="#">Separated link</a></li>
+    <!-- 添加分割线 -->
+    <li role="separator" class="divider"></li>
+  </ul>
+</div>
+```
+
+>通过为下拉菜单的父元素设置** .dropup **类，可以让菜单向上弹出（默认是向下弹出的。
+如需将菜单右对齐，请使用 **.dropdown-menu-right **类。
+
+**aria-expanded**表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开的；false表示元素不是展开的。
+
+**aria-hidden**字符串。可选值为true和false,true表示元素隐藏(不可见)，false表示元素可见。
+
+**aria-haspopup** :true表示点击的时候会出现菜单或是浮动元素； false表示没有pop-up效果。 
