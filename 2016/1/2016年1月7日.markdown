@@ -1,0 +1,17 @@
+#2016年1月7日
+##bootstrap
+
+###媒体查询
+
+```html 
+<!-- 外脸样式 -->
+<link href="" rel="stylesheet" media="only screen and (max-width:480px)">
+<!-- 内联样式  -->
+<style type="text/css">
+    @media screen and (min-width: 480px){
+        body{
+            background: blue;
+        }
+    }
+    </style>
+```
