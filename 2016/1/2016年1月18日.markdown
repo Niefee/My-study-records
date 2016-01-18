@@ -204,3 +204,41 @@ slide的选择器，默认为**.slide**。
 **延迟加载**
 
 如图片标签，**src**地址变成**data-src**，可以达到延迟效果。**video**也可以。
+
+---
+
+###回调函数
+
+ - afterLoad（anchorLink，index）
+
+滚动到某一section处，且滚动结束后，会触发一次此回调函数，函数接收anchorLink和index 两个参数，anchorLink是锚链接，index是序号（从1开始）。
+作用：我们可以根据anchorLink和index的参数值的判断，触发相应的事件。
+
+```js 
+afterLode：function（anchorLink，index）{
+console.log（"afterLode:anchorLink"+anchorLink+";index:"+index）;//将两个参数打印出来，在控制台可以看到
+}
+```
+
+ - onLeave（index，nextIndex，direction）
+
+在离开一个页面时，会触发一次此回调函数，接收**index**（离开时页面的序号，from 1）、**nextIndex**（滚动到的目标页面的序号, from 1）和**direction**（滚动的方向，有**up**和**down**）3个参数
+
+
+通过**return false**；可以取消滚动
+
+ - afterRender（）
+
+页面初始化完成后的回调函数。
+
+ - afterResize（）
+
+浏览器窗口尺寸改变后的回调函数。
+
+ - afterSlideLode（anchorLink，index，slideAnchor，slideIndex）
+
+滚动到某一slide后的回调函数，与afterLode类似，接收anchorLink、index、slideIndex、direction4个参数
+
+ - onSlideLeave（anchorLink，index，slideIndex，direction，nextSlideIndex）
+
+在离开一个slide时会触发此函数，与onLeave相似，接收anchorLink、index、slideIndex、direction4个参数
