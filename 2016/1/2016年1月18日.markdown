@@ -1,0 +1,206 @@
+#2016年1月18日
+##javascript
+
+###fullPage.js配置
+
+ - sectionsColor :
+
+可以为每一个**section**设置**background-color**属性。
+
+ - controlArrows
+
+定义是否通过箭头来控制slide幻灯片，默认为**true**。当我们设置为 **false** ，幻灯片左右两侧的箭头就会消失， 在移动设备上我们可以通过滑动来操作幻灯片。
+
+ - verticalCentered
+
+每一页的内容是否垂直居中，默认为**true**。一般我们保持默认值。
+
+ - resize
+
+字体是否随着窗口缩放而缩放，默认为**false**。
+
+ - scrollingSpeed:
+
+滚动时间，默认**700ms**。
+
+ - anchors
+
+定义锚链接，默认值为[]。有了锚链接，用户就可以快速打开定位到某一页面。
+注意定义锚链接的时候，值不要和页面中任意的**id**或者**name**相同，尤其是在IE浏览器下。而且定义时不需要加**#**。
+
+
+>在section中添加**active**可以默认打开此页。
+
+
+ - lockAnchors:
+
+是否锁定锚链接，默认为**false**。如果设置为**true**，那么定义的锚链接，也就是**anchors**属性则没有效果。这个配置项**使用得比较少**。
+
+ - easing:
+
+定义页面section滚动的动画方式，默认是**easeInOutCubic**，如果修改此项，需要引入**jQuery.easings**插件，或者**jquery ui**。
+
+ - css3：
+
+是否使用**CSS3 transforms**来实现滚动效果，默认为**true**。这个配置项可以提高支持css3的浏览器，比如移动设备等的速度，如果浏览器不支持测css3，,则会使用jquery来代替css3实现滚动效果。
+
+ - loopTop:
+
+滚动到最顶部后是否连续滚动到底部， 默认为**false**。
+
+ - loopBottom:
+
+滚动到最底部后是否连续滚动回顶部，默认为**false**。
+
+ - loopHorizontal:
+
+横向slider幻灯片是否循环滚动，默认为**true**。 
+
+ - autoScrolling:
+
+是否使用插件的滚动方式，默认为**true**，如果使用**false**，则会出现浏览器自带的滚动条，将不会按页滚动，而是按照滚动条的默认行为来滚动。
+
+ - scrollBar:
+
+是否包含 滚动条，默认为**false**，如果设置为**true**，则浏览器自带的滚动条出现，页面滚动时还是按页滚动，但滚动条是默认行为也有效。
+
+ - paddingTop/paddingBottom:
+
+设置每一个**section**顶部和底部的**padding**，默认都为0。一般如果我们需要设置一个固定在顶部或者底部的菜单、导航、元素等，可以使用这两个配置项。
+
+ - fixedElements:
+
+固定的元素，默认为**null**，需要配置一个jquery选择器。在页面滚动的时候，**fixedElements**设置的元素固定不动。 
+
+ - keyboardScrolling:
+
+是否可以使用键盘方向键导航，默认为**true**。 
+
+ - touchSensitivity
+
+在移动设备中滑动页面的敏感度，默认为5，是按百分比来衡量，最高为100，越大则越难滑动。 
+
+ - continuousVertical:
+
+是否循环滚动，默认为**false**。如果设置为**true**，则页面会循环滚动，而不像loopTop或者loopBottom那样出项跳动，注意这个属性和loopTop、loopBottom不兼容，不能同时设置。
+
+ - animateAnchor：
+
+锚链接是否可以控制滚动动画，默认为**true**。如果设置为**false**，则通过 锚链接定位到某页面显示不再有动画效果。
+
+  - recordHistory：
+
+是否记录历史，默认为**true**，可以记录页面滚动的历史，通过浏览器的前进后退来导航。如果设置了**autoScrolling：false**，那么这个配置也将被关闭，即设置为**false **。
+
+ - menu：
+
+绑定菜单，设定的相关属性与**anchors**的值对应后，菜单可以控制滚动，默认为**false**。可以设置为菜单的jquery选择器。
+
+```js 
+<ul id="myMenu">
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
+    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
+    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
+</ul>
+
+
+$('#fullpage').fullpage({
+    anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+    menu: '#myMenu'
+});
+```
+
+ - navigation:
+
+是否显示导航，默认为**false**。如果设置为**true**，会显示小圆点，作为导航。
+
+ - navigationPosition：
+
+导航小圆点的位置，可以设置为**left**或者**right**。 
+
+ - navigationTooltips：
+
+导航小圆点的tooltips设置，默认为[],注意按照顺序设置。 
+
+ - showActiveTooltip:
+
+是否显示当前页面的导航的tooltip的信息，默认为**false**。 
+
+ - slidesNavigation：
+
+是否显示横向幻灯片的导航，默认为**false**。 
+
+ - slidesNavPosition
+
+横向幻灯片导航的位置，默认为**bottom**，可以设置为**top**或**bottom**。  
+
+ - scrollOverflow:
+
+内容超过满屏后是否显示滚动条，默认为**false**。如果设置为**true**，则会显示滚动条，如果要滚动查看内容，还需要**jquery.slimscroll**插件的配合。slimscroll插件主要用于模拟传统浏览器滚动条。
+
+ - sectionSelector：
+
+section的选择器，默认为**.section**。 
+
+ - slideSelector:
+
+slide的选择器，默认为**.slide**。
+
+---
+
+
+###fullpage.js方法
+
+使用方式：
+
+    $.fn.fullpage.xxx()
+
+
+ - moveSectionUp():
+
+向上滚动一页。
+
+ - moveSectionDown():
+
+向下滚动一页
+
+ - moveTo(section,slide):
+
+滚动到第几页，第几个幻灯片，注意，页面是从**1**开始，而幻灯片从**0**开始。 
+
+ - silentMoveTo(section,slide):
+
+滚动到第几页，和moveTo一样，但是没有动画效果。
+
+ - moveSlideRight()
+
+幻灯片向右滚动。
+
+ - moveSlideLeft():
+
+幻灯片向左滚动。
+
+ - setAutoScrolling(boolean):动态设置**autoScrolling**
+ - setLockAnchors(boolean):动态设置**lockAnchors**
+ - setRecordHistory(boolean):动态设置**recordHistory**
+ - setScrollingSpeed(milliseconds)) :动态设置**scrollingSpeed**
+
+ - setAllowScrolling(boolean,[directions]):
+
+添加或删除鼠标滚轮/滑动控制，第一个参数**true**为启用，**false**为禁用，后面的参数为方向，取值包含**all**、**up**、**down**、**left**、**right**,可以使用多个，逗号分隔。
+
+ - destroy(type)
+
+销毁**fullpage**特效，**type**可以不写，或者使用**all**，不写**type**， 
+**fullpage**给页面添加的样式和**HTML**元素还在，如果使用**all**，则样式、**HTML**等全部销毁，页面恢复和不使用**fullpage**相同的效果。
+
+ - reBuild()
+
+重新更新页面和尺寸，用于通过**Ajax**请求后改变页面结构之后，重建效果。
+
+---
+
+**延迟加载**
+
+如图片标签，**src**地址变成**data-src**，可以达到延迟效果。**video**也可以。
