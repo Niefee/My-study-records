@@ -3,6 +3,11 @@
 
 ###fullPage.js配置
 
+**官网：**
+
+ 1. http://alvarotrigo.com/fullPage/
+ 2. https://github.com/alvarotrigo/fullPage.js
+
  - sectionsColor :
 
 可以为每一个**section**设置**background-color**属性。
