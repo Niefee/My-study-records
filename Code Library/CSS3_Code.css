@@ -1,5 +1,5 @@
 /*清楚浮动*/
-u-cf:after {
+.u-cf:after {
     display: block;
     visibility: hidden;
     clear: both;

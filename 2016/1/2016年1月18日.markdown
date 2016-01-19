@@ -189,7 +189,8 @@ slide的选择器，默认为**.slide**。
  - setAutoScrolling(boolean):动态设置**autoScrolling**
  - setLockAnchors(boolean):动态设置**lockAnchors**
  - setRecordHistory(boolean):动态设置**recordHistory**
- - setScrollingSpeed(milliseconds)) :动态设置**scrollingSpeed**
+ - setScrollingSpeed(milliseconds):动态设置**scrollingSpeed**
+
 
  - setAllowScrolling(boolean,[directions]):
 
@@ -242,8 +243,26 @@ console.log（"afterLode:anchorLink"+anchorLink+";index:"+index）;//将两个�
 
  - afterSlideLode（anchorLink，index，slideAnchor，slideIndex）
 
-滚动到某一slide后的回调函数，与afterLode类似，接收anchorLink、index、slideIndex、direction4个参数
+滚动到某一**slide**后的回调函数，与**afterLode**类似，接收 **anchorLink**、**index** 、**slideIndex** 、 **direction**4个参数
 
  - onSlideLeave（anchorLink，index，slideIndex，direction，nextSlideIndex）
 
-在离开一个slide时会触发此函数，与onLeave相似，接收anchorLink、index、slideIndex、direction4个参数
+在离开一个**slide**时会触发此函数，与**onLeave**相似，接收 **anchorLink** 、**index** 、**slideIndex** 、**direction** 4个参数
+
+---
+
+###move.js方法
+
+**move.js**是一个js库，支持css3。
+
+ - set(css属性，属性值)
+ - scale（缩放的倍数）
+ - rotate（旋转的角度数）；可正可负
+ - end（）；用于结束move.
+
+
+js代码片段的结束，标识动画的结束。此方法可接受一个回调函数
+
+给页面添加动画效果可利用回调函数（另外：要实现某一东西从某一方向飞入，则首先给其设置一个较大的**margin**，并设置**overflow：hidden**，使此东西在页面中显示不出来，然后通过回调函数应用**move.js**的 **set（‘margin-方向’，‘使此东西在正确位置的margin值’））**
+
+![](img/movejs.jpg)
