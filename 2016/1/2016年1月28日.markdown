@@ -1,0 +1,49 @@
+#2016年1月28日
+##javascript
+
+**[object Object]**
+
+表示这个对象是一个对象集合。
+```javascript
+
+var a = new Object();
+
+a.abc = new Object();
+
+a.abc.a123 = new Object();
+
+这就是[object Object] 
+
+补充：简单的写法：
+var a = {
+    abc : {
+        a123 : {}
+    }
+};
+表示对象的类型是object，这个对象的constructor是Object
+```
+
+**toString 方法**返回 **[object objectname]**，其中 **objectname** 是对象类型的名称。
+
+**@font-face**
+
+```javascript
+
+    <!-- 定义字体 -->
+   @font-face {
+    font-family: 'YourWebFontName';
+    src: url('YourWebFontName.eot'); /* IE9 Compat Modes */
+    src: url('YourWebFontName.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+             url('YourWebFontName.woff') format('woff'), /* Modern Browsers */
+             url('YourWebFontName.ttf')  format('truetype'), /* Safari, Android, iOS */
+             url('YourWebFontName.svg#YourWebFontName') format('svg'); /* Legacy iOS */
+   }
+    <!-- 对内容使用定义的字体。  -->
+    h2.neuesDemo {
+      font-family: 'NeuesBauenDemo'
+   }
+```
+
+**HTTP**
+
+HTTP(Hyper Text Transfer Protocol，超文本传输协议)是一种通信协议，它允许将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。

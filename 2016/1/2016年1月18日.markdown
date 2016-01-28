@@ -8,6 +8,8 @@
  1. http://alvarotrigo.com/fullPage/
  2. https://github.com/alvarotrigo/fullPage.js
 
+>参考：http://www.dowebok.com/77.html
+
  - sectionsColor :
 
 可以为每一个**section**设置**background-color**属性。
@@ -248,6 +250,8 @@ console.log（"afterLode:anchorLink"+anchorLink+";index:"+index）;//将两个�
  - onSlideLeave（anchorLink，index，slideIndex，direction，nextSlideIndex）
 
 在离开一个**slide**时会触发此函数，与**onLeave**相似，接收 **anchorLink** 、**index** 、**slideIndex** 、**direction** 4个参数
+
+
 
 ---
 
