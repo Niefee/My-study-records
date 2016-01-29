@@ -46,4 +46,21 @@ var a = {
 
 **HTTP**
 
-HTTP(Hyper Text Transfer Protocol，超文本传输协议)是一种通信协议，它允许将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。
+HTTP(Hyper Text Transfer Protocol，超文本传输协议)是一种通信协议 ，它允许将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。
+
+**URI(Uniform Resource Identifier)**，翻译为统一资源标识符，是一个用于标识某
+一互联网资源名称的字符串。
+
+**URL(Uniform Resource Location)**，翻译为统一资源定位符，它描述一台特定服
+务器上某特定资源的特定位置。
+
+格式：
+
+`http://user:pass@www.example.com:80/home/index.html?age=11#mask`
+**http**：协议方案名
+**user:pass**：登录信息（认证）
+**www.example.com**：服务器地址
+**80**：端口号
+**/hone/index.html**：文件路径
+**age=11**：查询字符串
+**mask**：片段标识符
