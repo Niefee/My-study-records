@@ -71,8 +71,19 @@ alert(obj.abc);//12
 
 
 //继承方法
-B.prototype=A.prototype;
+B.prototype=A.prototype;//会引用相同的内容
 var obj=new B();
 obj.show();//12
 
 ```
+
+```js 
+//B.prototype=A.prototype;
+//会引用相同的内容
+//
+//不引用复制
+for(var i in A.prototype){
+    B.prototype[i]=A.prototype[i];
+}
+```
+

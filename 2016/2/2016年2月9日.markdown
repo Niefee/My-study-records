@@ -1,0 +1,131 @@
+#2016年2月9日
+##javascript
+###cookie
+
+**cookie的特征**
+
+ - 同一个网站中所有页面共享一套cookie
+ - 数量、大小有限
+ - 过期时间
+
+**封装cookie**
+
+```js 
+function setCookie(name, value, iDay)
+{
+    var oDate=new Date();
+    oDate.setDate(oDate.getDate()+iDay);
+    
+    document.cookie=name+'='+value+';expires='+oDate;
+}
+
+function getCookie(name)
+{
+    var arr=document.cookie.split('; ');
+    
+    for(var i=0;i<arr.length;i++)
+    {
+        var arr2=arr[i].split('=');
+        
+        if(arr2[0]==name)
+        {
+            return arr2[1];
+        }
+    }
+    
+    return '';
+}
+
+function removeCookie(name)
+{
+    setCookie(name, 1, -1);
+}
+```
+
+**注意**
+
+>一个**document.cookie**语句只写一条**cookie**；
+
+###正则表达式
+
+**复习字符串操作**
+
+ - search(str)          查找字符串的位置，返回位置数字
+ - substring(a,b)       获取子字符串，不包括第二个参数位置的字符。
+ - charAt(num)          获取某位置上的字符
+ - split(str)           分割字符串，获得数组
+
+**RegExp对象**
+
+ - JS风格——new RegExp(“a”, “i”)
+
+ - perl风格——/a/i
+
+
+**转义字符**
+
+ - **\n**:换行；
+ - **\d**:匹配数字；
+ - **.（点）**——任意字符
+ - **\d**  数字               [0-9]
+ - **\D**  非数字             [^0-9]
+ - **\w**  英文、数字、下划线 [a-z0-9_]
+ - **\W**  非英文、数字、下划线 [^a-z0-9_]
+ - **\s**  空白字符
+ - **\S**  非空白字符
+
+
+
+search()
+ - 字符串搜索
+     - 返回出现的位置
+     - 忽略大小写：i——ignore
+     - 判断浏览器类型
+
+
+match()
+ - 获取匹配的项目
+     - 量词：+
+     - 量词变化：\d（一个）、\d\d（两个）和\d+（若干个）
+     - 全局匹配：g——global
+     - 例子：找出所有数字
+
+replace(a,b)
+ - 替换所有匹配
+
+```javascript
+var str='abc aaa erw';
+var re=/a/g;
+
+alert(str.replace(re, '0'));
+```
+
+test()
+     - 匹配正则表达式是否符合，返回布尔值。
+
+**方括号**
+
+ - 任意字符
+     - [abc]
+         - 例子：o[usb]t——obt、ost、out
+
+ - 范围
+     - [a-z]、[0-9]
+         - 例子：id[0-9]——id0、id5
+
+ - 排除
+     - [^a]
+         - 例子：o[^0-9]t——oat、o?t、o t
+
+
+**常用量词**
+
+ - {n,}    至少n次
+ - *       任意次 {0,}
+ - ？   零次或一次   {0,1}
+ - +   一次或任意次{1,}
+ - {n} 正好n次
+
+
+ - **^**:行首；
+ - **$**:行尾；
