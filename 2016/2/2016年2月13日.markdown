@@ -72,10 +72,9 @@ echo str_replace("world","Shanghai","Hello world!");
 
     计算字符串的 MD5 散列。
 
- - unset()
+ - unset ( mixed $var [, mixed $... ] )
 
     释放变量
-
 
 
     
