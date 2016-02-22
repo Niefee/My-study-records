@@ -55,7 +55,7 @@ for ($i=0; $i < count($arr); $i++) {
 
  - 系统常量
 
-echo PHP_SAPI:php运行方式
+PHP_SAPI:php运行方式
 PHP_OS：操作系统
 PHP_VERSION：php版本
 
