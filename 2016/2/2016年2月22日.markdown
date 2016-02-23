@@ -1,10 +1,12 @@
 #2016年2月22日
 ##php
-###函数
 
 **文件头声明**
 
     header("content-type:text/html;charset=utf-8");
+
+###函数
+
 
 **自定义函数**
 
@@ -111,7 +113,7 @@ fread — 读取文件（可安全用于二进制文件）
 filesize — 取得文件大小
 
 ```php
- $fileName="a.txt";
+$fileName="a.txt";
 $handle=fopen($fileName,"a+");
 $num=filesize($fileName);
 $str=fread($handle,$num);
@@ -173,4 +175,6 @@ echo serialize($st4)."<br/>";
  - set_include_path()
 
 设定默认的包含路径。
+
+
 
