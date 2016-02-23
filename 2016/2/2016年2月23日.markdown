@@ -1,0 +1,23 @@
+#2016年2月23日
+##MySQL
+###数据库分类
+
+ - 关系型数据库
+
+ - 非关系型数据库
+
+
+ - sql语言
+     + 数据定义语言（DDL）：DROP、CREATE、ALTER等。
+     + 数据操作语言（DML）：INSERT、UPDATE、DELETE。
+     + 数据查询语言（DQL）：SELECT。
+     + 数据控制语言（DCL）：GRANT、REVOKE、COMMIT等。
+
+ - 其他数据库操作语言
+
+**数据库（Database）**是按照数据结构来组织、存储和管理数据的仓库，
+每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。
+
+MySQL端口：6603；
+Password：mysql123；
+
