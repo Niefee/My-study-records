@@ -206,7 +206,7 @@ appserv：123456aa；
 
     3》 字符串:
         char（位数） 定长字符    255   
-        varchar(位数) 变长字符    255      *****
+        varchar(位数) 变长字符    255
         text  65535个字符
         MEDIUMBLOB  2的24方字符
         enum(val1，val2，val3.....)  列 枚举：  enum("男","女")   
