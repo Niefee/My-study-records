@@ -19,6 +19,7 @@ CREATE TABLE `database_user` (
 `ID` varchar(40) NOT NULL default '',
 `UserID` varchar(40) NOT NULL default '',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+//ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
 ```
 
 
