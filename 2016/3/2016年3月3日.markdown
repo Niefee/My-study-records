@@ -22,6 +22,30 @@
 |unshift()  | 向数组的开头添加一个或更多元素，并返回新的长度。|
 |valueOf()  | 返回数组对象的原始值|
 
+**push()** 遇到数组参数时，把整个数组参数作为一个元素；而 **concat()** 则是拆开数组参数，一个元素一个元素地加进去。 **push()** 直接改变当前数组；**concat()** 不改变当前数组。
+
+```js
+var arr = new Array(3)
+arr[0] = "George"
+arr[1] = "John"
+arr[2] = "Thomas"
+
+
+//push()
+document.write(arr + "<br />")
+document.write(arr.push([12,324,345]) + "<br />")
+document.write(arr[3])
+//George,John,Thomas
+//4
+//1,2,3,4
+
+//concat()
+
+brr=arr.concat([1,2,3]);
+document.write(brr[3])
+//1
+```
+
 ```js
 var d; // 声明变量。 
 d = new Date(); // 创建 Date 对象。 
@@ -39,5 +63,5 @@ Fri Mar 04 2016 10:28:51 GMT+0800 (中国标准时间)
 
 **toString()**返回值与没有参数的 join() 方法返回的字符串相同。
 
-##Nodejs
+
 
