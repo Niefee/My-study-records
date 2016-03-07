@@ -1,0 +1,191 @@
+#2016年3月7日
+##nodejs
+
+###process对象
+
+ - global
+     + process对象
+         * process对象是一个全局对象，可以在任何地方都能访问到他，通过这个对象提供的属性和方法，使我们可以对当前运行的程序的进程进行访问与控制。
+         * argv
+             - Array，一组包含命令行参数的数组
+         * execPath
+             - 开启当前进程的绝对路径
+         * env
+             - 返回用户环境信息。
+         * version
+             - 返回node版本信息
+         * versions
+             - 返回node以及node依赖包版本信息
+         * pid
+             - 当前进程的pid
+         * title
+             - 当前进程的显示名称（Getter、Setter）
+         * arch
+             - 返回当前CPU处理器架构 arm、ia32、x64
+         * platform
+             - 返回当前操作系统平台
+         * cwd()
+             - 返回当前进程的工作目录
+         * chdir(directory)
+             - 改变当前进程的工作目录
+         * memoryUsage()
+             - 返回node进程的内存使用情况，单位是byte
+         * exit(code)
+             - 退出
+         * kill(pid)
+             - 想进程发送信息
+         * stdin
+             - 标准输入流
+         * stdout
+             - 标准输出流
+
+```js
+//默认情况下，输入流是关闭的，要监听处理输入流数据，首先要开启输入流
+process.stdin.resume();
+ 
+//用于监听用户的输入数据
+
+process.stdin.on('data', function(chunk) {
+    console.log('用户输入了：' + chunk);
+});
+```
+
+###Buffer类
+
+**new Buffer(size); size [Number]** 创建一个Buffer对象，并为这个对象分配一个大小
+当我们为一个Buffer对象分配空间大小以后，其长度是固定，不能更改。
+
+>内容会随机填充。
+
+**new Buffer(str, [encoding])**:将字符串转化成指定二进制数字。
+
+ - str String类型 - 需要存入buffer的string字符串.
+ - encoding String类型 - 使用什么编码方式，参数可选.
+
+**buf.length**
+
+```js
+var str2 = '妙味';
+var bf2 = new Buffer(str2);
+console.log(str2.length);//字符串长度
+console.log(bf2.length);//字节长度
+```
+
+###计算机网络
+
+**TCP/IP协议**
+
+**HTTP**(Hyper Text Transfer Protocol，超文本传输协议)是一种通信协议 ，它允许将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。
+
+ - 它是一个应用层协议，承载于TCP之上
+ - 由请求和响应构成，是一个标准的客户端服务器模型
+
+TCP/IP协议族最重要的一点就是分层。按层次分别分为以下4层：
+
+ - 应用层
+
+负责处理特定的应用程序，TCP/IP协议族内预存了各类通用的应用服务。
+比如FTP、DNS等等，HTTP也在该层。
+
+
+ - 传输层
+
+对上层应用层提供处于网络连接中两台计算机之间的数据传输。
+该层有两个不同的协议：TCP和UDP。
+
+ - 网络层
+
+处理网络上流动的数据包。
+该层有协议有：IP、ICMP、IGMP。
+
+ - 数据链路层
+
+处理连接网络的硬件部分。
+包括操作系统、硬件设备驱动、网卡、光纤等。
+
+![](img/pic1.png)
+
+**IP的作用：**
+
+把各种数据包传送给对方。如果要保证确定传送到对方那里，则需要满足各类条件，其中最重要的两个条件是IP地址和MAC地址。
+
+(1)IP地址：指明了节点被分配到的地址
+(2)MAC地址：是指网卡所属的固定地址
+(3)区别：IP地址可变换，但MAC地址基本上不会更改。
+
+**URI与URL**
+
+```js
+格式：
+http://user:pass@www.example.com:80/home/index.html?age=11#mask
+http：协议方案名
+user:pass：登录信息（认证）
+www.example.com：服务器地址
+80：端口号
+/hone/index.html：文件路径
+age=11：查询字符串
+mask：片段标识符 
+```
+
+###函数
+
+```js
+// 函数声明
+function foo() {}
+
+// 函数表达式
+(function bar() {})
+
+// 函数表达式
+x = function hello() {}
+
+if (x) {
+   // 函数表达式
+   function world() {}
+}
+
+// 函数声明
+function a() {
+   // 函数声明
+   function b() {}
+   if (0) {
+      //函数表达式
+      function c() {}
+   }
+}
+
+//匿名函数
+function () {}; 
+```
+
+>参考：http://my.oschina.net/u/2331760/blog/468672?fromerr=uCBMydOv
+
+**arguments.callee**
+
+**arguments.callee **在哪一个函数中运行，它就代表哪个函数。 一般用在匿名函数中。
+在匿名函数中有时会需要自己调用自己，但是由于是匿名函数，没有名子，无名可调。
+这时就可以用arguments.callee来代替匿名的函数。
+
+```js
+(function(n){
+
+    if(n > 1)    return n* arguments.calle(n-1);
+
+    return n;
+
+})(10);
+//计算10的阶乘
+//
+function calleeDemo() {    
+  alert(arguments.callee);
+  return 10*10;
+}
+
+//function calleeDemo() {    
+//alert(arguments.callee);
+//return 10*10;
+//}
+```
+
+
+
