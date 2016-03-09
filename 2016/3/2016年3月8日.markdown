@@ -51,7 +51,3 @@
  - **Buffer.byteLength(string,[encoding])**:将会返回这个字符串真实byte长度。encoding编码默认是："utf8"。
 
  - **Buffer.concat(list,[totalLength])**:返回一个保存着将传入buffer数组中所有buffer对象拼接在一起的buffer对象。
-
-
-
-
