@@ -42,6 +42,25 @@
 
  - **buffer.copy(targetBuffer,[targetStart],[sourceStart],[sourceEnd])**：进行buffer的拷贝。
 
+```js
+var bf=new Buffer("1234567");
+var bf2=new Buffer(10);
+
+console.log(bf);
+console.log(bf2);
+
+bf.copy(bf2,2,1,3);
+console.log(bf);
+console.log(bf2);
+
+//结果：
+//
+<Buffer 31 32 33 34 35 36 37>
+<Buffer 78 2f e5 4b b0 01 00 00 01 00>
+<Buffer 31 32 33 34 35 36 37>
+<Buffer 78 2f 32 33 b0 01 00 00 01 00>
+```
+
 **静态方法**
 
  - **Buffer.isEncoding(encoding)**:如果给定的编码encoding是有效的，返回true，否则返回false。
