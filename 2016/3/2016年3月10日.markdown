@@ -12,7 +12,10 @@ document.write(contact.surname + ", " + contact.firstname);
 // 
 
  
-//使用 JSON.stringify 将数组转换成 JSON 字符串，然后使用 JSON.parse 将该字符串重新转换成数组。
+//JSON.stringify() 方法可以将任意的 JavaScript 值序列化成 JSON 字符串
+//JSON.parse() 方法可以将一个 JSON 字符串解析成为一个 JavaScript 值。在解析过程中，还可以选择性的篡改某些属性的原始解析值。
+//
+
 var arr = ["a", "b", "c"]; 
 var str = JSON.stringify(arr); 
 document.write(str); 
