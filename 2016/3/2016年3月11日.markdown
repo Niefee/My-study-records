@@ -1,0 +1,185 @@
+#2016年3月11日
+##Nodejs
+###File System 文件系统模块
+
+
+ - fs.readFile(filename, [options], callback)
+     + 异步读取一个文件的全部内容
+ - fs.readSync(fd, buffer, offset, length, position)
+     + fs.readFile同步版本 
+
+```js
+fs.readFile("text.txt",function(err,data){
+    if (err) {
+        console.log("error");
+    }else{
+        console.log(data.toString());
+    }
+})
+// Output: 
+// hello
+```
+
+ - fs.unlink(path, callback)
+     + 删除一个文件
+
+ - fs.unlinkSync(path)
+     + fs.unlink()同步版本。
+
+
+```js
+fs.unlink("2.txt",function(err){
+    if (err) {
+        console.log("error");
+    }else{
+        console.log("OK!");
+    }
+});
+// Output: 
+// OK!
+```
+
+ - fs.rename(oldPath, newPath, callback)
+     + 重命名
+
+
+ - fs.renameSync(oldPath, newPath)
+     +  同步版本的rename()
+
+```js
+
+fs.rename("2.txt","2.new.txt",function(err){
+    if (err) {
+        console.log("error");
+    }else{
+        console.log("OK!");
+    }
+});
+
+```
+
+
+ - fs.stat(path, callback)
+     + 读取文件信息
+
+ - fs.statSync(path)
+     + fs.stat()同步版本。
+
+```js
+
+fs.stat('2.txt',function(){
+    console.log(arguments);
+})
+
+//Output:
+/*{ '0': null,
+  '1': 
+   { dev: -1302886562,
+     mode: 33206,
+     nlink: 1,
+     uid: 0,
+     gid: 0,
+     rdev: 0,
+     blksize: undefined,
+     ino: 22799473113575696,
+     size: 15,
+     blocks: undefined,
+     atime: Fri Mar 11 2016 16:13:39 GMT+0800 (中国标准时间),
+     mtime: Fri Mar 11 2016 16:13:39 GMT+0800 (中国标准时间),
+     ctime: Fri Mar 11 2016 16:13:39 GMT+0800 (中国标准时间),
+     birthtime: Fri Mar 11 2016 16:13:39 GMT+0800 (中国标准时间) } }
+*/
+```
+
+ - fs.watch(filename,[options],[listener])
+     + 观察指定路径的改变，filename路径可以是文件或者目录。
+
+```js
+var fs = require('fs');
+
+var filename = '2.new.txt';
+
+fs.watch(filename, function(ev, fn) {
+    console.log(ev);
+    if (fn) {
+        console.log(fn + ' 发生了改变');
+    } else {
+        console.log('...hah.');
+    }
+
+});
+```
+
+>如果系统底层函数出于某些原因不可用，那么 fs.watch 也就无法工作。例如，监视网络文件系统(如 NFS, SMB 等)的文件或者目录，就时常不能稳定的工作，有时甚至完全不起作用。
+
+ - fs.mkdir(path, [mode], callback)
+     + 创建文件夹
+
+ - fs.mkdirSync(path, [mode])
+     + 同步版的 mkdir()
+
+ - fs.rmdir(path, callback)
+     + 删除文件夹
+
+ - fs.rmdirSync(path)
+     + fs.redir()的同步版
+
+```js
+fs.mkdir("./12",999,function(){
+    console.log(arguments);
+});
+/*fs.rmdir("./12",function(){
+    console.log(arguments);
+})*/
+```
+
+ - fs.readdirSync(path)
+     + 异步版的 readdir()。 读取 path 路径所在目录的内容。 回调函数 (callback) 接受两个参数 (err, files) 其中 files是一个存储目录中所包含的文件名称的数组，数组中不包括 '.' 和 '..'。
+
+
+
+```js
+var fs = require('fs');
+
+fs.readdir('../FileSystem', function(err, fileList) {
+
+    //console.log(fileList);
+
+    fileList.forEach(function(f) {
+
+        fs.stat(f, function(err, info) {
+            //console.log(info);
+
+           switch (info.mode) {
+                case 16822:
+                    console.log( '[文件夹] ' + f );
+                    break;
+
+                case 33206:
+                    console.log( '[文件] ' + f );
+                    break;
+
+                default :
+                    console.log( '[其他类型] ' + f );
+                    break;
+            }
+
+        });
+
+    });
+
+})
+
+```
+
+##字符编码
+
+ - Unicode:(统一码)是国际组织制定的可以容纳世界上所有文字和符号的字符编码方案。
+
+
+ - UTF-8:针对Unicode的可变长度字符编码，又称万国码。
+     + 对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。 
+     + 对于n字节的符号（n>1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。
+
+
+ - ASCII（American Standard Code for Information Interchange，美国标准信息交换代码）是基于拉丁字母的一套电脑编码系统，
