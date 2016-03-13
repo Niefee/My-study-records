@@ -108,6 +108,7 @@ flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认
 5. space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
 6. stretch（默认值）：轴线占满整个交叉轴。
 
+![](img/align-content.png)
 
 ####项目属性
 
@@ -151,4 +152,48 @@ flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认
 负值对该属性无效。
 
 ![](img/flex-shrink.jpg)
+
+ -  **flex-basis**
+
+
+**flex-basis**属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。 
+
+```js
+.item {
+  flex-basis: <length> | auto; /* default auto */
+}
+```
+
+它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。
+
+ - **flex**
+
+**flex**属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+
+```js
+.item {
+  flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+}
+```
+
+ -  **align-self**
+
+```js
+.item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+```
+
+**align-self**属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+
+```js
+.item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+```
+
+![](img/align-self.png)
+
+
+
 
