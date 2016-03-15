@@ -114,6 +114,10 @@ fs.watch(filename, function(ev, fn) {
 
  - fs.mkdir(path, [mode], callback)
      + 创建文件夹
+     + [mode]
+         * 33206:文件
+         * 16822文件夹
+
 
  - fs.mkdirSync(path, [mode])
      + 同步版的 mkdir()
@@ -125,13 +129,15 @@ fs.watch(filename, function(ev, fn) {
      + fs.redir()的同步版
 
 ```js
-fs.mkdir("./12",999,function(){
+fs.mkdir("./12",33206,function(){
     console.log(arguments);
 });
 /*fs.rmdir("./12",function(){
     console.log(arguments);
 })*/
 ```
+
+
 
  - fs.readdirSync(path)
      + 异步版的 readdir()。 读取 path 路径所在目录的内容。 回调函数 (callback) 接受两个参数 (err, files) 其中 files是一个存储目录中所包含的文件名称的数组，数组中不包括 '.' 和 '..'。
