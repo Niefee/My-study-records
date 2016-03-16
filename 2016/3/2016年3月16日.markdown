@@ -1,0 +1,40 @@
+#2016年3月16日
+##javascript
+###实参与形参
+
+```js
+function addNum(var para1,var para2){
+var sum = para1+para2;
+return sum;
+}
+```
+
+形参指函数定义时候的参数，在这里就是para1和para2。实参是实际传送给函数的参数，在这里就是20和30。
+
+###angularjs
+ - MVC
+     + model
+     + view 
+     + controller
+         * MV的桥梁
+
+ - service服务
+    + $内部
+    + $scope
+    + $apply
+    + $watch
+    + $rootScope
+    + $http
+    + $timeout
+    + $filter
+
+
+ - directive指令
+     + ng内部
+     + ng-app
+     + ng-controller
+     + ng-repeat
+     + ng-click
+
+
+    
