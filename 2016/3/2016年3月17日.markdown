@@ -1,0 +1,102 @@
+#2016年3月17日
+##javascript
+###angularjs
+
+ - angularJs特性？
+     + MVC模式
+     + 模块系统
+     + 指令系统
+     + 依赖注入
+     + 双向数据绑定
+    
+ - angularJs的作用域
+     + $scope
+     + $rootScope
+     + 依赖注入
+     + 服务
+
+```js 
+
+
+function Aaa($scope ,$rootScope){//依赖注入，形参不能改
+    $scope.name='hello world!!';
+    $rootScope.txt="nihao";//全局变量，
+}
+function Bbb($scope){
+    $scope.name='Bbb hello world!!';
+}
+```
+
+```html
+<div ng-controller='Aaa'>
+    <p>{{name}}</p>
+</div>
+<div  ng-controller="Bbb">
+    <span>{{txt}}</span>//会先在局部查找，然后在全局查找。
+</div>
+```
+
+ - angularJs的指令系统
+     + ng-app
+         * 初始化一个angularjs应用程序
+     + ng-controller
+         * 定义控制器
+
+ - angularJs的双向数据绑定
+     + MVVM
+
+     + $timeout
+         * 有刷新功能
+     + ng-click
+         * click事件
+     + ng-model
+         * 绑定数据
+
+
+```js
+    function Aaa($scope,$timeout){
+    $scope.name = 'hello';
+    /*setTimeout(function(){
+        $scope.name = 'hi';
+    },2000);*/
+    /*$timeout(function(){
+        $scope.name = 'hi';
+    },2000);*/
+    
+    $scope.show = function(){
+        $scope.name = 'hi';
+    };
+    
+}
+ ```
+
+```html 
+<div ng-controller="Aaa" ng-click="show()">
+    <p>{{name}}</p>
+</div>
+```
+
+
+ - 过滤器
+     + currency
+
+```html
+<span>{{all.money*all.num|currency:'@'}}</span>
+```
+
+
+ - $watch
+     + 监听数据变化
+     + 三个参数
+         * 第三个为**true**时可以监听一个整体，否则是单个。
+
+```js
+$scope.$watch($scope.sum,function(newVal,oldVal){
+        //console.log(newVal);
+        //console.log(oldVal);
+        
+$scope.iphone.fre = newVal >= 100 ? 0 : 10;
+        
+});
+```
+
