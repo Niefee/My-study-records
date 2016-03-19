@@ -1,9 +1,37 @@
 /*清楚浮动*/
-.u-cf:after {
-    display: block;
-    visibility: hidden;
-    clear: both;
-    height: 0;
-    overflow: hidden;
-    content: '.';
+.w{
+	width: 990px;
+	margin: 0 auto;
+}
+li{
+	list-style: none;
+}
+body{
+	margin: 0;
+	padding: 0;
+}
+.fr{
+	float: right;
+}
+.fl{
+	float: left;
+}
+.fr:after{
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	content: '.';
+}
+.fl:after{
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	content: '.';
+}
+.PosR{
+	position: relative;
 }
