@@ -21,6 +21,7 @@
      + filter
 
 ```js
+//过滤器组合使用
 m1.controller('Aaa',['$scope','$filter',function($scope,$filter){
     
     //$scope.name = '723894734.7489545';
@@ -60,3 +61,12 @@ m1.filter('firstUpper',function(){
 ```
 
     
+ - ng-repeat
+ - ng-app
+     + 初始化angularjs这个库的指令
+ - ng-controller
+     + 调用控制器，把数据与视图连接在一起
+ - ng-model
+     + 
+ - ng-click
+     + 点击事件
