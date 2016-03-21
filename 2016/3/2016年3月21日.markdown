@@ -1,0 +1,37 @@
+#2016年3月21日
+##angularjs
+
+**npm操作使用教程**
+
+```
+cd xxx  //访问某个文件夹
+
+npm install angular//安装angularjs文件包
+
+npm uninstall angular //删除angularjs文件包
+
+使用npm help <command>可查看某条命令的详细帮助，例如npm help install。
+
+输入 "npm -v" 来测试是否成功安装
+
+npm install <Module Name>//使用 npm 命令安装模块
+
+npm install express          # 本地安装
+npm install express -g   # 全局安装
+
+npm ls -g//使用以下命令来查看所有全局安装的模块
+
+```
+
+ - **本地安装**
+
+    1. 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。
+    2. 可以通过 require() 来引入本地安装的包。
+
+
+ - **全局安装**
+
+    1. 将安装包放在 /usr/local 下。
+    2. 可以直接在命令行里使用。
+    3. 不能通过 require() 来引入本地安装的包。
+接下来我们使用全局方式安装 express
