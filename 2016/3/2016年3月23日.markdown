@@ -165,3 +165,12 @@ app.controller('myCtrl', function($scope) {//调用模块的函数
     </script>
 </div>
 ```
+
+restrict 值可以是以下几种:
+
+ - E 只限元素名使用
+ - A 只限属性使用
+ - C 只限类名使用
+ - M 只限注释使用
+
+restrict 默认值为 EA, 即可以通过元素名和属性名来调用指令。
