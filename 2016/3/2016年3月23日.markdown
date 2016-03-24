@@ -10,7 +10,7 @@
 
 ![](img/ct_css_margin_collapsing_example_1.gif)
 
-当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并。
+当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上或下外边距也会发生合并。
 
 ![](img/ct_css_margin_collapsing_example_2.gif)
 
@@ -36,10 +36,10 @@
 
 ###angularjs
 
- - ng-app 指令定义一个 AngularJS 应用程序。
-     + ng-app 指令告诉 AngularJS，哪个元素是 AngularJS 应用程序 的"所有者"。
+ - ng-app 指令初始化一个 AngularJS 应用程序。
+     + ng-app 指令告诉 AngularJS，哪个元素是 AngularJS 应用程序 的"所有者"，也是angularjs程序的开始。
 
- - ng-model 指令把元素值（比如输入域的值）绑定到应用程序。
+ - ng-model 指令读取元素的值（比如输入域的值），然后绑定到应用程序。
      + ng-model 指令把输入域的值绑定到应用程序变量 name。
 
  - ng-bind 指令把应用程序数据绑定到 HTML 视图。
@@ -69,7 +69,7 @@
 
 ```html
 
-<!-- ng-app定义了一个angularjs应用，在哪个标签插入，应用在哪开始。 -->
+<!-- ng-app定义了一个angularjs应用，在哪个标签插入，应用就在哪开始。 -->
 <!-- ng-controller确定了使用模块下哪个控制器 -->
 <div ng-app="myApp" ng-controller="myCtrl">
 
@@ -83,12 +83,13 @@
 
 <script>
 var app = angular.module('myApp', []);//定义一个模块，
-app.controller('myCtrl', function($scope) {//调用模块的函数
+app.controller('myCtrl', function($scope) {//调用模块的方法
     $scope.firstName= "John";
     $scope.lastName= "Doe";
 });
 </script>
 ```
+
 
 **自定义的指令**
 
@@ -100,7 +101,7 @@ app.controller('myCtrl', function($scope) {//调用模块的函数
 
 ```html
 <div ng-app="myApp">
-    <hi-boy></hi-boy>
+    元素名：<hi-boy></hi-boy>
     <script type="text/javascript">
         var app=angular.module('myApp',[]);
         app.directive("hiBoy",function(){
