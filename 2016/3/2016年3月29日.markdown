@@ -166,7 +166,8 @@ AngularJS 添加/移除 class 的指令:
  - ng-if
  - ng-switch
 
-此外， 在动画完成后，HTML 元素的类集合将被移除。例如： ng-hide 指令会添加一下类：
+
+此外，在动画完成后，HTML 元素的类集合将被移除。例如： ng-hide 指令会添加一下类：
  - ng-animate
  - ng-hide-animate
  - ng-hide-add (如果元素将被隐藏)
