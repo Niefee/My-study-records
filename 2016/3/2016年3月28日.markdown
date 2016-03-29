@@ -74,14 +74,42 @@ header('Access-Control-Allow-Origin:http://client.runoob.com');
 
 **AngularJS 事件**
 
-ng-click 指令定义了 AngularJS 点击事件。
+ - ng-click 指令定义了 AngularJS 点击事件。
+ - ng-hide 指令用于设置应用部分是否可见。
+ - ng-hide="true" 设置 HTML 元素不可见。
+ - ng-hide="false" 设置 HTML 元素可见。
 
 ```html 
-<div ng-app="" ng-controller="myCtrl">
+<div ng-app="myApp" ng-controller="personCtrl">
 
-<button ng-click="count = count + 1">点我！</button>
+<button ng-click="toggle()">>隐藏/显示</button>
 
-<p>{{ count }}</p>
+<p ng-hide="myVar">
+名: <input type="text" ng-model="firstName"><br>
+姓名: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+</p>
 
-</div> 
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+    $scope.myVar = false;
+    $scope.toggle = function() {
+        $scope.myVar = !$scope.myVar;
+    };
+});
+</script>
 ```
+
+**类似**
+
+ - ng-show 指令可用于设置应用中的一部分是否可见 。
+ - ng-show="false" 可以设置 HTML 元素 不可见。
+ - ng-show="true" 可以以设置 HTML 元素可见。
+
+
