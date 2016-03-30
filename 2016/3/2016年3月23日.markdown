@@ -93,7 +93,7 @@ app.controller('myCtrl', function($scope) {//调用模块的方法
 
 **自定义的指令**
 
-使用驼峰法来命名一个指令，** runoobDirective**, 但在使用它时需要以 - 分割, **runoob-directive**。
+使用驼峰法来命名一个指令，**runoobDirective** , 但在使用它时需要以 - 分割, **runoob-directive**。
 
 调用方式：
 
