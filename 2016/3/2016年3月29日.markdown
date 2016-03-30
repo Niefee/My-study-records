@@ -109,7 +109,7 @@ $scope.x2 = angular.lowercase($scope.x1);
 
 
 |AngularJS 指令   | 描述|
-|--|--|
+|-----------------|---------------------------------------|
 |< html ng-app  |  为 < html> 元素定义一个应用(未命名)|
 |< body ng-controller |为 < body> 元素定义一个控制器|
 |< tr ng-repeat  | 循环 users 对象数组，每个 user 对象放在 < tr> 元素中。|
