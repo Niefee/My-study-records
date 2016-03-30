@@ -135,7 +135,7 @@ app.controller('myCtrl', function($scope) {//调用模块的方法
 
 ```html
 <div ng-app="myApp">
-    属性：<div hi-boy></div>
+    属性：<div class="hi-boy"></div>
     <script type="text/javascript">
         var app=angular.module('myApp',[]);
         app.directive("hiBoy",function(){
