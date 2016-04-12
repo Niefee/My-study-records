@@ -7,7 +7,7 @@ var fileAd=rq.getFullYear()+"/"+(rq.getMonth()+1)+"/"+fileName;
 fs.exists(fileAd, function(isExists){
 	//console.log(isExists);
 	if (!isExists) {
-		fs.writeFile(fileAd,"[TOC]\r#"+time,function(err){
+		fs.writeFile(fileAd,"#"+time,function(err){
 			if (err) {
 				console.log("出错了。");
 			}else{
@@ -15,7 +15,7 @@ fs.exists(fileAd, function(isExists){
 			}
 		})
 	}else{
-		fs.appendFile(fileAd, "<!-- 删除此段内容，继续添加笔记。 -->", "utf8", function(err){
+		fs.appendFile(fileAd, "\r<!-- 删除此段内容，继续添加笔记。 -->", "utf8", function(err){
 			if (err) {
 				console.log("出错了。");
 			}else{
