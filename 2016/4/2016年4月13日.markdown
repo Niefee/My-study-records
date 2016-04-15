@@ -265,3 +265,23 @@ var eles = document.getElementsByTagName("body");
 document.writeln( eles.toString() ); // [object NodeList]
 document.writeln( eles[0].toString() ); // [object HTMLBodyElement]
 ```
+
+
+###typeof 操作符
+
+typeof操作符返回一个字符串,表示未经求值的操作数(unevaluated operand)的类型。
+
+
+类型|  结构
+:----|----------|
+Undefined  | "undefined"
+Null |   "object" (见下方)
+布尔值 |"boolean"
+数值 | "number"
+字符串 |"string"
+Symbol (ECMAScript 6 新增)  |  "symbol"
+宿主对象(JS环境提供的，比如浏览器)| Implementation-dependent
+函数对象 (implements \[\[Call\]\] in ECMA-262 terms)   | "function"
+任何其他对象 | "object"
+
+>https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof
