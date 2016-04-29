@@ -1,5 +1,5 @@
 [TOC]
-#2016年4月27日
+#2016年4月28日
 ##javascript
 ###javascript原型与闭包
 
