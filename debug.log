@@ -1,1 +1,2 @@
 [0404/110826:ERROR:file_io.cc(30)] read: expected 36, observed 0
+[0507/000249:ERROR:http_transport_win.cc(50)] WinHttpSendRequest: ²Ù×÷³¬Ê±  (0x2EE2)
