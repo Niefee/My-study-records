@@ -3,5 +3,6 @@
 2. [HTML网页API](HTML网页API.md)
 3. [DOM样式](DOM样式.md)
 4. [DOM对象](DOM对象.md)
+5. [数组.md](数组.md)
 
 
