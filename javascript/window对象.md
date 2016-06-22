@@ -30,6 +30,10 @@ window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset�
 
  - screen.height、screen.width
 
+`screen.availHeight`和`screen.availWidth`属性返回屏幕可用的高度和宽度，单位为像素。它们的值为屏幕的实际大小减去操作系统某些功能占据的空间，比如系统的任务栏。
+
+`screen.colorDepth`属性返回屏幕的颜色深度，一般为16（表示16-bit）或24（表示24-bit）。
+
 ##navigator对象
 
  - navigator.userAgent属性
@@ -41,3 +45,34 @@ window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset�
 >mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/50.0.2661.94 safari/537.36"
 
 >参考：http://javascript.ruanyifeng.com/bom/window.html 
+
+浏览器窗体模型:
+
+$(window)：  浏览器显示网页内容的部分
+
+$(document):整个网页文档流
+
+$("body"):就是body
+
+>http://www.cnblogs.com/luhe/archive/2012/11/08/2760619.html 
+
+
+##BOM对象
+
+window 也是 BOM 的一个对象，除去编程意义上的“兜底对象”之外，通过这个对象可以获取窗口位置、确定窗口大小、弹出对话框等等。例如我要关闭当前窗口：
+
+    window.close();
+
+DOM 是为了操作文档出现的 API，document 是其的一个对象；
+
+BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
+
+
+
+
+
+
+
+
+
+
