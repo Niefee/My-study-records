@@ -25,7 +25,7 @@
 IE 专用，返回的是元素当前应用的最终CSS属性值。
 
     var ele = document.getElementById('ele');
-    var ele = document.getElementById('ele');
+    var style=ele.currentStyle;
     styles.color;
 
  - getPropertyValue()
@@ -48,9 +48,17 @@ IE 专用，返回的是元素当前应用的最终CSS属性值。
 >只能获取标签`< style>< /style>`内的属性值,也可以直接使用`ele.getAttribute()`获取标签属性值。
 >这个方法在非IE下 会有兼容问题。
 
+##property与attribute
 
+在`html`标签里的属性称为`attribute`。
 
+    <a href="/people/mi-si-14" data-tip="p$b$mi-si-14" data-original_title="alaki">alaki</a>
 
+这个dom element有3个**attribute**：href、data-tips、data-original_title。
 
+而**property**是那些它被创建的时候就有的属性，例如attributes, autofocus, className, clientHeight。
+一些特殊的**attribute**将会转换为**property**。
+
+假如是内联样式，通过`getAttribute('style')`是可以获得的，但只能获取到内联样式部分属性，通过外部样式表或者内嵌样式都是无法获得的，返回值是字符串。
 
 
