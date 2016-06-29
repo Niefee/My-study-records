@@ -4,6 +4,8 @@
 3. [DOM样式](DOM样式.md)
 4. [DOM对象](DOM对象.md)
 5. [数组](数组.md)
-6. [JavaScript数值](JavaScript数值.md )
+6. [JavaScript数值](JavaScript数值.md)
+7. [移动端事件](移动端事件.md)
+8. [函数](函数.md)
 
 
