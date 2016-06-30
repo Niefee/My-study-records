@@ -51,7 +51,31 @@ server.listen(1337, '127.0.0.1');
 ```
 
 
+路由转换
 
+```js
+var http = require('http');
+var fs = require('fs');
+var server = http.createServer(function (req, res) {
+    var html;
+    if (req.url === '/account/signin') {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        html = fs.readFileSync(__dirname + '/signin.html');
+        res.end(html);
+    } else if (req.url === '/account/signup') {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        html = fs.readFileSync(__dirname + '/signup.html');
+        res.end(html);
+    } else {
+        res.writeHead(404);
+        res.end('Resource Not Found');
+    }
+    
+});
+server.listen(1337, '127.0.0.1');
+```
+
+可以在首页设置`a`标签链接，对于不同的链接，都会查询服务器，然后服务器都对跳转链接做出反应。
 
 
 
