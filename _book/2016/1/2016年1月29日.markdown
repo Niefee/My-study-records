@@ -1,0 +1,132 @@
+#2016年1月29日
+##json
+
+json的四个基本原则
+
+1. 并列数据之间用逗号（“ , ”半角）分隔
+2. 映射用冒号（“ : ”）表示
+3. 并列数据的集合（数组，列表）用方括号（“ [] ”）表示
+4. 映射的集合（对象）用大括号(“ {} ”)表示
+
+![](img/json.jpg)
+
+>json字符集必须是**Unicode**。
+
+JavaScript 程序能够使用内建的 **eval()** 函数，用 JSON 数据来生成原生的 JavaScript 对象。
+
+**eval()**函数接收一个参数s，如果s不是字符串，则直接返回s。否则执行s语句。如果s语句执行结果是一个值，则返回此值，否则返回**undefined**。 
+
+如果参数中没有合法的表达式和语句，则抛出** SyntaxError** 异常。
+如果非法调用** val()**，则抛出 **EvalError**异常。
+如果传递给**eval()** 的** Javascript** 代码生成了一个异常，**eval() **将把该异常传递给调用者。
+
+**JSON.parse()**
+
+```js
+语法：
+JSON.parse(text [, reviver])
+
+例子：
+var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}'; 
+var contact = JSON.parse(jsontext); 
+document.write(contact.surname + ", " + contact.firstname); 
+```
+
+**JSON.stringify() **
+
+JSON.stringify()方法可以将任意的 JavaScript 值序列化成 JSON 字符串。
+
+```json 
+var foo = {};
+foo.bar = "new property";
+foo.baz = 3;
+
+var jsonString = JSON.stringify(foo);
+```
+
+**Ajax**
+
+创建XMLHttpRequest对象
+
+```js 
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+```
+
+
+**Try{}catch(e){}**
+
+```js 
+基本语法：
+
+　try {
+　　// 此处是可能产生例外的语句
+　　} catch(error) {
+　　// 此处是负责例外处理的语句
+　　} finally {
+　　// 此处是出口语句
+　　}
+```
+
+```js 
+　　try {
+　　　　document.writeln("开始执行try块语句 ---> ")
+　　　　document.writeln("还没有发生例外 ---> ")
+　　 　　alert((prompt("输入一个值：","")))
+　　 } catch(err) {
+　　 　　document.writeln("捕捉到例外，开始执行catch块语句 --->");
+　　 　　document.writeln("错误名称: " + err.name+" ---> ");
+　　 　　document.writeln("错误信息: " + err.message+" ---> ");
+　　} finally {
+　　 　　document.writeln("开始执行finally块语句")
+　　}
+```
+
+“开始执行try块语句 ---> 还没有发生例外 ---> 捕捉到例外，开始执行catch块语句 ---> 错误名称: TypeError ---> 错误信息: 'abc' 未定义 ---> 开始执行finally块语句”
+
+**Error.name**的取值一共有六种:
+
+1. Error：()的使用与定义不一致
+2. RangeError：数值越界
+3. ReferenceError：非法或不能识别的引用数值
+4. SyntaxError：发生语法解析错误
+5. TypeError：操作数类型错误
+6. URIError：URI处理函数使用不当
+
+**Throw 语句**
+
+`throw 语句`允许我们创建自定义错误。
+正确的技术术语是：创建或抛出异常（exception）。
+
+```js 
+function myFunction()
+{
+try
+  {
+  var x=document.getElementById("demo").value;
+  if(x=="")    throw "empty";
+  if(isNaN(x)) throw "not a number";
+  if(x>10)     throw "too high";
+  if(x<5)      throw "too low";
+  }
+catch(err)
+  {
+  var y=document.getElementById("mess");
+  y.innerHTML="Error: " + err + ".";
+  }
+}
+</script>
+
+<h1>My First JavaScript</h1>
+<p>Please input a number between 5 and 10:</p>
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="mess"></p>
+```

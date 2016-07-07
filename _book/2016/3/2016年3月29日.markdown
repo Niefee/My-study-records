@@ -1,0 +1,179 @@
+[TOC]
+#2016年3月29日
+##angularjs
+
+**AngularJS 模块**
+
+ - 创建模块
+
+你可以通过 AngularJS 的 angular.module 函数来创建模块： 
+
+```html 
+<div ng-app="myApp">...</div>
+
+<script>
+
+var app = angular.module("myApp", []); 
+
+</script>
+```
+
+**myApp**参数对应执行应用的 HTML 元素。
+现在你可以在 AngularJS 应用中添加控制器、指令、过滤器等。
+
+ - 添加控制器
+
+你可以使用 ng-controller 指令来添加**应用**的控制器: 
+
+```html 
+<div ng-app="myApp" ng-controller="myCtrl">
+{{ firstName + " " + lastName }}
+</div>
+
+<script>
+
+var app = angular.module("myApp", []);//应用模块的定义程序
+
+app.controller("myCtrl", function($scope) {//控制器
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+
+</script>
+```
+
+
+**AngularJS 表单**
+
+```html
+<div ng-app="myApp" ng-controller="formCtrl">
+  <form novalidate>
+    First Name:<br>
+    <input type="text" ng-model="user.firstName"><br>
+    Last Name:<br>
+    <input type="text" ng-model="user.lastName">
+    <br><br>
+    <button ng-click="reset()">RESET</button>
+  </form>
+  <p>form = {{user}}</p>
+  <p>master = {{master}}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope) {
+    $scope.master = {firstName: "John", lastName: "Doe"};
+    $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+    };
+    $scope.reset();
+});
+</script>
+
+```
+
+>**novalidate** 属性是在 HTML5 中新增的。禁用了使用浏览器的默认验证。
+
+ - ng-app 指令定义了 AngularJS 应用。
+ - ng-controller 指令定义了应用控制器。
+ - ng-model 指令绑定了两个 input 元素到模型的 user 对象。
+ - formCtrl 函数设置了 master 对象的初始值，并定义了 reset() 方法。
+ - reset() 方法设置了 user 对象等于 master 对象。
+ - ng-click 指令调用了 reset() 方法，且在点击按钮时调用。
+ - novalidate 属性在应用中不是必须的，但是你需要在 AngularJS表单中使用，用于重写标准的 HTML5 验证
+
+**AngularJS API**
+
+|API| 描述|
+|-------------------|----------------------------------------------|
+|angular.lowercase()| 转换字符串为小写|
+|angular.uppercase()| 转换字符串为大写|
+|angular.isString() | 判断给定的对象是否为字符串，如果是返回 true。|
+|angular.isNumber()|  判断给定的对象是否为数字，如果是返回 true。|
+
+```html 
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>{{ x1 }}</p>
+<p>{{ x2 }}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+$scope.x1 = "JOHN";
+$scope.x2 = angular.lowercase($scope.x1);
+});
+</script>
+```
+
+**AngularJS Bootstrap**
+
+
+|AngularJS 指令   | 描述|
+|-----------------|---------------------------------------|
+|< html ng-app  |  为 < html> 元素定义一个应用(未命名)|
+|< body ng-controller |为 < body> 元素定义一个控制器|
+|< tr ng-repeat  | 循环 users 对象数组，每个 user 对象放在 < tr> 元素中。|
+|< button ng-click  |  当点击 < button> 元素时调用函数 editUser()|
+|< h3 ng-show |如果 edit = true 显示 < h3> 元素|
+|< h3 ng-hide| 如果 edit = true 隐藏 < h3> 元素|
+|< input ng-model |为应用程序绑定 < input> 元素|
+|< button ng-disabled |如果发生错误或者 ncomplete = true 禁用 < button> 元素|
+
+**AngularJS 包含**
+
+在 AngularJS 中，你可以在 HTML 中包含 HTML 文件。
+
+使用 AngularJS, 你可以使用 ng-include 指令来包含 HTML 内容:
+
+```html
+<body>
+
+<div class="container">
+  <div ng-include="'myUsers_List.htm'"></div>
+  <div ng-include="'myUsers_Form.htm'"></div>
+</div>
+
+</body>
+```
+
+**AngularJS 动画**
+
+AngularJS 提供了动画效果，可以配合 CSS 使用。
+AngularJS 使用动画需要引入 angular-animate.min.js 库。
+
+```html
+<body ng-app="myApp">
+
+<h1>隐藏 DIV: <input type="checkbox" ng-model="myCheck"></h1>
+
+<div ng-hide="myCheck"></div>
+
+<script>
+var app = angular.module('myApp', ['ngAnimate']);
+</script>
+```
+
+ngAnimate 模型可以添加或移除 class 。
+ngAnimate 模型并不能使 HTML 元素产生动画，但是 ngAnimate 会监测事件，类似隐藏显示 HTML 元素 ，如果事件发生 ngAnimate 就会使用预定义的 class 来设置 HTML 元素的动画。
+
+AngularJS 添加/移除 class 的指令:
+ - ng-show
+ - ng-hide
+ - ng-class
+ - ng-view
+ - ng-include
+ - ng-repeat
+ - ng-if
+ - ng-switch
+
+
+此外，在动画完成后，HTML 元素的类集合将被移除。例如： ng-hide 指令会添加一下类：
+ - ng-animate
+ - ng-hide-animate
+ - ng-hide-add (如果元素将被隐藏)
+ - ng-hide-remove (如果元素将显示)
+ - ng-hide-add-active (如果元素将隐藏)
+ - ng-hide-remove-active (如果元素将显示)
+
+

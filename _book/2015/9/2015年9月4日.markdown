@@ -1,0 +1,95 @@
+﻿# 2015年9月4日
+
+
+##jQuery UI
+
+###应用
+
+```
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+```
+>应用注意顺序。
+
+---
+
+###交互
+
+ - `draggable()`：拖动；
+ - `droppable()`：被放置；
+
+```
+$("#div3").on("drop",function(event,ui){
+		$("#div3").css("background","rgba(99,288,118,0.7)").text("color change");
+	})
+	
+```
+
+
+>绑定放置后的触发函数。
+
+ - `resizable()`：调整大小；
+
+ - `selectable()`:选择某项，然后会添加一个类名`.ui-selected()`。
+
+ - `sortable()`：自动添加类名`.ui-sortable-handle`,可以拖动列表选项的位置。
+
+---
+
+###HTML框架
+####页面框架
+```
+<html>
+    <frameset cols="25%,50%,25%" >
+        <frame src="#" >
+        <frame src="#" >
+        <frame src="#" >
+        <noframes >
+            <body>您的浏览器无法处理框架！</body>
+        </noframes >
+    </frameset >
+</html >
+```
+> `<frameset></frameset>` **不能**与标签一起使用 `<body></body>` 标签。
+
+####内联框架
+
+```
+<iframe src="abc.html" marginwidth="50">
+      <p>您的浏览器不支持  iframe 标签。</p>
+      <!DOCTYPE html>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Examples</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link href="" rel="stylesheet">
+        </head>
+        <body>
+            
+        </body>
+        </html>
+              
+</iframe>
+```
+>框架内会显示`src`所指引的页面。
+
+###URL
+
+**URL - Uniform Resource Locator**
+当您点击 HTML 页面中的某个链接时，对应的 <a> 标签指向万维网上的一个地址。
+统一资源定位器（URL）用于定位万维网上的文档（或其他数据）。
+网址，比如 http://www.w3school.com.cn/html/index.asp，遵守以下的语法规则：
+```
+scheme://host.domain:port/path/filename
+```
+>scheme - 定义因特网服务的类型。最常见的类型是 http
+>host - 定义域主机（http 的默认主机是 www）
+>domain - 定义因特网域名，比如 w3school.com.cn
+>:port - 定义主机上的端口号（http 的默认端口号是 80）
+>path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。
+>filename - 定义文档/资源的名称
+
+>编者注：URL 的英文全称是 Uniform Resource >Locator，中文也译为“统一资源定位符”。

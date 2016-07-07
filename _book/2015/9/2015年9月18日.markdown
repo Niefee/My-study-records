@@ -1,0 +1,126 @@
+#2015年9月18日
+##JavaScript面向切面编程
+Aspect Oriented Programming(AOP)面向切面编程，是一个比较热门的话题。AOP主要实现的目的是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果。
+
+
+##构造函数模式的作用与注意事项
+模式作用：
+ - 用于创建特定类型的对象
+ - 第一次生命的时候给对象赋值
+ - 对自己声明构造函数，赋予属性与方法。
+
+注意事项
+ - 生命函数的时候处理业务逻辑。
+ - 区分与单例的区别，配合单例实现初始化。
+ - 构造函数大写字母开头。
+ - 注意new的成本
+
+```
+//1. 用于创建特定类型的对象。
+//2. 注意函数名的语义性与可读性。
+//3. javascript开发的时候用单引号，双引号在内部也会转成单引号。
+//4. js里面的构造函数比较特殊的地方是有一个 new。
+//5. 其他语言，比如PHP里人家实现有一个关键字  A class
+//6. zaomen就是构造函数，他又充当了类的概念。
+
+function zaomen(){
+	if(!(this instanceof zaomen)){
+		return zaomen();
+	}
+	this.suo="普通";
+	this.huawen="普通";
+	this.create=function(){
+		return "【锁头】"+this.suo+"【花纹】"+this.huawen
+	}
+}
+
+	var xiaozhang =new zaomen();
+	alert("xiaozhang"+xiaozhang.create());
+```
+
+##设计模式之建造者模式
+模式作用：
+ - 分步创建一个复杂的对象
+ - 解耦封装过程和具体创建的组件。
+ - 无需关心组件如何组装
+
+注意事项：
+ - 一定要一个稳定的算法进行支持。
+ - 加工工艺是暴露的。
+
+```javascript
+	function Fangzi(){
+			this.woshi="";
+			this.keting="";
+			this.chufang="";
+}
+
+function Baogongtou(){
+	this.gaifangzi=function(gongren){
+		gongren.jian_woshi();
+		gongren.jian_keting();
+		gongren.jian_chufang();
+	};
+}
+
+function Gongren(){
+	this.jian_woshi=function(){
+		alert("卧室我盖好了");
+	};
+
+	this.jian_keting=function(){
+		alert("客厅我盖好了");
+	};
+	this.jian_chufang=function(){
+		alert("厨房我盖好了");
+	};
+
+	this.jiaogong=function(){
+
+		var _fangzi=new Fangzi();
+		_fangzi.woshi="ok";
+		_fangzi.keting="ok";
+		_fangzi.chufang="ok";
+		return _fangzi;
+	};
+}
+
+	var gongren=new Gongren();
+	var baogongtou=new Baogongtou();
+	baogongtou.gaifangzi(gongren);
+	var myfangzi=gongren.jiaogong();
+
+	console.log(myfangzi);
+```
+
+##设计模式之工厂模式
+![text](img/gongchangmoshi.jpg)
+模式作用 ：
+ - 对象的构建十分复杂
+ - 需要依赖具体的环境创建不同的实例
+ - 处理大量具有相同属性的小对象
+
+注意事项：
+ - 不要滥用工厂，有时候仅仅给代码增加复杂度
+
+
+ 
+```javascript
+简单工厂模式
+var gongchang={};
+	gongchang.chanyifu=function (argument){
+		this.gongren=50;
+	}
+	gongchang.chanxie=function(){
+		alert("产鞋子");
+	}
+	gongchang.yunshu=function(){
+		alert("运输");
+	}
+	gongchang.changzhang=function(para){
+		return new gongchang[para]();
+	}
+	var me=gongchang.changzhang('chanyifu');
+	alert(me.gongren);
+
+```

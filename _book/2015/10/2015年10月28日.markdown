@@ -1,0 +1,101 @@
+#2015年10月28日
+##Ajax
+
+```
+alert(a);
+//Error，这是一个没有定义的变量。
+
+alert（window.a);
+//underfined,，没有定义的属性。
+```
+
+**同步与异步**
+同步：事情一个个来；
+异步：多个事情一起来；
+
+Ajax请求函数
+```javascript
+
+function ajax(url,fnSucc,fnFaild){
+var oAjax=new XMLHttpRequest()|| new ActiveXObject("Microsoft.XMLHTTP");
+
+            //连接服务器，
+            //open（方法，文件名，异步传输）
+             oAjax.open('GET', url,true)
+
+             //发送请求
+             oAjax.send();
+
+             //接受返回
+             oAjax.onreadystatechange=function(){
+                //oAjax.readyState     浏览器和服务器，进行到哪一步。
+                if(oAjax.readyState==4)//读取完成,代表交互已经完成了。
+                {
+                    if (oAjax.status==200) {//读取后可以正常解析。
+                       fnSucc(oAjax.responseText);
+                    }else{
+                        if(fnFaild){
+                            fnFaild(oAjax.status);
+                        }                       
+                    }
+                }
+             }
+        }
+```
+
+>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+>-0: 请求未初始化
+>-1: 服务器连接已建立
+>-2: 请求已接收
+>-3: 请求处理中
+>-4: 请求已完成，且响应已就绪
+
+
+
+
+##cookie
+    document.cookie='user=blue';
+
+加上过期时间：
+        
+    oDate=new Date();
+    oDate.setDate(oDate.getDate()+14);//把对象内部时间设置成14天后。
+    document.cookie='user=blue,expires='+oDate;//过期时间是14天后。
+
+
+封装函数：
+
+```javascript
+function setCookie(name,value,iDay){
+    var oDate=new Date();
+    oDate.setDate(oDate.getDate()+iDay);
+
+    document.cookie=name+'='+value+';expires='+oDate;
+}
+```
+
+获取cookie
+
+>`split()` 方法用于把一个字符串分割成字符串数组。
+
+```javascript
+function getCookie(name){
+    var arr=document.cookie.split("; ");
+
+    for(var i=0;i<arr.length;i++){
+        var arr2=arr[i].split('=');
+        if(arr2[0]==name){
+            return arr2[1];
+        }
+    }
+    return '';
+}
+```
+
+删除cookie
+
+```javascript
+function removeCookie(name){
+    setCookie(name,1,-1)
+}
+```

@@ -1,0 +1,125 @@
+#2015年12月3日
+##javascript
+面向对象：不了解原理的情况下，会使用功能。
+
+对象：不了解内部结构，知道表面的各种操作。
+
+Date、getFullYear、Array、sort（）
+
+变量：自由的，不属于任何对象
+
+属性：属于一个对象
+
+```javascript
+var arr-[1,2,3,4];
+arr.a=12;
+arr.show=function(){//添加事件
+    //方法
+    alert(arr.a);//12
+}
+
+arr.show();
+```
+
+
+不能在系统对象中随意添加方法、属性，否则会覆盖已有的方法、属性。
+
+this:当前发生事件的对象，当前的方法属于谁。
+
+window.show=function(){};>>>>function show(){};
+
+```javascript
+var obj=new Object();
+
+obj.name='blue';
+obj.qq='12345'
+
+obj.showName=function(){
+    alert(this.name);
+}
+
+obj.showName();
+
+```
+
+
+**添加`new`**
+
+```javascript
+function createPerson(name, qq)     //构造函数
+{
+    //系统偷偷替咱们做：
+    //var this=new Object();
+    
+    //加工
+    this.name=name;
+    this.qq=qq;
+    
+    this.showName=function ()
+    {
+        alert('我的名字叫：'+this.name);
+    };
+    this.showQQ=function ()
+    {
+        alert('我的QQ号：'+this.qq);
+    };
+    
+    //也会偷偷做一些：
+    //return this;
+}
+
+var obj=new createPerson('blue', '258248832');
+var obj2=new createPerson('张三', '45648979879');
+
+obj.showName();
+obj.showQQ();
+```
+
+任何函数前面都可以加一个`new` ，系统会在里面自动创建一个新的空白对象`this`，最后会返回出去。
+
+**原型**
+
+```javascript
+var arr1=new Array(12,55,34,78,676);
+var arr2=new Array(12,33, 1);
+
+Array.prototype.sum=function () //原型》》》类似CSS中的class
+//arr1.sum=function ()              //行间样式
+{
+    var result=0;
+    
+    for(var i=0;i<this.length;i++)
+    {
+        result+=this[i];
+    }
+    
+    return result;
+};
+
+alert(arr1.sum());
+alert(arr2.sum());  
+```
+
+|css|&nbsp;|javascript|
+|---|------|----------|
+|行间样式|一次给一组元素添加样式|原型|
+|行间样式 |一次给一个元素添加样式|给对象加东西（方法）|
+
+>类似于`css`中的`class`方法。
+
+类、对象
+
+类：模子
+对象：产品（成品）
+
+    var arr=new Array(1,2,3,4);
+
+Array   类 
+arr     对象
+
+用构造函数加属性
+用原型加方法
+
+
+
+

@@ -1,0 +1,14 @@
+#2015年10月8日
+##querySelector和querySelectorAll
+```js
+document.querySelector("body");//放回body节点
+document.querySelector("#k");//返回id为k的节点
+document.querySelector("#k span");//返回id为k的节点下的第一个span节点
+document.querySelector("#k").querySelector("span");//返回id为k的节点下的第一个span节点
+
+document.querySelectorAll("li");//返回所用tagName为li的节点集合（NodeList）
+document.querySelectorAll("div .li");//返回class为li的div
+```
+
+>querySelectorAll 方法接收的参数是一个 **CSS 选择符**。而 getElementsBy 系列接收的参数只能是单一的*className*、*tagName* 和*name*。
+querySelectorAll比较耗费性能。

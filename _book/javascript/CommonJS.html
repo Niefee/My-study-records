@@ -1,0 +1,435 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>CommonJS · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="webpack.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Directory.html">
+            
+                <a href="Directory.html">
+            
+                    
+                    javascript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="window对象.html">
+            
+                <a href="window对象.html">
+            
+                    
+                    window对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="HTML网页API.html">
+            
+                <a href="HTML网页API.html">
+            
+                    
+                    HTML网页API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="DOM样式.html">
+            
+                <a href="DOM样式.html">
+            
+                    
+                    DOM样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="DOM对象.html">
+            
+                <a href="DOM对象.html">
+            
+                    
+                    DOM对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="数组.html">
+            
+                <a href="数组.html">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="JavaScript数值.html">
+            
+                <a href="JavaScript数值.html">
+            
+                    
+                    JavaScript数值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="移动端事件.html">
+            
+                <a href="移动端事件.html">
+            
+                    
+                    移动端事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="函数.html">
+            
+                <a href="函数.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="reactjs.html">
+            
+                <a href="reactjs.html">
+            
+                    
+                    reactjs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="webpack.html">
+            
+                <a href="webpack.html">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.11" data-path="CommonJS.html">
+            
+                <a href="CommonJS.html">
+            
+                    
+                    CommonJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >CommonJS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h2>
+<p><strong>CommonJS</strong>&#x89C4;&#x8303;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;
+&#x6240;&#x4EE5;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// example.js</span>
+<span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">var</span> addX = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{
+  <span class="hljs-keyword">return</span> value + x;
+};
+</code></pre>
+<pre><code>global.warning = true;
+</code></pre><p><strong>global</strong>&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x5728;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x5206;&#x4EAB;&#xFF0C;&#x4F46;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x3002;</p>
+<p><strong>CommonJS</strong>&#x89C4;&#x5B9A;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x662F;<strong>module.exports</strong>&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">var</span> addX = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{
+  <span class="hljs-keyword">return</span> value + x;
+};
+<span class="hljs-built_in">module</span>.exports.x = x;
+<span class="hljs-built_in">module</span>.exports.addX = addX;
+</code></pre>
+<p>&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;<code>require</code>&#x5BF9;&#x8C61;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> example = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./example.js&apos;</span>);
+
+<span class="hljs-built_in">console</span>.log(example.x); <span class="hljs-comment">// 5</span>
+<span class="hljs-built_in">console</span>.log(example.addX(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 6</span>
+</code></pre>
+<p><strong>CommonJS</strong>&#x7684;&#x7279;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x6240;&#x6709;&#x6A21;&#x5757;&#x90FD;&#x8FD0;&#x884C;&#x5728;&#x6A21;&#x5757;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E0D;&#x4F1A;&#x6C61;&#x67D3;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x3002;</li>
+<li>&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x52A0;&#x8F7D;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x4F1A;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x65F6;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5C31;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#xFF0C;&#x4EE5;&#x540E;&#x518D;&#x52A0;&#x8F7D;&#x90FD;&#x662F;&#x8BFB;&#x53D6;&#x7F13;&#x5B58;&#x3002;</li>
+<li>&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x6309;&#x7167;&#x5176;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#x3002;</li>
+</ul>
+<p><strong>CommonJS</strong>&#x89C4;&#x8303;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x53EA;&#x6709;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#xFF0C;&#x624D;&#x80FD;&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<h2 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h2>
+<p>&#x5185;&#x7F6E;&#x7684;<code>require</code>&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x3002;</p>
+<p><code>require</code>&#x547D;&#x4EE4;&#x7684;&#x57FA;&#x672C;&#x529F;&#x80FD;&#x662F;&#xFF0C;&#x8BFB;&#x5165;&#x5E76;&#x6267;&#x884C;&#x4E00;&#x4E2A;<code>JavaScript</code>&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x8BE5;&#x6A21;&#x5757;&#x7684;exports&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x5C31;&#x4E0D;&#x80FD;&#x5B9A;&#x4E49;&#x5728;<code>exports</code>&#x5BF9;&#x8C61;&#x4E0A;&#x9762;&#xFF0C;&#x800C;&#x8981;&#x5B9A;&#x4E49;&#x5728;<code>module.exports</code>&#x53D8;&#x91CF;&#x4E0A;&#x9762;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;hello world&quot;</span>)
+}
+
+<span class="hljs-comment">//&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</span>
+<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./example2.js&apos;</span>)()
+</code></pre>
+<blockquote>
+<p><a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank">http://javascript.ruanyifeng.com/nodejs/module.html</a>  </p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="webpack.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: webpack">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"CommonJS","level":"1.2.11","depth":2,"previous":{"title":"webpack","level":"1.2.10","depth":2,"path":"javascript/webpack.md","ref":"javascript/webpack.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"javascript/CommonJS.md","mtime":"2016-07-07T14:47:05.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-07-07T15:18:03.502Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

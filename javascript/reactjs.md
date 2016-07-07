@@ -186,8 +186,10 @@ ReactDOM.render(
 `hello`组件加载后，通过`componentDidMount`方法设置一个定时器，从而引发重新渲染。
 
 组件属性值应该写成：
-    
-    style={{opacity: this.state.opacity}}
+
+```
+style={{opacity: this.state.opacity}}
+```
 
 >第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象。
 

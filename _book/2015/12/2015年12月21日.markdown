@@ -1,0 +1,248 @@
+#2015年12月21日
+##jQuery
+###常用方法
+
+```js
+css('width','200px')
+css('width')
+//当只有一个参数的时候，是取值；当有两个参数的时候，是赋值。
+
+alert( $('li').html() );  
+//当一组元素的时候，取值是一组中的第一个
+    
+$('li').html('hello'); 
+//当一组元素的时候,赋值是一组中的所有元素
+```
+
+**$()下常用方法**
+
+ - filter()与not()
+
+    `filter()`是过滤，`not()`是其反义词。
+
+```js
+$(function(){
+
+    //$('div').filter('.box').css('background','red');
+    
+    $('div').not('.box').css('background','red');
+    
+});
+```
+
+
+ - has()
+
+    `has()`是包含的意思，是操作元素的子节点。保留包含特定后代的元素，去掉那些不含有指定后代的元素。
+
+```js
+$(function(){
+    //$('div').has('.box').css('background','red');
+    $('div').filter('.box').css('background','red');
+    
+});
+
+
+<div>div1<span class="box">span</span></div>//has()使这个div变红。
+<div class="box">div2</div>//filter()使这个div变红。
+```
+
+ - next()与prev()
+
+    `next()`选择下一个兄弟节点，`prev()`选择上一个兄弟节点。
+
+ - find()
+
+    `find()`这个函数是找出正在处理的元素的后代元素的结合。
+
+ - eq()
+
+    `eq()`找出元素结合中的某个元素。
+
+    ```js 
+    $('div').find('h2').eq(1).css('background','red');
+    ```
+
+>第二个`h2`变红。
+
+ - index()
+
+     - `index()`索引就是当前元素在所有兄弟节点中的位置。
+
+
+    ```js
+        alert( $('#h').index() );//并返回相应元素的索引值，从0开始计数。
+    ```
+
+     - 元素的index，相对于选择器
+
+    ```js
+
+        $("button").click(function(){
+            alert($(".hot").index($("#favorite")));
+            alert($(".hot").index($("#hate")));
+          });
+
+        <li class="hot">Tea</li>
+        <li class="hot" id="favorite">Coffee</li>//1
+        <li class="hot" id="hate">Coffee</li>//2
+    ```
+
+ - addClass()与removeClass()
+    
+    `addCladd()`可以为元素添加多个类名，`removeClass()`可以移除多个类名。
+
+ - width()、innerWidth()、outerWidth
+
+```js
+    alert( $('div').width() );  //width
+   // $('div').width(200);  //width=200
+    
+    alert( $('div').innerWidth() );  //width + padding
+    
+    alert( $('div').outerWidth() );  //width + padding + border
+    
+    alert( $('div').outerWidth(true) );  //width + padding + border + margin
+```
+
+>设置或者获取相关容器的宽度，同理`height()`、`innerHeight()`、`outerHeight()`。
+
+ - insertBefore() insertAfter()  appendTo()  prependTo()
+
+    ```js
+    <div class="d1">div</div>
+    <div class="d2">div</div>
+    <span class="s1">span</span>
+    <span class="s2">span</span>
+    
+
+     $('span').insertBefore( $('div') );
+     //把所有span元素重复插到每一个div元素前面。
+     //结果：
+    <span class="s1">span</span>
+    <span class="s2">span</span>
+    <span class="s3">span</span>
+    <div class="d1">div</div>
+    <span class="s1">span</span>
+    <span class="s2">span</span>
+    <span class="s3">span</span>
+    <div class="d2">div</div>
+    
+    //$('div').insertAfter( $('span') );
+    //把所有div元素重复插到每一个span元素后面。
+    
+    //$('div').appendTo( $('span') );
+    //把所有div元素重复插到每一个span元素里面的最后面去。
+    
+    //$('div').prependTo( $('span') );
+    //把所有span元素重复插到每一个div元素里面的最前面去。    
+    
+    ```
+
+ - before()  after() append()  prepend()
+
+    与上面一样，不同就是后续的操作不一样，样式操作的都是前面的节点。
+
+    ```js
+    $('span').insertBefore( $('div') ).css('background','red');
+    //span元素插入div元素前面，样式操作的是span元素。
+    
+    //$('div').before( $('span') ).css('background','red');
+    //div元素的前面是span，样式操作的是div元素。
+  
+    //$('div').append( $('span') );
+    //每一个div元素的里面的最后都插入所有的span元素。
+    //
+    //$('div').prepend( $('span') );
+    //每一个div元素里面的前面都插入所有的span元素。
+    ```
+
+ - remove()
+
+    `remove()`是删除节点，`$('div).remove()`就是删除div这个节点。
+
+ - on()
+
+    `on()`在选择元素上绑定一个或多个事件的事件处理函数。
+
+    ```js
+    $('div').on({
+        'click' : function(){
+            alert(123);
+        },
+        'mouseover' : function(){
+            alert(456);
+        }
+    });
+    ```
+
+ - off()
+
+    `off()`在选择元素上移除一个或多个事件的事件处理函数。`off()`方法通常用于移除通过 `on()`方法添加的事件处理程序。
+
+    ```js
+    $('div').on('click mouseover',function(){
+        alert(123);
+        $('div').off('mouseover');
+    });
+    ```
+
+ - scrollTop()
+
+    `scrollTop()`获取匹配元素相对滚动条顶部的偏移。
+
+    ```js
+    $(document).click(function(){        
+        alert( $(window).scrollTop() );  //滚动距离
+    });
+    
+    ```
+
+###BOM window对象
+
+**Window 对象**
+所有浏览器都支持 window 对象。它表示浏览器窗口。
+
+所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+
+全局变量是 window 对象的属性。
+
+全局函数是 window 对象的方法。
+
+甚至 HTML DOM 的 document 也是 window 对象的属性之一：
+
+    window.document.getElementById("header");
+
+与此相同
+
+    document.getElementById("header");
+
+ - resize()  scroll()
+
+    `resize()`事件是当调整浏览器窗口的大小时，发生 resize 事件。
+    `scroll()`事件是当用户滚动指定的元素时，会发生 scroll 事件。scroll 事件适用于所有可滚动的元素和 window 对象（浏览器窗口）。
+
+ - ev  pageX  which  
+
+    ```js
+    //ev : event对象,相当于'ev||window.event';
+        
+    //ev.pageX(相对于文档的鼠标位置,包括滚动条) : clientX(相对于可视区)。
+    //ev.pageY同理。
+        
+    //ev.which : 相当于keyCode。
+        
+    ```
+
+ - preventDefault  stopPropagation
+
+    `ev.preventDefault()`:阻止默认事件
+        
+    `ev.stopPropagation()`:阻止冒泡的操作
+        
+    `return false`:阻止默认事件 + 阻止冒泡的操作
+
+
+ - one()
+
+    `one()`表示事件只能执行一次。

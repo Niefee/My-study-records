@@ -1,0 +1,72 @@
+#2016年3月19日
+##angularjs
+ - $scope
+     + $scope.$watch
+         * 监听程序变化
+     + $scope.$apply
+         * 监听数据变化，数据变化，会影响视图。
+
+ - angular.module
+     + controller
+     + run
+
+ - angularJs的过滤器
+     + currency
+     + number
+     + lowercase/uppercase
+     + json
+     + limitTo
+     + date
+     + orderBy
+     + filter
+
+```js
+//过滤器组合使用
+m1.controller('Aaa',['$scope','$filter',function($scope,$filter){
+    
+    //$scope.name = '723894734.7489545';
+    //$scope.name = 'hello';
+    //$scope.name = {"name":"hello","age":"20"};
+    //$scope.name = ['a','b','c'];
+    $scope.name = '3748935795';
+    
+    /*$scope.name = [
+        {color:"red",age:"20"},
+        {color:"yellow",age:"30"},
+        {color:"blue",age:"40"},
+        {color:"green",age:"10"}
+    ];*/
+    
+    //$scope.name = $filter('uppercase')('hello');
+    //$scope.name = $filter('number')('236478234.3647348',1);
+    //$scope.name = $filter('date')('236478234','hh');
+    
+    //$scope.name = 'hello';
+    
+    $scope.name = $filter('firstUpper')('hello');
+    
+
+}]);
+
+
+//自定义过滤器
+//
+
+m1.filter('firstUpper',function(){
+    return function(str,num){
+        //console.log(num);
+        return str.charAt(0).toUpperCase() + str.substring(1);
+    }
+});
+```
+
+    
+ - ng-repeat
+ - ng-app
+     + 初始化angularjs这个库的指令
+ - ng-controller
+     + 调用控制器，把数据与视图连接在一起
+ - ng-model
+     + 
+ - ng-click
+     + 点击事件

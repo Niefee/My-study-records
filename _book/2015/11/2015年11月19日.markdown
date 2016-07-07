@@ -1,0 +1,21 @@
+#2015年11月19日
+##javascript
+
+###创建DOM元素
+
+```javascript
+var oLi=document.createElement("li");
+
+ oUl.appendChild(oLi);//插入到最后；
+```
+
+`createElement(标签名）`：创建一个节点
+`appendChild(节点）`：追加一个节点
+
+`insertBefore(节点，原有节点）`：在已有元素前插入；
+
+###表格
+getElementsByTagName("tbody")[0]  :  tBodies[0]
+getElementsByTagName("tr")[0]   :    rows[0]
+getElementsByTagName("td")      :    cells[0]
+

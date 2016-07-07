@@ -1,0 +1,48 @@
+#2016年2月29日
+##javascript
+
+###nodeType
+
+nodeType 属性可返回节点的类型。
+
+最重要的节点类型是：
+
+|元素类型  |  节点类型|
+|--|--|
+|元素|  1|
+|属性|  2|
+|文本|  3|
+|注释|  8|
+|文档|  9|
+
+```html5
+ <BODY>   
+  <table>   
+    <tr>   
+        <td id="john" name="myname">John</td>   
+        <td>Doe</td>   
+        <td id="jack">Jack</td>   
+    </tr>   
+  </table>   
+  
+  <script>   
+ var d = document.getElementById("john").getAttributeNode("name");     
+    alert(d.nodeType)   
+    alert(d.nodeName)   
+    alert(d.nodeValue)     
+  </script>   
+ </BODY>   
+
+//分析运行结果，其三个属性的值分别为：
+
+ 分析运行结果，其三个属性的值分别为：
+
+nodeType：ATTRIBUTE_NODE
+
+nodeType值：2
+
+nodeName：属性名  // name
+
+nodeValue：属性值  //myname
+ 
+```

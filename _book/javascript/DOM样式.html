@@ -1,0 +1,447 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>DOM样式 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="DOM对象.html" />
+    
+    
+    <link rel="prev" href="HTML网页API.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Directory.html">
+            
+                <a href="Directory.html">
+            
+                    
+                    javascript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="window对象.html">
+            
+                <a href="window对象.html">
+            
+                    
+                    window对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="HTML网页API.html">
+            
+                <a href="HTML网页API.html">
+            
+                    
+                    HTML网页API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="DOM样式.html">
+            
+                <a href="DOM样式.html">
+            
+                    
+                    DOM样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="DOM对象.html">
+            
+                <a href="DOM对象.html">
+            
+                    
+                    DOM对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="数组.html">
+            
+                <a href="数组.html">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="JavaScript数值.html">
+            
+                <a href="JavaScript数值.html">
+            
+                    
+                    JavaScript数值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="移动端事件.html">
+            
+                <a href="移动端事件.html">
+            
+                    
+                    移动端事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="函数.html">
+            
+                <a href="函数.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="reactjs.html">
+            
+                <a href="reactjs.html">
+            
+                    
+                    reactjs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="webpack.html">
+            
+                <a href="webpack.html">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="CommonJS.html">
+            
+                <a href="CommonJS.html">
+            
+                    
+                    CommonJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >DOM样式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>[TOC]</p>
+<h2 id="&#x83B7;&#x53D6;dom&#x8282;&#x70B9;&#x6837;&#x5F0F;">&#x83B7;&#x53D6;DOM&#x8282;&#x70B9;&#x6837;&#x5F0F;</h2>
+<ul>
+<li>element.style</li>
+</ul>
+<p><code>element.style</code>&#x53EA;&#x80FD;&#x83B7;&#x53D6;&#x5199;&#x5728;&#x5143;&#x7D20;&#x6807;&#x7B7E;&#x4E2D;&#x7684;&#x884C;&#x5185;style&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x5B9A;&#x4E49;&#x5728;<code>&lt;style&gt;&lt;/style&gt;</code>&#x548C;&#x901A;&#x8FC7;<code>&lt;link href=&#x201D;css.css&#x201D;&gt;</code>&#x52A0;&#x8F7D;&#x8FDB;&#x6765;&#x7684;&#x6837;&#x5F0F;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>var ele = document.getElementById(&apos;ele&apos;);
+ele.style.color;    //&#x83B7;&#x53D6;&#x989C;&#x8272;
+</code></pre><ul>
+<li>window.getComputedStyle()</li>
+</ul>
+<p><code>window.getComputedStyle()</code>:&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x6240;&#x6709;&#x6700;&#x7EC8;&#x4F7F;&#x7528;&#x7684;CSS&#x5C5E;&#x6027;&#x503C;&#x3002;</p>
+<pre><code>var ele = document.getElementById(&apos;ele&apos;);
+var styles = window.getComputedStyle(ele,null);
+styles.color;  //&#x83B7;&#x53D6;&#x989C;&#x8272;
+</code></pre><blockquote>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x53C2;&#x6570;,&#x5982;&#x679C;&#x4E0D;&#x9700;&#x8981;&#x4F2A;&#x5143;&#x7D20;&#x4FE1;&#x606F;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;null&#x3002;</p>
+</blockquote>
+<ul>
+<li>element.currentStyle </li>
+</ul>
+<p>IE &#x4E13;&#x7528;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5143;&#x7D20;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x7684;&#x6700;&#x7EC8;CSS&#x5C5E;&#x6027;&#x503C;&#x3002;</p>
+<pre><code>var ele = document.getElementById(&apos;ele&apos;);
+var style=ele.currentStyle;
+styles.color;
+</code></pre><ul>
+<li>getPropertyValue()</li>
+</ul>
+<p>&#x83B7;&#x53D6;CSS&#x6837;&#x5F0F;&#x7684;&#x76F4;&#x63A5;&#x5C5E;&#x6027;&#x540D;&#x79F0;</p>
+<pre><code>var ele = document.getElementById(&apos;ele&apos;);
+window.getComputedStyle(ele,null).getPropertyValue(&apos;color&apos;);
+</code></pre><blockquote>
+<p>&#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x652F;&#x6301;&#x9A7C;&#x5CF0;&#x683C;&#x5F0F;&#x3002;</p>
+</blockquote>
+<ul>
+<li>getAttribute()</li>
+</ul>
+<p>&#x4E0E;getPropertyValue&#x7C7B;&#x4F3C;&#xFF0C;&#x6709;&#x4E00;&#x70B9;&#x7684;&#x5DEE;&#x5F02;&#x662F;&#x5C5E;&#x6027;&#x540D;&#x9A7C;&#x5CF0;&#x683C;&#x5F0F;&#x3002;</p>
+<pre><code>var test = document.getElementById(&apos;test&apos;);
+window.getComputedStyle(test, null).getAttribute(&quot;backgroundColor&quot;); 
+//test.getAttribute(&quot;style&quot;);
+</code></pre><blockquote>
+<p>&#x53EA;&#x80FD;&#x83B7;&#x53D6;&#x6807;&#x7B7E;<code>&lt; style&gt;&lt; /style&gt;</code>&#x5185;&#x7684;&#x5C5E;&#x6027;&#x503C;,&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>ele.getAttribute()</code>&#x83B7;&#x53D6;&#x6807;&#x7B7E;&#x5C5E;&#x6027;&#x503C;&#x3002;
+&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5728;&#x975E;IE&#x4E0B; &#x4F1A;&#x6709;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x3002;</p>
+</blockquote>
+<h2 id="property&#x4E0E;attribute">property&#x4E0E;attribute</h2>
+<p>&#x5728;<code>html</code>&#x6807;&#x7B7E;&#x91CC;&#x7684;&#x5C5E;&#x6027;&#x79F0;&#x4E3A;<code>attribute</code>&#x3002;</p>
+<pre><code>&lt;a href=&quot;/people/mi-si-14&quot; data-tip=&quot;p$b$mi-si-14&quot; data-original_title=&quot;alaki&quot;&gt;alaki&lt;/a&gt;
+</code></pre><p>&#x8FD9;&#x4E2A;dom element&#x6709;3&#x4E2A;<strong>attribute</strong>&#xFF1A;href&#x3001;data-tips&#x3001;data-original_title&#x3002;</p>
+<p>&#x800C;<strong>property</strong>&#x662F;&#x90A3;&#x4E9B;&#x5B83;&#x88AB;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x6709;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4F8B;&#x5982;attributes, autofocus, className, clientHeight&#x3002;
+&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;<strong>attribute</strong>&#x5C06;&#x4F1A;&#x8F6C;&#x6362;&#x4E3A;<strong>property</strong>&#x3002;</p>
+<p>&#x5047;&#x5982;&#x662F;&#x5185;&#x8054;&#x6837;&#x5F0F;&#xFF0C;&#x901A;&#x8FC7;<code>getAttribute(&apos;style&apos;)</code>&#x662F;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7684;&#xFF0C;&#x4F46;&#x53EA;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#x5185;&#x8054;&#x6837;&#x5F0F;&#x90E8;&#x5206;&#x5C5E;&#x6027;&#xFF0C;&#x901A;&#x8FC7;&#x5916;&#x90E8;&#x6837;&#x5F0F;&#x8868;&#x6216;&#x8005;&#x5185;&#x5D4C;&#x6837;&#x5F0F;&#x90FD;&#x662F;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x7684;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="HTML网页API.html" class="navigation navigation-prev " aria-label="Previous page: HTML网页API">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="DOM对象.html" class="navigation navigation-next " aria-label="Next page: DOM对象">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"DOM样式","level":"1.2.3","depth":2,"next":{"title":"DOM对象","level":"1.2.4","depth":2,"path":"javascript/DOM对象.md","ref":"javascript/DOM对象.md","articles":[]},"previous":{"title":"HTML网页API","level":"1.2.2","depth":2,"path":"javascript/HTML网页API.md","ref":"javascript/HTML网页API.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"javascript/DOM样式.md","mtime":"2016-06-24T03:26:56.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-07-07T15:18:03.502Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

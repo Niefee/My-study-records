@@ -1,0 +1,100 @@
+#2016年3月25日
+##angularjs
+
+**AngularJS 服务(Service)**
+
+在 AngularJS 中，服务是一个函数或对象，可在你的 AngularJS 应用中使用。
+
+ -  $location 服务，它可以返回当前页面的 URL 地址。
+
+```js
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $location) {
+    $scope.myUrl = $location.absUrl();
+});
+```
+
+ - $http 是 AngularJS 应用中最常用的服务。服务向服务器发送请求，应用响应服务器传送过来的数据。
+
+```js
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("welcome.htm").then(function (response) {
+        $scope.myWelcome = response.data;
+    });
+});
+```
+
+##html 
+**无内容元素（Void elements）**
+
+无内容元素是一种不能包含任何内容的特殊元素。而其他元素，比如 <div>，则既可以不包含任何内容，又可以包含另一个元素或者文字。
+
+比较常见的无内容元素有：
+
+ - < br>
+ -  < hr>
+ -  < img>
+ -  < input>
+ -  < link> 
+ - < meta>
+
+不太常见的无内容元素有：
+
+ - < area>
+ -  < base>
+ -  < col>
+ -  < command>
+ -  < embed>
+ -  < keygen>
+ - < param>
+ -  < source>
+ -  < track>
+ -  < wbr>
+
+此类标签应由下列部分组成，顺序须与下表保持一致：
+
+ - 一个 “<” 字符。
+ - 标签名。
+ - 此项可选，一个或多个属性，每一个属性的前面必须有一个或多个空格。
+ - 此项可选，一个或多个空格。
+ - 此项可选，一个 “/” 字符，此项只能在无内容元素中出现。
+ - 一个 “>” 字符。
+
+倒数第二部分的 “/” 字符是可选的，而且没有任何实际含义。所以 < br> 和 < br /> 其实没有实质区别。
+
+>http://blog.jobbole.com/61514/
+
+**AngularJS Select(选择框)**
+
+使用 ng-option 指令来创建一个下拉列表，列表项通过对象和数组循环输出
+
+```html
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<select ng-model="selectedName" ng-options="x for x in names">
+</select>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Google", "Runoob", "Taobao"];
+});
+</script>
+```
+
+也可以使用ng-repeat 指令：
+
+```html 
+<select>
+<option ng-repeat="x in names" value="{{x.names}}">{{x}}</option>
+</select> 
+```
+
+>option标签的value值是发给服务器的值。
+
+
+**ng-repeat**指令是通过数组来循环 HTML 代码来创建下拉列表，但 **ng-options** 指令更适合创建下拉列表，它有以下优势：
+使用 **ng-options** 的选项的一个对象， **ng-repeat** 是一个字符串。

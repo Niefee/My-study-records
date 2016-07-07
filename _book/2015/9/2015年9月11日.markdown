@@ -1,0 +1,74 @@
+#2015年9月11日
+## Services与指令的使用
+###自定义一个Services服务
+四种方法 ：
+```
+<body style="padding: 10px;" ng-app="app">
+    <div ng-controller="MyCtrl">
+    	<h1>{{realname}}</h1>
+    	<h1>{{http}}</h1>
+    	<h1>{{data.msg}}</h1>
+    	<h1>{{uName}}</h1>
+
+    </div>
+</body>
+<script src="js/angular.min.js"></script>
+<script>
+    angular.module('app', [])
+    	.value("realname","niefee")//value值可以改变的。
+    	.value("realname","Muling")
+    	.constant('http', "www.baidu.com")//constant不可以改变。
+    	.constant('http', "www.qq.com")
+    	.factory("Data",function(){
+    		return {
+    			msg:'hello',
+    			setMsg:function(){
+    				this.msg="我不好的";
+    			}
+    		}
+    	})
+    	.service("User",function(){
+    		this.firstname="上官";
+    		this.lastname="飞燕";
+    		this.getName=function(){
+    			return this.firstname+this.lastname;
+    		}
+    	})
+        .controller('MyCtrl', function($scope,realname,http,Data,User){
+    	$scope.msg="hello";
+    	$scope.realname=realname;
+    	$scope.http=http;
+    	$scope.data=Data;
+    	$scope.uName=User.getName();
+    	Data.setMsg();
+    })
+</script>
+```
+value的值可以改变。
+
+###常用指令
+
+**ng-show/hide，ng-if**
+```
+<img ng-src="{{user.icon}}" ng-show="user.isShowImg" ng-class="{'tx':user.showicon}">
+<img ng-src="{{user.icon}}" ng-hide="user.isShowImg" ng-class="{'tx':user.showicon}">
+<img ng-src="{{user.icon}}" ng-ig="user.isShowImg" ng-class="{'tx':user.showicon}">
+```
+显示与否取决于 `inShowImg` 的值是`true`或者`false`。
+
+**ng-dissbled**
+```
+<button type="submit" class="button expand" ng-disabled="f.$invalid">提交</button>
+```
+`.$invalid`是内置表单验证方法。可以在前面的标签中加上`required`为必填项，没有的时候提交会置回。
+
+**ng-submit**
+可以使用在表单提交时运行函数。
+
+###常用指令 ng-repeat 的使用
+```
+<li ng-repeat="a in list">
+    <h4>{{a.address}}</h4>
+</li>
+```
+遍历元素。

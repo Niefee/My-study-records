@@ -1,0 +1,106 @@
+#2016年3月18日
+##angularjs
+
+模块写法：
+
+```js
+var m1 = angular.module('myApp',[]);
+m1.controller('Aaa',['$scope',function($scope){
+    $scope.name = 'hello';
+}]);
+m1.controller('Bbb',['$scope',function($scope){
+    $scope.name = 'hi';
+}]);
+```
+
+ - angular.bind()
+
+
+```js
+function show(n1,n2){
+    alert(n1);
+    alert(n2);
+    alert(this);
+}
+
+angular.bind(document,show,3)(4);//改this指向
+```
+
+ - angular.copy()
+
+
+```js
+var a = {
+    name : 'hello'
+};
+var b = {
+    age : '20'
+};
+
+var c = angular.copy(a,b);   //a把所有值覆盖给了b,也拷贝了给C对象
+```
+
+
+ - angular.extend();  
+
+
+```js
+
+
+var a = {
+    name : 'hello'
+};
+var b = {
+    age : '20'
+};
+
+var c = angular.extend(b,a); //对象继承
+
+console.log(b);
+//{age: "20", name: "hello"}//继承了a的属性方法。
+
+console.log(c);
+//{age: "20", name: "hello"}
+//
+console.log(a);
+//{name: "hello"}
+```
+
+ - angularJs的工具方法
+     + angular.isArray
+         * 判断是否数组
+     + angular.isDate
+         * 如果引用的是日期返回 true
+     + angular.isDefined
+         * 如果引用的已定义返回 true
+     + angular.isUndefined
+         * 如果引用的未定义返回 true
+     + angular.isFunction
+         * 如果引用的是函数返回 true
+     + angular.isNumber
+         * 如果引用的是数字返回 true
+     + angular.isObject
+         * 如果引用的是对象返回 true
+     + angular.isString
+         * 如果引用的是字符串返回 true
+     + angular.isElement
+         * 判断是否元素
+     + angular.version
+         * 返回版本信息
+     + angular.equals
+         * 判断是否相等。
+     + angular.forEach
+         * 循环，接受三个参数。
+     + angular.fromJson/toJson
+         * json与字符串的转换。
+     + angular.identity/noop
+         * 空函数，或者返回指定内容。防止程序出问题。
+     + angular.lowercase/uppercase
+         * 字符串全部大写或者小写。
+     + angular.element
+         * 选择元素，类似jQuery的选择器`angular.element === $`。
+     + angular.bootstrap
+         * 在javascript里动态初始化
+     + angular.injector
+
+

@@ -1,0 +1,79 @@
+#2016年2月13日
+##php
+
+**字符串函数**
+
+ - strlen()
+    
+    函数返回字符串的长度。
+
+    $str1="sdfsdsgFDGr32";//13,字符位置从0~12
+
+
+ - strtolower()
+
+    字符串都转化成全小写
+
+ - strtoupper()
+
+    字符串大写
+
+ - ucfirst()
+
+    把字符串中的首字符转换为大写。
+
+
+ - ucwords()  
+
+    把字符串中每个单词的首字符转换为大写。
+
+
+ - strrev()
+
+    反转字符串。
+
+ - trim()
+
+    移除字符串两侧的空白字符和其他字符。
+    则移除以下所有字符:
+
+     - "\0" - NULL
+     - "\t" - 制表符
+     - "\n" - 换行
+     - "\x0B" - 垂直制表符
+     - "\r" - 回车
+     - " " - 空格
+
+ - str_replace(find,replace,string,count)
+
+    以其他字符替换字符串中的一些字符（区分大小写）。
+
+```php
+<?php
+echo str_replace("world","Shanghai","Hello world!");
+?>
+```
+
+ - strpos()
+
+    查找字符串在另一字符串中第一次出现的位置。
+
+    类似的：
+
+     - stripos() - 查找字符串在另一字符串中第一次出现的位置（不区分大小写）
+     - strripos() - 查找字符串在另一字符串中最后一次出现的位置（不区分大小写）
+     - strrpos() - 查找字符串在另一字符串中最后一次出现的位置（区分大小写）
+
+ - substr(string,start,length)
+
+    函数返回字符串的一部分。
+
+ - md5(string,raw)
+
+    计算字符串的 MD5 散列。
+
+ - unset ( mixed $var [, mixed $... ] )
+
+    释放变量
+
+

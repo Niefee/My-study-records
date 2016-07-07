@@ -1,0 +1,76 @@
+#2016年3月15日
+##nodejs
+###http模块
+
+```js
+//加载一个http模块
+var http = require('http');
+//通过http模块下的createServer创建并返回一个web服务器对象
+var server = http.createServer();
+
+server.on('error', function(err){
+    console.log(err);
+});
+
+server.on('listening', function() {
+    console.log('listening...');
+})
+
+server.on('request', function(req, res) {
+    
+    console.log('有客户端请求了');
+
+    //console.log(req);
+
+    //res.write('hello');
+
+    res.setHeader('miaov', 'leo');
+
+    res.writeHead(200, 'miaov', {
+        //'content-type' : 'text/plain'
+
+        'content-type' : 'text/html;charset=utf-8'
+    });
+
+    res.write('<h1>hello</h1>');
+
+    res.end();
+
+})
+
+server.listen(8080, 'localhost');
+
+//console.log(server.address());
+
+
+```
+
+ - 参数request对象 -http.IncomingMessage 
+     + httpVersion:使用的http协议的版本
+     + headers：请求头信息中的数据
+     + url：请求的地址
+     + method：请求方式
+
+ - 参数response对象 - http.ServerResponse 
+     + write(chunk,[encoding]):发送一个数据块到响应正文中
+     + end([chunk],[encoding]):当所有的正文和头信息发送完成以后调用该方法告诉服务器数据已经全部发送完成了，这个方法在每次完成信息发送以后必须调用，并且是最后调用。
+     + statusCode:该属性用来设置返回的状态码
+     + setHeader(name,value):设置返回头信息
+     + writeHeader(statusCode,[reasonPhrase],[headers])
+         * 这个方法只能在当前请求中使用一次，并且必须在response.end()之前调用
+
+
+###同步、异步、阻塞、非阻塞
+
+**同步通信**是指：发送方和接收方通过一定机制，实现收发步调协调。如：发送方发出数据后，等接收方发回响应以后才发下一个数据包的通讯方式
+
+**异步通信**是指：发送方的发送不管接收方的接收状态，如：发送方发出数据后，不等接收方发回响应，接着发送下个数据包的通讯方式。
+
+**阻塞**和**非阻塞**就比较容易理解了，没有上面那么多场景，**阻塞**就是这个事情阻到这儿了，不能继续往下干事了，**非阻塞**就是这个事情不会阻碍你继续干后面的事情。
+
+**阻塞**可以是实现同步的一种手段！例如两个东西需要同步，一旦出现不同步情况，我就阻塞快的一方，使双方达到同步。
+
+ 
+
+**同步**是两个对象之间的关系，而**阻塞**是一个对象的状态。
+

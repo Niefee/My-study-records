@@ -1,0 +1,348 @@
+#2015年12月24日
+##jQuery
+###常用方法
+
+ - animate()
+
+`annimateanimate(params,[speed],[easing],[fn])`用于创建自定义动画的函数。
+
+**params**:一组包含作为动画属性和终值的样式属性和及其值的集合
+**speed**:三种预定速度之一的字符串("slow","normal", or "fast")或表示动画时长的毫秒数值(如：1000)
+**easing**:要使用的擦除效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".
+**fn**:在动画完成时执行的函数，每个元素执行一次。
+
+ - stop()
+
+`stop([clearQueue],[jumpToEnd])` 停止所有在指定元素上正在运行的动画。
+**clearQueue(Boolean)**:如果设置成true，则清空队列，立即结束当前的动画。
+**gotoEnd(Boolean)**:让当前正在执行的动画立即完成，并且重设show和hide的原始样式，调用回调函数等
+
+ - finish()
+
+`finish()`停止当前正在运行的动画，删除所有排队的动画，属性值跳转到最终值。
+
+ - delay()
+
+`delay()` 延迟一定的毫秒数后运行函数。
+
+
+```js
+$('#div1').click(function(){
+        
+        /*$(this).animate({width : 300} , 2000 , 'linear',function(){
+            $(this).animate({height : 300});
+        });*/
+        //链式操作。
+        $(this).animate({width : 300} , 2000).delay(1000).animate({height : 300} , 2000);
+        //延迟1秒后触发。
+});
+    
+    
+$('#div2').click(function(){
+        
+        //$('#div1').stop();   //默认 : 只会阻止当前运动
+        
+        //$('#div1').stop(true); //阻止后续的运动
+        
+        //$('#div1').stop(true,true); //可以立即停止到指定的目标点
+        
+        $('#div1').finish();  //立即停止到所有指定的目标点
+        
+});
+```
+
+ - delegate()
+
+
+`delegate()`方法为指定的元素（属于被选元素的子元素）添加一个或多个事件处理程序，并规定当这些事件发生时运行的函数。
+
+**语法**
+
+    $(selector).delegate(childSelector,event,data,function)
+
+|参数|  描述|
+|:--:|--|
+|childSelector|   必需。规定要添加事件处理程序的一个或多个子元素。|
+|event|   必需。规定添加到元素的一个或多个事件。由空格分隔多个事件值。必须是有效的事件。|
+|data|    可选。规定传递到函数的额外数据。|
+|function|    必需。规定当事件发生时运行的函数。|
+
+>此方法属于事件委托。
+
+ - undelegate()
+
+`undelegate([selector,[type],fn])`删除由 delegate() 方法添加的一个或多个事件处理程序。
+
+**selector**:需要删除事件处理程序的选择器。
+**type**:需要删除处理函数的一个或多个事件类型。 由空格分隔多个事件值。必须是有效的事件。
+**fn**:要删除的具体事件处理函数。
+
+```js 
+$('ul').delegate('li','click',function(){
+        
+        this.style.background = 'red';
+        
+        $('ul').undelegate();
+        
+    });//点击一次后，这方法就会被删除。
+```
+
+ -  trigger()
+
+`trigger(type,[data])`:在每一个匹配的元素上触发某类事件。
+
+**type**:一个事件对象或者要触发的事件类型。
+**data**:传递给事件处理函数的附加参数。
+
+
+```js
+$('#div1').on('show',function(){
+        alert(123);
+    });
+    
+$('#div1').on('show',function(){
+        alert(456);
+    });
+
+$('#div1').trigger('show');//会弹出两次
+```
+
+ - ev.data 、 ev.target、    ev.type
+
+```js 
+$(function(){
+    
+    $('#div1').on('click',{name:'hello'},function(ev){
+        alert(ev.data.name);//hello
+        
+        alert( ev.target );//[object HTMLDivElement]
+        //ev.target.nodeName;//DIV
+        
+        alert( ev.type );//click
+        
+    }); 
+});
+
+```
+
+以下属于事件对象：
+
+`ev.data`: 属性包含当前执行的处理程序被绑定时传递到事件方法的可选数据。
+
+`ev.target`:最初触发事件的DOM元素。
+
+`ev.type`:返回哪种事件类型被触发：
+
+---
+
+###$下的常用方法
+
+$().css()  $().html()  $().val()  : 只能给JQ对象用
+
+$.xxx()  $.yyy()  $.zzz()  : 不仅可以给JQ用，也可以给原生JS用 : 叫做工具方法
+
+
+ - type() 、trim()
+
+`type()`:检测obj的数据类型。
+`trim()`:去除空格。
+
+```js
+$(function(){
+    
+    var a = 4234;
+    
+    //$.type() : 也是判断类型,比原生的javascript更强大。
+    
+    //alert( typeof a );//number
+    
+    alert( $.type(a) );//number
+    
+    // var str = '   hello  ';
+    
+    // alert('('+$.trim(str)+')');//(hello)
+    
+});
+```
+
+ - inArray()
+
+`jQuery.inArray(value,array,[fromIndex])` :确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。
+
+**value**:用于在数组中查找是否存在
+**array**:待处理数组。
+**fromIndex**:用来搜索数组队列的开始位置，默认值为0
+
+```js 
+var arr = [2,'sdf', "Pete", 4, 8, "John" ];
+
+alert($.inArray("John", arr)) //5
+
+alert($.inArray(4, arr))//3
+
+alert($.inArray("David", arr))//-1
+
+alert($.inArray("Pete", arr,3)) //-1
+```
+
+ - proxy()
+
+`proxy(function,context)`当有事件处理函数要附加到元素上，但他们的作用域实际是指向另一个对象时，此方法可以改变 *this* 的指向。
+
+```js 
+//proxy()  : 改变this指向的
+    
+function show(n1,n2){
+        alert(n1);
+        alert(n2);
+        alert(this);
+}
+
+show(12,45);//12,45,window
+    
+//$.proxy(show , document,3)(4);//12,45,document
+//改变函数show()的this的指向，有window变成document。
+//$.proxy(show , document)(3,4);//12,45,document
+//$.proxy(show , document,3,4)();//12,45,document
+    
+    
+// $(document).click( $.proxy(show,window,3,4));//12,45,document
+```
+
+ - noConflict()
+
+`noConflict()`:防止冲突。
+
+```js 
+
+//$ 等价于 jQuery
+
+var miaov = $.noConflict();
+
+var $ = 10;
+
+miaov(function(){
+    
+    miaov('body').css('background','red');
+    
+});
+```
+
+ - parseJson()
+
+```js
+var str = '{"name":"hello"}';
+
+$.parseJSON( str )//解释成Json对象。
+
+alert($.parseJSON( str ).name);//hello
+```
+
+ - makeArray()
+
+`makeArray()`:将类数组对象转换为数组对象。
+
+```js 
+window.onload = function(){
+    
+var aDiv = document.getElementsByTagName('div');  //类数组
+    
+$.makeArray(aDiv).push();
+    
+};
+```
+
+ - ajax()
+
+```js 
+$.ajax({
+    url : 'xxx.php',
+    data : 'name=hello&age=20',
+    type : 'POST',
+    success : function(data){
+        alert(1);
+    },
+    error : function(){
+        alert(2);
+    }
+});
+
+$.get('xxx.php',{},function(){
+    
+});
+
+$.post('xxx.php',function(){
+    
+});
+
+$.getJSON('xxx.php?callback=?',function(data){
+    data
+});
+```
+
+
+ - $.extend、$.fn.extend、
+
+
+**$.extend** : 扩展工具方法下的插件形式  $.xxx() $.yyy()
+
+**$.fn.extend**  :  扩展到JQ对象下的插件形式  $().xxx()  $().yyy()
+
+```js
+var str='        hello            ';
+$.extend({
+    leftTrim : function(str){
+        return str.replace(/^\s+/,'');
+    },
+});
+alert('('+$.ldftTrim(str)+')');//(hello            )
+aaa : function(){
+        alert(1);
+    }
+//-----------------------------------------------------------
+//包装一个拖拽的方法。
+$.fn.extend({
+    
+    drag : function(){
+        
+        //this : $('#div1')
+        
+        var disX = 0;
+        var disY = 0;
+        
+        var This = this;
+        
+        this.mousedown(function(ev){
+            
+            disX = ev.pageX - $(this).offset().left;
+            disY = ev.pageY - $(this).offset().top;
+            
+            $(document).mousemove(function(ev){
+                
+                This.css('left' , ev.pageX - disX);
+                This.css('top' , ev.pageY - disY);
+                
+            });
+            
+            $(document).mouseup(function(){
+                $(this).off();
+            });
+            
+            return false;
+            
+        });
+        
+    },
+    aaa : function(){
+        alert(2);
+    }
+    
+});
+
+//----------------------------------------------------
+
+$.aaa();  // 1
+$().aaa();  //2
+```
+
+<!-- Test -->

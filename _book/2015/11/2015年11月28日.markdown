@@ -1,0 +1,68 @@
+#2015年11月28日
+##javascript
+
+    alert(document.childNodes[1].tagName);
+    //HTML
+
+`document`是文件的最顶层标签，一般隐藏。
+
+事件处理函数
+
+```js 
+//IE
+//alert(event.clientX+','+event.clientY);
+//
+//FF
+//alert(ev.clientX+','+ev.clientY);
+//
+//
+//兼容写法
+oEvent=ev||event;
+
+
+```
+
+事件冒泡
+
+冒泡从最底层的标签开始，然后一层层向上触发事件。
+
+    oEvent.cancelBubble=true;//取消事件冒泡。
+
+
+**onmousemove**
+
+    scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+
+封装函数
+
+```javascript
+function getPos(ev){
+    var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+    var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+
+    return{x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+
+}
+```
+
+**onkeydown、onkeyup**
+
+```javascript
+document.onkeyup=function (ev)
+{
+    var oEvent=ev||event;
+    
+    alert(oEvent.keyCode);//弹出按键字母对应的ASCII表的数字。
+};
+
+```
+
+`oEvent.keyCode==13 && oEvent.ctrlKey`:回车加`ctrl`触发事件函数；
+
+`oEvent.keyCode==13 && oEvent.keyCode==16`在浏览器中没有反应；
+
+>还有`shiftKey`,`altKey`,用来确定按键有没有被按下去。
+
+
+
+

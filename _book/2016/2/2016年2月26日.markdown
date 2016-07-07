@@ -1,0 +1,157 @@
+#2016年2月26日
+##php
+
+避免创建数据库及表出现中文乱码和查看编码方法
+
+1、创建数据库的时候：
+
+```php
+CREATE DATABASE `test`
+CHARACTER SET 'utf8'
+COLLATE 'utf8_general_ci';
+```
+
+
+2、建表的时候 
+
+```php
+CREATE TABLE `database_user` (
+`ID` varchar(40) NOT NULL default '',
+`UserID` varchar(40) NOT NULL default '',
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+//ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+```
+
+
+###sql命令 DDL （结构化操作）
+
+1. 表添加字段:
+        alter table 表名称  add  列定义
+        alter table stu add email varchar(200);
+
+2. 修改字段:
+        alter table 表名称 change 旧字段名称 新字段定义
+        alter table stu change email stuEmail varchar(150);
+
+3. 删除字段 
+        alter table 表名称 drop 字段
+        alter table stu drop stuEmail;
+
+4. 修改表名称
+        alter table 表名 rename 新名字
+        alter table stu rename student;
+
+5. 删除
+        drop table 表名称;
+        drop table student;
+        
+###sql名  DML操作 （增 删 改 查）
+
+1. 增
+
+```php
+        insert into 表名称(字段1，字段2，字段3，.......) values(val1,val2,val3.....);   
+        insert into student(stuNum,stuName,stuAge,stuSex,stuTel) values("0001","zhangsan",18,"1","1311111111");
+        insert into student(stuNum,stuName,stuAge,stuSex,stuTel) values("0002","lisi",16,"2","1322222222");
+        insert into student(stuNum,stuName,stuAge,stuSex,stuTel) values("0003","王五",19,"2","133333333");
+        //中文 会出乱码:
+            set names gbk; //  指DBMS  系统字符集中文字符集  *****临时的****
+        修改mysql字符集
+            show variables  查看mysql系统变量的。
+            show variables like "%character%"; //查找 的 关于字符集的系统变量
+            
+        character_set_client     | gbk
+        character_set_connection | gbk
+        character_set_database   | utf8
+        character_set_results    | gbk
+        character_set_server     | utf8
+        character_set_system     | utf8
+        
+        set character_set_connection = utf8
+
+```
+
+2.查看 \*\*\*\*\*\*
+
+    select * from 表名称    
+    
+3.修改:
+
+    update 表名称 set  字段=值，字段=值,....... where  id=num;
+    update student set stuName="赵六",stuAge=20 where id=3;
+    
+4.删除:
+
+    delete from 表名称 where id=num
+    delete from student where id=3;
+    注意：删除记录后，被删除的记录的位置还在。
+        
+5.查询：
+
+        select 字段列表 from 表名称 [where 条件] [order by 字段 asc|desc][limit 起始位置,长度][group by 字段名称（分组）]
+        
+        1>》select 字段列表 from 表名称
+                查询某些字段
+                select stuNum,stuName from student;
+                注意：可以给字段名称 表名称 起别名  
+                        select stuNum as stn,stuName as sn from student as sd;
+                        起别名: 字段简单，方便其他程序调用
+                查找所有字段
+                select * from student; 
+        2> order by  排序   asc 升序   desc 降序 
+                select * from student order by id desc;
+                select * from student order by id asc;
+        3> limit  起始 位置，长度   截取记录。
+            select * from student limit  1,3;
+            select * from student limit 4,4;
+        
+            倒序截取记录:
+                select * from  student order by id desc limit 0,4
+                limit 分页:
+        
+        4 > group by 分组:
+            select * from books group by bTypeId;  按照类型id 分组。
+            分组以后，每组中的记录都会取1条。
+        
+        5 > where 条件:
+            比较符号:     >  <  >=   = <>
+                select * from books  where bid=100;   字段和值 进行比较
+            逻辑运算:
+                    and  or 
+                select * from books where bid>100 and bid<110
+            模糊搜索： 字符串中 含有 某个关键词，就能找到
+                like "%关键词%"   % 表示任意字符串 
+                                             _ 1个字符
+                select * from books where bName like "%网%";
+            范围:
+                连续范围
+                    [not]between....and
+                    select * from books where bid between 100 and 110
+                                                                bid>=100 and bid<=110  *****
+                不连续 范围
+                    [not] in()
+                        select * from books where bid in(100,103,105,108);
+                                                                bid=100 or bid=103 or bid=105 or bid=108 *****
+            6> 子查询:
+                select  语句中  的条件 又出现了查询语句 ，子查询。
+                查询 类型 是 “网站” 的所有图书
+                select * from books where btypeid=(select btypeid from btype where btypename="网站");
+                主要：  后边需求 中涉及到的表  主
+                从表：  前面需求涉及到的表  从表
+                效率低。
+            7> 连接查询: 通过 多张表的共有字段， 查找多张表构成的并集。
+              2张表以上。
+                内连接: 共同字段相等。 两张表的地位相等。
+                    select * from 表1，表2  where 表1.共有字段=表2.共有字段
+                    select * from books as bs,btype as bt where bs.btypeid=bt.btypeid
+                    注意： 内连接中: 共有字段中的值，必须两张表都有，才能找到。
+                
+                外连接:  表分主 ，从 主表 中的数据，全部展示 ，从 有和主表对应的数据 展示，没有对应 ，不展示
+                left join 
+                    select  * from 主表 left join 从表 on 主表.共有字段=从表.共有字段 [where 其他条件]；
+                    select * from books as bs left join btype as bt on bs.btypeid=bt.btypeid;
+                right join
+                    select * from 从表 right join 主表 on 主表.共有字段=从表.共有字段 [where 其他条件]；
+                    select * from btype as bt right join books as bs  on  bs.btypeid=bt.btypeid;
+                    
+练习:  图书表  类型表 用 内连接 外连接 ，都查询一次。

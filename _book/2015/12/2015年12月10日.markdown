@@ -1,0 +1,81 @@
+#2015年12月10日
+##jQuery
+
+javascript对大小写敏感（关键字、函数名、变量名等），标识符的首字符必须是**字母**、**下划线 `_`**或者**`$`符**，其后的字符可以含**数字**
+
+
+**匿名函数自执行**
+
+```js 
+
+(function(){
+        var a=10;
+        alert(a);
+    })();
+
+```
+
+
+
+##关于冒泡和捕获
+
+###捕获
+
+捕获过程即事件从最外层的元素开始触发，然后逐渐触发到当前元素。
+
+例如对于如下的 DOM 结构：
+
+```html 
+<body>
+    <div class="father">
+        <div class="child"></div>
+    </div>
+</body>
+```
+
+如果 child 元素触发事件，那么捕获的过程为：body -> div.father -> div.child 。
+
+###冒泡
+
+冒泡与捕获相反，从当前元素开始触发，逐渐向外扩展直到最外层元素或者被终止。
+
+例如对于上面的 DOM 结构，如果 child 元素触发事件，那么冒泡的过程为：div.child -> div.father -> body 。
+
+如何使用
+
+在支持的浏览器中，可以通过参数来控制发生的过程究竟是在捕获还是在冒泡，如下：
+
+`element.addEventListener('click', function () {}, false);`
+其中第三个参数为 false 表示发生在冒泡阶段（默认），为 true 表示发生在捕获阶段。
+
+###事件代理
+
+>设想一下这种场景，有一个列表，其中点击列表项需要触发一个事件，假如说这个列表有 1000 项，那是不是需要绑定 1000 次事件？ 如果这还不够麻烦的话，那如果列表内容也是可变的，每次添加新的还需要再绑定事件，删除已有的也需要删除相应的事件，那么我添加 1000 项再删除 1000 次呢？
+
+我们现在已经知道了事件存在冒泡的机制，那么对于类似的场景，我们可以通过事件代理来处理。 直接在外层的父节点上绑定事件监听，再通过 target 属性获取到事件触发的元素即可。
+
+```html 
+    <ul id="list">
+        <li>test1</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
+        <li>test5</li>
+        <li>test6</li>
+    </ul>
+    <script>
+        var ul = document.getElementById('list');
+        ul.addEventListener('click', function (e) {
+            console.log('事件代理成功，触发事件的元素为：');
+            console.log(e.target);
+        }, false);
+    </script>
+
+```
+
+target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+
+###阻止行为
+
+在事件处理函数中，可以通过`e.stopPropagation()` 来阻止事件冒泡，通过`e.preventDefault()`来阻止默认行为的触发。
+

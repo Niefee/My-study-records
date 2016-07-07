@@ -1,0 +1,155 @@
+﻿# 2015年9月5日  
+
+
+##Widgets
+
+`accordion()`：可以实现手风琴的展示效果。
+
+
+`autocomplete()`:自动补全功能。
+```
+核心代码：
+
+var aototags=["iwen","niefee","css","js","html","ios","java","javascript"];
+$("#tags").autocomplete({
+		source:aototags
+	});
+```
+
+`datepicker()`:可以弹出日期选择框；
+```
+核心代码：
+
+<p>Date:<input type="text" id="txt"></p>
+
+$("#txt").datepicker();
+```
+
+`dialog()`：对话框；
+```
+<div id="div1">
+   <p>这是一个对话框</p>
+</div>
+<a href="#" id="btn2">Btn</a>
+<script type="text/javascript">
+$("#btn2").button().on("click",function(){
+    $("#div1").dialog();
+})
+</script>
+```
+
+`progressbar()`：进度条;
+```
+静态设置：
+
+$(function(){
+    $("#pb").progressbar({value:50});
+});
+
+动态滚动:
+
+var pb;
+var max=100;
+var current=0;
+$(document).ready(function(){
+    pb=$("#pb");
+    pb.progressbar({max:100})
+    setInterval(changepb,100);
+})
+function changepb(){
+    current++;
+    if(current>=100){
+    	current=0;
+}
+pb.progressbar("option","value",current);
+$("#pbar").text(current+"%");
+}
+```
+`menu()`：将多级列表选项自动隐藏，可以放置时显示。
+
+`slider()`：显示可拖动的进度条。
+
+`spinner()`：显示选择数字框，`.spinner("value")`可以获取值。
+
+`tabs()`：自动生成标签格式。标题用`<a>`的`href`标签连接并 显示下面的指定`id`内容。
+
+```
+<div id="tabs">
+	<ul>
+		<li><a href="#hello1">Alink</a></li>
+		<li><a href="#hello2">Alink</a></li>
+	</ul>
+	
+	<div id="hello1">
+		<div>Hello  World11111</div>
+	</div>
+	<div id="hello2">
+		<div>Hello  World22222</div> 
+	</div>
+</div>
+
+jQuery代码：
+
+$("#tabs").tabs();
+
+```
+
+##W3C笔记
+
+ - `<video>` 元素无法通过 HTML 4 和 XHTML 验证。
+ - `<embed>`元素无法通过 HTML 4 和 XHTML 验证。
+ >注释：使用 <!DOCTYPE html> (HTML5) 解决验证问题。
+
+---
+
+```
+<video width="320" height="240" controls="controls">
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+  <source src="movie.webm" type="video/webm" />
+  <object data="movie.mp4" width="320" height="240">
+    <embed src="movie.swf" width="320" height="240" />
+  </object>
+</video>
+```
+>上例中使用了 4 中不同的视频格式。HTML 5 `<video>` 元素会尝试播放以 mp4、ogg 或 webm 格式中的一种来播放视频。如果均失败，则回退到 `<embed>` 元素。
+
+###XML是什么
+
+ - XML 指可扩展标记语言（EXtensible Markup Language）
+ - XML 是一种标记语言，很类似 HTML
+ - XML 的设计宗旨是传输数据，而非显示数据
+ - XML 标签没有被预定义。您需要自行定义标签。
+ - XML 被设计为具有自我描述性。
+ - XML 是 W3C 的推荐标准
+ 
+###什么是 XHTML？
+- XHTML 指的是可扩展超文本标记语言
+- XHTML 与 HTML 4.01 几乎是相同的
+- XHTML 是更严格更纯净的 HTML 版本
+- XHTML 是以 XML 应用的方式定义的 HTML
+- XHTML 是 2001 年 1 月发布的 W3C 推荐标准
+- XHTML 得到所有主流浏览器的支持
+
+**与 HTML 相比最重要的区别：**
+
+ - 文档结构
+- XHTML DOCTYPE 是强制性的
+- `<html>` 中的 XML namespace 属性是强制性的
+- `<html>`、`<head>`、`<title>` 以及 `<body>` 也是强制性的
+
+ - 元素语法
+
+- XHTML 元素必须正确嵌套
+- XHTML 元素必须始终关闭
+- XHTML 元素必须小写
+- XHTML 文档必须有一个根元素
+
+ - 属性语法
+- XHTML 属性必须使用小写
+- XHTML 属性值必须用引号包围
+- XHTML 属性最小化也是禁止的
+
+ `ellpadding`: 来创建单元格内容与其边框之间的空白。
+ `cellspacing`: Cell spacing 增加单元格之间的距离。
+ `<table>`的 `frame` 属性来控制围绕表格的边框。取值有`box`,`above`,`below`,`hside`,`vside`。

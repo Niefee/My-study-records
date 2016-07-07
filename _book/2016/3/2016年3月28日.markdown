@@ -1,0 +1,115 @@
+#2016年3月28日
+##angularjs
+使用 angular 显示表格
+
+```html 
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("http://www.runoob.com/try/angularjs/data/Customers_JSON.php")
+    .success(function (response) {$scope.names = response.records;});
+});
+</script>
+```
+
+可以使用 orderBy 过滤器: 
+
+```html 
+<table>
+  <tr ng-repeat="x in names | orderBy : 'Country'">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+```
+
+可以在 < td> 中添加 $index: 
+
+```html 
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+```
+
+使用 $even 和 $odd
+
+```html 
+<table>
+<tr ng-repeat="x in names">
+<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}</td>
+<td ng-if="$even">{{ x.Name }}</td>
+<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}</td>
+<td ng-if="$even">{{ x.Country }}</td>
+</tr>
+</table>
+```
+
+**跨域 HTTP 请求**
+
+指定某域名`（http://client.runoob.com）`跨域访问，则只需在`http://server.runoob.com/server.php`文件头部添加如下代码：
+
+```php 
+header('Access-Control-Allow-Origin:http://client.runoob.com');
+```
+
+>参考：http://www.runoob.com/w3cnote/php-ajax-cross-border.html 。
+
+
+**ng-disabled** 指令绑定应用程序数据 **mySwitch** 到 HTML 的 disabled 属性。
+**ng-model** 指令绑定 **mySwitch** 到 HTML input checkbox 元素的内容（value）。
+
+**AngularJS 事件**
+
+ - ng-click 指令定义了 AngularJS 点击事件。
+ - ng-hide 指令用于设置应用部分是否可见。
+ - ng-hide="true" 设置 HTML 元素不可见。
+ - ng-hide="false" 设置 HTML 元素可见。
+
+```html 
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<button ng-click="toggle()">>隐藏/显示</button>
+
+<p ng-hide="myVar">
+名: <input type="text" ng-model="firstName"><br>
+姓名: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+    $scope.myVar = false;
+    $scope.toggle = function() {
+        $scope.myVar = !$scope.myVar;
+    };
+});
+</script>
+```
+
+**类似**
+
+ - ng-show 指令可用于设置应用中的一部分是否可见 。
+ - ng-show="false" 可以设置 HTML 元素 不可见。
+ - ng-show="true" 可以以设置 HTML 元素可见。
+
+

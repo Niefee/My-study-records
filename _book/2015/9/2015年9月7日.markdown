@@ -1,0 +1,22 @@
+#2015年9月7日
+##jQuery mobile
+
+基本格式
+```jQuery
+<div data-role="page" id="pageone">
+	//头部
+  <div data-role="header">
+    <h1>在此处写入标题</h1>
+  </div>
+	//主题内容
+  <div data-role="content">
+    <p>在此处写入正文</p>
+  </div>
+	//尾部
+  <div data-role="footer">
+    <h1>在此处写入页脚文本</h1>
+  </div>
+
+</div> 
+```
+

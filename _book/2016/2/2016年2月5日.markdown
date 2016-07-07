@@ -1,0 +1,75 @@
+#2016年2月5日
+##javascript
+###面向对象
+
+ - 方法---函数：过程、动态的
+ - 属性---变量：状态、静态的
+
+属性、方法：属于一个对象；
+变量、函数：自由的，不属于任何人。
+
+```js 
+oDiv.onclick=function(){
+    alert(this);
+}
+```
+
+给一个对象添加事件，等于给这个对象添加方法。
+
+**this**：当前发生事件的对象，当前的方法属于谁，this就属于谁。
+
+```js 
+function createPerson(name,qq){//构造函数
+    obj.name=name;
+    obj.qq=qq;
+
+    obj.showName=function(){
+        alert(this.name);
+    };
+    ....
+
+}
+```
+
+**原型**
+
+```js 
+var arr1=new Array(12,23,43,43);
+var arr2=new Array(33,3,45);
+
+Array.prototype.sum=function(){//类似于class，Array可以看作一个标签。
+    //arr1.sum=function()      //类似行间样式
+    var result=0;
+
+    for(var i=0;i<this.length;i++){
+        result+=this[i];
+    }
+
+    return result;
+}
+
+alert(arr1.sum());
+alert(arr2.sum());
+
+```
+
+
+类：  模子，不具有实际功能
+对象：产品
+
+    var arr=new Array(1,23,45,6)
+
+>函数调用时加上**new**,系统会默认执行以下函数：
+    var this=new Object();
+
+>    //把this指向新创建的对象，
+    //而且，最后系统会默认返回这个**this**：
+
+>    return this;
+>    
+
+
+Array   类
+arr     对象 
+
+用构造函数加属性，用原型加方法。
