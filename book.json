@@ -1,0 +1,24 @@
+{
+    "variables": {
+        "title": "前端开发笔记",
+        "theme": "theme-green",
+        "copyright": "Copyright 2015-2016 niefee/胡"
+    },
+    "title":"前端开发笔记",
+    "description":"mU",
+
+    "collapsible_menu":true,
+    "level_number":false,
+    "links": {
+        "gitbook": false,
+        "sharing": {
+            "all":false,
+            "vk": false,
+            "facebook": true,
+            "twitter": true,
+            "google": true,
+            "weibo": true
+        }
+
+    }
+}

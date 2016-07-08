@@ -56,6 +56,8 @@ console.log(example.addX(1)); // 6
 module.exports = function () {
   console.log("hello world")
 }
+//如何module.exports还有其他子对象，将会给覆盖，不建议这样使用。
+
 
 //另一个文件
 require('./example2.js')()
