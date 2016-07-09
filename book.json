@@ -7,18 +7,45 @@
     "title":"前端开发笔记",
     "description":"mU",
 
-    "collapsible_menu":true,
+    "collapsible_menu":false,
     "level_number":false,
+
     "links": {
-        "gitbook": false,
+        "sidebar":{
+            "既见君子，云胡不喜":"https://github.com/Niefee"
+        },
+        "gitbook": false
+    },
+    "plugins":[
+        "editlink",
+        "sitemap",
+        "sharing",
+        "toggle-chapters",
+        "splitter"
+    ],
+    "pluginsConfig":{
+        "search-pro": {
+            "cutWordLib": "nodejieba",
+            "defineWord" : ["Gitbook Use"]
+        },
+        "editlink": {
+            "base": "https://github.com/Niefee/My-study-records/tree/master",
+            "label": "编辑本页"
+        },
+        "sitemap":{
+            "hostname":"https://github.com/Niefee/My-study-records"
+        },
         "sharing": {
-            "all":false,
-            "vk": false,
+            "weibo": true,
             "facebook": true,
             "twitter": true,
-            "google": true,
-            "weibo": true
+            "google": false,
+            "instapaper": false,
+            "vk": false,
+            "all": [
+                "facebook", "google", "twitter",
+                    "weibo", "instapaper"
+            ]
         }
-
     }
 }
