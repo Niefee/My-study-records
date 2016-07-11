@@ -199,9 +199,26 @@ style={{opacity: this.state.opacity}}
 
 >http://www.ruanyifeng.com/blog/2015/03/react.html
 
-(待续...)
+##State 和 Props
 
+可以声明 prop 为指定的 JS 基本数据类型，默认情况，这些数据是可选的:
 
+ - optionalArray: React.PropTypes.array,
+ - optionalBool: React.PropTypes.bool,
+ - optionalFunc: React.PropTypes.func,
+ - optionalNumber: React.PropTypes.number,
+ - optionalObject: React.PropTypes.object,
+ - optionalString: React.PropTypes.string,
+
+###React 组件 API
+
+ - 设置状态：**setState**
+ - 替换状态：**replaceState**
+ - 设置属性：**setProps**
+ - 替换属性：**replaceProps**
+ - 强制更新：**forceUpdate**
+ - 获取DOM节点：**getDOMNode**
+ - 判断组件挂载状态：**isMounted**
 
 
 
