@@ -220,6 +220,33 @@ style={{opacity: this.state.opacity}}
  - 获取DOM节点：**getDOMNode**
  - 判断组件挂载状态：**isMounted**
 
+###ref
+
+`ref`可以绑定在`render()`输出的任何组件上，允许用户引用`render()`返回相应的支撑实例。
+
+```js
+var MyComponent = React.createClass({
+  handleClick: function() {
+    // 使用原生的 DOM API 获取焦点
+    this.refs.myInput.focus();
+  },
+  render: function() {
+    //  当组件插入到 DOM 后，ref 属性添加一个组件的引用于到 this.refs
+    return (
+      <div>
+        <input type="text" ref="myInput" />
+        <input
+          type="button"
+          value="点我输入框获取焦点"
+          onClick={this.handleClick}
+        />
+      </div>
+    );
+  }
+});
+```
+
+
 
 
 
