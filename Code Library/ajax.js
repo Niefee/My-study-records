@@ -17,6 +17,7 @@ function ajax(url, fnSucc, fnFaild)
 	oAjax.open('GET', url, true);
 	
 	
+	
 	//3.发送
 	oAjax.send();
 	
