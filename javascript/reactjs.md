@@ -1,30 +1,3 @@
-[TOC]
-
-##import与export
-
-**import**
-
-```js
-import * as _ from 'src/lodash';           // 引入外部文件所有对象
-import { each, map } from 'src/lodash';    // 引入外部文件部分对象
-import _ from 'src/lodash';                // 引入外部文件默认导出对象
-import _, { each, map } from 'src/lodash'; // 同时引入默认导出对象和部分对象
-import 'src/lodash';                       // 只加载外部文件，但啥都不引入
- 
-```
-
-**export**
-
-```js
-export let _ = function () {};           // 导出 _ 对象
-export function lodash () {};            // 导出 lodash 函数
-export default function (x) {return x};  // 导出匿名函数并设为默认导出对象
-export { _, lodash as default };         // 一次导出多个对象
-
-```
-
->链接：https://www.zhihu.com/question/27917401/answer/38709677
-
 
 ##reactj入门
 
@@ -57,6 +30,29 @@ ReactDOM.render(
   document.getElementById('example')
 );
 ```
+
+**React.Component**生成一个组件类
+
+```
+import React from 'react';
+
+class Contacts extends React.Component {  
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div></div>
+    );
+  }
+}
+
+export default Contacts;  
+
+```
+
+>这是ES6的方法。
+>http://www.peachis.me/react-createclass-versus-extends-react-component/
 
 >组件类的第一个字母必须大写，否则会报错。
 

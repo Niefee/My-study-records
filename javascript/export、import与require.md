@@ -1,6 +1,27 @@
 [TOC]
 
 ##export
+
+
+```js
+export { name1, name2, …, nameN };
+export { variable1 as name1, variable2 as name2, …, nameN };
+export let name1, name2, …, nameN; // 也可以是 var
+export let name1 = …, name2 = …, …, nameN; // 也可以是 var, const
+
+export default expression;
+export default function (…) { … } // 也可以是 class, function*
+export default function name1(…) { … } // 也可以是 class, function*
+export { name1 as default, … };
+
+export * from …;
+export { name1, name2, …, nameN } from …;
+export { import1 as name1, import2 as name2, …, nameN } from …;
+
+```
+
+>http://itbilu.com/javascript/js/Vk5VXbYTe.html
+
 两种导出方式
 
 **命名导出**
@@ -62,6 +83,15 @@ console.log(myFunction(3)); // 27​​​​​
 
 ##import
 
+```js
+import * as _ from 'src/lodash';           // 引入外部文件所有对象
+import { each, map } from 'src/lodash';    // 引入外部文件部分对象
+import _ from 'src/lodash';                // 引入外部文件默认导出对象
+import _, { each, map } from 'src/lodash'; // 同时引入默认导出对象和部分对象
+import 'src/lodash';                       // 只加载外部文件，但啥都不引入
+ 
+```
+
 导入整个模块的内容。以下代码将myModule添加到当前作用域，其中包括所有导出绑定。
 
 ```js
@@ -77,7 +107,9 @@ import myModule from "my-module.js";
 
     import myDefault, {foo, bar} from "my-module.js"
     //即my-module.js中的代码为：
-    ...;export foo;export bar;export default myDefault;）
+    ...;export foo;export bar;export default myDefault;
+
+
 
     //导入成员并指定一个方便的别名。
     import {reallyReallyLongModuleMemberName as shortName} from "my-module.js";
