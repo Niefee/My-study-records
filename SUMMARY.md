@@ -21,7 +21,7 @@
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
 * [CSS](CSS/Directory.md)
-* [tool]
+* [tool]()
     - [typings](tool/typings.md)
 * [2015](2014)
     * [8](2015/8)
