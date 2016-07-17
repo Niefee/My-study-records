@@ -87,6 +87,8 @@ $ npm install sax@0.1.1
 
  - **–save**：模块名将被添加到dependencies，可以简化为参数-S。
  - **–save-dev**: 模块名将被添加到devDependencies，可以简化为参数-D。
+ - **-save-optionsl**:安装包信息将加入到optionalDependencies（可选阶段的依赖）,简写-O。
+ - **-save-exact**精确安装指定模块版本。
 
 
 一旦安装了某个模块，就可以在代码中用**require**命令调用这个模块。
@@ -114,6 +116,20 @@ $ npm uninstall [package name]
 >http://javascript.ruanyifeng.com/nodejs/npm.html
 
 
+###npm outdated 
+
+`npm outdated`检查模块是否过期。
+
+###npm cache
+
+`npm cache`管理模块的缓存
+
+    //查看缓存
+    npm cache ls [<path></path>]
+    
+
+    //清理缓存
+    npm cache clean [<path></path>]</version></name></tarball></folder></tarball>
 
 
 
