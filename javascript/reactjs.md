@@ -242,8 +242,59 @@ var MyComponent = React.createClass({
 });
 ```
 
+##遍历循环
+
+###循环子节点
+
+```
+const  NotesList = React.createClass({
+  render: function() {
+    return (
+      <ol>
+      {
+        React.Children.map(this.props.children, function (child) {
+          return <li>{child}</li>;
+        })
+      }
+      </ol>
+    );
+  }
+});
+```
 
 
+```
+ReactDOM.render(
+  <NotesList>
+    <span>hello</span>
+    <span>world</span>
+  </NotesList>,
+  document.body
+);
+```
 
+上面代码的 NoteList 组件有两个 span 子节点，它们都可以通过 this.props.children 读取。
 
+###循环json数据
 
+```
+const List=React.createClass({
+    render:function() {
+        return (
+            <ul>
+            {
+                React.Children.map(this.props.ld, function (ls) {
+                    return <li>{ls}</li>;
+                })
+            }
+            </ul>
+        )
+    }
+});
+```
+
+```js
+var name=["ane","INdo","dfoH"];
+```
+
+会以列表展开数据。
