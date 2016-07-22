@@ -106,3 +106,43 @@ $ webpack-dev-server --progress --colors
 ```
 
 >资料参考：http://zhaoda.net/webpack-handbook/index.html
+
+##webpack压缩
+
+ - 使用插插件`uglify`
+
+```js
+var webpack=require('webpack');
+
+new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false,  // remove all comments
+      },
+      compress: {
+        warnings: false
+      }
+    })
+
+```
+
+ - 将React切换到产品环境
+
+```js
+   new webpack.DefinePlugin({
+      'process.env': {
+          //产品环境下，不会进行错误检测
+          NODE_ENV: JSON.stringify("production")
+      },
+    }),
+```
+
+##手机访问
+
+```js
+devServer{
+  //使用webpack构建必须加上这行其他设备才可以访问。
+  host:'0.0.0.0'
+}
+```
+
+然后通过本地**服务器地址**加上**端口**访问电脑文件。
