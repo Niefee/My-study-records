@@ -17,6 +17,8 @@
 * [Nodejs](Nodejs/Directory.md)
     * [模块](Nodejs/模块.md)
     * [HTTP服务器](Nodejs/HTTP服务器.md)
+* [ECMAScript](ECMAScript/Directory.md)
+    * [字符串](ECMAScript/字符串.md) 
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
 * [CSS](CSS/Directory.md)
