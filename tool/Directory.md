@@ -2,3 +2,4 @@
 1. [typings](tool/typings.md)
 2. [reactjs](tool/reactjs.md)
 3. [reactRouter](tool/reactRouter.md)
+4. [atom](tool/atom.md)

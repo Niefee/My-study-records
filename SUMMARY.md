@@ -26,6 +26,7 @@
     - [typings](tool/typings.md)
     - [reactjs](tool/reactjs.md)
     - [reactRouter](tool/reactRouter.md)
+    - [atom](tool/atom.md)
 * [2015](2015)
     * [8](2015/8)
         - [2015年8月31日](2015/8/2015年8月31日.markdown)
