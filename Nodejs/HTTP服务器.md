@@ -32,6 +32,7 @@ server.listen(1337, '127.0.0.1');
 
 `ajax`请求：
 
+
 ```js
         function ajaxload(){
         var result = document.getElementById('result');
@@ -50,8 +51,7 @@ server.listen(1337, '127.0.0.1');
         }
 ```
 
-
-路由转换
+##路由转换
 
 ```js
 var http = require('http');
@@ -70,7 +70,7 @@ var server = http.createServer(function (req, res) {
         res.writeHead(404);
         res.end('Resource Not Found');
     }
-    
+
 });
 server.listen(1337, '127.0.0.1');
 ```
@@ -89,16 +89,3 @@ server.listen(1337, '127.0.0.1');
 >lsof -i:80
 
 查看某端口占用情况，i参数表示网络链接，:80指明端口号，该命令会同时列出PID，方便kill
-
-
-
-
-
-
-
-
-
-
-
-
-

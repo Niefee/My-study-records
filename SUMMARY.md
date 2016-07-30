@@ -17,6 +17,7 @@
 * [Nodejs](Nodejs/Directory.md)
     * [模块](Nodejs/模块.md)
     * [HTTP服务器](Nodejs/HTTP服务器.md)
+    * [基础笔记](基础笔记.md)
 * [ECMAScript](ECMAScript/Directory.md)
     * [字符串](ECMAScript/字符串.md)
     * [正则表达式](正则表达式.md)
@@ -45,4 +46,3 @@
         * [2015年9月11日](2015/9/2015年9月11日.markdown)
         * [2015年9月12日](2015/9/2015年9月12日.markdown)
         * [2015年9月13日](2015/9/2015年9月13日.markdown)
-
