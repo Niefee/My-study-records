@@ -19,6 +19,7 @@
     * [HTTP服务器](Nodejs/HTTP服务器.md)
     * [基础笔记](Nodejs/基础笔记.md)
     * [EventEmitter](Nodejs/EventEmitter.md)
+    * [Buffer](Nodejs/buffer.md)
 * [ECMAScript](ECMAScript/Directory.md)
     * [字符串](ECMAScript/字符串.md)
     * [正则表达式](正则表达式.md)
