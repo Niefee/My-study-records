@@ -13,7 +13,7 @@ fs.exists(fileAd, function(isExists){
 			}else{
 				console.log("fs.writeFile()新建成功。");
 			}
-		})
+		});
 	}else{
 		fs.appendFile(fileAd, "\r<!-- 删除此段内容，继续添加笔记。 -->", "utf8", function(err){
 			if (err) {
