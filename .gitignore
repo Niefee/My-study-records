@@ -13,3 +13,4 @@
 #忽略自动生成的HTML文件目录
 
 /_book/
+/node_modules/

@@ -21,7 +21,8 @@
         "sitemap",
         "sharing",
         "toggle-chapters",
-        "splitter"
+        "splitter",
+        "advanced-emoji"
     ],
     "pluginsConfig":{
         "search-pro": {
