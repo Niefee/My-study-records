@@ -25,10 +25,42 @@ var server = http.createServer(function (req, res) {
 });
 server.listen(1337, '127.0.0.1');
 ```
+```js
+//本地服务器
+var http=require('http');
+var url=require('url');
+var fs=require('fs');
+http.createServer(function(req,res){
+    var urlObj=url.parse(req.url);
+    var pathname=urlObj.pathname;
+    var query=urlObj.query;
+
+    if(pathname==='/'){
+        readFileAndResponse('index.html',res);
+    }else if(pathname === '/ajax'){
+        res.end('"msg":"this is is json response"');
+    }else{
+        readFileAndResponse(pathname,res);
+    }
+}).listen(8080);
+
+function readFileAndResponse(pathname,response){
+    fs.readFile(pathname.substr(1),'utf-8',function(err,data){
+        if (err) {
+            response.writeHead(404);
+            response.end('file not found');
+        }else{
+            response.end(data);
+        }
+
+    });
+}
+
+```
 
 `fs`是NodeJS提供的标准库，封装了各类文件处理操作。
 `fs.readFileSync`就是将文件内容读取出来，返回一个字符串。
-`__dirname是NodeJS`内置的变量，表明当前脚本（也就是hello.js）所在的文件夹位置。
+`__dirname`是NodeJS内置的变量，表明当前脚本（也就是hello.js）所在的文件夹位置。
 
 `ajax`请求：
 

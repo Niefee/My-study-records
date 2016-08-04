@@ -7,7 +7,7 @@
 **ReactDOM.render**是**React**的最基本方法，用于将模板转为 **HTML** 语言，并插入指定的 DOM 节点。
 
 
-```
+```js
 ReactDOM.render(
   <h1>Hello, world!</h1>,
   document.getElementById('example')
@@ -18,7 +18,7 @@ ReactDOM.render(
 
 **React.createClass**方法就用于生成一个组件类。
 
-```
+```js
 var HelloMessage = React.createClass({
   render: function() {
     return <h1>Hello {this.props.name}</h1>;
@@ -33,7 +33,7 @@ ReactDOM.render(
 
 **React.Component**生成一个组件类
 
-```
+```js
 import React from 'react';
 
 class Contacts extends React.Component {  
@@ -65,7 +65,7 @@ export default Contacts;
 
 **this.state**
 
-```
+```js
 var LikeButton = React.createClass({
   getInitialState: function() {
     return {liked: false};
@@ -100,7 +100,7 @@ ReactDOM.render(
 
 **表单**
 
-``` 
+```js
 var Input = React.createClass({
   getInitialState: function() {
     return {value: 'Hello!'};
@@ -122,7 +122,7 @@ var Input = React.createClass({
 ReactDOM.render(<Input/>, document.body);
 ```
 
-`this.props.value`不能读取文本框输入的内容，但可以通过`event.target.value`读取。 
+`this.props.value`不能读取文本框输入的内容，但可以通过`event.target.value`读取。
 
 
 **组件生命周期**
@@ -142,7 +142,7 @@ ReactDOM.render(<Input/>, document.body);
  - componentWillUnmount()
 
 
-```
+```js
 var Hello = React.createClass({
   getInitialState: function () {
     return {
@@ -176,14 +176,14 @@ ReactDOM.render(
   <Hello name="world"/>,
   document.body
 );
- 
+
 ```
 
 `hello`组件加载后，通过`componentDidMount`方法设置一个定时器，从而引发重新渲染。
 
 组件属性值应该写成：
 
-```
+```js
 style={{opacity: this.state.opacity}}
 ```
 
@@ -246,7 +246,7 @@ var MyComponent = React.createClass({
 
 ###循环子节点
 
-```
+```js
 const  NotesList = React.createClass({
   render: function() {
     return (
@@ -263,7 +263,7 @@ const  NotesList = React.createClass({
 ```
 
 
-```
+```js
 ReactDOM.render(
   <NotesList>
     <span>hello</span>
@@ -277,7 +277,7 @@ ReactDOM.render(
 
 ###循环json数据
 
-```
+```js
 const List=React.createClass({
     render:function() {
         return (
