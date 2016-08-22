@@ -23,30 +23,30 @@ typings install dt~lodash --global
 ##typings基本语法
 
 ```nodejs
-# 安装Typings的命令行代码. 
+# 安装Typings的命令行代码.
 npm install typings --global
 
-# 搜索对应模块的typings定义. 
+# 搜索对应模块的typings定义.
 typings search tape
 
-# 根据名称寻找一个可获得的typings定义. 
+# 根据名称寻找一个可获得的typings定义.
 typings search --name react
 
-# 如果你用一个独立包的模块: 
+# 如果你用一个独立包的模块:
 # 或者并不是安装全局模块
-# 比如并不是在命令行通过输入npm install -g typings这种方式安装的. 
+# 比如并不是在命令行通过输入npm install -g typings这种方式安装的.
 typings install debug --save
 
 # 如果是通过script标记
 # 或者是子环境的一部分
-# 或者全局typings命令不可用的时候： 
+# 或者全局typings命令不可用的时候：
 typings install dt~mocha --global --save
 
-# 从其他版本处安装typings定义(比如env或者npm). 
+# 从其他版本处安装typings定义(比如env或者npm).
 typings install env~atom --global --save
 typings install npm~bluebird --save
 
-# 使用该文件`typings/index.d.ts` (在`tsconfig.json`文件使用或者用 `///` 定义). 
+# 使用该文件`typings/index.d.ts` (在`tsconfig.json`文件使用或者用 `///` 定义).
 cat typings/index.d.ts
 ```
 

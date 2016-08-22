@@ -1,4 +1,4 @@
-[TOC]
+#JavaScript ES6模块加载
 
 ##export
 
@@ -89,7 +89,7 @@ import { each, map } from 'src/lodash';    // 引入外部文件部分对象
 import _ from 'src/lodash';                // 引入外部文件默认导出对象
 import _, { each, map } from 'src/lodash'; // 同时引入默认导出对象和部分对象
 import 'src/lodash';                       // 只加载外部文件，但啥都不引入
- 
+
 ```
 
 导入整个模块的内容。以下代码将myModule添加到当前作用域，其中包括所有导出绑定。
@@ -117,10 +117,3 @@ import myModule from "my-module.js";
 ```
 
 >https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import
-
-
-
-
-
-
-

@@ -5,3 +5,4 @@
 4. [EventEmitter](EventEmitter.md)
 5. [Buffer](buffer.md)
 6. [Stream](Stream.md)
+7. [module](module.md)
