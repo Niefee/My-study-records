@@ -28,7 +28,7 @@
 
  - string - 写入缓冲区的字符串。
 
- - offset - 缓冲区开始写入的索引值，默认为 0 。
+ - offset - 缓冲区开始写入的索引值，默认为 0。
 
  - length - 写入的字节数，默认为 buffer.length
 
@@ -93,11 +93,11 @@ console.log(json);
 
  - targetBuffer - 要拷贝的 Buffer 对象。
 
- - targetStart - 数字, 可选, 默认: 0
+ - targetStart - 数字,写入的Buffer对象的开始位置, 可选, 默认: 0
 
- - sourceStart - 数字, 可选, 默认: 0
+ - sourceStart - 数字,拷贝Buffer对象的开始位置 可选, 默认: 0
 
- - sourceEnd - 数字, 可选, 默认: buffer.length
+ - sourceEnd - 数字, 拷贝Buffer对象的结束位置，Â可选, 默认: buffer.length
 
 ```js
 var buffer1 = new Buffer('ABC');
@@ -129,3 +129,43 @@ console.log("buffer2 content: " + buffer2.toString());
 ###缓冲区长度
 
     buf.length
+
+###静态方法
+
+ - Buffer.isEncoding(encoding)
+
+判断是否支持这个编码方式。
+
+
+ - Buffer.isBuffer(obj)
+
+测试这个 `obj` 是否是一个 `Buffer`。
+
+ - Buffer.byteLength(string, [encoding])
+
+将会返回这个字符串真实byte长度。
+
+```js
+var str='heoo林喔';
+console.log(Buffer.byteLength(str));
+console.log(Buffer.byteLength(str,'utf-8'));
+console.log(Buffer.byteLength(str,'ascii'));
+console.log(Buffer.byteLength(str,'base64'));
+
+//结果
+10
+10
+6
+4
+```
+不同的编码方式，字节长度会不一样。
+
+ - Buffer.concat(list, [totalLength])
+
+```js
+var str1 = 'miaov';
+var str2 = '妙味';
+
+var list = [new Buffer(str1), new Buffer(str2)];
+console.log(list);
+```
