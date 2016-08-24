@@ -43,7 +43,9 @@ console.log("写入字节数 : "+  len);
 
 ###读取
 
-    buf.toString([encoding[, start[, end]]])
+####buf.toString([encoding[, start[, end]]])
+
+把`Buffer`的编码转换成字符。
 
  - encoding - 使用的编码。默认为 'utf8' 。
 
@@ -64,6 +66,38 @@ console.log( buf.toString('ascii',0,5));   // 输出: abcde
 console.log( buf.toString('utf8',0,5));    // 输出: abcde
 console.log( buf.toString(undefined,0,5)); // 使用 'utf8' 编码, 并输出: abcde
 
+```
+
+####String.fromCharCode()
+
+字符串静态方法， 把 `Unicode` 值转化成字符。
+
+```js
+var bf = new Buffer('miaov', 'utf-8');
+console.log(bf);
+
+for (var i=0; i<bf.length; i++) {
+    //console.log( bf[i].toString(16) );
+
+    console.log( String.fromCharCode( bf[i] ) );
+}
+
+//结果
+<Buffer 6d 69 61 6f 76>
+m
+i
+a
+o
+v
+```
+####stringObject.charCodeAt(index)
+
+把字符转化成`Unicode`值。
+
+```js
+var str="Hello world!"
+document.write(str.charCodeAt(1))
+//101
 ```
 
 ###将 Buffer 转换为 JSON 对象
