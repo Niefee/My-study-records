@@ -19,7 +19,7 @@
     * [HTTP服务器](Nodejs/HTTP服务器.md)
     * [基础笔记](Nodejs/基础笔记.md)
     * [EventEmitter](Nodejs/EventEmitter.md)
-    * [Buffer](Nodejs/buffer.md)
+    * [Buffer](Nodejs/Buffer.md)
     * [Stream](Nodejs/Stream.md)
     * [module](Nodejs/module.md)
     * [FileSystem](Nodejs/FileSystem.md)
