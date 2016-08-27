@@ -54,3 +54,42 @@ fs.open('1.txt', 'r', function(err, fd) {
 });
 
 ```
+##fs.write(fd, buffer, offset, length[, position], callback)
+
+ * fs.write(fd, buffer, offset, length[, position], callback)
+ *   fd : 打开的文件
+ *   buffer : 要写入的数据
+ *   offset : buffer对象中要写入的数据的起始位置
+ *   length : 要写入的buffer数据的长度
+ *   position : fd中的起始位置
+ *   callback : 回调
+     * err:错误信息，没有就显示`null`
+     * written:表明传入的`string`需要写入的字符串的字节长度
+     * string:表明传入的字符串
+
+```js
+fs.write( fd, bf, 0, 3, 5, function() {
+            console.log(arguments);
+        } )
+```
+
+另一种写法：
+
+**fs.write(fd, data[, position[, encoding]], callback)**
+
+```js
+fs.write(fd, '1234aqws你好', 0, 'utf-8', function(err, written, string) {
+            console.log("ok");
+            console.log(err);
+            console.log(written);
+            console.log(string);
+});
+```
+
+操作结束后，要关闭打开的文件。
+
+```js
+fs.close(fd, function() {
+
+});
+```
