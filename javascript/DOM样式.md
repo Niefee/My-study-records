@@ -20,7 +20,7 @@
 
 >这个方法接受两个参数,如果不需要伪元素信息，第二个参数可以是null。
 
- - element.currentStyle 
+ - element.currentStyle
 
 IE 专用，返回的是元素当前应用的最终CSS属性值。
 
@@ -42,7 +42,7 @@ IE 专用，返回的是元素当前应用的最终CSS属性值。
 与getPropertyValue类似，有一点的差异是属性名驼峰格式。
 
     var test = document.getElementById('test');
-    window.getComputedStyle(test, null).getAttribute("backgroundColor"); 
+    window.getComputedStyle(test, null).getAttribute("backgroundColor");
     //test.getAttribute("style");
 
 >只能获取标签`< style>< /style>`内的属性值,也可以直接使用`ele.getAttribute()`获取标签属性值。
@@ -62,3 +62,5 @@ IE 专用，返回的是元素当前应用的最终CSS属性值。
 假如是内联样式，通过`getAttribute('style')`是可以获得的，但只能获取到内联样式部分属性，通过外部样式表或者内嵌样式都是无法获得的，返回值是字符串。
 
 
+>[html特殊字符的html，js，css写法汇总
+](http://www.cnblogs.com/mengfff/p/5035781.html)
