@@ -30,11 +30,11 @@ $ npm config list -l
 
     $ npm init -y
 
-###npm set 
+###npm set
 
 设置环境变量
 
-``` 
+```
 $ npm set init-author-name 'Your name'
 $ npm set init-author-email 'Your email'
 $ npm set init-author-url 'http://yourdomain.com'
@@ -51,7 +51,7 @@ $ npm set init-license 'MIT'
 
 `npm search`命令用于搜索npm仓库，它后面可以跟字符串，也可以跟正则表达式。
 
-###npm list 
+###npm list
 
 `npm list`命令以树型结构列出当前项目安装的所有模块，以及它们依赖的模块。
 
@@ -78,7 +78,7 @@ npm list命令也可以列出单个模块。
 
 指定安装版本：
 
-``` 
+```
 $ npm install sax@latest
 $ npm install sax@0.1.1
 ```
@@ -88,7 +88,7 @@ $ npm install sax@0.1.1
  - **–save**：模块名将被添加到dependencies，可以简化为参数-S。
  - **–save-dev**: 模块名将被添加到devDependencies，可以简化为参数-D。
  - **-save-optionsl**:安装包信息将加入到optionalDependencies（可选阶段的依赖）,简写-O。
- - **-save-exact**精确安装指定模块版本。
+ - **-save-exact**:精确安装指定模块版本。
 
 
 一旦安装了某个模块，就可以在代码中用**require**命令调用这个模块。
@@ -98,7 +98,7 @@ $ npm install sax@0.1.1
     console.log(backbone.VERSION)
 
 
-###npm update\npm uninstall
+###npm update npm uninstall
 
 ```
 # 升级当前项目的指定模块
@@ -116,7 +116,7 @@ $ npm uninstall [package name]
 >http://javascript.ruanyifeng.com/nodejs/npm.html
 
 
-###npm outdated 
+###npm outdated
 
 `npm outdated`检查模块是否过期。
 
@@ -126,23 +126,7 @@ $ npm uninstall [package name]
 
     //查看缓存
     npm cache ls [<path></path>]
-    
+
 
     //清理缓存
     npm cache clean [<path></path>]</version></name></tarball></folder></tarball>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
