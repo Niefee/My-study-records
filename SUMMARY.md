@@ -35,6 +35,7 @@
     - [reactjs](tool/reactjs.md)
     - [reactRouter](tool/reactRouter.md)
     - [atom](tool/atom.md)
+    - [正则表达式](tool/正则表达式.md)
 * [2015](2015)
     * [8](2015/8)
         * [2015年8月31日](2015/8/2015年8月31日.markdown)
