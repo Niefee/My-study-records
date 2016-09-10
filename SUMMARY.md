@@ -14,6 +14,7 @@
     * [CommonJS](javascript/CommonJS.md)
     * [npm](javascript/npm.md)
     * [export、import与require](javascript/export、import与require.md)
+    * [Ajax](javascript/Ajax.md)
 * [Nodejs](Nodejs/Directory.md)
     * [模块](Nodejs/模块.md)
     * [HTTP服务器](Nodejs/HTTP服务器.md)
