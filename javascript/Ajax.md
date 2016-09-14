@@ -85,3 +85,43 @@ try {
 }
 console.log('结束了。。。')
 ```
+
+###JSONP
+
+**跨域**：跨域名
+
+一个域名下的文件去请求了和他不一样的域名下的资源文件，那么就会产生跨域请求
+
+这是浏览器的一个安全策略。
+
+但可以通过后端请求，解决这个问题。`PHP`、`Nodejs`等不受限制。
+
+首先在js文件创建一个函数`fn()`,然后后端返回一个包含参数的执行函数，函数就会自动运行。
+
+
+```js
+//Js文件
+<script>
+    function fn(data) {
+        console.log(data)
+    }
+</script>
+<script src="2.js"></script>
+
+
+//后端返回，以PHP为例
+
+$arr1 = array('111111','22222222','33333333','4444444','555555555555555555555');
+echo 'fn('.json_encode($arr1).')'
+
+```
+
+为防止页面加载就运行，可以使用动态添加`script`标签，然后才会运行。
+
+```js
+oBtn1.onclick = function() {
+	var oScript = document.createElement('script');
+	oScript.src = 'getData.php';
+	document.body.appendChild(oScript);
+}
+```
