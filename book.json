@@ -1,7 +1,7 @@
 {
     "variables": {
         "title": "前端开发笔记",
-        "theme": "theme-green",
+        /*"theme": "theme-green",*/
         "copyright": "Copyright 2015-2016 niefee/胡"
     },
     "title":"前端开发笔记",
