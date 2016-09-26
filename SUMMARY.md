@@ -29,6 +29,7 @@
     * [字符串](ECMAScript/字符串.md)
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
+    * [SVG](HTML5/SVG.md)
 * [CSS](CSS/Directory.md)
 * [tool](tool/Directory.md)
     - [typings](tool/typings.md)
