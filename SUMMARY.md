@@ -15,6 +15,7 @@
     * [npm](javascript/npm.md)
     * [export、import与require](javascript/export、import与require.md)
     * [Ajax](javascript/Ajax.md)
+    * [Object对象](javascript/Object对象.md)
 * [Nodejs](Nodejs/Directory.md)
     * [模块](Nodejs/模块.md)
     * [HTTP服务器](Nodejs/HTTP服务器.md)

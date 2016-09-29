@@ -12,3 +12,4 @@
 11. [npm](npm.md)
 12. [export、import与require](export、import与require.md)
 13. [Ajax](Ajax.md)
+14. [Object对象](Object对象.md)
