@@ -1,3 +1,5 @@
+#SVG
+
 ##创建形状
 
 基本图形
@@ -60,3 +62,98 @@
 ```
 
 `image`的`x`、`y`值以左上角为坐标。
+
+- polyline
+
+绘制折线的标签。
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+     <polyline points="50 50 200 300 230 300 250 200" fill="none" stroke="black" stroke-width="5"></polyline>
+</svg>
+```
+每两个数字确定一个坐标点。
+
+ - polygon
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <polygon points="50,50,200,300,230,300,250,200" fill="none" stroke="black" stroke-width="5"></polygon>
+</svg>
+```
+
+绘制多边形，会自动闭合，每两个数字确定一个坐标点。
+
+ - path
+
+这是最基础的的一个标签，其他标签可以基于这个标签创建。
+
+**d ：属性**
+
+ 1. M、L、Z
+
+`M`代表线条的开始，`L`代表线条或者折线的下一个点，`Z`代表连接到第一个点自动闭合。
+
+```html
+ <path d="M50 100L200 200L100 100ZM300 100L300 300" stroke="black" stroke-width="5" fill="none"></path>
+```
+
+ 2. H、V
+
+水平绘制、垂直绘制，值代表坐标。
+
+
+```html
+<path d="M50 100H200V200" stroke="black" stroke-width="5" fill="none"></path>
+```
+
+如果是小写的`h`、`v`，代表长度。
+
+ 3. C、A、Q、T
+
+贝赛尔曲线的坐标。
+
+ 4. A命令
+
+X半径、Y半径
+
+角度、弧长（0:小弧 ;1 大弧）
+
+方向（0:逆时针;1:顺时针 ）
+
+终点坐标X坐标、终点坐标Y坐标
+
+```html
+<path d="M150 150A100 100 0 0 1 250 150L225 175A50 50 0 0 0 175 175Z" stroke="black" stroke-width="5" fill="none"></path>
+```
+
+ - animate
+
+`SVG`运动标签
+
+```html
+<rect width="50" height="200" x="100" y="100" fill="red">
+     <animate attributeName="width" dur="1" from="50" to="200"></animate>
+</rect>
+```
+
+
+
+##创建元素
+
+```js
+//设置命名空间
+var svgNS = 'http://www.w3.org/2000/svg';
+//父元素
+var oParent = document.getElementById('div1');
+//创建元素
+var oSvg = document.createElementNS(svgNS , 'svg');
+
+oSvg.setAttribute('xmlns',svgNS);
+oSvg.setAttribute('width','100%');
+oSvg.setAttribute('height','100%');
+
+oParent.appendChild( oSvg );
+```
+
+设置命名空间，是为了避免与`html`产生命名污染。
