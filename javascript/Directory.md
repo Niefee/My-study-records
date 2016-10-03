@@ -13,3 +13,4 @@
 12. [export、import与require](export、import与require.md)
 13. [Ajax](Ajax.md)
 14. [Object对象](Object对象.md)
+15. [标准对象](标准对象.md)

@@ -1,8 +1,9 @@
 
-##reactj入门
+## reactj入门
+
 
 **JSX语言**允许**HTML**与**JavaScript**混写。
-遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 \{ 开头），就用 JavaScript 规则解析。
+遇到 HTML 标签（以 `<` 开头），就用 HTML 规则解析；遇到代码块（以 `{ `开头），就用 JavaScript 规则解析。
 
 **ReactDOM.render**是**React**的最基本方法，用于将模板转为 **HTML** 语言，并插入指定的 DOM 节点。
 
