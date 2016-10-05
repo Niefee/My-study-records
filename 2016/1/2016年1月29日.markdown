@@ -14,7 +14,7 @@ json的四个基本原则
 
 JavaScript 程序能够使用内建的 **eval()** 函数，用 JSON 数据来生成原生的 JavaScript 对象。
 
-**eval()**函数接收一个参数s，如果s不是字符串，则直接返回s。否则执行s语句。如果s语句执行结果是一个值，则返回此值，否则返回**undefined**。 
+**eval()**函数接收一个参数s，如果s不是字符串，则直接返回s。否则执行s语句。如果s语句执行结果是一个值，则返回此值，否则返回**undefined**。
 
 如果参数中没有合法的表达式和语句，则抛出** SyntaxError** 异常。
 如果非法调用** val()**，则抛出 **EvalError**异常。
@@ -27,16 +27,16 @@ JavaScript 程序能够使用内建的 **eval()** 函数，用 JSON 数据来生
 JSON.parse(text [, reviver])
 
 例子：
-var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}'; 
-var contact = JSON.parse(jsontext); 
-document.write(contact.surname + ", " + contact.firstname); 
+var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}';
+var contact = JSON.parse(jsontext);
+document.write(contact.surname + ", " + contact.firstname);
 ```
 
 **JSON.stringify() **
 
 JSON.stringify()方法可以将任意的 JavaScript 值序列化成 JSON 字符串。
 
-```json 
+```json
 var foo = {};
 foo.bar = "new property";
 foo.baz = 3;
@@ -48,7 +48,7 @@ var jsonString = JSON.stringify(foo);
 
 创建XMLHttpRequest对象
 
-```js 
+```js
 var xmlhttp;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -63,7 +63,7 @@ else
 
 **Try{}catch(e){}**
 
-```js 
+```js
 基本语法：
 
 　try {
@@ -75,7 +75,7 @@ else
 　　}
 ```
 
-```js 
+```js
 　　try {
 　　　　document.writeln("开始执行try块语句 ---> ")
 　　　　document.writeln("还没有发生例外 ---> ")
@@ -105,7 +105,7 @@ else
 `throw 语句`允许我们创建自定义错误。
 正确的技术术语是：创建或抛出异常（exception）。
 
-```js 
+```js
 function myFunction()
 {
 try
