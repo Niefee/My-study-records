@@ -1,4 +1,4 @@
-##atom手动安装使用
+## atom手动安装使用
 
 1. 本地安装
 以activate-power-mode插件为例
