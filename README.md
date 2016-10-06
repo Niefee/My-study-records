@@ -5,5 +5,5 @@
 
 我有故事，你有酒吗？
 
->[在线电子书笔记](https://niefee.gitbooks.io/my-study-records/content/)
+>[在线电子书笔记](https://niefee.gitbooks.io/front-end-notes/content/)
 >>[Github地址](https://github.com/Niefee/My-study-records)
