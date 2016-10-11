@@ -130,3 +130,34 @@ $ npm uninstall [package name]
 
     //清理缓存
     npm cache clean [<path></path>]</version></name></tarball></folder></tarball>
+
+
+## npm 代理配置
+
+### (1)通过 config 配置指向国内镜像源
+
+```
+npm config set registry http://registry.cnpmjs.org //配置指向源
+npm info express  //下载安装第三方包
+```
+
+### (2)通过 npm 命令指定下载源
+
+```
+npm --registry http://registry.cnpmjs.org info express
+```
+
+### (3)在配置文件 ~/.npmrc 文件写入源地址
+
+```
+nano ~/.npmrc   //打开配置文件
+registry =https://registry.npm.taobao.org   //写入配置文件
+```
+
+>推荐最后一种方法，前两个都是临时的。
+
+### 全局安装新命令
+
+```
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
