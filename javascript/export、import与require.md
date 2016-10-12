@@ -13,11 +13,26 @@ export default expression;
 export default function (…) { … } // 也可以是 class, function*
 export default function name1(…) { … } // 也可以是 class, function*
 export { name1 as default, … };
+```
 
+导出一个模块中引入的的另外一些模块：
+```js
+//方法：
 export * from …;
 export { name1, name2, …, nameN } from …;
 export { import1 as name1, import2 as name2, …, nameN } from …;
 
+//例子：
+// module.js
+const PI = 3.14;
+const value = 42;
+export const table = {foo: 'bar'};
+export function hello() {};
+
+// main.js
+export * from './module';
+export {hello} from './module';
+export {hello as foo} from './module';
 ```
 
 >http://itbilu.com/javascript/js/Vk5VXbYTe.html
@@ -84,10 +99,12 @@ console.log(myFunction(3)); // 27​​​​​
 ##import
 
 ```js
-import * as _ from 'src/lodash';           // 引入外部文件所有对象
+import * as name from 'src/lodash';           // 引入外部文件所有对象
+//可以使用name.module引用导出的所有模块中的某个
+
 import { each, map } from 'src/lodash';    // 引入外部文件部分对象
-import _ from 'src/lodash';                // 引入外部文件默认导出对象
-import _, { each, map } from 'src/lodash'; // 同时引入默认导出对象和部分对象
+import name from 'src/lodash';                // 引入外部文件默认导出对象
+import name, { each, map } from 'src/lodash'; // 同时引入默认导出对象和部分对象
 import 'src/lodash';                       // 只加载外部文件，但啥都不引入
 
 ```
@@ -101,18 +118,18 @@ import myModule from "my-module.js";
 导出一个或者多个成员
 
 ```js
-    import {myMember} from "my-module.js";
-    import {foo, bar} from "my-module.js";
+import {myMember} from "my-module.js";
+import {foo, bar} from "my-module.js";
 
 
-    import myDefault, {foo, bar} from "my-module.js"
-    //即my-module.js中的代码为：
-    ...;export foo;export bar;export default myDefault;
+import myDefault, {foo, bar} from "my-module.js"
+//即my-module.js中的代码为：
+...;export foo;export bar;export default myDefault;
 
 
 
-    //导入成员并指定一个方便的别名。
-    import {reallyReallyLongModuleMemberName as shortName} from "my-module.js";
+//导入成员并指定一个方便的别名。
+import {reallyReallyLongModuleMemberName as shortName} from "my-module.js";
 
 ```
 
