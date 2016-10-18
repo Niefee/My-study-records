@@ -59,3 +59,57 @@ for(var [k,v] of str.entries()){
     console.log(k,v);
 }
 ```
+
+
+## 数据结构
+
+### set()
+
+```js
+"use strict"
+
+var set=new Set([1,2,2,3,4,5]);
+console.log(set);
+
+//Set { 1, 2, 3, 4, 5 }
+//去掉重复
+
+//console.log(set.size);
+//5
+```
+
+**方法**
+
+ - add()
+     - 添加内容
+ - delete()
+     - 删除
+ - has()
+     - 查找
+ - clear()
+     - 全部清除
+
+
+它是类数组，但成员值是唯一的。
+
+### map()
+
+```js
+var mm=new Map([["name","leo"],["age","40"]]);
+```
+
+**方法**
+
+ - set()
+     - 添加数值
+ - get()
+     - 访问数值
+ - has(key)
+ - delete()
+ - clear()
+
+### 转数组
+
+```js
+var arr=[...map];
+```
