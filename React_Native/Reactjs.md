@@ -179,7 +179,12 @@ ReactDOM.render(<Input/>, document.body);
 `onchange`事件对用于的输入做出反应。
 ### 组件生命周期
 
-略。
+组件的生命周期可分成三个状态：
+
+ - `Mounting`：已插入真实 DOM
+ - `Updating`：正在被重新渲染
+ - `Unmounting`：已移出真实 DOM
+
 
 ### Ajax
 
