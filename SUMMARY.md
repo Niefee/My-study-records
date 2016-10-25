@@ -45,7 +45,7 @@
     - [reactRouter](tool/reactRouter.md)
     - [atom](tool/atom.md)
     - [正则表达式](tool/正则表达式.md)
- * [MOOC](Directory.md)
+* [MOOC](Directory.md)
      - [数据结构](MOOC/数据结构.md)
 * [2016](2016/SUMMARY.md)
     * 1
