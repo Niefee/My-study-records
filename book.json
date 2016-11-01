@@ -21,7 +21,8 @@
         "toggle-chapters",
         "splitter",
         "advanced-emoji",
-        "theme-comscore"
+        "theme-comscore",
+        "search-pro"
     ],
     "pluginsConfig": {
         "editlink": {
