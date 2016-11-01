@@ -24,6 +24,21 @@ var xiaoming = {
 
 `hasOwnProperty()`可以判断一个属性是否自身拥有，而不是继承。
 
+>`Object.keys`方法和`Object.getOwnPropertyNames`方法都可以遍历对象自身的属性，返回数组，只是后者还返回不可枚举的属性。
+
+```js
+var o = {
+  p1: 123,
+  p2: 456
+};
+
+Object.keys(o)
+// ["p1", "p2"]
+
+Object.getOwnPropertyNames(o)
+// ["p1", "p2"]
+```
+
 ##this
 
 在函数内部定义的`this`，指向`window`;
