@@ -22,9 +22,14 @@
         "splitter",
         "advanced-emoji",
         "theme-comscore",
-        "search"
+        "-search",
+        "search-pro"
     ],
     "pluginsConfig": {
+        "search-pro": {
+        "cutWordLib": "nodejieba",
+        "defineWord" : ["Gitbook Use"]
+        },
         "editlink": {
             "base": "https://github.com/Niefee/My-study-records/tree/master",
             "label": "编辑本页"
