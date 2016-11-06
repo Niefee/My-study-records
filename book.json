@@ -22,8 +22,8 @@
         "splitter",
         "advanced-emoji",
         "theme-comscore",
-        "-search",
-         "-lunr",
+        "search",
+        "-lunr",
         "search-jieba"
     ],
     "pluginsConfig": {
