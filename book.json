@@ -21,7 +21,10 @@
         "toggle-chapters",
         "splitter",
         "advanced-emoji",
-        "theme-comscore"
+        "theme-comscore",
+        "-search",
+         "-lunr",
+        "search-jieba"
     ],
     "pluginsConfig": {
         "editlink": {
