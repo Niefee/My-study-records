@@ -22,7 +22,9 @@
         "splitter",
         "advanced-emoji",
         "theme-comscore",
-        "-search"
+        "-search",
+         "-lunr",
+        "search-jieba"
     ],
     "pluginsConfig": {
         "editlink": {
