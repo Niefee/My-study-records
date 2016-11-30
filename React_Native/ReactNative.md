@@ -41,10 +41,16 @@ var Video = React.createClass({
         };
     },
     propTypes: {
-        autoPlay: React.PropTypes.bool.isRequired,
-        maxLoops: React.PropTypes.number.isRequired,
+        autoPlay    : React.PropTypes.bool.isRequired,
+        maxLoops    : React.PropTypes.number.isRequired,
         posterFrameSrc: React.PropTypes.string.isRequired,
-        videoSrc: React.PropTypes.string.isRequired,
+        videoSrc    : React.PropTypes.string.isRequired,
+        width 		: React.PropTypes.number, 					// 宽度
+		height		: React.PropTypes.number.isRequired, 		// 高度，必须
+		images		: React.PropTypes.array,					// 图片数组
+		onPress		: React.PropTypes.func,						// 图片点击事件，回传图片下标
+		imageProps  : React.PropTypes.object,
+		renderPagination: React.PropTypes.func,
     },
     render: function() {
         return (
