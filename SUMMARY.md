@@ -36,6 +36,7 @@
 * [ECMAScript](ECMAScript/Directory.md)
     * [字符串](ECMAScript/字符串.md)
     * [ES6基础](ECMAScript/ES6基础.md)
+    * [let与const命令](ECMAScript/let与const命令.md)
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
     * [SVG](HTML5/SVG.md)
