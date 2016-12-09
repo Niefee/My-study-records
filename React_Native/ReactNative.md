@@ -1,3 +1,11 @@
+
+<!-- toc orderedList:0 -->
+
+- [Fetch()](#fetch)
+- [定义组件的属性类型和默认属性](#定义组件的属性类型和默认属性)
+- [state](#state)
+
+<!-- tocstop -->
 ## Fetch()
 
 ```js

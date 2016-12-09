@@ -1,3 +1,16 @@
+<!-- toc orderedList:0 -->
+
+- [ECMAScript](#ecmascript)
+	- [数组](#数组)
+		- [新方法](#新方法)
+		- [循环遍历](#循环遍历)
+	- [数据结构](#数据结构)
+		- [set()](#set)
+		- [map()](#map)
+		- [转数组](#转数组)
+
+<!-- tocstop -->
+
 # ECMAScript
 
 ## 数组
@@ -33,7 +46,7 @@ Array.of(3) // [3]
 Array.of(3).length // 1
 ```
 
-###循环遍历
+### 循环遍历
 
 ```js
 var str="muNi";
