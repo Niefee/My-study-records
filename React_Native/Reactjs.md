@@ -104,6 +104,18 @@ var MyTitle = React.createClass({
 
 `getDefaultProps`设置默认值。
 
+通用写法：
+
+```js
+static defaultProps = {
+       value: false,
+   };
+
+static propTypes = {
+   value:React.PropTypes.func,
+}
+```
+
 ### 获取真实的DOM节点
 
 组件的都是虚拟的 DOM ，是内存当中的一种数据结构。数据的变动先发生在虚拟 DOM 中，然后再反映在真实的DOM上。

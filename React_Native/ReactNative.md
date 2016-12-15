@@ -59,6 +59,7 @@ var Video = React.createClass({
 		onPress		: React.PropTypes.func,						// 图片点击事件，回传图片下标
 		imageProps  : React.PropTypes.object,
 		renderPagination: React.PropTypes.func,
+
     },
     render: function() {
         return (
@@ -80,6 +81,10 @@ class Video extends React.Component {
         maxLoops: React.PropTypes.number.isRequired,
         posterFrameSrc: React.PropTypes.string.isRequired,
         videoSrc: React.PropTypes.string.isRequired,
+
+        //这个属性的类型要求按照TextInput类型要求检查
+        InputFn: TextInput.propTypes.style,
+        
     };  // 注意这里有分号
     render() {
         return (
