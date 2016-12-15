@@ -3,8 +3,7 @@
 
 - [React Native](#react-native)
 	- [CSS样式属性](#css样式属性)
-		- [Text Valid style props](#text-valid-style-props)
-		- [View Valid keys](#view-valid-keys)
+		- [Text Valid style props与View style props](#text-valid-style-props与view-style-props)
 
 <!-- tocstop -->
 
@@ -12,171 +11,10 @@
 
 ## CSS样式属性
 
-### Text Valid style props
+### Text Valid style props与View style props
 
-```js
-Text Valid style props:[
-  "alignItems",
-  "alignSelf",
-  "backfaceVisibility",
-  "backgroundColor",
-  "borderBottomColor",
-  "borderBottomLeftRadius",
-  "borderBottomRightRadius",
-  "borderBottomWidth",
-  "borderColor",
-  "borderLeftColor",
-  "borderLeftWidth",
-  "borderRadius",
-  "borderRightColor",
-  "borderRightWidth",
-  "borderStyle",
-  "borderTopColor",
-  "borderTopLeftRadius",
-  "borderTopRightRadius",
-  "borderTopWidth",
-  "borderWidth",
-  "bottom",
-  "color",
-  "decomposedMatrix",
-  "elevation",
-  "flex",
-  "flexDirection",
-  "flexWrap",
-  "fontFamily",
-  "fontSize",
-  "fontStyle",
-  "fontWeight",
-  "height",
-  "justifyContent",
-  "left",
-  "letterSpacing",
-  "lineHeight",
-  "margin",
-  "marginBottom",
-  "marginHorizontal",
-  "marginLeft",
-  "marginRight",
-  "marginTop",
-  "marginVertical",
-  "maxHeight",
-  "maxWidth",
-  "minHeight",
-  "minWidth",
-  "opacity",
-  "overflow",
-  "overlayColor",
-  "padding",
-  "paddingBottom",
-  "paddingHorizontal",
-  "paddingLeft",
-  "paddingRight",
-  "paddingTop",
-  "paddingVertical",
-  "position",
-  "resizeMode",
-  "right",
-  "rotation",
-  "scaleX",
-  "scaleY",
-  "shadowColor",
-  "shadowOffset",
-  "shadowOpacity",
-  "shadowRadius",
-  "textAlign",
-  "textAlignVertical",
-  "textDecorationColor",
-  "textDecorationLine",
-  "textDecorationStyle",
-  "textShadowColor",
-  "textShadowOffset",
-  "textShadowRadius",
-  "tintColor",
-  "top",
-  "transform",
-  "transformMatrix",
-  "translateX",
-  "translateY",
-  "width",
-  "writingDirection",
-  "zIndex"
-]
-```
 
-### View Valid keys
-
-```js
-View Valid keys:[
-	"alignItems",
-	"alignSelf",
-	"backfaceVisibility",
-	"backgroundColor",
-	"borderBottomColor",
-	"borderBottomLeftRadius",
-	"borderBottomRightRadius",
-	"borderBottomWidth",
-	"borderColor",
-	"borderLeftColor",
-	"borderLeftWidth",
-	"borderRadius",
-	"borderRightColor",
-	"borderRightWidth",
-	"borderStyle",
-	"borderTopColor",
-	"borderTopLeftRadius",
-	"borderTopRightRadius",
-	"borderTopWidth",
-	"borderWidth",
-	"bottom",
-	"decomposedMatrix",
-	"elevation",
-	"flex",
-	"flexBasis",
-	"flexDirection",
-	"flexGrow",
-	"flexShrink",
-	"flexWrap",
-	"height",
-	"justifyContent",
-	"left",
-	"margin",
-	"marginBottom",
-	"marginHorizontal",
-	"marginLeft",
-	"marginRight",
-	"marginTop",
-	"marginVertical",
-	"maxHeight",
-	"maxWidth",
-	"minHeight",
-	"minWidth",
-	"opacity",
-	"overflow",
-	"padding",
-	"paddingBottom",
-	"paddingHorizontal",
-	"paddingLeft",
-	"paddingRight",
-	"paddingTop",
-	"paddingVertical",
-	"position",
-	"right",
-	"rotation",
-	"scaleX",
-	"scaleY",
-	"shadowColor",
-	"shadowOffset",
-	"shadowOpacity",
-	"shadowRadius",
-	"top",
-	"transform",
-	"transformMatrix",
-	"translateX",
-	"translateY",
-	"width",
-	"zIndex"
-]
-```
+最常用到的`View`与`Text`组件的`style`属性：
 
 |View Valid style props|Text Valid style props|
 |-------------------|--------------|
@@ -204,10 +42,7 @@ View Valid keys:[
 |decomposedMatrix|同左|
 |elevation|同左|
 |flex|同左|
-|flexBasis|同左|
 |flexDirection|同左|
-|flexGrow|同左|
-|flexShrink|同左|
 |flexWrap|同左|
 |height|同左|
 |justifyContent|同左|
@@ -248,3 +83,25 @@ View Valid keys:[
 |translateY|同左|
 |width|同左|
 |zIndex|同左|
+|flexBasis|**无**|
+|flexGrow|**无**|
+|flexShrink|**无**|
+|**无**|color|
+|**无**|fontFamily|
+|**无**|fontSize|
+|**无**|fontStyle|
+|**无**|fontWeight|
+|**无**|letterSpacing|
+|**无**|lingHeight|
+|**无**|overlayColor|
+|**无**|resizeMode|
+|**无**|textAlign|
+|**无**|textAlignVertical|
+|**无**|textDecorationColor|
+|**无**|textDecorationLine|
+|**无**|textDecorationStyle|
+|**无**|textShadowColor|
+|**无**|textShadowOffset|
+|**无**|textShadowRadius|
+|**无**|tintColor|
+|**无**|writingDirection|
