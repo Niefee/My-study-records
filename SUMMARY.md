@@ -52,6 +52,8 @@
 * [MOOC](MOOC/Directory.md)
      - [数据结构](MOOC/数据结构.md)
      - [C语言](MOOC/C语言.md)
+     - [树与二叉树](MOOC/树与二叉树.md)
+     - [算法排序](MOOC/算法排序.md)
 * [2016](2016/SUMMARY.md)
     * 1
         * [2016年1月3日](2016/1/2016年1月3日.markdown)
