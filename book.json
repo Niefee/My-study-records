@@ -10,7 +10,8 @@
         "-lunr",
         "search-jieba",
         "tbfed-pagefooter",
-        "3-ba"
+        "3-ba",
+        "maxiang"
     ],
     "pluginsConfig": {
         "editlink": {
