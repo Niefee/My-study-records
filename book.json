@@ -8,7 +8,8 @@
         "advanced-emoji",
         "search",
         "-lunr",
-        "search-jieba"
+        "search-jieba",
+        "theme-api"
     ],
     "pluginsConfig": {
         "editlink": {
