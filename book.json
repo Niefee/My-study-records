@@ -1,19 +1,4 @@
 {
-    "variables": {
-        "title": "前端开发笔记",
-        "theme": "theme-green",
-        "copyright": "Copyright 2015-2016 niefee/胡"
-    },
-    "title": "前端开发笔记",
-    "description": "这个是关于前端知识的记录，从2015年8月30日开始至今，一直记录着我在前端学习方面的知识与问题。其中可能有纰漏，但若我发现了，会即使纠正的。",
-    "collapsible_menu": false,
-    "level_number": false,
-    "links": {
-        "sidebar": {
-            "既见君子，云胡不喜": "https://github.com/Niefee"
-        },
-        "gitbook": false
-    },
     "plugins": [
         "editlink",
         "sitemap",
@@ -21,7 +6,6 @@
         "toggle-chapters",
         "splitter",
         "advanced-emoji",
-        "theme-comscore",
         "search",
         "-lunr",
         "search-jieba"
@@ -49,5 +33,20 @@
                 "instapaper"
             ]
         }
-    }
+    },
+    "level_number": false,
+    "collapsible_menu": false,
+    "variables": {
+        "title": "前端开发笔记",
+        "theme": "theme-green",
+        "copyright": "Copyright 2015-2016 niefee/胡"
+    },
+    "title": "前端开发笔记",
+    "links": {
+        "sidebar": {
+            "既见君子，云胡不喜": "https://github.com/Niefee"
+        },
+        "gitbook": false
+    },
+    "description": "这个是关于前端知识的记录，从2015年8月30日开始至今，一直记录着我在前端学习方面的知识与问题。其中可能有纰漏，但若我发现了，会即使纠正的。"
 }
