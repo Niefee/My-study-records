@@ -10,7 +10,8 @@
         "-lunr",
         "search-jieba",
         "theme-api",
-        "tbfed-pagefooter"
+        "tbfed-pagefooter",
+        "3-ba"
     ],
     "pluginsConfig": {
         "editlink": {
@@ -21,9 +22,12 @@
             "hostname": "https://github.com/Niefee/My-study-records"
         },
         "tbfed-pagefooter": {
-        "copyright":"Copyright &copy zhangjikai.com 2015",
-        "modify_label": "该文件修订时间：",
-        "modify_format": "YYYY-MM-DD HH:mm:ss"
+            "copyright":"Copyright &copy zhangjikai.com 2015",
+            "modify_label": "该文件修订时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+            },
+        "3-ba": {
+            "token": "ee48b5ad6a7a7c96fc00b8cd4c2a93e8"
             },
         "sharing": {
             "weibo": true,
