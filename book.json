@@ -9,10 +9,8 @@
         "search",
         "-lunr",
         "search-jieba",
-        "theme-api",
         "tbfed-pagefooter",
-        "3-ba",
-        "-theme-default"
+        "3-ba"
     ],
     "pluginsConfig": {
         "editlink": {
