@@ -9,7 +9,6 @@
         "search",
         "-lunr",
         "search-jieba",
-        "tbfed-pagefooter",
         "3-ba",
         "disqus"
     ],
@@ -20,11 +19,6 @@
         },
         "sitemap": {
             "hostname": "https://github.com/Niefee/My-study-records"
-        },
-        "tbfed-pagefooter": {
-            "copyright": "Copyright &copy niefee.com 2015~至今",
-            "modify_label": "该文件修订时间：",
-            "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "3-ba": {
             "token": "ee48b5ad6a7a7c96fc00b8cd4c2a93e8"
