@@ -40,7 +40,7 @@
         },
         "theme-api": {
             "languages": "",
-            "split": false,
+            "split": true,
             "theme": "dark"
         },
     },
