@@ -37,11 +37,6 @@
                 "weibo",
                 "instapaper"
             ]
-        },
-        "theme-api": {
-            "languages": "",
-            "split": false,
-            "theme": "dark"
         }
     },
     "level_number": false,
