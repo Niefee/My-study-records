@@ -10,7 +10,8 @@
         "-lunr",
         "search-jieba",
         "tbfed-pagefooter",
-        "3-ba"
+        "3-ba",
+        "disqus"
     ],
     "pluginsConfig": {
         "editlink": {
@@ -47,6 +48,9 @@
             "languages": "",
             "split": true,
             "theme": "dark"
+        },
+         "disqus": {
+            "shortName": "note-niefee-com"
         }
     },
     "level_number": false,
