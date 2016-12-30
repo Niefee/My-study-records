@@ -11,7 +11,6 @@
         "search-jieba",
         "3-ba",
         "disqus",
-        "-theme-default",
         "theme-comscore"
     ],
     "pluginsConfig": {
@@ -39,11 +38,6 @@
                 "weibo",
                 "instapaper"
             ]
-        },
-        "theme-api": {
-            "languages": "",
-            "split": true,
-            "theme": "dark"
         },
         "disqus": {
             "shortName": "note-niefee-com"
