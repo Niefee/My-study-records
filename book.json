@@ -10,6 +10,7 @@
         "-lunr",
         "search-jieba",
         "3-ba",
+        "-theme-default",
         "theme-comscore"
     ],
     "pluginsConfig": {
@@ -40,7 +41,7 @@
         },
         "theme-api": {
             "languages": "",
-            "split": true,
+            "split": false,
             "theme": "dark"
         }
     },
