@@ -10,7 +10,8 @@
         "-lunr",
         "search-jieba",
         "3-ba",
-        "disqus"
+        "disqus",
+        "theme-clarity"
     ],
     "pluginsConfig": {
         "editlink": {
@@ -43,7 +44,7 @@
             "split": true,
             "theme": "dark"
         },
-         "disqus": {
+        "disqus": {
             "shortName": "note-niefee-com"
         }
     },
