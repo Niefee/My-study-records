@@ -10,6 +10,7 @@
         "-lunr",
         "search-jieba",
         "3-ba",
+        "-theme-default",
         "theme-comscore"
     ],
     "pluginsConfig": {
@@ -37,6 +38,11 @@
                 "weibo",
                 "instapaper"
             ]
+        },
+        "theme-api": {
+            "languages": "",
+            "split": false,
+            "theme": "dark"
         },
     },
     "level_number": false,
