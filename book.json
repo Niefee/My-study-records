@@ -10,7 +10,6 @@
         "-lunr",
         "search-jieba",
         "3-ba",
-        "disqus",
         "theme-comscore"
     ],
     "pluginsConfig": {
@@ -41,12 +40,9 @@
         },
         "theme-api": {
             "languages": "",
-            "split": true,
+            "split": false,
             "theme": "dark"
         },
-        "disqus": {
-            "shortName": "note-niefee-com"
-        }
     },
     "level_number": false,
     "collapsible_menu": false,
