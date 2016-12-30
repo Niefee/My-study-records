@@ -11,7 +11,8 @@
         "search-jieba",
         "3-ba",
         "disqus",
-        "-theme-default"
+        "-theme-default",
+        "theme-comscore"
     ],
     "pluginsConfig": {
         "editlink": {
