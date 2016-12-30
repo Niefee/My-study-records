@@ -10,6 +10,8 @@
         "-lunr",
         "search-jieba",
         "3-ba",
+        "disqus",
+        "theme-comscore"
     ],
     "pluginsConfig": {
         "editlink": {
@@ -37,6 +39,14 @@
                 "instapaper"
             ]
         },
+        "theme-api": {
+            "languages": "",
+            "split": true,
+            "theme": "dark"
+        },
+        "disqus": {
+            "shortName": "note-niefee-com"
+        }
     },
     "level_number": false,
     "collapsible_menu": false,
