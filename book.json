@@ -10,7 +10,6 @@
         "-lunr",
         "search-jieba",
         "3-ba",
-        "-theme-default",
         "theme-comscore"
     ],
     "pluginsConfig": {
