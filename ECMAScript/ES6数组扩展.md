@@ -81,3 +81,158 @@ console.log(rest);//[2, 3, 4]
 ```
 
 >(来源)[http://www.tuicool.com/articles/26bAzmm]
+
+## ES6数组方法
+
+### Array.from()
+
+`Array.from`方法用于将两类对象转为真正的数组：类似数组的对象（`array-like object`）和可遍历（`iterable`）的对象（包括ES6新增的数据结构`Set`和`Map`）。
+
+```js
+let arrayLike = {
+    '0': 'a',
+    '1': 'b',
+    '2': 'c',
+    length: 3
+};
+
+// ES5的写法
+var arr1 = [].slice.call(arrayLike); // ['a', 'b', 'c']
+
+// ES6的写法
+let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
+```
+
+类数组的特性就是具有`length`属性。
+
+与ES5的`Array.prototype.slice`相同。
+
+`Array.from`还可以接受第二个参数，作用类似于数组的`map`方法。
+
+```js
+Array.from(arrayLike, x => x * x);
+// 等同于
+Array.from(arrayLike).map(x => x * x);
+```
+
+### Array.of()
+
+`Array.of`方法用于将一组值，转换为数组。
+
+```js
+Array.of(3, 11, 8) // [3,11,8]
+
+//Array()的使用
+
+Array() // []
+Array(3) // [, , ,]
+Array(3, 11, 8) // [3, 11, 8]
+
+```
+
+### copyWithin
+
+在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。
+
+```js
+Array.prototype.copyWithin(target, start = 0, end = this.length)
+```
+
+ - target（必需）：从该位置开始替换数据。
+
+ - start（可选）：从该位置开始读取数据，默认为0。如果为负值，表示倒数。
+
+ - end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。
+
+```js
+// 将3号位开始到4号位，复制到0号位，原位置数据会给覆盖
+[1, 2, 3, 4, 5].copyWithin(0, 3, 4)
+// [4, 2, 3, 4, 5]
+```
+
+### find()和findIndex()
+
+```js
+[1, 5, 10, 15].find(function(value, index, arr) {
+  return value > 9;
+}) // 10
+```
+
+返回第一个符合要求的成员，没有就返回`undefined`。
+
+findIndex方法的用法与find方法非常类似，没有就返回`-1`。
+
+```js
+[1, 5, 10, 15].findIndex(function(value, index, arr) {
+  return value > 9;
+}) // 2
+```
+
+### fill()
+
+`fill()`方法使用给定值，填充一个数组。
+
+```js
+['a', 'b', 'c'].fill(7)
+// [7, 7, 7]
+
+['a', 'b', 'c'].fill(7, 1, 2)
+// ['a', 7, 'c']
+```
+第二、三个参数，代表填充的起始结束位置。
+
+### entries()，keys()和values()
+
+`for...of`循环进行遍历,`keys()`是对键名的遍历、`values()`是对键值的遍历，`entries()`是对键值对的遍历。
+
+```js
+for (let index of ['a', 'b'].keys()) {
+  console.log(index);
+}
+// 0
+// 1
+
+for (let elem of ['a', 'b'].values()) {
+  console.log(elem);
+}
+// 'a'
+// 'b'
+
+for (let [index, elem] of ['a', 'b'].entries()) {
+  console.log(index, elem);
+}
+// 0 "a"
+// 1 "b"
+```
+
+### Array.prototype.includes
+
+`Array.prototype.includes`方法返回一个布尔值，表示某个数组是否包含给定的值。
+
+该方法的第二个参数表示搜索的起始位置，默认为0，负数为倒数。
+
+```js
+[1, 2, 3].includes(3, 3);  // false
+[1, 2, 3].includes(3, -1); // true
+```
+
+### 数组的空位
+
+数组的空位指，数组的某一个位置没有任何值。
+
+```js
+Array(3) // [, , ,]
+```
+
+ES5对空位的处理：
+
+ - forEach(), filter(), every() 和some()都会跳过空位。
+
+ - map()会跳过空位，但会保留这个值
+
+ - join()和toString()会将空位视为undefined，而undefined和null会被处理成空字符串。
+
+ES6则是明确将空位转为`undefined`。
+
+
+>[参考](http://es6.ruanyifeng.com/?search=import&x=15&y=8#docs/array)
