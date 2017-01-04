@@ -4,6 +4,15 @@
 - [ES数组](#es数组)
 	- [扩展运算符](#扩展运算符)
 	- [rest运算符](#rest运算符)
+	- [ES6数组方法](#es6数组方法)
+		- [Array.from()](#arrayfrom)
+		- [Array.of()](#arrayof)
+		- [copyWithin](#copywithin)
+		- [find()和findIndex()](#find和findindex)
+		- [fill()](#fill)
+		- [entries()，keys()和values()](#entrieskeys和values)
+		- [Array.prototype.includes](#arrayprototypeincludes)
+		- [数组的空位](#数组的空位)
 
 <!-- tocstop -->
 
