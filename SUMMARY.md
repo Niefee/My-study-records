@@ -40,6 +40,7 @@
     * [解构赋值](ECMAScript/解构赋值.md)
     * [字符编码](ECMAScript/字符编码.md)
     * [ES6正则表达式扩展](ECMAScript/ES6正则表达式扩展.md)
+    * [ES6数组扩展](ECMAScript/ES6数组扩展.md)
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
     * [SVG](HTML5/SVG.md)
