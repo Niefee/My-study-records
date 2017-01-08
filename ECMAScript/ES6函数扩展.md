@@ -1,1 +1,100 @@
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+- [ES6函数扩展](#es6函数扩展)
+	- [函数默认值](#函数默认值)
+		- [默认允许使用解构赋值](#默认允许使用解构赋值)
+		- [函数的length属性](#函数的length属性)
+		- [作用域](#作用域)
+
+<!-- tocstop -->
+
 # ES6函数扩展
+
+## 函数默认值
+
+ES6可以直接在把默认值写在参数后面。
+
+```js
+function log(x, y = 'World') {
+  console.log(x, y);
+}
+
+log('Hello') // Hello World
+log('Hello', 'China') // Hello China
+log('Hello', '') // Hello
+```
+
+参数是默认声明，不能再使用`let`或者`const`。
+
+### 默认允许使用解构赋值
+
+```js
+function foo({x, y = 5}) {
+  console.log(x, y);
+}
+
+foo({}) // undefined, 5
+foo({x: 1}) // 1, 5
+foo({x: 1, y: 2}) // 1, 2
+foo() // TypeError: Cannot read property 'x' of undefined
+```
+
+格式不正确会报错。
+
+对象解构默认值
+
+```js
+// 写法一
+function m1({x = 0, y = 0} = {}) {
+  return [x, y];
+}
+
+// 写法二
+function m2({x, y} = { x: 0, y: 0 }) {
+  return [x, y];
+}
+```
+
+写法一的意思是函数参数的默认值是**空对象**，但设置了对象解构赋值的默认值。
+
+写法二的函数参数默认值是一个**具体属性的对象**但没有设置对象解构赋值的默认值。
+
+>通常情况下，定义了默认值的参数，应该是函数的尾参数。
+>只有参数严格等于undefined，默认值才会生效。
+
+### 函数的length属性
+
+函数的`length`属性，不会计算有默认值以及其后面的参数个数。
+
+```js
+(function (a = 0, b, c) {}).length // 0
+(function (a, b = 1, c) {}).length // 1
+```
+
+### 作用域
+
+如果一个函数的默认值是一个变量，该变量的作用域是先函数作用域，再全局作用域。
+
+```js
+let x = 1;
+
+function f(y = x) {
+  let x = 2;
+  console.log(y);
+}
+
+f() // 1
+```
+
+上面代码中，函数调用时，`y`的默认值变量`x`尚未在函数内部生成，所以`x`指向全局变量。
+如果全局全局作用域不存在，就会报错。
+
+参数默认值设为`undefined`，表明这个参数是可以省略的。
+
+## rest参数
+
+[rest参数](https://note.niefee.com/ECMAScript/ES6%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95.html#rest运算符)
+
+`rest`参数之后不能再有其他参数（即只能是最后一个参数），否则会报错。
+函数的`length`属性，不包括`rest`参数。
