@@ -98,3 +98,20 @@ f() // 1
 
 `rest`参数之后不能再有其他参数（即只能是最后一个参数），否则会报错。
 函数的`length`属性，不包括`rest`参数。
+
+## 扩展运算符
+
+它好比`rest`参数的逆运算，将一个数组转为用逗号分隔的参数序列。
+
+[扩展运算符](https://note.niefee.com/ECMAScript/ES6%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95.html#扩展运算符)
+
+主要用于函数的调用。
+
+```js
+function add(x, y) {
+  return x + y;
+}
+
+var numbers = [4, 38];
+add(...numbers) // 42
+```
