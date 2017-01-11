@@ -1,3 +1,27 @@
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+- [ES6对象扩展](#es6对象扩展)
+	- [属性表示](#属性表示)
+	- [属性名表达式](#属性名表达式)
+	- [Object.is()](#objectis)
+	- [Object.assign()](#objectassign)
+	- [属性的可枚举性](#属性的可枚举性)
+	- [属性的遍历](#属性的遍历)
+	- [\_\_proto\_\_ 属性](#__proto__-属性)
+	- [Object.setPrototypeOf()](#objectsetprototypeof)
+	- [Object.getPrototypeOf()](#objectgetprototypeof)
+	- [Object.keys()，Object.values()，Object.entries()](#objectkeysobjectvaluesobjectentries)
+		- [Object.keys](#objectkeys)
+		- [Object.values](#objectvalues)
+		- [Object.entries](#objectentries)
+	- [对象的扩展运算符](#对象的扩展运算符)
+		- [解构赋值](#解构赋值)
+		- [扩展运算符](#扩展运算符)
+	- [Object.getOwnPropertyDescriptor()](#objectgetownpropertydescriptor)
+
+<!-- tocstop -->
+
 # ES6对象扩展
 
 ## 属性表示
@@ -152,7 +176,7 @@ Object.getOwnPropertyDescriptor([], 'length').enumerable
 5. Reflect.ownKeys(obj)
     - `Reflect.ownKeys`返回一个数组，包含对象自身的所有属性，不管是属性名是Symbol或字符串，也不管是否可枚举。
 
-## __proto__ 属性
+## \_\_proto\_\_ 属性
 
 `__proto__` 属性（前后各两个下划线），用来读取或设置当前对象的`prototype`对象。
 
