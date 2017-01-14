@@ -19,6 +19,9 @@
 		- [解构赋值](#解构赋值)
 		- [扩展运算符](#扩展运算符)
 	- [Object.getOwnPropertyDescriptor()](#objectgetownpropertydescriptor)
+	- [Object.create(prototype, descriptors)](#objectcreateprototype-descriptors)
+	- [数据属性和访问器属性](#数据属性和访问器属性)
+	- [JS原型和原型链](#js原型和原型链)
 
 <!-- tocstop -->
 
@@ -321,3 +324,108 @@ Object.getOwnPropertyDescriptor(obj, 'p')
 ```
 
 >参考：http://es6.ruanyifeng.com/?search=import&x=15&y=8#docs/object
+
+## Object.create(prototype, descriptors)
+
+创建一个具有指定原型且可选择性地包含指定属性的对象。
+
+ - prototype
+	 - 必需。  要用作原型的对象。  可以为 null。  
+ - descriptors
+	 - 可选。  包含一个或多个属性描述符的 JavaScript 对象。  
+
+```js
+var newObj = Object.create(null, {
+            size: {
+                value: "large",
+                enumerable: true
+            },
+            shape: {
+                value: "round",
+                enumerable: true
+            }
+        });
+
+document.write(newObj.size + "<br/>");
+document.write(newObj.shape + "<br/>");
+document.write(Object.getPrototypeOf(newObj));
+
+// Output:
+// large
+// round
+// null
+```
+
+## 数据属性和访问器属性
+
+`数据属性`是可获取和设置值的属性。
+
+|数据描述符特性	|	说明		|		默认|
+|----------|---------|------------------|
+|Value		|	属性的当前值。	|	undefined|
+|writable	|	true 或 false。如果 writable 设置为 true，则可以修改属性值。|	false|
+|enumerable 	|	true 或 false。如果 enumerable 设置为 true，则可以由 for…in 语句枚举属性。	|	false|
+|configurable|	true 或 false。如果 configurable 设置为 true，则可以更改属性的特性且可以删除属性。|	false|
+
+
+`访问器属性`是只要设置或检索属性值，访问器属性 就会调用用户提供的函数。
+
+访问器描述符特性		|说明		|默认
+-------|--------|-------------
+get		|返回属性值的函数。此函数没有参数。		|undefined
+set		|设置属性值的函数。它具有一个包含要分配的值的参数。		|undefined
+enumerable		|true 或 false。如果 enumerable 设置为 true，则可以由 for…in 语句枚举属性。		|false
+configurable		|true 或 false。如果 configurable 设置为 true，则可以更改属性的特性且可以删除属性。		|false
+
+## JS原型和原型链
+
+**每个构造函数生成实例的时候 会自带一个constructor属性 指向该构造函数**
+
+```js
+//所以:
+实例.constructor == 构造函数
+
+var arr = new Array();
+
+arr.constructor === Array; //true
+
+arr instanceof Array; //true
+```
+
+每个构造函数都有一个`prototype`属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承。
+
+```js
+function Cat(name){
+	//构造函数自身的属性name
+    this.name = name;
+}
+Cat.sex = '女';
+Cat.prototype.age = '12';
+var cat = new Cat('大黄');
+cat.age;//12
+cat.sex;//undefine 也就是说明实例只能继承构造函数原型上的属性和方法
+cat.hasOwnProperty("name");//true  hasOwnProperty判断是自己本身的属性还是继承的
+cat.hasOwnProperty("age");//false
+```
+
+
+JS在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做`__proto__`的内置属性，用于指向创建它的函数对象的原型对象`prototype`。
+
+```js
+cat.__proto__===Cat.prototype;//true
+```
+**同样，Cat.prototype对象也有__proto__属性，它指向创建它的函数对象（Object）的prototype**
+
+```js
+Cat.prototype.__proto__=== Object.prototype;//true
+```
+
+**继续，Object.prototype对象也有__proto__属性，但它比较特殊，为null**
+
+```js
+Object.prototype.__proto__;//null
+```
+
+我们把这个有`__proto__`串起来的直到`Object.prototype.__proto__`为`null`的链叫做**原型链**。
+
+>[参考](http://blog.csdn.net/qietingfengdeyanse/article/details/52488252)
