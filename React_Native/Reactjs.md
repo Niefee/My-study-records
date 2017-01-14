@@ -226,6 +226,21 @@ ReactDOM.render(<Input/>, document.body);
   - componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用
   - shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用
 
+### 生命周期与回调函数
+
+生命周期|	调用次数|	能否使用 setSate()
+-------|----------|---------------
+getDefaultProps	|1(全局调用一次)	|否
+getInitialState|	1	|否
+componentWillMount|	1	|是
+render|	>=1	|否
+componentDidMount	|1	|是
+componentWillReceiveProps|	>=0|	是
+shouldComponentUpdate|	>=0|	否
+componentWillUpdate|	>=0|	否
+componentDidUpdate|	>=0|	否
+componentWillUnmount|	1	|否
+
 ### Ajax
 
 略。
