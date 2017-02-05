@@ -3,7 +3,13 @@
 
 * [MongoDB](#mongodb)
     * [MongoDB安装](#mongodb安装)
+        * [1. 下载最新版本](#1-下载最新版本)
+        * [2. 将MongoDB添加到环境变量中](#2-将mongodb添加到环境变量中)
+        * [3. 配置文件](#3-配置文件)
+        * [4. 启动数据库服务器](#4-启动数据库服务器)
+        * [5. 关闭服务器](#5-关闭服务器)
     * [使用数据库](#使用数据库)
+    * [更新操作数据](#更新操作数据)
 
 <!-- tocstop -->
 
@@ -13,9 +19,11 @@
 
 **MAC平台下：**
 
-1. 下载最新版本
-    1. 地址：https://www.mongodb.com/download-center
-2. 将MongoDB添加到环境变量中
+### 1. 下载最新版本
+
+地址：https://www.mongodb.com/download-center
+
+### 2. 将MongoDB添加到环境变量中
 
 ```bash
 ##mongod config
@@ -29,7 +37,7 @@ source ~/.bash_profile。
 ```
 添加了系统环境变量，以后就不用使用`./bin/mongod`调用文件了，直接使用`mongo`就行了。
 
-3. 配置文件
+### 3. 配置文件
 
 ```bash
 mongodb --dbpath $dbpath
@@ -62,7 +70,7 @@ fork =true
 ```
 >在mongoDB文件夹里新建了三个文件夹data、log、conf
 
-4. 启动数据库服务器
+### 4. 启动数据库服务器
 
 ```bash
 ##启动mongodb服务
@@ -77,7 +85,7 @@ fork =true
 ```
 >mongo编译后是客户端
 
-5. 关闭服务器
+### 5. 关闭服务器
 
 ```bash
 use admin
@@ -95,6 +103,12 @@ db.shutdownServer();
 > show dbs
 admin   0.000GB
 local   0.000GB
+
+# 查看表（集合）
+> show tables
+
+# 删除集合
+> db.userDB.drop()
 
 # 选择数据库
 ## 如果没有这个数据库，会自动创建
@@ -128,4 +142,30 @@ switched to db userDB
 
 降序：
 > db.userInfo.find().sort({age: -1});
+```
+
+## 更新操作数据
+
+```bash
+# 更新数据，默认是查找到的第一条
+> db.userDB.update({BB:'hei boy'},{BB:'gogo'})
+## 如果要更新所有，要用set更新
+> db.userDB.update({BB:'hei boy'},{$set:{BB:'gogo'}},false,true)
+# 第一个参数是如果不存在，是否插入objNew,true为插入，默认是false，不插入。
+
+# 第二个参数是是否操作所有数据，默认是false，非全部。
+
+# 部分更新
+{ "_id" : ObjectId("5897240d591dd248739bea53"), "x" : 100, "y" : 100, "z" : 100 }
+
+# {z:100}是查找这条数据的索引，后面是要更新的数据
+> db.userDB.update({z:100},{$set:{y:999}})
+
+# 更新不存在的数据时，第三个参数为true时会自动创建一条数据
+> db.userDB.update({z:100},{z:99},true)
+
+# 删除数据
+## 会删除所有，不止第一条
+> db.userDB.remove({z:100})
+
 ```
