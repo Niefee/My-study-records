@@ -1,8 +1,30 @@
-##FileSystem简介
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [fs](#fs)
+    * [FileSystem简介](#filesystem简介)
+        * [fs.open(path, flags, [mode], callback)](#fsopenpath-flags-mode-callback)
+        * [fs.read(fd, buffer, offset, length, position, callback)](#fsreadfd-buffer-offset-length-position-callback)
+        * [fs.write(fd, buffer, offset, length[, position], callback)](#fswritefd-buffer-offset-length-position-callback)
+    * [文件直接操作](#文件直接操作)
+        * [fs.readFile(filename, [options], callback)](#fsreadfilefilename-options-callback)
+        * [fs.unlink(path, callback)](#fsunlinkpath-callback)
+        * [fs.rename(oldPath, newPath, callback)](#fsrenameoldpath-newpath-callback)
+        * [fs.stat(path, callback)](#fsstatpath-callback)
+        * [fs.watch(filename, [options], [listener])](#fswatchfilename-options-listener)
+    * [文件夹操作](#文件夹操作)
+        * [fs.mkdir(path, [mode], callback)](#fsmkdirpath-mode-callback)
+        * [fs.rmdir(path, callback)](#fsrmdirpath-callback)
+        * [fs.readdir(path, callback)](#fsreaddirpath-callback)
+
+<!-- tocstop -->
+
+# fs
+## FileSystem简介
 
 文件系统模块是一个简单包装的标准 **POSIX** 文件 **I/O** 操作方法集。您可以通过调用`require('fs')`来获取该模块。文件系统模块中的所有方法均有异步和同步版本。
 
-###fs.open(path, flags, [mode], callback)
+### fs.open(path, flags, [mode], callback)
 
 fs.open(path, flags, [mode], callback)
 *   path : 要打开的文件的路径
@@ -10,7 +32,7 @@ fs.open(path, flags, [mode], callback)
 *   mode : 设置文件的模式 读/写/执行  4/2/1
 *   callback : 回调
     * err : 文件打开失败的错误保存在err里面，如果成功err为null
-    * fd : 被打开文件的标识，和定时器
+    * fd : 被打开文件的标识，
 
 ```js
 fs.open('1.txt', 'r', function(err, fd) {
@@ -28,7 +50,7 @@ fs.open('1.txt', 'r', function(err, fd) {
 });
 ```
 
-###fs.read(fd, buffer, offset, length, position, callback)
+### fs.read(fd, buffer, offset, length, position, callback)
 
 *   fd : 通过open方法成功打开一个文件返回的编号
 *   buffer : buffer对象
@@ -57,7 +79,7 @@ fs.open('1.txt', 'r', function(err, fd) {
 
 
 
-###fs.write(fd, buffer, offset, length[, position], callback)
+### fs.write(fd, buffer, offset, length[, position], callback)
 
  * fs.write(fd, buffer, offset, length[, position], callback)
  *   fd : 打开的文件
@@ -97,9 +119,9 @@ fs.close(fd, function() {
 });
 ```
 
-##文件直接操作
+## 文件直接操作
 
-###fs.readFile(filename, [options], callback)
+### fs.readFile(filename, [options], callback)
 
  - filename {String}
      - options {Object}
@@ -116,37 +138,37 @@ fs.readFile('test.txt', function (err, data) {
 });
 ```
 
-###fs.unlink(path, callback)
+### fs.unlink(path, callback)
 
 删除一个文件
 
 完成时的回调函数（callback）只接受一个参数：可能出现的异常信息.
 
-###fs.rename(oldPath, newPath, callback)
+### fs.rename(oldPath, newPath, callback)
 
 重命名一个函数
 
 完成时的回调函数（callback）只接受一个参数：可能出现的异常信息.
 
-###fs.stat(path, callback)
+### fs.stat(path, callback)
 
 返回文件的详细信息
 
-###fs.watch(filename, [options], [listener])
+### fs.watch(filename, [options], [listener])
 
 监听文件的变化，监听器的回调函数得到两个参数`(event, filename)`。其中 `event` 是 'rename'（重命名）或者 'change'（改变），而 `filename` 则是触发事件的文件名。
 
 
-##文件夹操作
+## 文件夹操作
 
-###fs.mkdir(path, [mode], callback)
+### fs.mkdir(path, [mode], callback)
 
 创建文件夹，完成时的回调函数（callback）只接受一个参数：可能出现的异常信息。文件 `mode` 默认为 0777。
 
-###fs.rmdir(path, callback)
+### fs.rmdir(path, callback)
 
 删除一个文件夹
 
-###fs.readdir(path, callback)
+### fs.readdir(path, callback)
 
 读取 path 路径所在目录的内容。 回调函数 `(callback)` 接受两个参数 `(err, files)`其中 `files` 是一个存储目录中所包含的文件名称的数组，数组中不包括 '.' 和 '..'。
