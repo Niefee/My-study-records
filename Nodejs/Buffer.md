@@ -18,7 +18,9 @@
 
 通过一个字符串来创建 Buffer 实例：
 
-    var buf = new Buffer("www.runoob.com", "utf-8");
+    var buf = new Buffer("www.abc.com", "utf-8");
+
+>创建Buffer类长度是固定的，不可以更改。
 
 ###写入
 
@@ -26,9 +28,9 @@
 
     buf.write(string[, offset[, length]][, encoding])
 
- - string - 写入缓冲区的字符串。
+ - string - 写入的字符串。
 
- - offset - 缓冲区开始写入的索引值，默认为 0。
+ - offset - 开始写入的buf位置索引值，默认为 0。
 
  - length - 写入的字节数，默认为 buffer.length
 
@@ -36,7 +38,7 @@
 
 ```js
 buf = new Buffer(256);
-len = buf.write("www.runoob.com");
+len = buf.write("www.abc.com");
 
 console.log("写入字节数 : "+  len);
 ```
@@ -105,7 +107,7 @@ document.write(str.charCodeAt(1))
     buf.toJSON()
 
 ```js
-var buf = new Buffer('www.runoob.com');
+var buf = new Buffer('www.abc.com');
 var json = buf.toJSON(buf);
 
 console.log(json);
@@ -152,13 +154,13 @@ console.log("buffer2 content: " + buffer2.toString());
  - end - 数字, 可选, 默认: buffer.length
 
 ```js
-var buffer1 = new Buffer('runoob');
+var buffer1 = new Buffer('abc');
 // 剪切缓冲区
 var buffer2 = buffer1.slice(0,2);
 console.log("buffer2 content: " + buffer2.toString());
+//buffer2 content: ab
 ```
 
-    buffer2 content: ru
 
 ###缓冲区长度
 
@@ -177,7 +179,7 @@ console.log("buffer2 content: " + buffer2.toString());
 
  - Buffer.byteLength(string, [encoding])
 
-将会返回这个字符串真实byte长度。
+将会返回这个字符串真实**字节长度**。
 
 ```js
 var str='heoo林喔';
