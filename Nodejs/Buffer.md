@@ -1,6 +1,24 @@
-##Buffer类
 
-###创建
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [Buffer类](#buffer类)
+    * [创建](#创建)
+    * [写入](#写入)
+    * [读取](#读取)
+        * [String.fromCharCode()](#stringfromcharcode)
+        * [stringObject.charCodeAt(index)](#stringobjectcharcodeatindex)
+    * [将 Buffer 转换为 JSON 对象](#将-buffer-转换为-json-对象)
+    * [合并缓冲区](#合并缓冲区)
+    * [拷贝缓冲区](#拷贝缓冲区)
+    * [缓冲区裁剪](#缓冲区裁剪)
+    * [缓冲区长度](#缓冲区长度)
+    * [静态方法](#静态方法)
+
+<!-- tocstop -->
+
+## Buffer类
+
+### 创建
 
  - 方法 1
 
@@ -22,7 +40,7 @@
 
 >创建Buffer类长度是固定的，不可以更改。
 
-###写入
+### 写入
 
 语法：
 
@@ -43,7 +61,7 @@ len = buf.write("www.abc.com");
 console.log("写入字节数 : "+  len);
 ```
 
-###读取
+### 读取
 
 ####buf.toString([encoding[, start[, end]]])
 
@@ -70,7 +88,7 @@ console.log( buf.toString(undefined,0,5)); // 使用 'utf8' 编码, 并输出: a
 
 ```
 
-####String.fromCharCode()
+#### String.fromCharCode()
 
 字符串静态方法， 把 `Unicode` 值转化成字符。
 
@@ -92,7 +110,7 @@ a
 o
 v
 ```
-####stringObject.charCodeAt(index)
+#### stringObject.charCodeAt(index)
 
 把字符转化成`Unicode`值。
 
@@ -102,7 +120,7 @@ document.write(str.charCodeAt(1))
 //101
 ```
 
-###将 Buffer 转换为 JSON 对象
+### 将 Buffer 转换为 JSON 对象
 
     buf.toJSON()
 
@@ -115,7 +133,7 @@ console.log(json);
 //[ 119, 119, 119, 46, 114, 117, 110, 111, 111, 98, 46, 99, 111, 109 ]
 ```
 
-###合并缓冲区
+### 合并缓冲区
 
     Buffer.concat(list[,totalLength])
 
@@ -123,7 +141,7 @@ console.log(json);
 
  - totalLength - 指定合并后Buffer对象的总长度。
 
-###拷贝缓冲区
+### 拷贝缓冲区
 
     buf.copy(targetBuffer[, targetStart[, sourceStart[, sourceEnd]]])
 
@@ -145,7 +163,7 @@ console.log("buffer2 content: " + buffer2.toString());
 //buffer2 content: ABC
 ```
 
-###缓冲区裁剪
+### 缓冲区裁剪
 
     buf.slice([start[, end]])
 
@@ -162,11 +180,11 @@ console.log("buffer2 content: " + buffer2.toString());
 ```
 
 
-###缓冲区长度
+### 缓冲区长度
 
     buf.length
 
-###静态方法
+### 静态方法
 
  - Buffer.isEncoding(encoding)
 
