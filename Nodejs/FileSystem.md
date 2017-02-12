@@ -121,6 +121,18 @@ fs.close(fd, function() {
 
 ## 文件直接操作
 
+### fs.writeFile(filename, data, encoding='utf8', [callback])
+
+异步地写入数据到文件，如果文件已经存在，则替代文件。 `data` 可以是一个字符串或一个 `buffer`。
+
+ - file <String> | <Buffer> | <Integer> 文件名或文件描述符
+ - data <String> | <Buffer>
+ - options <Object> | <String>
+     - encoding <String> | <Null> 默认 = 'utf8'
+     - mode <Integer> 默认 = 0o666
+     - flag <String> 默认 = 'w'
+ - callback <Function>
+
 ### fs.readFile(filename, [options], callback)
 
  - filename {String}
