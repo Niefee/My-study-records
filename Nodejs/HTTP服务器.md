@@ -78,21 +78,21 @@ function readFileAndResponse(pathname,response){
 
 
 ```js
-        function ajaxload(){
-        var result = document.getElementById('result');
-        // 创建一个 AJAX 请求
-        var xhr = new XMLHttpRequest();
-        // 打开URL：/date
-        xhr.open('GET', 'url.xx', true);
-        // xhr 状态改变的处理函数
-        xhr.onreadystatechange=function(){
-        // 状态为4表示响应已就绪；状态码200表示成功的响应
-        if (xhr.readyState==4 && xhr.status==200)
-          // 显示响应文本
-          result.innerHTML=xhr.responseText;
-        }
-        xhr.send();
-        }
+    function ajaxload(){
+    var result = document.getElementById('result');
+    // 创建一个 AJAX 请求
+    var xhr = new XMLHttpRequest();
+    // 打开URL：/date
+    xhr.open('GET', 'url.xx', true);
+    // xhr 状态改变的处理函数
+    xhr.onreadystatechange=function(){
+    // 状态为4表示响应已就绪；状态码200表示成功的响应
+    if (xhr.readyState==4 && xhr.status==200)
+      // 显示响应文本
+      result.innerHTML=xhr.responseText;
+    }
+    xhr.send();
+    }
 ```
 
 ##路由转换
