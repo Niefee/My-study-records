@@ -55,7 +55,9 @@ $ npm set init-license 'MIT'
 
 `npm list`命令以树型结构列出当前项目安装的所有模块，以及它们依赖的模块。
 
-    $ npm list
+    $ npm list 
+    
+使用`npm list --depth 0`可以将树形结构的深度显示为一层。
 
 加上global参数，会列出全局安装的模块。
 
