@@ -39,21 +39,33 @@ source ~/.bash_profile。
 
 ### 3. 配置文件
 
+#### 命令行启动
+
 ```bash
-mongodb --dbpath $dbpath
+
+mongodb 
+
+--dbpath=data
 ##数据库文件路径
 
---logpath $logpath
+--logpath=log/mongod.log
 ##日志文件的路径
 
 --logappend
 ##以追加啊的方式打开文件
 
---fork
+--fork=true
 ##将数据库文件放到后台运行
+
+--port=1234
+##启动的端口
 ```
 
-配置文件：
+#### 配置文件启动
+
+ - 在mongoDB文件夹里新建了三个文件夹data、log、conf
+
+ - 在conf新建配置文件mongod.conf：
 
 ```bash
 ##启动的端口
@@ -68,12 +80,11 @@ logpath =log/mongod.log
 ##Linux为后台进程
 fork =true
 ```
->在mongoDB文件夹里新建了三个文件夹data、log、conf
 
 ### 4. 启动数据库服务器
 
 ```bash
-##启动mongodb服务
+##启动mongodb服务端
 ##mongod.conf 为配置文件
 ./bin/mongod -f conf/mongod.conf
 ```
