@@ -5,8 +5,10 @@
     * [MongoDB安装](#mongodb安装)
         * [1. 下载最新版本](#1-下载最新版本)
         * [2. 将MongoDB添加到环境变量中](#2-将mongodb添加到环境变量中)
-        * [3. 配置文件](#3-配置文件)
-        * [4. 启动数据库服务器](#4-启动数据库服务器)
+        * [3. 启动数据库服务器](#3-启动数据库服务器)
+            * [命令行启动](#命令行启动)
+            * [配置文件启动](#配置文件启动)
+        * [4. 连接到mongoDB服务器](#4-连接到mongodb服务器)
         * [5. 关闭服务器](#5-关闭服务器)
     * [使用数据库](#使用数据库)
     * [更新操作数据](#更新操作数据)
@@ -37,13 +39,13 @@ source ~/.bash_profile。
 ```
 添加了系统环境变量，以后就不用使用`./bin/mongod`调用文件了，直接使用`mongo`就行了。
 
-### 3. 配置文件
+### 3. 启动数据库服务器
 
 #### 命令行启动
 
 ```bash
 
-mongodb 
+mongod --dbpath=db --port=27018 --logpath=log/mongod.log
 
 --dbpath=data
 ##数据库文件路径
@@ -81,14 +83,17 @@ logpath =log/mongod.log
 fork =true
 ```
 
-### 4. 启动数据库服务器
+ - 启动服务
 
 ```bash
 ##启动mongodb服务端
 ##mongod.conf 为配置文件
 ./bin/mongod -f conf/mongod.conf
 ```
+
 >mongod是用来启动服务器
+
+### 4. 连接到mongoDB服务器
 
 ```bash
 ##连接到mongoDB服务器
