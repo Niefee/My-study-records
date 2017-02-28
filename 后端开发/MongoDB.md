@@ -42,6 +42,12 @@ source ~/.bash_profile。
 ### 3. 启动数据库服务器
 
 #### 命令行启动
+先要给目录设置权限
+
+```bash
+cd ~/**/data
+sudo chown -R  userName data
+```
 
 ```bash
 
