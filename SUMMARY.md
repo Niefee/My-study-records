@@ -44,6 +44,8 @@
     * [ES6数组扩展](ECMAScript/ES6数组扩展.md)
     * [ES6函数扩展](ECMAScript/ES6函数扩展.md)
     * [ES6对象扩展](ECMAScript/ES6对象扩展.md)
+    * [Symbol](ECMAScript/Symbol.md)
+    * [Set与Map数据结构](ECMAScript/Set与Map数据结构.md)
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
     * [SVG](HTML5/SVG.md)

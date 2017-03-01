@@ -8,3 +8,5 @@
 7. [ES6数组扩展](ES6数组扩展.md)
 8. [ES6函数扩展](ES6函数扩展.md)
 9. [ES6对象扩展](ES6对象扩展.md)
+10. [Symbol](Symbol.md)
+11. [Set与Map数据结构](Set与Map数据结构.md)
