@@ -1,3 +1,18 @@
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [Git](#git)
+    * [Git命令](#git命令)
+        * [git init](#git-init)
+        * [git clone](#git-clone)
+        * [git add](#git-add)
+        * [git status](#git-status)
+        * [git commit](#git-commit)
+        * [git diff](#git-diff)
+        * [git push](#git-push)
+        * [git remote](#git-remote)
+
+<!-- tocstop -->
+
 # Git
 
 ## Git命令
@@ -33,3 +48,47 @@ git commit -m "代码提交信息"
 ```
 用命令`git commit`告诉Git，把文件提交到仓库。
 `-m`后面输入的是本次提交的说明。
+
+### git diff
+
+`git diff`可以查看还没有提交到暂存区的文件的变化情况。显示的格式正是Unix通用的diff格式。
+
+### git push
+
+```bash
+git push origin master
+```
+把本地仓库中的`HEAD`提交到远端的仓库中。
+
+`master`可以换成你想要推送的任何分支。
+
+### git remote
+
+ - 生成ssh秘钥
+
+```bash
+ssh-keygen -t rsa -C "abcd@efgh.com" //github登录邮箱
+```
+
+把生成的秘钥添加到GitHub中，名字可以随意，秘钥内容不可更改。
+
+测试是否成功添加了
+
+```bash
+>ssh git@github.com
+##正常情况下，回显如下
+PTY allocation request failed on channel 0
+Hi Xxx! You\'ve successfully authenticated, but GitHub does not provide shell access.
+Connection to github.com closed.
+```
+
+然后远程推送
+
+```bash
+git remote add origin https://github.com/UserName/gitTest.git
+git push -u origin master
+```
+
+>第一次要添加 -u 这个参数。这样Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+
+>资料：[http://www.cnblogs.com/plinx/archive/2013/04/08/3009159.html](http://www.cnblogs.com/plinx/archive/2013/04/08/3009159.html)
