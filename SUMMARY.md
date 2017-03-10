@@ -62,6 +62,7 @@
     - [reactRouter](tool/reactRouter.md)
     - [atom](tool/atom.md)
     - [正则表达式](tool/正则表达式.md)
+    - [Git](tool/Git.md)
 * [MOOC](MOOC/Directory.md)
      - [数据结构](MOOC/数据结构.md)
      - [C语言](MOOC/C语言.md)
