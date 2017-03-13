@@ -50,6 +50,7 @@
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
     * [SVG](HTML5/SVG.md)
+    * [浏览器渲染](HTML5/浏览器渲染.md)
 * [CSS](CSS/Directory.md)
     * [CSS选择器](CSS/CSS选择器.md)
     * [CSS单位](CSS/CSS单位.md)
