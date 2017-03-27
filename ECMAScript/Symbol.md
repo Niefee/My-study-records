@@ -57,7 +57,7 @@ Boolean(sym) //true
 
 ## 作为属性名的Symbol
 
-每个Symbol值都是不相等的，作为对象属性名不会给覆盖，但不能用户点运算。
+每个Symbol值都是不相等的，作为对象属性名不会给覆盖，但不能用点运算。
 
 ```js
 var mySymbol = Symbol();
