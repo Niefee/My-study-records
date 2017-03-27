@@ -10,7 +10,7 @@
 
 **自定义函数**
 
-```php
+```PHP
 //从1打印到5
 function echoNum(){
     for($i=1;$i<=5;$i++){
@@ -89,7 +89,7 @@ php可以用来操作文件；
 |'w+'  |  读写方式打开，将文件指针指向文件头并将文件大小截为零。如果文件不存在则尝试创建之。|
 |'a' |写入方式打开，将文件指针指向文件末尾。如果文件不存在则尝试创建之。|
 |'a+'  |  读写方式打开，将文件指针指向文件末尾。如果文件不存在则尝试创建之。|
-|'x' |创建并以写入方式打开，将文件指针指向文件头。如果文件已存在，则 fopen() 调用失败并返回 FALSE，并生成一条 E_WARNING 级别的错误信息。如果文件不存在则尝试创建之。这和给 底层的 open(2) 系统调用指定 O_EXCL|O_CREAT 标记是等价的。 |
+|'x' |创建并以写入方式打开，将文件指针指向文件头。如果文件已存在，则 fopen() 调用失败并返回 FALSE，并生成一条 E_WARNING 级别的错误信息。如果文件不存在则尝试创建之。这和给 底层的 open(2) 系统调用指定 O_EXCL或O_CREAT 标记是等价的。 |
 
  - int fwrite ( resource $handle , string $string [, int $length ] )
 
@@ -127,7 +127,7 @@ fclose($handle);
 
  - string serialize ( mixed $value )
 
-产生一个可存储的值的表示 
+产生一个可存储的值的表示
 
 ```php
 $st="ab";
@@ -163,8 +163,8 @@ echo serialize($st4)."<br/>";
 
 如果被包含文件找不到，提示的错误是一个警告，后面的代码继续执行。
 
- - require(被包含文件URL) 
- - require_once(被包含文件URL) 
+ - require(被包含文件URL)
+ - require_once(被包含文件URL)
 
 如果被包含文件找不到，提示的错误是一个致命，后面的代码不继续执行。
 
@@ -175,6 +175,3 @@ echo serialize($st4)."<br/>";
  - set_include_path()
 
 设定默认的包含路径。
-
-
-
