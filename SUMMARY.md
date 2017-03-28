@@ -47,6 +47,7 @@
     * [Symbol](ECMAScript/Symbol.md)
     * [Set与Map数据结构](ECMAScript/Set与Map数据结构.md)
     * [Promise](ECMAScript/Promise.md)
+    * [Proxy](ECMAScript/Proxy.md)
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
     * [SVG](HTML5/SVG.md)
