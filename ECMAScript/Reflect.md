@@ -1,3 +1,24 @@
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [Reflect](#reflect)
+    * [静态方法](#静态方法)
+        * [Reflect.get(target,name,receiver)](#reflectgettargetnamereceiver)
+        * [Reflect.set(target,name,value,receiver)](#reflectsettargetnamevaluereceiver)
+        * [Reflect.has(target,name)](#reflecthastargetname)
+        * [Reflect.apply(target,thisArg,args)](#reflectapplytargetthisargargs)
+        * [Reflect.construct(target,args)](#reflectconstructtargetargs)
+        * [Reflect.defineProperty(target,name,desc)](#reflectdefinepropertytargetnamedesc)
+        * [Reflect.deleteProperty(target,name)](#reflectdeletepropertytargetname)
+        * [Reflect.ownKeys(target)](#reflectownkeystarget)
+        * [Reflect.isExtensible(target)](#reflectisextensibletarget)
+        * [Reflect.preventExtensions(target)](#reflectpreventextensionstarget)
+        * [Reflect.getOwnPropertyDescriptor(target, name)](#reflectgetownpropertydescriptortarget-name)
+        * [Reflect.getPrototypeOf(target)](#reflectgetprototypeoftarget)
+        * [Reflect.setPrototypeOf(target, prototype)](#reflectsetprototypeoftarget-prototype)
+
+<!-- tocstop -->
+
 # Reflect
 
 `Reflect`对象是 ES6 操作对象的新API。
