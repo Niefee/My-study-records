@@ -1,3 +1,15 @@
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [Proxy](#proxy)
+    * [Proxy支持的拦截操作](#proxy支持的拦截操作)
+        * [get(target, propKey, receiver)](#gettarget-propkey-receiver)
+        * [set(target, propKey, value, receiver)](#settarget-propkey-value-receiver)
+        * [has(target, propKey)](#hastarget-propkey)
+        * [deleteProperty(target, propKey)](#deletepropertytarget-propkey)
+
+<!-- tocstop -->
+
 # Proxy
 
 `Proxy`用于修改某些操作的默认行为，即对编程语言进行编程。
@@ -24,7 +36,7 @@ proxy.title // 35
 
 ## Proxy支持的拦截操作
 
- - get(target, propKey, receiver)
+### get(target, propKey, receiver)
 
 拦截对象属性的读取，比如`proxy.foo`和`proxy['foo']`,而且`get`方法可以继承。
 
@@ -66,7 +78,7 @@ console.log(obj.name);
 
 ```
 
- - set(target, propKey, value, receiver)
+### set(target, propKey, value, receiver)
 
 拦截对象属性的设置，比如`proxy.foo = v`或`proxy['foo'] = v`，返回一个布尔值。
 
@@ -97,7 +109,7 @@ person.age = 'young' // 报错
 person.age = 300 // 报错
 ```
 
- - has(target, propKey)
+### has(target, propKey)
 
 拦截`propKey in proxy`的操作，返回一个布尔值。
 
@@ -117,7 +129,7 @@ var proxy = new Proxy(target, handler);
 '_prop' in proxy // false
 ```
 
- - deleteProperty(target, propKey)
+### deleteProperty(target, propKey)
 
 拦截`delete proxy[propKey]`的操作，返回一个布尔值。
 
