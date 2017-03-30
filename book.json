@@ -14,7 +14,7 @@
     ],
     "pluginsConfig": {
         "editlink": {
-            "base": "https://github.com/Niefee/My-study-records/tree/master",
+            "base": "https://github.com/Niefee/My-study-records/edit/master",
             "label": "编辑本页"
         },
         "sitemap": {
