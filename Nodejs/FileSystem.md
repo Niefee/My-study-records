@@ -7,6 +7,7 @@
         * [fs.read(fd, buffer, offset, length, position, callback)](#fsreadfd-buffer-offset-length-position-callback)
         * [fs.write(fd, buffer, offset, length[, position], callback)](#fswritefd-buffer-offset-length-position-callback)
     * [文件直接操作](#文件直接操作)
+        * [fs.writeFile(filename, data, encoding='utf8', [callback])](#fswritefilefilename-data-encodingutf8-callback)
         * [fs.readFile(filename, [options], callback)](#fsreadfilefilename-options-callback)
         * [fs.unlink(path, callback)](#fsunlinkpath-callback)
         * [fs.rename(oldPath, newPath, callback)](#fsrenameoldpath-newpath-callback)

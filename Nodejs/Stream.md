@@ -1,4 +1,17 @@
-##简介
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [Stream](#stream)
+    * [简介](#简介)
+    * [从流中读取](#从流中读取)
+    * [写入流](#写入流)
+    * [管道流](#管道流)
+    * [链式流](#链式流)
+
+<!-- tocstop -->
+
+# Stream
+## 简介
 
 Stream 有四种流类型：
 
@@ -21,7 +34,7 @@ Stream 有四种流类型：
  - finish - 所有数据已被写入到底层系统时触发。
 
 
-##从流中读取
+## 从流中读取
 
 ```js
 var fs = require("fs");
@@ -49,7 +62,7 @@ readerStream.on('error', function(err){
 console.log("程序执行完毕");
 ```
 
-##写入流
+## 写入流
 
 ```js
 var fs = require("fs");
@@ -76,7 +89,7 @@ writerStream.on('error', function(err){
 console.log("程序执行完毕");
 ```
 
-##管道流
+## 管道流
 
 ```js
 // 创建一个可读流
@@ -90,7 +103,7 @@ var writerStream = fs.createWriteStream('output.txt');
 readerStream.pipe(writerStream);
 ```
 
-##链式流
+## 链式流
 
 
 ```js
