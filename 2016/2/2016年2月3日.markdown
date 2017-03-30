@@ -54,6 +54,7 @@ header('Access-Control-Allow-Methods:POST,GET');
 | &#124;&#124;  |  “或”组合符 |  各部分至少出现一个，可以不按顺序 |   <'border-image-outset'> &#124;&#124;  <'border-image-slice'> |
 |  &#124; | “互斥”组合符 | 各部分共出现一个  | smaller  &#124; small&#124; normal &#124;  big  &#124;  bigger |
 | \[ \] | 方括号  |强调优先级  |  bold [ thin && < length> ]|
+|< >| 尖括号 | 被用作属性值，其他是关键字 | \<length\> &#124; thin &#124; medium &#124; thick |
 |&nbsp;| | | |
 |**数量符号**| | | |
 |&nbsp;|    无数量符号 |  恰好一次 |   solid|
@@ -62,6 +63,8 @@ header('Access-Control-Allow-Methods:POST,GET');
 |?  | 问号 | 零次或一次（即可选）|  bold smaller?|
 | \{ A , B \} |   大括号| 至少A次，至多B次 |  bold smaller\{1,3\}|
 |#|   井号 | 一次或多次，但多次出现必须以逗号分隔 | bold smaller#|
+
+>参考：[属性值语法](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Value_definition_syntax)
 
 ### 正则表达式
 
