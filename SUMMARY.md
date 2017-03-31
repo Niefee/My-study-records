@@ -30,6 +30,7 @@
     * [FileSystem](Nodejs/FileSystem.md)
     * [http模块](Nodejs/http模块.md)
     * [process](Nodejs/process.md)
+    * [Error](Nodejs/Error.md)
 * [React Native](React_Native/Directory.md)
     * [Reactjs](React_Native/Reactjs.md)
     * [ReactNative样式](React_Native/ReactNative样式.md)
