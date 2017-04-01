@@ -1,3 +1,5 @@
+# CSS Reset样式
+```css
 /*清楚浮动*/
 .w{
 	width: 990px;
@@ -35,3 +37,5 @@ body{
 .PosR{
 	position: relative;
 }
+
+```

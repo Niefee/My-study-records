@@ -1,3 +1,5 @@
+# Ajax请求代码
+```js
 function ajax(url, fnSucc, fnFaild)
 {
 	//1.创建Ajax对象
@@ -12,15 +14,15 @@ function ajax(url, fnSucc, fnFaild)
 	}*/
 
 	var oAjax=new XMLHttpRequest()||new ActiveXObject("Microsoft.XMLHTTP");
-	
+
 	//2.连接服务器（打开和服务器的连接）
 	oAjax.open('GET', url, true);
-	
-	
-	
+
+
+
 	//3.发送
 	oAjax.send();
-	
+
 	//4.接收
 	oAjax.onreadystatechange=function ()
 	{
@@ -42,3 +44,12 @@ function ajax(url, fnSucc, fnFaild)
 		}
 	};
 }
+function fnFaild() {
+	console.log(arguments);
+}
+
+function fnSucc() {
+	console.log(arguments);
+}
+
+```
