@@ -3,7 +3,7 @@
 
 ###媒体查询
 
-```html 
+```html
 <!-- 外脸样式 -->
 <link href="" rel="stylesheet" media="only screen and (max-width:480px)">
 <!-- 内联样式  -->
@@ -15,6 +15,3 @@
     }
     </style>
 ```
-
-** us-* **
-**us-&lowast;**
