@@ -1,3 +1,20 @@
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [Iterator(遍历器)](#iterator遍历器)
+    * [Iterator默认接口](#iterator默认接口)
+    * [调用Iterator接口的场合](#调用iterator接口的场合)
+    * [字符串的Iterator接口](#字符串的iterator接口)
+    * [Iterator接口与Generator函数](#iterator接口与generator函数)
+    * [遍历器对象的return()，throw()](#遍历器对象的returnthrow)
+    * [for...of循环](#forof循环)
+    * [数组](#数组)
+    * [Set和Map结构](#set和map结构)
+    * [计算生成的数据结构](#计算生成的数据结构)
+    * [对象](#对象)
+
+<!-- tocstop -->
+
 # Iterator(遍历器)
 
 `遍历器(Interator)`为不同的数据结构提供统一的访问机制，例如`数组（Array）`、`对象（Object）`、`Map`和`Set`。
