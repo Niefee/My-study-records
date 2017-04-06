@@ -1,8 +1,8 @@
 /* CSS for website */
 
 p.comments-section code {
-    background: rgba(252, 228, 236, 0.51);
-    color: #cc1f63;
+    background: rgba(252, 228, 236, 0.4);
+    color: #d70d5c;
     border-radius: 2px;
 }
 .markdown-section b, .markdown-section strong {
