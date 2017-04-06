@@ -1,7 +1,11 @@
 /* CSS for website */
 
 p.comments-section code {
-    background: #f9f2f4;
-    color: #c7254e;
+    background: rgba(252, 228, 236, 0.51);
+    color: #E91E63;
     border-radius: 2px;
+}
+.markdown-section b, .markdown-section strong {
+    font-weight: 700;
+    color: red !important;
 }
