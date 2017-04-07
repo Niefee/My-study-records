@@ -1,27 +1,33 @@
 
 <!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
 
-- [ES6对象扩展](#es6对象扩展)
-	- [属性表示](#属性表示)
-	- [属性名表达式](#属性名表达式)
-	- [Object.is()](#objectis)
-	- [Object.assign()](#objectassign)
-	- [属性的可枚举性](#属性的可枚举性)
-	- [属性的遍历](#属性的遍历)
-	- [\_\_proto\_\_ 属性](#__proto__-属性)
-	- [Object.setPrototypeOf()](#objectsetprototypeof)
-	- [Object.getPrototypeOf()](#objectgetprototypeof)
-	- [Object.keys()，Object.values()，Object.entries()](#objectkeysobjectvaluesobjectentries)
-		- [Object.keys](#objectkeys)
-		- [Object.values](#objectvalues)
-		- [Object.entries](#objectentries)
-	- [对象的扩展运算符](#对象的扩展运算符)
-		- [解构赋值](#解构赋值)
-		- [扩展运算符](#扩展运算符)
-	- [Object.getOwnPropertyDescriptor()](#objectgetownpropertydescriptor)
-	- [Object.create(prototype, descriptors)](#objectcreateprototype-descriptors)
-	- [数据属性和访问器属性](#数据属性和访问器属性)
-	- [JS原型和原型链](#js原型和原型链)
+* [ES6对象扩展](#es6对象扩展)
+	* [属性表示](#属性表示)
+	* [属性名表达式](#属性名表达式)
+	* [Object.is()](#objectis)
+	* [Object.assign()](#objectassign)
+	* [属性描述符](#属性描述符)
+		* [数据描述符](#数据描述符)
+			* [configurable](#configurable)
+			* [enumerable](#enumerable)
+			* [writable](#writable)
+			* [value](#value)
+		* [存取器描述](#存取器描述)
+	* [属性的遍历](#属性的遍历)
+	* [\_\_proto\_\_ 属性](#__proto__-属性)
+	* [Object.defineProperty()](#objectdefineproperty)
+	* [Object.setPrototypeOf()](#objectsetprototypeof)
+	* [Object.getPrototypeOf()](#objectgetprototypeof)
+	* [Object.keys()，Object.values()，Object.entries()](#objectkeysobjectvaluesobjectentries)
+		* [Object.keys](#objectkeys)
+		* [Object.values](#objectvalues)
+		* [Object.entries](#objectentries)
+	* [对象的扩展运算符](#对象的扩展运算符)
+		* [解构赋值](#解构赋值)
+		* [扩展运算符](#扩展运算符)
+	* [Object.getOwnPropertyDescriptor()](#objectgetownpropertydescriptor)
+	* [Object.create(prototype, descriptors)](#objectcreateprototype-descriptors)
+	* [JS原型和原型链](#js原型和原型链)
 
 <!-- tocstop -->
 
@@ -127,9 +133,54 @@ obj1.a.b = 2;
 obj2.a.b // 2
 ```
 
-## 属性的可枚举性
+## 属性描述符
 
-每个对象都有一个描述对象，控制该属性行为。
+属性描述符有两种主要形式：`数据描述符`和`存取描述符`。
+
+ - `数据描述符`是一个拥有可写或不可写值的属性。
+ - `存取描述符`是由一对 `getter-setter` 函数功能来描述的属性。
+
+描述符必须是`两种形式之一`，不能同时是两者。
+
+### 数据描述符
+
+ - #### configurable
+
+是否可以删除目标属性或是否可以再次修改属性的特性（`writable`, `configurable`, `enumerable`）。**默认为 false**。
+
+ - #### enumerable
+
+此属性是否可以被枚举（使用`for...in`或`Object.keys()`）。设置为`true`可以被枚举；设置为`false`，不能被枚举。**默认为false**。
+
+ - #### writable
+
+属性的值是否可以被重写。设置为`true`可以被重写；设置为`false`，不能被重写。**默认为false**。
+
+ - #### value
+
+属性对应的值,可以使任意类型的值，**默认为undefined**。
+
+```js
+var obj = {
+    test:"hello"
+}
+//对象已有的属性添加特性描述
+Object.defineProperty(obj,"test",{
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+});
+//对象新添加的属性的特性描述
+Object.defineProperty(obj,"newKey",{
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+});
+```
+
+查看设置：
 
 ```js
 let obj = { foo: 123 };
@@ -141,8 +192,6 @@ Object.getOwnPropertyDescriptor(obj, 'foo')
 //    configurable: true
 //  }
 ```
-
-`enumerable`属性，称为”可枚举性“，如果该属性为false，就表示某些操作会忽略当前属性。
 
 ES5有三个操作会忽略`enumerable`为`false`的属性。
 
@@ -161,6 +210,52 @@ Object.getOwnPropertyDescriptor([], 'length').enumerable
 ```
 
 `toString`和`length`属性的`enumerable`都是`false`，因此`for...in`不会遍历到这两个继承自原型的属性。
+
+### 存取器描述
+
+当使用存取器描述属性的特性的时候，允许设置以下特性属性：
+
+```js
+var obj = {};
+Object.defineProperty(obj,"newKey",{
+    get:function (){} | undefined,
+    set:function (value){} | undefined
+    configurable: true | false
+    enumerable: true | false
+});
+```
+
+>**当使用了getter或setter方法，不允许使用writable和value这两个属性**。
+
+ - getter 是一种获得属性值的方法
+ - setter是一种设置属性值的方法。
+
+```js
+var obj = {};
+var initValue = 'hello';
+Object.defineProperty(obj,"newKey",{
+    get:function (){
+        //当获取值的时候触发的函数
+        return initValue;    
+    },
+    set:function (value){
+        //当设置值的时候触发的函数,设置的新值通过参数value拿到
+        initValue = value;
+    }
+});
+//获取值
+console.log( obj.newKey );  //hello
+
+//设置值
+obj.newKey = 'change value';
+
+console.log( obj.newKey ); //change value
+```
+ >参考：
+ >>https://segmentfault.com/a/1190000007434923
+ >> https://developer.mozilla.org/cn/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+
+
 
 ## 属性的遍历
 
@@ -194,6 +289,10 @@ obj.__proto__ = someOtherObj;
 var obj = Object.create(someOtherObj);
 obj.method = function() { ... };
 ```
+## Object.defineProperty()
+
+`Object.defineProperty()`方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+
 
 ## Object.setPrototypeOf()
 
@@ -356,26 +455,6 @@ document.write(Object.getPrototypeOf(newObj));
 // null
 ```
 
-## 数据属性和访问器属性
-
-`数据属性`是可获取和设置值的属性。
-
-|数据描述符特性	|	说明		|		默认|
-|----------|---------|------------------|
-|Value		|	属性的当前值。	|	undefined|
-|writable	|	true 或 false。如果 writable 设置为 true，则可以修改属性值。|	false|
-|enumerable 	|	true 或 false。如果 enumerable 设置为 true，则可以由 for…in 语句枚举属性。	|	false|
-|configurable|	true 或 false。如果 configurable 设置为 true，则可以更改属性的特性且可以删除属性。|	false|
-
-
-`访问器属性`是只要设置或检索属性值，访问器属性 就会调用用户提供的函数。
-
-访问器描述符特性		|说明		|默认
--------|--------|-------------
-get		|返回属性值的函数。此函数没有参数。		|undefined
-set		|设置属性值的函数。它具有一个包含要分配的值的参数。		|undefined
-enumerable		|true 或 false。如果 enumerable 设置为 true，则可以由 for…in 语句枚举属性。		|false
-configurable		|true 或 false。如果 configurable 设置为 true，则可以更改属性的特性且可以删除属性。		|false
 
 ## JS原型和原型链
 
