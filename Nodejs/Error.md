@@ -20,7 +20,26 @@
      - `<ReferenceError>` : 当使用未定义的变量时抛出。
      - `<TypeError>` : 当传入错误类型的参数时抛出。
      - `<URIError>` : 当一个全局的 URI 处理函数被误用时抛出。
-     - `<InternalError>`(非标志特性) :创建一个代表Javascript引擎内部错误的异常抛出的实例。 如: "递归太多".
+     - `<InternalError>`(非标志特性) :创建一个代表Javascript引擎内部错误的异常抛出的实例。 如: "递归太多"。
+
+```js
+//使用Chrome浏览器开发者工具运行
+
+throw new Error('一个错误产生');
+// VM639:1 Uncaught Error: 一个错误产生
+//     at <anonymous>:1:7
+// (anonymous) @ VM639:1
+
+throw new EvalError('一个错误产生');
+// VM640:1 Uncaught EvalError: 一个错误产生
+//     at <anonymous>:1:7
+// (anonymous) @ VM640:1
+
+throw new SyntaxError('一个错误产生');
+// VM641:1 Uncaught SyntaxError: 一个错误产生
+//     at <anonymous>:1:7
+// (anonymous) @ VM641:1
+```
 
 ## Error实例
 
