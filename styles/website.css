@@ -6,6 +6,6 @@ p.comments-section code {
     border-radius: 2px;
 }
 .markdown-section b, .markdown-section strong {
-    font-weight: 700;
-    color: red !important;
+    font-weight: bolder;
+    color: #000 !important;
 }
