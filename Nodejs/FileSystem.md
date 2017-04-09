@@ -168,7 +168,7 @@ fs.readFile('test.txt', function (err, data) {
 
 ### fs.watch(filename, [options], [listener])
 
-监听文件的变化，监听器的回调函数得到两个参数`(event, filename)`。其中 `event` 是 'rename'（重命名）或者 'change'（改变），而 `filename` 则是触发事件的文件名。
+监听文件或者文件夹的变化，监听器的回调函数得到两个参数`(event, filename)`。其中 `event` 是 'rename'（重命名）或者 'change'（改变），而 `filename` 则是触发事件的文件名。
 
 
 ## 文件夹操作
