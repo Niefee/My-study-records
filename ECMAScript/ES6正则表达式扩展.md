@@ -1,3 +1,19 @@
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [正则表达式](#正则表达式)
+    * [RegExp构造函数](#regexp构造函数)
+    * [u修饰符](#u修饰符)
+        * [点字符](#点字符)
+        * [Unicode字符表示法](#unicode字符表示法)
+        * [量词](#量词)
+    * [y修饰符](#y修饰符)
+    * [sticky属性](#sticky属性)
+    * [flags属性](#flags属性)
+    * [先行断言](#先行断言)
+
+<!-- tocstop -->
+
 # 正则表达式
 
 ## RegExp构造函数
