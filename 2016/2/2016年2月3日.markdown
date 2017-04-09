@@ -49,12 +49,12 @@ header('Access-Control-Allow-Methods:POST,GET');
 |符号|  名称|  描述 | 示例|
 |--|--|--|--|
 |**组合符号** | | |
-|&nbsp;（空格）|    并置 | 各部分必须出现且按顺序出现  | solid < length> |
-| &&  | “与”组合符 |  各部分必须出现，但可以不按顺序 |  < length> && < string>|
+|&nbsp;（空格）|    并置 | 各部分必须出现且按顺序出现  | solid < length > |
+| &&  | “与”组合符 |  各部分必须出现，但可以不按顺序 |  < length > && < string >|
 | &#124;&#124;  |  “或”组合符 |  它们中的一个或者多个必须出现，可以不按顺序 |   <'border-image-outset'> &#124;&#124;  <'border-image-slice'> |
 |  &#124; | “互斥”组合符 | 各部分共出现一个  | smaller  &#124; small&#124; normal &#124;  big  &#124;  bigger |
-| \[ \] | 方括号  |强调优先级，组件内部是一个单独的分组  |  bold [ thin && < length> ]|
-|< >| 尖括号 | 被用作属性值，其他是关键字 | \<length\> &#124; thin &#124; medium &#124; thick |
+| \[ \] | 方括号  |强调优先级，组件内部是一个单独的分组  |  bold [ thin && < length > ]|
+|< >| 尖括号 | 被用作属性值，其他是关键字 | < length > &#124; thin &#124; medium &#124; thick |
 |&nbsp;| | | |
 |**数量符号**| | | |
 |&nbsp;|    无数量符号 |  恰好一次 |   solid|
