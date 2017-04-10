@@ -28,11 +28,6 @@ npm install webpack -g
 
 >这个必须要全局安装，才能使用webpack的命令。
 
-在安装本地项目依赖
-
-```js
-npm install webpack --save-dev
-```
 
 需要使用webpack开发者工具，要单独安装:
 
@@ -90,6 +85,7 @@ npm install file-loader url-loader
 
 ## 配置文件
 
+
 ```js
 var webpack = require('webpack')
 
@@ -111,6 +107,12 @@ module.exports = {
 运行命令`webpack`，就能查看效果了。
 
 ## 插件
+
+安装本地项目依赖
+
+```js
+npm install webpack --save-dev
+```
 
 Webpack 本身内置了一些常用的插件，还可以通过 `npm` 安装第三方插件。
 
@@ -176,3 +178,5 @@ devServer{
 ```
 
 然后通过本地**服务器地址**加上**端口**访问电脑文件。
+
+>详细教程：https://github.com/ruanyf/webpack-demos
