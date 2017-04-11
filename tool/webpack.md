@@ -171,7 +171,7 @@ new webpack.optimize.UglifyJsPlugin({
 ## 手机访问
 
 ```js
-devServer{
+devServer:{
   //使用webpack构建必须加上这行其他设备才可以访问。
   host:'0.0.0.0'
 }
