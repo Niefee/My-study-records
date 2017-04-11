@@ -14,4 +14,4 @@
 13. [Proxy](Proxy.md)
 14. [Reflect](Reflect.md)
 15. [Iterator和for...of循环](Iterator和for...of循环.md)
-16. [Genetator](Genetator.md)
+16. [Generator](Generator.md)
