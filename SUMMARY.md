@@ -64,6 +64,7 @@
     * [MongoDB](后端开发/MongoDB.md)
     * [Mongoose](后端开发/Mongoose.md)
     * [爬虫技术.md](后端开发/爬虫技术.md)
+    * [Linux命令](后端开发/Linux命令)
 * [tool](tool/Directory.md)
     - [typings](tool/typings.md)
     - [reactjs](tool/reactjs.md)
