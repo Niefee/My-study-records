@@ -10,7 +10,6 @@
     * [JavaScript数值](javascript/JavaScript数值.md)
     * [移动端事件](javascript/移动端事件.md)
     * [函数](javascript/函数.md)
-    * [webpack](javascript/webpack.md)
     * [CommonJS](javascript/CommonJS.md)
     * [npm](javascript/npm.md)
     * [export、import与require](javascript/export、import与require.md)
