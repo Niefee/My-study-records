@@ -2,16 +2,35 @@
 <!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
 
 * [Linux命令](#linux命令)
-    * [基本常用命令](#基本常用命令)
+    * [文件操作命令](#文件操作命令)
         * [man](#man)
         * [cd](#cd)
         * [ls](#ls)
+        * [pwd](#pwd)
+        * [mkdir](#mkdir)
+        * [rmdir](#rmdir)
+        * [cp](#cp)
+        * [rm](#rm)
+        * [mv](#mv)
+        * [cat](#cat)
+        * [tac](#tac)
+        * [nl](#nl)
+        * [head](#head)
+        * [tail](#tail)
+        * [more](#more)
+        * [less](#less)
+        * [nano](#nano)
+    * [系统操作](#系统操作)
+        * [reboot](#reboot)
+        * [poweroff](#poweroff)
+        * [ping](#ping)
+        * [grep](#grep)
 
 <!-- tocstop -->
 
 # Linux命令
 
-## 基本常用命令
+## 文件操作命令
 
 ### man
 
@@ -44,7 +63,6 @@ cd path[相对路径或绝对路径]      ### path 为你要打开的路径。
 ls -a ：全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来(常用)
 ls -d ：仅列出目录本身，而不是列出目录内的文件数据(常用)
 ls -l ：长数据串列出，包含文件的属性与权限等等数据(常用)
-ls -l ：列出当前目录可见文件详细信息
 ls -hl ：列出详细信息并以可读大小显示文件大小
 ls -al ：列出所有文件（包括隐藏）的详细信息
 ```
@@ -95,5 +113,188 @@ rmdir p1/p2 -p
 ### cp
 
 `cp`即拷贝文件和目录。
+
+```bash
+$ cp source dest            ### 将 source 复制到 dest
+$ cp folder/*  dest         ### 将 folder 下所有文件(不含子文件夹中的文件或空文件夹)复制到 dest
+$ cp -r folder  dest        ### 将 folder 下所有文件（包含子文件夹中的所有文件）复制到 dest
+
+$ cp -i dest  folder/dest1  ### 将dest复制到folder下，并命名为dest1，-i参数会询问当同名文件存在时是否覆盖
+% cp：是否覆盖'm1/hhh.txt'？  ### <==n不覆盖，y为覆盖
+```
+选项与参数：
+
+ - -a：相当於 -pdr 的意思，至於 pdr 请参考下列说明；(常用)
+ - -d：若来源档为连结档的属性(link file)，则复制连结档属性而非文件本身；
+ - -f：为强制(force)的意思，若目标文件已经存在且无法开启，则移除后再尝试一次；
+ - -i：若目标档(destination)已经存在时，在覆盖时会先询问动作的进行(常用)
+ - -l：进行硬式连结(hard link)的连结档创建，而非复制文件本身；
+ - -p：连同文件的属性一起复制过去，而非使用默认属性(备份常用)；
+ - -r：递归持续复制，用於目录的复制行为；(常用)
+ - -s：复制成为符号连结档 (symbolic link)，亦即『捷径』文件；
+ - -u：若 destination 比 source 旧才升级 destination ！
+
+### rm
+
+`rm` 即 remove ，删除文件。
+
+选项与参数：
+ - -f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；
+ - -i ：互动模式，在删除前会询问使用者是否动作
+ - -r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！
+
+```shell
+$ rm filename      ### 删除 filename
+$ rm -i filename   ### 删除 filename 前提示，若多个文件则每次提示
+$ rm -rf folder/subfolder/  ### 递归删除 subfolder 下所有文件及文件夹，包括 subfolder 自身
+$ rm -d folder     ###  删除空文件夹，这个文件夹里面不可有任何文件或空文件夹
+```
+
+### mv
+
+`mv` 即 move ，移动文件。
+
+选项与参数：
+ - -f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；
+ - -i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！
+ - -u ：若目标文件已经存在，且 source 比较新，才会升级 (update)
+
+```shell
+$ mv source  folder        ### 将 source 移动到 folder 下，完成后则为  folder/source
+$ mv -i source folder      ### 在移动时，若文件已存在则提示 **是否覆盖**
+$ mv source dest           ### 在 dest 不为目录的前提下，重命名 source 为 dest
+$ mv folder folder1        ### 两者为目录的情况下，将folder重命名为folder1
+```
+
+### cat
+
+`cat` 用于输出文件内容到 Terminal 。
+
+```shell
+$ cat /etc/locale.gen     ### 输出 locale.gen 的内容
+$ cat -n /etc/locale.gen  ### 输出 locale.gen 的内容并显示行号
+```
+选项与参数：
+ - -A ：相当於 -vET 的整合选项，可列出一些特殊字符而不是空白而已；
+ - -b ：列出行号，仅针对非空白行做行号显示，空白行不标行号！
+ - -E ：将结尾的断行字节 $ 显示出来；
+ - -n ：列印出行号，连同空白行也会有行号，与 -b 的选项不同；
+ - -T ：将 [tab] 按键以 ^I 显示出来；
+ - -v ：列出一些看不出来的特殊字符
+
+### tac
+`tac`与`cat`命令刚好相反，文件内容从最后一行开始显示，可以看出 `tac` 是 `cat` 的倒着写！
+
+### nl
+
+选项与参数：
+ - -b ：指定行号指定的方式，主要有两种：
+ - -b a ：表示不论是否为空行，也同样列出行号(类似 cat -n)；
+ - -b t ：如果有空行，空的那一行不要列出行号(默认值)；
+ - -n ：列出行号表示的方法，主要有三种：
+ - -n ln ：行号在萤幕的最左方显示；
+ - -n rn ：行号在自己栏位的最右方显示，且不加 0 ；
+ - -n rz ：行号在自己栏位的最右方显示，且加 0 ；
+ - -w ：行号栏位的占用的位数。
+
+### head
+
+取出文件前面几行
+```shell
+# 默认的情况中，显示前面 10 行！若要显示前 20 行，就得要这样：
+$ head -n 20 test.txt
+```
+
+### tail
+取出文件后面几行
+```shell
+# 默认的情况中，显示最后的十行！若要显示最后的 20 行，就得要这样：
+$ tail -n 20 test.txt
+
+# -f ：表示持续侦测后面所接的档名，要等到按下[ctrl]-c才会结束tail的侦测
+$ tail -fn 20 test.txt
+```
+
+### more
+
+`more` 与 `cat` 相似，都可以查看文件内容，所不同的是，当一个文档太长时， cat 只能展示最后布满屏幕的内容，前面的内容是不可见的。
+
+```shell
+$ more /etc/locale.gen
+$ more +100 /etc/locale.gen       ### 从 100 行开始显示
+```
+
+查看时的操作：
+ - 空白键 (space)：代表向下翻一页；
+ - Enter         ：代表向下翻『一行』；
+ - /字串         ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；
+ - :f            ：立刻显示出档名以及目前显示的行数；
+ - q             ：代表立刻离开 more ，不再显示该文件内容。
+ - b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。
+
+### less
+`less`与 `more`相似，不过 `less` 支持上下滚动查看内容，而 `more`只支持逐行显示。
+
+```shell
+$ less /etc/locale.gen
+$ less +100 /etc/locale.gen
+```
+
+操作命令：
+
+ - 空白键    ：向下翻动一页；
+ - [pagedown]：向下翻动一页；
+ - [pageup]  ：向上翻动一页；
+ - /字串     ：向下搜寻‘字串’的功能；
+ - ?字串     ：向上搜寻‘字串’的功能；
+ - n         ：重复前一个搜寻 (与 / 或 ? 有关！)
+ - N         ：反向的重复前一个搜寻 (与 / 或 ? 有关！)
+ - q         ：离开 less 这个程序；
+
+### nano
+`nano` 是一个简单实用的文本编辑器，使用简单。
+
+```shell
+$ nano  filename       ### 编辑 filename 文件，若文件不存在，则新打开一个文件，若退出时保存，则创建该文件
+```
+
+## 系统操作
+
+### reboot
+
+`reboot` 为重启命令。
+
+```
+# reboot
+```
+
+`$` 和 `#` 的区别在于 `$` 普通用户即可执行，而 `#` 为 **root** 用户才可执行，或普通用户使用 `sudo`。
+
+### poweroff
+
+`poweroff` 为关机命令。
+```
+# poweroff
+```
+
+### ping
+
+`ping` 主要用于测试网络连通，通过对目标机器发送数据包来测试两台主机是否连通，及延时情况。
+```shell
+$ ping locez.com    ### 通过域名 ping，若 DNS 未设置好，可能无法 ping 通
+$ ping linux.cn
+PING linux.cn (211.157.2.94) 56(84) bytes of data.
+64 bytes from 211.157.2.94.static.in-addr.arpa (211.157.2.94): icmp_seq=1 ttl=53 time=41.5 ms
+
+...
+```
+
+### grep
+`grep` 主要用于返回匹配的项目，支持正则表达式。
+
+```shell
+$ grep PATTERN filename      ### 返回所有含有 PATTERN 的行
+$ grep zh_CN /etc/locale.gen ### 返回所有含 zh_CN 的行
+```
 
 >资料参考：https://linux.cn/article-6160-1.html 、http://www.runoob.com/linux/linux-file-content-manage.html
