@@ -25,6 +25,13 @@
         * [poweroff](#poweroff)
         * [ping](#ping)
         * [grep](#grep)
+        * [tar](#tar)
+        * [chmod](#chmod)
+        * [useradd](#useradd)
+        * [passwd](#passwd)
+        * [whereis](#whereis)
+        * [find](#find)
+        * [wget](#wget)
 
 <!-- tocstop -->
 
@@ -297,4 +304,89 @@ $ grep PATTERN filename      ### 返回所有含有 PATTERN 的行
 $ grep zh_CN /etc/locale.gen ### 返回所有含 zh_CN 的行
 ```
 
+### tar
+
+`tar` 主要用于创建归档文件，和解压归档文件，其本身是没有压缩功能的，但可以调用 `gzip` 、 `bzip2` 进行压缩处理。
+
+参数选项：
+
+ - -c 创建归档
+ - -x 解压归档
+ - -v 显示处理过程
+ - -f 目标文件，其后必须紧跟 目标文件
+ - -j 调用 bzip2 进行解压缩
+ - -z 调用 gzip 进行解压缩
+ - -t 列出归档中的文件
+
+```shell
+$ tar -cvf filename.tar .       ### 将当前目录所有文件归档，但不压缩，注意后面有个 ’.‘ ，不可省略，代表当前目录的意思
+$ tar -xvf filename.tar         ### 解压 filename.tar 到当前文件夹
+$ tar -cvjf filename.tar.bz2 .  ### 使用 bzip2 压缩
+$ tar -xvjf  filename.tar.bz2   ### 解压 filename.tar.bz2 到当前文件夹
+$ tar -cvzf filename.tar.gz     ### 使用 gzip  压缩
+$ tar -xvzf filename.tar.gz     ### 解压 filename.tar.gz 到当前文件夹
+$ tar -tf   filename            ### 只查看 filename 归档中的文件，不解压
+```
+
+### chmod
+
+`chmod` 永远更改一个文件的权限
+
+```shell
+#有 读取 、 写入 、 执行 ，三种权限，其中 所有者 、 用户组 、 其他 各占三个
+-rwxr--r-- 1 locez users   154 Aug 30 18:09 filename
+```
+>r=read ， w=write ， x=execute
+
+```
+# chmod +x filename        ### 为 user ，group ，others 添加执行权限
+# chmod -x filename        ### 取消 user ， group ，others 的执行权限
+# chmod +w filename        ### 为 user 添加写入权限
+# chmod ugo=rwx filename   ### 设置 user ，group ，others 具有 读取、写入、执行权限
+# chmod ug=rw filename     ### 设置 user ，group 添加 读取、写入权限
+# chmod ugo=--- filename   ### 取消所有权限
+```
+
+### useradd
+
+`useradd`用于添加一个普通用户。
+
+```
+# useradd -m -g users -G audio -s /usr/bin/bash newuser     
+### -m 创建 home 目录， -g 所属的主组， -G 指定该用户在哪些附加组， -s 设定默认的 shell ，newuser 为新的用户名
+```
+
+### passwd
+
+`passwd` 用于改变用户登录密码。
+
+```
+$ passwd                 ### 不带参数更改当前用户密码
+# passwd newuser         ### 更改上述新建的 newuser 的用户密码
+```
+
+### whereis
+
+`whereis` 用于查找文件、手册等。
+
+```shell
+$ whereis bash
+bash: /bin/bash /etc/bash.bashrc /usr/share/man/man1/bash.1.gz
+```
+
+### find
+`find` 也用于查找文件，但更为强大，支持正则，并且可将查找结果传递到其他命令。
+
+```shell
+$ find . -name PATTERN    ### 从当前目录查找符合 PATTERN 的文件
+$ find /home -name PATTERN -exec ls -l {} \;  # 从 /home 文件查找所有符合 PATTERN 的文件，并交由 ls 输出详细信息
+```
+
+### wget
+
+`wget`是一个下载工具，简单强大。
+```shell
+$ wget -O newname.md https://github.com/.../README.md     ### 下载 README 文件并重命名为 newname.md
+$ wget -c url     ### 下载 url 并开启断点续传
+```
 >资料参考：https://linux.cn/article-6160-1.html 、http://www.runoob.com/linux/linux-file-content-manage.html
