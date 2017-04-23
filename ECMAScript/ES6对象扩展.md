@@ -14,7 +14,7 @@
 			* [value](#value)
 		* [存取器描述](#存取器描述)
 	* [属性的遍历](#属性的遍历)
-	* [\_\_proto\_\_ 属性](#__proto__-属性)
+	* [\_\_proto\_\_属性](#__proto__属性)
 	* [Object.defineProperty()](#objectdefineproperty)
 	* [Object.setPrototypeOf()](#objectsetprototypeof)
 	* [Object.getPrototypeOf()](#objectgetprototypeof)
@@ -274,7 +274,7 @@ console.log( obj.newKey ); //change value
 5. Reflect.ownKeys(obj)
     - `Reflect.ownKeys`返回一个数组，包含对象自身的所有属性，不管是属性名是Symbol或字符串，也不管是否可枚举。
 
-## \_\_proto\_\_ 属性
+## \_\_proto\_\_属性
 
 `__proto__` 属性（前后各两个下划线），用来读取或设置当前对象的`prototype`对象。
 
@@ -493,13 +493,13 @@ JS在创建对象（不论是普通对象还是函数对象）的时候，都有
 ```js
 cat.__proto__===Cat.prototype;//true
 ```
-**同样，Cat.prototype对象也有__proto__属性，它指向创建它的函数对象（Object）的prototype**
+**同样，Cat.prototype对象也有\_\_proto\_\_属性，它指向创建它的函数对象（Object）的prototype**
 
 ```js
 Cat.prototype.__proto__=== Object.prototype;//true
 ```
 
-**继续，Object.prototype对象也有__proto__属性，但它比较特殊，为null**
+**继续，Object.prototype对象也有\_\_proto\_\_属性，但它比较特殊，为null**
 
 ```js
 Object.prototype.__proto__;//null
