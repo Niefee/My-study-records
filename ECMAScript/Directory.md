@@ -17,3 +17,4 @@
 16. [Generator](Generator.md)
 17. [async](async.md)
 18. [Class](Class.md)
+19. [Decorator](Decorator.md)
