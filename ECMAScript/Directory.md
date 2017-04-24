@@ -18,3 +18,4 @@
 17. [async](async.md)
 18. [Class](Class.md)
 19. [Decorator](Decorator.md)
+20. [Module](Module.md)
