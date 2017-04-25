@@ -125,3 +125,70 @@ npm install traceur -g
 
 traceur a.js
 ```
+
+## 脚本异步加载
+
+`script`标签如果有`defer`或`async`属性，脚本就会异步加载。
+
+区别：
+ - defer：整个页面正常渲染结束，才会执行
+ - async：一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。
+
+多个`defer`脚本会按顺序加载，`async`不能包证按顺序加载。
+
+## ES6 模块与 CommonJS 模块的差异
+
+区别：
+ - CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
+ - CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
+
+ES6`import`的模块原始值变了，import加载的值也会跟着变。
+
+```js
+// lib.js
+export let counter = 3;
+export function incCounter() {
+  counter++;
+}
+
+// main.js
+import { counter, incCounter } from './lib';
+console.log(counter); // 3
+incCounter();
+console.log(counter); // 4
+```
+模块变量是一个“符号链接”，只读，赋值会报错。
+```js
+// lib.js
+export let obj = {};
+
+// main.js
+import { obj } from './lib';
+
+obj.prop = 123; // OK
+obj = {}; // TypeError
+```
+
+
+CommonJS模块如果是原始类型的值，不会影响输出值，但可以写成函数，会等到变动后的结果。
+
+```js
+// lib.js
+var counter = 3;
+function incCounter() {
+  counter++;
+}
+module.exports = {
+  get counter() {
+    return counter
+  },
+  incCounter: incCounter,
+};
+
+// main.js
+var mod = require('./lib');
+
+console.log(mod.counter);  // 3
+mod.incCounter();
+console.log(mod.counter); // 4
+```
