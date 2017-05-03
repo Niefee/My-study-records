@@ -166,6 +166,19 @@ fs.readFile('test.txt', function (err, data) {
 
 返回文件的详细信息
 
+dev : 文件或目录所在的设备ID。该属性值在UNIX系统下有效；
+mode : 文件或目录的权限标志，采用数值形式表示；
+nlink : 文件或目录的的硬连接数量；
+uid : 文件或目录的所有者的用户ID。该属性值在UNIX系统下有效；
+gid : 文件或目录的所有者的用户组ID。该属性值在UNIX系统下有效；
+rdev : 字符设备文件或块设备文件所在设备ID。该属性值在UNIX系统下有效；**
+ino : 文件或目录的索引编号。该属性值仅在UNIX系统下有效；
+size : 文件的字节数；
+atime : 文件或目录的访问时间；
+mtime : 文件或目录的最后修改时间；
+ctime : 文件或目录状态的最后修改时间(包括权限、所有者等，比mtime范围大)；
+birthtime : 文件创建时间，文件创建时生成。在一些不提供文件 birthtime 的文件系统中，这个字段会使用 ctime 或 1970-01-01T00:00Z 来填充；
+
 ### fs.watch(filename, [options], [listener])
 
 监听文件或者文件夹的变化，监听器的回调函数得到两个参数`(event, filename)`。其中 `event` 是 'rename'（重命名）或者 'change'（改变），而 `filename` 则是触发事件的文件名。
