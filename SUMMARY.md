@@ -81,7 +81,7 @@
     - [C语言](MOOC/C语言.md)
     - [树与二叉树](MOOC/树与二叉树.md)
     - [算法排序](MOOC/算法排序.md)
-    - [计算机网络(一)](MOOC/计算机网络(一).md)
+    - [计算机网络](MOOC/计算机网络.md)
 * [CodeLibrary](CodeLibrary/Directory.md)
     1. [Ajax](CodeLibrary/ajax.md)
     2. [cookie](CodeLibrary/cookie.md)
