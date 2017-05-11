@@ -9,3 +9,9 @@ p.comments-section code {
     font-weight: bolder;
     color: #000 !important;
 }
+
+ol li .markdown-section code,ul li .markdown-section code{
+    background: rgba(252, 228, 236, 0.4);
+    color: #d70d5c;
+    border-radius: 2px;
+}
