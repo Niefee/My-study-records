@@ -39,9 +39,15 @@ E类IP地址以`11110`开头的地址都留着将来作为特殊用途使用
 
 IP 地址= [ 网络号，子网号，主机号 ]
 
-子网号的位数是可变的，为了反映有多少位用于表示子网号，采用子网掩码( mask )
+子网号的位数是可变的，为了反映有多少位用于表示子网号，采用`子网掩码`( mask )
+>[百度百科：子网掩码](http://baike.baidu.com/link?url=yOHZdfU6bjdU9_tSkRf3Fmb7m7DKMqoqwqWZB4__hfsDl8Qt0704tsjqlrEmd1FSDJcOBADuNDNxye0fQjWjNXOwUFdjMQNlT_Zr-p2fZPehSd6ngUWX5EE3tKAX8BkH)
+
+```
 IP 地址= [ 网络号，子网号，主机号]
+
 子网掩码= [ 11....11, 11...11,  00....00]
+```
+
 >网络号与子网号都用1表示，主机号用0表示。
 
 ### 子网地址
@@ -56,3 +62,7 @@ IP 地址= [ 网络号，子网号，主机号]
 
 ![广播地址.jpg](img/广播地址.jpg)
 >在子网128.10.32.0中
+
+
+>[慕课地址](http://www.icourse163.org/learn/NJUPT-1001639008?tid=1002014006#/learn/content?type=detail&id=1002615362&cid=1002865806)
+> [课程PDF文件](http://nos.netease.com/edu-lesson-pdfsrc/1911457B1E4AB1893B315E5E9E9A9B05-1490188790873?NOSAccessKeyId=7ba71f968e4340f1ab476ecb300190fa&Expires=1494598332&Signature=IV6jbThsiwluKcYyuRkX%2BmosfWYpWobe3Inkf08qAg8%3D&download=%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8-IPv4---%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E4%BF%AE%E6%94%B9.pdf)
