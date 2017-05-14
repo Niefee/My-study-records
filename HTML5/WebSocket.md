@@ -7,6 +7,9 @@
         * [四次分手：](#四次分手)
     * [WebSocket简介](#websocket简介)
     * [实例](#实例)
+    * [WebSocket原生事件](#websocket原生事件)
+    * [WebSocket原生方法](#websocket原生方法)
+    * [readyState](#readystate)
 
 <!-- tocstop -->
 
@@ -171,3 +174,35 @@ ws server started at port 3000...
 end'
 ```
 >参考：[websocket](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014727922914053479c966220f47da91991fa9c27ac3ea000 '廖雪峰JavaScript教程')
+
+## WebSocket原生事件
+
+事件|	事件处理程序|	描述
+----|-----|-----
+open	|Socket.onopen	|连接建立时触发
+message	|Socket.onmessage|	客户端接收服务端数据时触发
+error	|Socket.onerror	|通信发生错误时触发
+close	|Socket.onclose	|连接关闭时触发
+
+```js
+var ws = new WebSocket('ws://localhost:3000/ws/chat');
+ws.onopen=function () {
+    ws.send('Hello!');
+};
+```
+## WebSocket原生方法
+
+方法	|描述
+----|----
+Socket.send()|	使用连接发送数据
+Socket.close()|	关闭连接
+
+## readyState
+
+
+特性常量	|取值|	状态
+-----|------|-----
+WebSocket.CONNECTING|	0	|连接正在进行中，但还未建立
+WebSocket.OPEN	|1|	连接已建立，消息可以开始传递
+WebSocket.CLOSING	|2	|连接正在进行关闭
+WebSocket.CLOSED|	3	|连接已关闭
