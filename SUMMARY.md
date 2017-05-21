@@ -84,6 +84,7 @@
     - [算法排序](MOOC/算法排序.md)
     - [计算机网络](MOOC/计算机网络.md)
     - [IP地址](MOOC/IP地址.md)
+    - [计算机导论](MOOC/计算机导论.md)
 * [CodeLibrary](CodeLibrary/Directory.md)
     1. [Ajax](CodeLibrary/ajax.md)
     2. [cookie](CodeLibrary/cookie.md)
