@@ -47,16 +47,47 @@
 
 上图所示线条从上到下为：
 
-```css
-vertical-align:top;       /*顶线*/
+```
+/*顶线*/
+vertical-align:top;
+
 vertical-align:text-top;
-vertical-align:super;     /*上标*/
-vertical-align:middle;    /*中线*/
-vertical-align:baseline;  /*基线*/
-vertical-align:sub;		  /*下标*/
-vertical-align:bottom;    /*底线*/
+
+/*上标*/
+vertical-align:super;  
+
+/*中线*/   
+vertical-align:middle;   
+
+/*基线*/
+vertical-align:baseline;  
+
+/*下标*/
+vertical-align:sub;		  
+
+vertical-align:bottom;   
+
+/*底线*/
 vertical-align:text-bottom;
 ```
+
+css中起高度作用的应该就是**height**以及**line-height**。
+
+```css
+.test1{font-size:20px; line-height:0; border:1px solid #cccccc; background:#eeeeee;}
+.test2{font-size:0; line-height:20px; border:1px solid #cccccc; background:#eeeeee;}
+```
+
+```html
+<div class="test1">测试</div>
+<div class="test2">测试</div>
+```
+
+**效果:**
+
+![line-height](img/line-height2.png)
+
+`line-height`的最终表现是通过`line boxes`实现的，而无论`line boxes`所占据的高度是多少（无论比文字大还是比文字小），其占据的空间都是与文字内容共用水平线的
 
 ### 4种box
 
