@@ -10,6 +10,8 @@
         * [v-on](#v-on)
         * [v-model](#v-model)
         * [v-for](#v-for)
+    * [过滤器](#过滤器)
+        * [计算属性](#计算属性)
 
 <!-- tocstop -->
 
@@ -82,6 +84,7 @@ new Vue({
 ```html
 <div id="app">
     <p v-if="seen">现在你看到我了</p>
+    <p v-else>你看不到我了</p>
 </div>
 
 <script>
@@ -149,3 +152,79 @@ var app4 = new Vue({
 })
 </script>
 ```
+## 过滤器
+
+过滤器的设计目的就是用于文本转换，被用作一些常见的文本格式化。
+
+```html
+<!-- in mustaches -->
+{{ message | capitalize }}
+
+{{ message | filterA | filterB }}
+
+{{ message | filterA('arg1', arg2) }}
+
+<!-- in v-bind -->
+<div v-bind:id="rawId | formatId"></div>
+```
+在`mustache`绑定和 `v-bind` 表达式中使用。
+
+```html
+<div id="app">
+  {{ message | capitalize }}
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: 'hello world'
+  },
+  filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  }
+})
+</script>
+```
+### 计算属性
+
+```html
+
+<div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+
+<script type="text/javascript">
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return this.message.split('').reverse().join('')
+    }
+  },
+
+  //也可以用下面的方法
+  // in component
+    methods: {
+      reversedMessage: function () {
+        return this.message.split('').reverse().join('')
+      }
+    }
+})
+</script>
+
+```
+计算属性是基于它们的依赖进行**缓存**的。计算属性只有在它的**相关依赖发生改变**时才会重新求值。这就意味着只要 `message `还没有发生改变，多次访问 `reversedMessage` 计算属性会立即返回之前的计算结果，而不必再次执行函数。
+
+>参考：https://cn.vuejs.org/v2/guide/computed.html
+
