@@ -1,4 +1,28 @@
-##简介
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [npm](#npm)
+    * [简介](#简介)
+        * [npm init](#npm-init)
+        * [npm set](#npm-set)
+        * [npm info](#npm-info)
+        * [npm search](#npm-search)
+        * [npm list](#npm-list)
+        * [npm install](#npm-install)
+        * [npm update npm uninstall](#npm-update-npm-uninstall)
+        * [npm run](#npm-run)
+        * [npm outdated](#npm-outdated)
+        * [npm cache](#npm-cache)
+    * [npm 代理配置](#npm-代理配置)
+        * [(1)通过 config 配置指向国内镜像源](#1通过-config-配置指向国内镜像源)
+        * [(2)通过 npm 命令指定下载源](#2通过-npm-命令指定下载源)
+        * [(3)在配置文件 ~/.npmrc 文件写入源地址](#3在配置文件-~npmrc-文件写入源地址)
+        * [全局安装新命令](#全局安装新命令)
+
+<!-- tocstop -->
+
+# npm
+## 简介
 
 `npm`是一个Node模块登记管理与管理系统。
 
@@ -24,13 +48,13 @@ $ npm -v
 $ npm config list -l
 ```
 
-###npm init
+### npm init
 
 `npm init`初始化`package.json`的配置，使用`-f`(代表force)，`-y`(代表也是yes)。
 
     $ npm init -y
 
-###npm set
+### npm set
 
 设置环境变量
 
@@ -43,19 +67,19 @@ $ npm set init-license 'MIT'
 
 执行`npm init`时填写的信息，保存在用户目录`~/.npmrc`文件中。
 
-###npm info
+### npm info
 
 `npm info`命令可以查看每个模块的具体信息，返回javascript对象。
 
-###npm search
+### npm search
 
 `npm search`命令用于搜索npm仓库，它后面可以跟字符串，也可以跟正则表达式。
 
-###npm list
+### npm list
 
 `npm list`命令以树型结构列出当前项目安装的所有模块，以及它们依赖的模块。
 
-    $ npm list 
+    $ npm list
     
 使用`npm list --depth 0`可以将树形结构的深度显示为一层。
 
@@ -67,7 +91,7 @@ npm list命令也可以列出单个模块。
 
     $ npm list underscore
 
-###npm install
+### npm install
 
 有`-g`参数代表全局安装，本地安装的会会在本目录下安装。
 
@@ -85,6 +109,17 @@ $ npm install sax@latest
 $ npm install sax@0.1.1
 ```
 
+版本号含义：
+
+```text
+`*`: 任意版本
+`1.1.0`: 指定版本
+`~1.1.0`: >=1.1.0 && < 1.2.0
+`^1.1.0`: >=1.1.0 && < 2.0.0
+```
+
+>版本号说明：http://deadhorse.me/nodejs/2014/04/27/semver-in-nodejs.html
+
 添加安装信息：
 
  - **–save**：模块名将被添加到dependencies，可以简化为参数-S。
@@ -100,7 +135,7 @@ $ npm install sax@0.1.1
     console.log(backbone.VERSION)
 
 
-###npm update npm uninstall
+### npm update npm uninstall
 
 ```
 # 升级当前项目的指定模块
@@ -111,18 +146,18 @@ $ npm update [package name]
 $ npm uninstall [package name]
 ```
 
-###npm run
+### npm run
 
 `npm run`命令可以可以运行`package.json`里的`script`脚本。
 
 >http://javascript.ruanyifeng.com/nodejs/npm.html
 
 
-###npm outdated
+### npm outdated
 
 `npm outdated`检查模块是否过期。
 
-###npm cache
+### npm cache
 
 `npm cache`管理模块的缓存
 
