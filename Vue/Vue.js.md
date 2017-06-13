@@ -21,6 +21,16 @@
 
 对于前端来说，钩子函数就是指在所有函数执行前，先执行了的函数。提供一个可以影响默认的(或原有的)流程(机制)的时机。
 
+```js
+var rawConsole = console.info;
+console.info=function(str){
+    str+="嘿嘿哈哈哈";//钩子
+    rawConsole(str);
+}
+//用一个变量把console.info存起来,然后重新定义console.info,让console.info输出的内容后面加上"嘿嘿哈哈哈"
+```
+>rawConsoleInfo函数就是类似于钩子函数
+
 ## Vue指令
 
 带有前缀`v-`表示Vue提供的特殊属性，用于在表达式的值改变时，将某些行为应用到 DOM 上。
