@@ -81,6 +81,7 @@
     * [ReactNative](React_Native/ReactNative.md)
 * [Vue](Vue/Directory.md)
     * [Vue.js](Vue/Vue.js.md)
+    * [Vue模块](Vue/Vue模块.md)
 * [MOOC](MOOC/Directory.md)
     - [数据结构](MOOC/数据结构.md)
     - [C语言](MOOC/C语言.md)
