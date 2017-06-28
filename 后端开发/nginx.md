@@ -34,3 +34,5 @@ nginx -t            不运行，而仅仅测试配置文件。nginx 将检查配
 nginx -v            显示 nginx 的版本。
 nginx -V            显示 nginx 的版本，编译器版本和配置参数。
 ```
+
+><http://www.jianshu.com/p/bed000e1830b>
