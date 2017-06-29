@@ -18,7 +18,7 @@
 
 默认`80`端口，打开浏览器输入`127.0.0.1`或者`localhost`可以查看内容。
 
-## 配置文件
+### 配置文件
 
 可以打开conf文件夹下的`nginx.conf`文件可以配置项目参数。
 
@@ -36,3 +36,58 @@ nginx -V            显示 nginx 的版本，编译器版本和配置参数。
 ```
 
 ><http://www.jianshu.com/p/bed000e1830b>
+
+### 配置参数
+
+server下的结点：
+
+listen：监听80端口
+
+server_name：转发到的地址，要配置成域名形式，不能是`127.0.0.1`
+
+proxy_pass：要代理的地址
+
+## Linux
+
+root权限打开一个窗口，来管理文件：
+
+```shell
+gnome-open /etc
+　　
+ubuntu中 nautilus /etc
+```
+
+```shell
+server {
+    # 监听的端口
+    listen      80;
+    # 或者监听的地址和端口
+    #listen       193.168.1.25:9090;
+
+    server_name  193.168.1.25;
+
+    #charset koi8-r;
+
+    # 日志文件地址
+    #access_log  logs/host.access.log  main;
+
+    location / {
+        # 代理的地址
+        proxy_pass http://193.168.1.25:9090;
+
+        # 或者以一个文件夹为根目录启动服务器
+        #root   html;
+        #root    E:/Data/code/vue/vue-2.0-simple-routing-example;
+        #index  index.html index.htm;
+    }
+```
+
+### Ubuntu安装
+
+<http://blog.takwolf.com/2016/10/19/setup-nginx-on-ubuntu/index.html>
+
+### CentOS安装
+
+<http://www.centoscn.com/image-text/install/2014/0812/3480.html>
+
+<https://my.oschina.net/liucao/blog/470241>
