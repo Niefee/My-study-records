@@ -54,3 +54,5 @@ process.stdin.on('data',function(chunk){
 });
 ```
 > [process属性](http://nodejs.jakeyu.top/#t135process)
+
+> [参考](http://www.cnblogs.com/vajoy/p/4783390.html)
