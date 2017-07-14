@@ -9,6 +9,7 @@
     * [vmin and vmax](#vmin-and-vmax)
     * [ex and ch](#ex-and-ch)
     * [CSS像素定义](#css像素定义)
+    * [viewport](#viewport)
 
 <!-- tocstop -->
 
@@ -165,3 +166,25 @@ console.log(window.devicePixelRatio);
 //2
 ```
 [参考](http://ued.ourfuture.cn/fed/4200.html)
+
+## viewport
+
+一个空的 `div` ，其宽度默认是100%。它是继承其父元素 `body`，而`body`的宽度又是继承其父元素 `html`。所以 `body` 元素和它的父元素 `html`一样宽。
+
+`html` 元素的宽度是被`viewport`的宽度所限制的。 `html` 元素使用`viewport`宽度的`100%`。
+
+移动端可以添加以下设置修正屏幕大小与网页布局不一致的问题：
+
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+```
+`width`决定了`layout viewport`的值。
+
+>*viewport 的最好宽度是`ideal viewport`，用`ideal viewport`设置`layout viewport`的大小。*
+
+>https://github.com/ant-design/ant-design-mobile/wiki/viewport%E8%AF%A6%E8%A7%A3
+>http://blog.csdn.net/aiolos1111/article/details/51967744
+>http://www.cnblogs.com/HCJJ/p/6347242.html
+>http://www.cnblogs.com/Mrs-cc/p/5329545.html
+
+
