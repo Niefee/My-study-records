@@ -12,6 +12,7 @@
         * [v-for](#v-for)
     * [过滤器](#过滤器)
         * [计算属性](#计算属性)
+    * [模块导出与引用](#模块导出与引用)
 
 <!-- tocstop -->
 
@@ -238,3 +239,51 @@ var vm = new Vue({
 
 >参考：https://cn.vuejs.org/v2/guide/computed.html
 
+## 模块导出与引用
+
+```js
+//导出
+// a.js
+function logs () {
+  console.log('logs')
+}
+
+function hei () {
+  console.log('hei')
+}
+export { logs as default, hei }
+
+
+//引入
+// b.js
+import {default as fn, hei} from './a'
+
+fn()
+//logs
+
+hei()
+//hei
+```
+
+或者：
+
+```js
+//导出
+// a.js
+export default {
+  logs: function () {
+    console.log('logs')
+  },
+  hei: function () {
+    console.log('hei')
+  }
+}
+
+
+//引入
+//b.js
+import fn from './public/fn'
+
+fn.logs()
+//logs
+```
