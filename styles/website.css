@@ -15,3 +15,6 @@ p.comments-section code {
     color: #d70d5c;
     border-radius: 2px;
 }
+#book-search-input input{
+    text-align: center!important;
+}
