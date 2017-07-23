@@ -73,3 +73,52 @@ String s= new String("a string");
 //or
 String s="a string"
 ```
+
+## 构造函数
+
+如果有一个成员函数的名字和类的名字完全相同，则创建这个类的每一个对象的时候都会自动调用这个函数 --> 构造函数。
+
+```java
+package vendingMachine;
+
+public class VendingMachine {
+	int price=80;
+	int balance;
+	int total;
+
+	void showPrompt() {
+		System.out.println("welcome");
+	}
+
+	void insertMomey(int amount){
+		balance = balance+amount;
+	}
+
+	void showBalance(){
+		System.out.println(balance);
+	}
+
+	void getFood(){
+		if(balance>=price){
+			System.out.println("here you are");
+			balance=balance-price;
+			total=total+price;
+		}
+	}
+
+	VendingMachine(int price){
+		this.price=price;
+	}
+
+	public static void main(String[] args) {
+		// 会执行有相同参数的构造函数
+		VendingMachine vm=new VendingMachine(100);
+		vm.showPrompt();
+		vm.showBalance();
+		vm.insertMomey(200);
+		vm.getFood();
+		vm.showBalance();
+	}
+
+}
+```
