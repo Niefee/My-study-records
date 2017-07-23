@@ -1,5 +1,18 @@
 <!-- @import "[TOC]" {cmd:"toc", depthFrom:1, depthTo:6, orderedList:false} -->
 
+<!-- code_chunk_output -->
+
+* [Java基础](#java基础)
+	* [数组](#数组)
+		* [定义数组变量](#定义数组变量)
+		* [直接初始化数据](#直接初始化数据)
+	* [对象](#对象)
+		* [包裹类型](#包裹类型)
+		* [new创建](#new创建)
+
+<!-- /code_chunk_output -->
+
+
 # Java基础
 
 ## 数组
