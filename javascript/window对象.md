@@ -1,4 +1,19 @@
-[TOC]
+
+<!-- @import "[TOC]" {cmd:"toc", depthFrom:1, depthTo:6, orderedList:false} -->
+
+<!-- code_chunk_output -->
+
+* [window对象](#window对象)
+	* [概述](#概述)
+	* [窗口](#窗口)
+	* [navigator对象](#navigator对象)
+	* [BOM对象](#bom对象)
+		* [`window`下的全局变量:](#window下的全局变量)
+
+<!-- /code_chunk_output -->
+
+# window对象
+
 ##概述
 
 javascript所有对象都在`window`这个**顶层对象**之中。
@@ -18,13 +33,13 @@ window.a // 1
 
  - window.innerHeight，window.innerWidth
 
-返回网页在当前窗口中可见部分的高度和宽度，即“视口”（viewport），单位为像素。 
+返回网页在当前窗口中可见部分的高度和宽度，即“视口”（viewport），单位为像素。
 
  - window.outerHeight，window.outerWidth
 
 返回浏览器窗口的高度和宽度，包括浏览器菜单和边框，单位为像素。
 
- - window.pageXOffset属性，window.pageYOffset属性 
+ - window.pageXOffset属性，window.pageYOffset属性
 
 window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset属性返回页面的垂直滚动距离，单位都为像素。
 
@@ -44,7 +59,7 @@ window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset�
 
 >mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/50.0.2661.94 safari/537.36"
 
->参考：http://javascript.ruanyifeng.com/bom/window.html 
+>参考：http://javascript.ruanyifeng.com/bom/window.html
 
 浏览器窗体模型:
 
@@ -54,7 +69,7 @@ $(document):整个网页文档流
 
 $("body"):就是body
 
->http://www.cnblogs.com/luhe/archive/2012/11/08/2760619.html 
+>http://www.cnblogs.com/luhe/archive/2012/11/08/2760619.html
 
 
 ##BOM对象
