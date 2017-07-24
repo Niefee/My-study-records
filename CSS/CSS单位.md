@@ -1,27 +1,34 @@
 
-<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+<!-- @import "[TOC]" {cmd:"toc", depthFrom:1, depthTo:6, orderedList:false} -->
 
-* [CSS长度单位](#css长度单位)
-    * [px](#px)
-    * [em](#em)
-    * [rem](#rem)
-    * [vh and vw](#vh-and-vw)
-    * [vmin and vmax](#vmin-and-vmax)
-    * [ex and ch](#ex-and-ch)
-    * [CSS像素定义](#css像素定义)
-    * [viewport](#viewport)
+<!-- code_chunk_output -->
 
-<!-- tocstop -->
+* [CSS单位](#css单位)
+	* [CSS长度单位](#css长度单位)
+		* [px](#px)
+		* [em](#em)
+		* [rem](#rem)
+		* [vh and vw](#vh-and-vw)
+		* [vmin and vmax](#vmin-and-vmax)
+		* [ex and ch](#ex-and-ch)
+	* [CSS像素定义](#css像素定义)
+	* [viewport](#viewport)
+	* [重置fontSize](#重置fontsize)
 
-# CSS长度单位
+<!-- /code_chunk_output -->
 
-## px
+
+# CSS单位
+
+## CSS长度单位
+
+### px
 `px`是你屏幕设备物理上能显示出的最小的一个点。
  `px`是被定义为小但仍可见，并且水平向的1px宽的线可以清晰地显示出来的单位(无抗锯齿)。
 
  https://www.w3.org/Style/Examples/007/units.zh_CN.html
 
-## em
+### em
 
 `em` 被定义为相对于当前对象内文本的字体大小(`font-size`)。`font-size`默认会继承父级的大小。
 
@@ -51,7 +58,7 @@ div {
 </iframe>
 </p>
 
-## rem
+### rem
 
 基于一个根元素（大多数情况下是html元素）设置元素的大小。
 
@@ -76,7 +83,7 @@ div {
     </div>
 </body>
 ```
-## vh and vw
+### vh and vw
 
 `1vh` 等于1/100的视口高度。
 
@@ -84,7 +91,7 @@ div {
 
 同理，`vw`就是视口（`viewport`）就宽度的1/100。
 
-## vmin and vmax
+### vmin and vmax
 
 ![vmaxANDvmin](./img/vmaxANDvmin.jpg)
 
@@ -93,7 +100,7 @@ div {
 如果浏览器设置为`1100px`宽、`700px`高，`1vmin`会是`7px`,`1vmax`为`11px`。
 然而，如果宽度设置为`800px`，高度设置为`1080px`，`1vmin`将会等于`8px`而`1vmax`将会是`10.8px`。
 
-## ex and ch
+### ex and ch
 
 `ex`和`ch`单位是基于字体（`font-family`）的度量单位，依赖于设定的字体
 
@@ -188,3 +195,42 @@ console.log(window.devicePixelRatio);
 >http://www.cnblogs.com/Mrs-cc/p/5329545.html
 
 
+
+## 重置fontSize
+
+```js
+var dpr, rem, scale;
+var docEl = document.documentElement;
+var fontEl = document.createElement('style');
+var metaEl = document.querySelector('meta[name="viewport"]');
+
+dpr = window.devicePixelRatio || 1;
+rem = docEl.clientWidth * dpr / 10;
+scale = 1 / dpr;
+
+
+// 设置viewport，进行缩放，达到高清效果
+metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+
+// 设置data-dpr属性，留作的css hack之用
+docEl.setAttribute('data-dpr', dpr);
+
+// 动态写入样式
+docEl.firstElementChild.appendChild(fontEl);
+fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+
+// 给js调用的，某一dpr下rem和px之间的转换函数
+window.rem2px = function(v) {
+    v = parseFloat(v);
+    return v * rem;
+};
+window.px2rem = function(v) {
+    v = parseFloat(v);
+    return v / rem;
+};
+
+window.dpr = dpr;
+window.rem = rem;
+```
+
+>http://www.html-js.com/article/3041
