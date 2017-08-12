@@ -108,6 +108,9 @@ final double PI=3.14;
 ```java
 int[] arr=new int[100];
 double[] arr=new double[10];
+
+// 或者
+int [] ia={1,23,4,5,90,6,7,8,33};
 ```
 
  - 元素个数必须是整数
