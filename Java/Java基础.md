@@ -259,3 +259,134 @@ public class Clock {
  - 逻辑运算符
 
  - 条件运算符
+
+## 静态变量
+
+如果希望一个类的所有对象共享一个成员，可使用`static`修饰。
+
+```js
+public class HelloWorld {
+
+    // 定义静态变量，
+	static String country = "China";
+
+	public static void main(String[] args) {
+
+		// 访问静态变量，
+		System.out.println(HelloWorld.country);
+	}
+}
+```
+
+定义公有静态变量
+
+```java
+public static int num=10;
+```
+
+`static`修饰方法，也称静态方法或者类方法。
+
+1. 静态方法中可以直接调用同类中的静态成员，但不能直接调用非静态成员。
+
+```java
+public class HelloWorld{
+	String name = "hei,boy";
+
+	static String hobby= "running";
+	public static void print(){
+
+		//此行报错，要访问非静态变量，可以通过创建类对象。
+		//HelloWorld hello = new HelloWorld();
+		System.out.println(name);
+		System.out.println(hobby);
+	}
+}
+```
+
+2. 在普通成员方法中，则可以直接访问同类的非静态变量和静态变量。
+
+```java
+String name = "hei,boy";
+
+static String hobby= "running";
+
+public void show(){
+	System.out.println(name);
+	System.out.println(hobby);
+}
+```
+
+3. 静态方法中能直接调用静态方法，但不能直接调用非静态方法，需要通过对象来访问非静态方法。
+
+```java
+public void show(){
+	System.out.println("welcome");
+}
+
+public static void print(){
+	System.out.println("欢迎")：
+}
+
+public static void main(String[] args) {
+	//通过对象调用
+	HelloWorld hello = new HelloWorld();
+	hello.show();
+	// 静态方法直接调用
+	print();
+}
+```
+### 初始化
+
+静态初始化块只在类加载时最先被执行，且只会执行一次。
+
+```java
+public class MainTwo {
+
+    String name; // 声明变量name
+	String sex; // 声明变量sex
+	static int age;// 声明静态变量age
+
+    // 构造方法
+	public  MainTwo () {
+		System.out.println("通过构造方法初始化name");
+		name = "tom";
+	}
+
+    // 初始化块
+	{
+		System.out.println("通过初始化块初始化sex");
+		sex = "男";
+	}
+
+    // 静态初始化块
+	      static   {
+		System.out.println("通过静态初始化块初始化age");
+		age = 20;
+	}
+
+	public void show() {
+		System.out.println("姓名：" + name + "，性别：" + sex + "，年龄：" + age);
+	}
+
+	public static void main(String[] args) {
+
+        // 创建对象
+		MainTwo hello = new MainTwo();
+		// 调用对象的show方法
+        hello.show();
+
+		MainTwo hello02 = new MainTwo();
+        hello02.show();
+	}
+}
+
+//通过静态初始化块初始化age
+// 通过初始化块初始化sex
+// 通过构造方法初始化name
+// 姓名：tom，性别：男，年龄：20
+// --------
+// 通过初始化块初始化sex
+// 通过构造方法初始化name
+// 姓名：tom，性别：男，年龄：20
+```
+初始化顺序：类初始化 >> 普通初始化 >> 执行方法
