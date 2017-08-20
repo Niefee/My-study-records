@@ -21,6 +21,8 @@
 `Promise`有三种状态，`Pending`（进行中）、`Resolved`（已完成）、`Rejected`（已失效）。
 `Promise`对象的状态改变，只有两种可能：从`Pending`变为`Resolved`和从`Pending`变为`Rejected`。
 
+除`promise`对象规定的方法(这里的 `then` 或 `catch`)以外的方法都是不可以使用的。
+
 ```js
 var myFirstPromise = new Promise(function(resolve, reject){
     console.log('1>>');
@@ -39,7 +41,7 @@ myFirstPromise.then(function(successMessage){
 
 `resolve`函数的作用是，将`Promise`对象的状态从“未完成”变为“成功”（即从`Pending`变为`Resolved`），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；`reject`同理。
 
-一般都结果进行判断，然后决定是调用哪个函数。
+一般对结果进行判断，然后决定是调用哪个函数。
 ```js
 var promise = new Promise(function(resolve, reject) {
   // ... some code
@@ -51,6 +53,7 @@ var promise = new Promise(function(resolve, reject) {
   }
 });
 ```
+
 
 失败的话，会在调用`catch`方法后的回调函数。
 ```js
@@ -96,6 +99,10 @@ p1.then(
 ```
 
 前一个`then`方法的如果有返回值，会作为下一个`then`方法的参数。
+
+使用`promise.then(onFulfilled, onRejected) `的话，在 `onFulfilled`中发生异常的话，在 `onRejected` 中是捕获不到这个异常的。
+
+在 `promise.then(onFulfilled).catch(onRejected)` 的情况下，`then` 中产生的异常能在 `.catch` 中捕获。
 
 ## Promise.prototype.catch
 
