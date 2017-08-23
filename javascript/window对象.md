@@ -1,6 +1,6 @@
 
-<!-- @import "[TOC]" {cmd:"toc", depthFrom:1, depthTo:6, orderedList:false} -->
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 <!-- code_chunk_output -->
 
 * [window对象](#window对象)
@@ -11,6 +11,7 @@
 		* [`window`下的全局变量:](#window下的全局变量)
 
 <!-- /code_chunk_output -->
+
 
 # window对象
 
@@ -25,31 +26,37 @@ window.a // 1
 
 >所有未声明就赋值的变量都自动变成window对象的属性。
 
-##窗口
+## 窗口
 
  - window.screenX，window.screenY
-
-返回浏览器窗口左上角相对于当前屏幕左上角（(0, 0)）的水平距离和垂直距离，单位为像素。
+	 - 返回浏览器窗口左上角相对于当前屏幕左上角（(0, 0)）的水平距离和垂直距离，单位为像素。
 
  - window.innerHeight，window.innerWidth
-
-返回网页在当前窗口中可见部分的高度和宽度，即“视口”（viewport），单位为像素。
+	 - 返回网页在当前窗口中可见部分的高度和宽度，即“视口”（viewport），单位为像素。
 
  - window.outerHeight，window.outerWidth
-
-返回浏览器窗口的高度和宽度，包括浏览器菜单和边框，单位为像素。
+	 - 返回浏览器窗口的高度和宽度，包括浏览器菜单和边框，单位为像素。
 
  - window.pageXOffset属性，window.pageYOffset属性
-
-window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset属性返回页面的垂直滚动距离，单位都为像素。
+	 - window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset属性返回页面的垂直滚动距离，单位都为像素。
 
  - screen.height、screen.width
+	 - `screen.availHeight`和`screen.availWidth`属性返回屏幕可用的高度和宽度，单位为像素。它们的值为屏幕的实际大小减去操作系统某些功能占据的空间，比如系统的任务栏。
+	  - `screen.colorDepth`属性返回屏幕的颜色深度，一般为16（表示16-bit）或24（表示24-bit）。
 
-`screen.availHeight`和`screen.availWidth`属性返回屏幕可用的高度和宽度，单位为像素。它们的值为屏幕的实际大小减去操作系统某些功能占据的空间，比如系统的任务栏。
+ - `Element.clientHeight`:返回元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。
+	 - clientHeight = height + padding
 
-`screen.colorDepth`属性返回屏幕的颜色深度，一般为16（表示16-bit）或24（表示24-bit）。
+ - `Element.clientWidth`: 属性表示元素的内部宽度，以像素计。该属性包括内边距，但不包括垂直滚动条（如果有）、边框和外边距。
+	 - clientWidth = width + padding
 
-##navigator对象
+ - `Element.clientLeft`:表示一个元素的左边框的宽度
+	 - clientLeft = border-left-width
+
+ - `Element.clientTop`:一个元素顶部边框的宽度
+	 - clientTop = border-top-width
+
+## navigator对象
 
  - navigator.userAgent属性
 
@@ -72,7 +79,7 @@ $("body"):就是body
 >http://www.cnblogs.com/luhe/archive/2012/11/08/2760619.html
 
 
-##BOM对象
+## BOM对象
 
 window 也是 BOM 的一个对象，除去编程意义上的“兜底对象”之外，通过这个对象可以获取窗口位置、确定窗口大小、弹出对话框等等。例如我要关闭当前窗口：
 
@@ -83,7 +90,7 @@ DOM 是为了操作文档出现的 API，document 是其的一个对象；
 BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
 
 
-###`window`下的全局变量:
+### `window`下的全局变量:
 
  - `innerHeight/innerWidth`：浏览器窗口内部高度/宽度；
 
