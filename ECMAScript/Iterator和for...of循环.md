@@ -40,10 +40,6 @@ Iterator的遍历过程:
 ```js
 var it = makeIterator(['a', 'b']);
 
-it.next() // { value: "a", done: false }
-it.next() // { value: "b", done: false }
-it.next() // { value: undefined, done: true }
-
 function makeIterator(array) {
   var nextIndex = 0;
   return {
@@ -54,6 +50,10 @@ function makeIterator(array) {
     }
   };
 }
+
+it.next() // { value: "a", done: false }
+it.next() // { value: "b", done: false }
+it.next() // { value: undefined, done: true }
 ```
 
 ## Iterator默认接口
