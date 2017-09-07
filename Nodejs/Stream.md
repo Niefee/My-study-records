@@ -62,11 +62,17 @@ readerStream.on('error', function(err){
 console.log("程序执行完毕");
 ```
 
+ - readable.pause()
+     - 暂停读取流操作
+ - readable.resume();
+     - 继续读取流操作
+
+
 ## 写入流
 
 ```js
 var fs = require("fs");
-var data = '菜鸟教程官网地址：www.runoob.com';
+var data = 'hello world';
 
 // 创建一个可以写入的流，写入到文件 output.txt 中
 var writerStream = fs.createWriteStream('output.txt');
