@@ -89,6 +89,6 @@ server {
 
 ### CentOS安装
 
-<http://www.centoscn.com/image-text/install/2014/0812/3480.html>
+https://segmentfault.com/a/1190000007116797#articleHeader8
 
-<https://my.oschina.net/liucao/blog/470241>
+
