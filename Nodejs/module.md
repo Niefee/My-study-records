@@ -33,13 +33,17 @@ exports.b=10;
 
 ```
 
-* 在一个模块中通过var定义的变量，其作用域范围是当前模块，外部不能够直接的访问
+* 在模块中定义的变量，其作用域范围是当前模块，外部不能够直接的访问
 * 如果我们想一个模块能够访问另外一个模块中定义的变量，可以：
     * 1.把变量作为global对象的一个属性，但是这样的做法是推荐
     * 2.使用模块对象 module
 
+```js
+//使用`global`定义的是全局模块，
+global.a = 200;
+```
 
-在模块作用域，还有一个内置的模块对象，`exports`，他其实就是`module.exports`。
+`exports`是`module.exports`的引用。
 
 可以使用`exports.xxx`或者`module.exports.xxx`写入变量或者函数方法等。
 
@@ -67,5 +71,3 @@ var bar = require(‘./bar.js’);
 bar();  //这个会报错：TypeError: object is not a function
 
 ```
-
-这是因为`exports`本身就只是`module.exports`的引用，而使用`require`加载模块的时候返回的是`module.exports`，`exports=bar`改变了`exports`的引用，所以最终返回的`module.exports`只是一个空对象，所以会报`TypeError`的错误。
