@@ -30,6 +30,7 @@
     * [http模块](Nodejs/http模块.md)
     * [process](Nodejs/process.md)
     * [Error](Nodejs/Error.md)
+    * [timer](Nodejs/timer.md)
 * [ECMAScript](ECMAScript/Directory.md)
     * [字符串](ECMAScript/字符串.md)
     * [ES6基础](ECMAScript/ES6基础.md)
