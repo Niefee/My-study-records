@@ -11,6 +11,7 @@
 		* [clearImmediate(immediate)](#clearimmediateimmediate)
 		* [clearInterval(timeout)](#clearintervaltimeout)
 		* [clearTimeout(timeout)](#cleartimeouttimeout)
+	* [Event loop](#event-loop)
 
 <!-- /code_chunk_output -->
 
@@ -63,4 +64,4 @@
 > https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
 
 `process.nextTick`方法可以在当前"执行栈"的尾部----下一次`Event Loop`（主线程读取"任务队列"）之前----触发回调函数。
-`setImmediate`方法则是在当前"任务队列"的尾部添加事件。
+`setImmediate`方法则是在当前"任务队列"的尾部添加事件,在下一次Event Loop时执行。
