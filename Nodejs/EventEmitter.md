@@ -53,28 +53,12 @@ var emitter = new events.EventEmitter();
 function onfn(arg1, arg2){
     console.log('listener>>>>', arg1, arg2);
 }
-function lsfn(arg1, arg2){
-    console.log('someEvent 监听器>>>>',arg1, arg2);
-}
 
+// 触发事件
 emitter.on('someEvent', onfn);
-emitter.on('someEvent',onfn);
+
 emitter.addListener('someEvent',lsfn);
-emitter.addListener('someEvent',lsfn);
 
-var eventListeners = events.listenerCount(emitter,'someEvent');
-console.log(eventListeners + " 个监听器监听连接事件。");
-
-//出发事件
-emitter.emit('someEvent', 'arg1 参数', 'arg2 参数');
-
-emitter.removeListener('someEvent',lsfn)
-emitter.removeListener('someEvent',onfn)
-
-var eventListeners = events.listenerCount(emitter,'someEvent');
-console.log(eventListeners + " 个监听器监听连接事件。");
-
-emitter.emit('someEvent', 'arg1 参数', 'arg2 参数');
 ```
 
 `on()`与`addListener()`效果相同。
@@ -109,4 +93,4 @@ EventEmitter.prototype.on = EventEmitter.prototype.addListener;
 按参数的顺序执行每个监听器，如果事件有注册监听返回 true，否则返回 false。
 
 
->[菜鸟教程](http://www.runoob.com/nodejs/nodejs-event.html)
+> [中文文档](http://nodejs.cn/api/events.html#events_events)
