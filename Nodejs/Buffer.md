@@ -73,7 +73,8 @@ const buf5 = Buffer.from('test');
 const buf6 = Buffer.from('tést', 'utf8');
 ```
 
->创建Buffer类长度是固定的，不可以更改。
+> 创建Buffer类长度是固定的，不可以更改。
+> 打印Buffer，会以16进制编码格式显示。
 
 ### 写入
 
