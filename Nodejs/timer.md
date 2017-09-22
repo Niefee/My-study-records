@@ -61,6 +61,7 @@
 定时器回调函数是在延迟`delay`后，被添加到`macro-task`队列后执行。
 
 > https://segmentfault.com/a/1190000007936922
+> 
 > https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
 
 `process.nextTick`方法可以在当前"执行栈"的尾部----下一次`Event Loop`（主线程读取"任务队列"）之前----触发回调函数。
