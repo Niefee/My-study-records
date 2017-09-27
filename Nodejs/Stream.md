@@ -97,6 +97,15 @@ readable.on('data', function(chunk) {
 
 ## 写入流
 
+可用概念：
+
+
+ - `objectMode` 默认是 false， 设置成 true 后 writable.write() 方法除了写入 string 和 buffer 外，还可以写入任意 JavaScript 对象。很有用的一个选项，后面介绍 transform 流的时候详细介绍
+
+ - `highWaterMark` 每次最多写入的数据量， Buffer 的时候默认值 16kb， objectMode 时默认值 16
+
+ - `decodeStrings` 是否把传入的数据转成 Buffer，默认是 true
+
 ```js
 var fs = require("fs");
 var data = 'hello world';
@@ -109,7 +118,7 @@ writerStream.write(data,'UTF8');
 
 // 标记文件末尾
 // 如有callback，在finish前调用
-writerStream.end();
+writerStream.end('',function(){});
 
 // 处理流事件 --> data, end, and error
 writerStream.on('finish', function() {
@@ -132,12 +141,24 @@ console.log("程序执行完毕");
 
 ```js
 // 创建一个可读流
+// new stream.Readable([options])
 var readerStream = fs.createReadStream('input.txt');
 
 // 创建一个可写流
 var writerStream = fs.createWriteStream('output.txt');
 
+// 当writerStream.write()返回false时，便会在合适的时机触发drain事件。
+writerStream.on('drain',function(){
+	readerStream.resume(); // 数据已经写完，继续读取
+    console.log('drain');
+});
 // 管道读写操作
+
+readerStream.on('data', function(chunk){
+  if(writerStream.write(chunk) === false){ // 尚未写完，停止读取
+    readerStream.pause();
+  }
+});
 // 读取 input.txt 文件内容，并将内容写入到 output.txt 文件中
 readerStream.pipe(writerStream);
 ```
