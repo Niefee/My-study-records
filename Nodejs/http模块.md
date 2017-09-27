@@ -1,13 +1,16 @@
-<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
 
 * [http模块](#http模块)
-    * [http请求](#http请求)
-    * [路由绑定](#路由绑定)
+	* [简单的http服务器](#简单的http服务器)
 
-<!-- tocstop -->
+<!-- /code_chunk_output -->
+
 
 # http模块
-## http请求
+
+## 简单的http服务器
 
 ```js
 //加载一个http模块
@@ -26,15 +29,7 @@ server.on('listening', function() {
 server.on('request', function(req, res) {
     console.log('有客户端请求了');
 
-    //console.log(req);
-
-    //res.write('hello');
-
-    res.setHeader('miaov', 'leo');
-
-    res.writeHead(200, 'miaov', {
-        //'content-type' : 'text/plain'
-
+    res.writeHead(200, 'ok', {
         'content-type' : 'text/html;charset=utf-8'
     });
 
@@ -71,21 +66,34 @@ server.listen(8080, 'localhost');
      + 参数request：http.IncomingMessage的一个实例，通过他我们可以获取到这次请求的一些信息，比如信息，数据等。
      + 参数response：http:http.ServerResponse的一个实例，通过他我们可以向该请求的客户端输出返回的响应。
 
+## content-type
 
-**response对象 -- http.ServerResponse**
+MIME，即：Multipurpose Internet Mail Extensions，多用途互联网邮件扩展类型。
 
- - write(chunk,[encodin]):发送一个数据块到响应正文中
- - end([chunk],[encoding]):当所有的正文和头信息发送完成以后，调用该方法告诉服务器数据已经发送完成。这方法必须在每次请求的最后调用
- - statusCode:该属性用来设置返回的状态码
- - setHeader(name,value):设置返回头信息
- - writeHead(statusCode,[reasonPhrase],[headers]):在请求中只能使用一次，必须在`response.end()`之前。
+MIME和Content-Type是文件类型设置和解析的标准。
 
-## 路由绑定
+不同的文件类型，使用不同的程序打开，服务端利用`content-type`告知客户端返回文件的`MIME`类型以及解析程序。
 
-通过`app.get()`或者`app.post()`等方法可以把一个URL路径或N个函数进行绑定。
+```text
+text/html ： HTML格式
+text/plain ：纯文本格式
+text/xml ：  XML格式
+image/gif ：gif图片格式
+image/jpeg ：jpg图片格式
+image/png：png图片格式
 
-        app.get('/',function(req,res,next){})
+// 以application开头的媒体格式类型：
 
- - req:request对象 -- 保存客户端请求相关的一些数据
- - res：response对象 --服务端输出对象，提供了一些服务端输出相关的一些方法 -http.response
- - next:方法，用于执行下一个和路径匹配的函数
+application/xhtml+xml ：XHTML格式
+application/xml     ： XML数据格式
+application/atom+xml  ：Atom XML聚合格式
+application/json    ： JSON数据格式
+application/pdf       ：pdf格式
+application/msword  ： Word文档格式
+application/octet-stream ： 二进制流数据（如常见的文件下载）
+application/x-www-form-urlencoded ： <form encType="">中默认的encType，form表单数据被编码为key/value格式发送到服务器（表单默认的提交数据的格式）
+
+multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式
+```
+
+>https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types

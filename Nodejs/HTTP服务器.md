@@ -1,14 +1,16 @@
 
-<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
 
 * [HTTP服务器](#http服务器)
-    * [服务器流程](#服务器流程)
-    * [创建服务器](#创建服务器)
-    * [路由转换](#路由转换)
-    * [快速创建服务器](#快速创建服务器)
-        * [命令行操作](#命令行操作)
+	* [服务器流程](#服务器流程)
+	* [创建服务器](#创建服务器)
+	* [路由转换](#路由转换)
+	* [快速创建服务器](#快速创建服务器)
+		* [命令行操作](#命令行操作)
 
-<!-- tocstop -->
+<!-- /code_chunk_output -->
+
 
 # HTTP服务器
 ## 服务器流程
@@ -31,81 +33,16 @@ var http = require('http');
 var server = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Hello, Node!\n');
+
+    // 可以通过`fs`模块读取`index.html`的内容，然后返回：
+    // var html = fs.readFileSync(__dirname + '/index.html').toString();
+    // res.end(html);
 });
 server.listen(1337, '127.0.0.1');
 ```
 
-    node hello.js //在终端运行这个脚本
-
-如果要添加任意的HTML内容，可以通过`fs`模块读取`index.html`的内容，然后返回：
-
-```js
-//hello.js
-var http = require('http');
-var fs = require('fs');
-var server = http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    var html = fs.readFileSync(__dirname + '/index.html').toString();
-    res.end(html);
-});
-server.listen(1337, '127.0.0.1');
-```
-```js
-//本地服务器
-var http=require('http');
-var url=require('url');
-var fs=require('fs');
-http.createServer(function(req,res){
-    var urlObj=url.parse(req.url);
-    var pathname=urlObj.pathname;
-    var query=urlObj.query;
-
-    if(pathname==='/'){
-        readFileAndResponse('index.html',res);
-    }else if(pathname === '/ajax'){
-        res.end('"msg":"this is is json response"');
-    }else{
-        readFileAndResponse(pathname,res);
-    }
-}).listen(8080);
-
-function readFileAndResponse(pathname,response){
-    fs.readFile(pathname.substr(1),'utf-8',function(err,data){
-        if (err) {
-            response.writeHead(404);
-            response.end('file not found');
-        }else{
-            response.end(data);
-        }
-
-    });
-}
-
-```
-
-`fs`是NodeJS提供的标准库，封装了各类文件处理操作。
-`fs.readFileSync`就是将文件内容读取出来，返回一个字符串。
-`__dirname`是NodeJS内置的变量，表明当前脚本（也就是hello.js）所在的文件夹位置。
-
-`ajax`请求：
-
-
-```js
-    function ajaxload(){
-    var result = document.getElementById('result');
-    // 创建一个 AJAX 请求
-    var xhr = new XMLHttpRequest();
-    // 打开URL：/date
-    xhr.open('GET', 'url.xx', true);
-    // xhr 状态改变的处理函数
-    xhr.onreadystatechange=function(){
-    // 状态为4表示响应已就绪；状态码200表示成功的响应
-    if (xhr.readyState==4 && xhr.status==200)
-      // 显示响应文本
-      result.innerHTML=xhr.responseText;
-    }
-    xhr.send();
-    }
+```shell
+node hello.js //在终端运行这个脚本
 ```
 
 ## 路由转换
