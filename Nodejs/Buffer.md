@@ -89,6 +89,7 @@ const buf6 = Buffer.from('tést', 'utf8');
  - length - 写入的字节数，默认为 buffer.length
 
  - encoding - 使用的编码。默认为 'utf8' 。
+     - 支持类型：ASCII、UTF-8、UTF-16LE/UCS-2、Base64、Binary、Hex
 
 ```js
 buf = new Buffer(256);
