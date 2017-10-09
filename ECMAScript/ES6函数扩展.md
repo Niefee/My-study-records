@@ -1,16 +1,22 @@
 
-<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
 
-- [ES6函数扩展](#es6函数扩展)
-	- [函数默认值](#函数默认值)
-		- [默认允许使用解构赋值](#默认允许使用解构赋值)
-		- [函数的length属性](#函数的length属性)
-		- [作用域](#作用域)
-	- [rest参数](#rest参数)
-	- [扩展运算符](#扩展运算符)
-	- [箭头函数](#箭头函数)
+* [ES6函数扩展](#es6函数扩展)
+	* [函数默认值](#函数默认值)
+		* [默认允许使用解构赋值](#默认允许使用解构赋值)
+		* [函数的length属性](#函数的length属性)
+		* [作用域](#作用域)
+	* [rest参数](#rest参数)
+	* [扩展运算符](#扩展运算符)
+	* [箭头函数](#箭头函数)
+	* [绑定this](#绑定this)
+	* [尾调用](#尾调用)
+	* [原型对象创建与修改](#原型对象创建与修改)
+		* [Object.create()](#objectcreate)
+		* [Object.setPrototypeOf()](#objectsetprototypeof)
 
-<!-- tocstop -->
+<!-- /code_chunk_output -->
 
 # ES6函数扩展
 
@@ -154,7 +160,7 @@ headAndTail(1, 2, 3, 4, 5)
 
 注意：
 
-1. 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+1. 没有 `this` 、 `super` 、`arguments` ，也没有 `new.target` 绑定： this 、 super 、 arguments 、以及函数内部的 new.target 的值由**外层最近的非箭头函数**来决定
 
 2. 不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
 
@@ -229,3 +235,58 @@ g(3);
 这就叫做“尾调用优化”（Tail call optimization），即只保留内层函数的调用帧。如果所有函数都是尾调用，那么完全可以做到每次执行时，调用帧只有一项，这将大大节省内存。这就是“尾调用优化”的意义。
 
 >[参考](http://es6.ruanyifeng.com/?search=import&x=15&y=8#docs/function)
+
+## 原型对象创建与修改
+
+###  Object.create()
+
+`Object.create()`可创建一个具有指定原型且可选择性地包含指定属性的对象。
+
+```js
+Object.create(proto, [ propertiesObject ])
+```
+ - proto
+	 - 一个对象，新创建的对象的原型。
+ - propertiesObject
+	 - 可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是**属性描述符**。
+
+```js
+o = {};
+// 以字面量方式创建的空对象就相当于:
+o = Object.create(Object.prototype);
+
+=================================
+
+// 创建一个以另一个空对象为原型,且拥有一个属性p的对象
+o = Object.create({}, { p: { value: 42 } })
+
+// 省略了的属性特性默认为false,所以属性p是不可写,不可枚举,不可配置的:
+o.p = 24
+o.p
+//42
+```
+
+### Object.setPrototypeOf()
+
+```js
+let person = {
+    getGreeting() {
+        return "Hello";
+    }
+};
+
+let dog = {
+    getGreeting() {
+        return "Woof";
+    }
+};
+
+// 原型为 person
+let friend = Object.create(person);
+console.log(friend.getGreeting());                      // "Hello"
+
+// 将原型设置为 dog
+Object.setPrototypeOf(friend, dog);
+console.log(friend.getGreeting());                      // "Woof"
+```
+>https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create
