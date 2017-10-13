@@ -110,14 +110,30 @@ BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
      + `href`：当前url，对它赋值可以实现重定向
      + `reload()`：这是一个方法，调用后会刷新当前页面
 
- - `window.history`:提供浏览器历史的操作
-     + `history.back()`：与在浏览器点击后退按钮相同
-     + `history.forward()`：与在浏览器中点击按钮向前相同
+
+#### window.history
+
+`Window.history`保存用户在一个**会话期间**的网站访问记录，用户每次访问一个新的URL即创建一个新的历史记录。
+
+ + `history.back()`: 与在浏览器点击后退按钮相同
+ + `history.forward()`: 与在浏览器中点击按钮向前相同
+ + `history.go(num)`: 表示向前或向后翻多少页
 
 
+ - history.pushState(stateObj,title,url)
 
+第一个参数是一个当前的状态对象；第二个是页面标题，但浏览器一般会忽略。第三个是地址参数。
 
+```js
+var stateObj = { foo: "bar" };
+history.pushState(stateObj, "page 2", "bar.html");
+```
 
+在浏览器中运行这段代码，地址栏会变化成`***/bar.html`，但不会加载页面，`window.history.length`会增加1。
+如果再点击另一个页面，点击返回按钮会加载`***/bar.html`页面。
 
+`history.replaceState(state, title, url)`与上面接近，用新的state和URL替换当前的，`window.history.length`不增加。
 
+`window.onpopstate`会在浏览器前进或者后退的时候触发，`history.pushState()`或者`history.replaceState()`不会触发popstate事件.
 
+>https://developer.mozilla.org/zh-CN/docs/Web/API/History_API
