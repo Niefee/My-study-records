@@ -30,47 +30,52 @@ ES6引入`Class`这个概念，作为对象模板。
 
 ```js
 //es5
-function Point(x, y) {
-  this.x = x;
-  this.y = y;
+function PersonType(name) {
+    this.name = name;
 }
 
-Point.prototype.toString = function () {
-  return '(' + this.x + ', ' + this.y + ')';
+PersonType.prototype.sayName = function() {
+    console.log(this.name);
 };
 
-var p = new Point(1, 2);
+let person = new PersonType("Nicholas");
+person.sayName();   // 输出 "Nicholas"
 
 //ES6
 
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
+class PersonClass {
 
-  toString() {
-    return '(' + this.x + ', ' + this.y + ')';
-  }
+    // 等价于 PersonType 构造器
+    constructor(name) {
+        this.name = name;
+    }
+
+    // 等价于 PersonType.prototype.sayName
+    sayName() {
+        console.log(this.name);
+    }
 }
+let person = new PersonClass("Nicholas");
+person.sayName();   // 输出 "Nicholas"
 ```
+
 ES5的构造函数`Point`，对应ES6的`Point`类的构造方法。
 
 构造函数的`prototype`属性，在ES6的“类”上面继续存在。
 
 ```js
 class Point {
-  constructor(){
+    constructor(){
     // ...
-  }
+    }
 
-  toString(){
+    toString(){
     // ...
-  }
+    }
 
-  toValue(){
+    toValue(){
     // ...
-  }
+    }
 }
 
 // 等同于
