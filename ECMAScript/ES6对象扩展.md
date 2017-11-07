@@ -144,6 +144,8 @@ obj2.a.b // 2
 
 ### 数据描述符
 
+下列的属性在`Object.defineProperty`中默认为`false`，但在基本的对象数据结构中，下列属性默认为`true`。
+
  - #### configurable
 
 是否可以删除目标属性或是否可以再次修改属性的特性（`writable`, `configurable`, `enumerable`）。**默认为 false**。
@@ -236,7 +238,7 @@ var initValue = 'hello';
 Object.defineProperty(obj,"newKey",{
     get:function (){
         //当获取值的时候触发的函数
-        return initValue;    
+        return initValue;
     },
     set:function (value){
         //当设置值的时候触发的函数,设置的新值通过参数value拿到
@@ -429,9 +431,9 @@ Object.getOwnPropertyDescriptor(obj, 'p')
 创建一个具有指定原型且可选择性地包含指定属性的对象。
 
  - prototype
-	 - 必需。  要用作原型的对象。  可以为 null。  
+	 - 必需。  要用作原型的对象。  可以为 null。
  - descriptors
-	 - 可选。  包含一个或多个属性描述符的 JavaScript 对象。  
+	 - 可选。  包含一个或多个属性描述符的 JavaScript 对象。
 
 ```js
 var newObj = Object.create(null, {
