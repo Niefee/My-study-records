@@ -5,6 +5,11 @@
 * [http模块](#http模块)
 	* [简单的http服务器](#简单的http服务器)
 	* [content-type与MIME类型](#content-type与mime类型)
+	* [http请求缓存](#http请求缓存)
+		* [Expires和Cache-Control](#expires和cache-control)
+			* [max-age= < seconds >](#max-age-seconds)
+			* [min-fresh = < seconds >](#min-fresh-seconds)
+			* [可缓存性](#可缓存性)
 
 <!-- /code_chunk_output -->
 
@@ -104,3 +109,50 @@ type/subtype
  application | 表明是某种二进制数据  |  application/octet-stream(通用), application/pkcs12, application/vnd.mspowerpoint, application/xhtml+xml, application/xml,  application/pdf
 
  >https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+
+## http请求缓存
+
+### Expires和Cache-Control
+
+`Expires`是`HTTP/1.0`协议字段，设置过期的时间，使用固定的时间，过期后要重新设置，用法比较死板，建议使用`Cathe-Control`。
+
+`Cache-Control`是 `HTTP/1.1` 规范中定义的，被用于在`http`请求和响应中通过指定指令来实现缓存的机制。
+
+#### max-age= < seconds >
+
+`max-age`设置缓存存储的最大周期，超过这个时间缓存被认为过期(单位秒)。
+
+浏览器首次访问，服务器返回`200`状态与内容。
+
+浏览器再次请求服务器时，浏览器会先判断`max-age`，如果到期则直接请求服务器，否则直接从缓存中取，服务器收到请求后，判断文件是否被修改过，若是则直接返回`200`，否则返回`304`，浏览器将从缓存中获取文件。
+
+[![](img/http-request.png)](https://www.cnblogs.com/zhutao/p/6690198.html)
+
+
+>在max-age时间内，服务器文件有修改，这样用户就不能第一时间获取最新的信息。
+
+
+#### 其他指令
+
+ - min-fresh = < seconds >
+	只在请求头有效，表示客户端希望在指定的时间内获取最新的响应。
+
+ - public
+	表明响应可以被任何对象（包括：发送请求的客户端，代理服务器，等等）缓存。
+
+ - private
+	表明响应只能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。
+
+ - no-cache
+	强制所有缓存了该响应的缓存用户，在使用已存储的缓存数据前，发送带验证器的请求到原始服务器
+
+ - only-if-cached
+	表明客户端只接受已缓存的响应，并且不要向原始服务器检查是否有更新的拷贝
+
+ - no-store
+	缓存不应存储有关客户端请求或服务器响应的任何内容。
+
+ - must-revalidate
+	缓存必须在使用之前验证旧资源的状态，并且不可使用过期资源。
+
+>https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control
