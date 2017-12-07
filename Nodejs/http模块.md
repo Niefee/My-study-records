@@ -156,3 +156,43 @@ type/subtype
 	缓存必须在使用之前验证旧资源的状态，并且不可使用过期资源。
 
 >https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control
+
+## 服务器Set-Cookie
+
+Web 服务器通过发送一个称为 `Set-Cookie` 的 HTTP Header 来创建一个 cookie。
+
+```js
+Set-Cookie: value[; expires=date][; domain=domain][; path=path][; secure][; HttpOnly]
+```
+
+ - value
+
+一个键值对字符串，如`a:1`。
+
+ - expires
+
+过期时间，必须格式为`Wdy, DD-Mon-YYYY HH:MM:SS GMT`。
+
+```js
+// 十秒后过期
+new Date(new Date().getTime() + 1000*10).toGMTString()
+```
+
+ - domain
+
+指定cookie要设置的域。
+
+ - path
+
+指定cookie的有效路径
+
+ - secure
+
+只有当一个请求通过 SSL 或 HTTPS 创建时，包含 secure 选项的 cookie 才能被发送至服务器。
+
+ - HttpOnly
+
+HTTP-Only 背后的意思是告之浏览器该 cookie 绝不能通过 JavaScript 的 `document.cookie` 属性访问。设计该特征意在提供一个安全措施来帮助阻止通过 JavaScript 发起的跨站脚本攻击 (XSS) 窃取 cookie 的行为
+
+> http://bubkoo.com/2014/04/21/http-cookies-explained/
+> https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies
