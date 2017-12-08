@@ -1,4 +1,3 @@
-
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 <!-- code_chunk_output -->
 
@@ -8,8 +7,8 @@
 	* [http请求缓存](#http请求缓存)
 		* [Expires和Cache-Control](#expires和cache-control)
 			* [max-age= < seconds >](#max-age-seconds)
-			* [min-fresh = < seconds >](#min-fresh-seconds)
-			* [可缓存性](#可缓存性)
+			* [其他指令](#其他指令)
+	* [服务器Set-Cookie](#服务器set-cookie)
 
 <!-- /code_chunk_output -->
 
@@ -141,7 +140,7 @@ type/subtype
 	表明响应可以被任何对象（包括：发送请求的客户端，代理服务器，等等）缓存。
 
  - private
-	表明响应只能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。
+	表明响应只能被单个用户缓存，不能作为共享缓存（即CDN、代理服务器等不能缓存它）。
 
  - no-cache
 	强制所有缓存了该响应的缓存用户，在使用已存储的缓存数据前，发送带验证器的请求到原始服务器
@@ -194,5 +193,5 @@ new Date(new Date().getTime() + 1000*10).toGMTString()
 
 HTTP-Only 背后的意思是告之浏览器该 cookie 绝不能通过 JavaScript 的 `document.cookie` 属性访问。设计该特征意在提供一个安全措施来帮助阻止通过 JavaScript 发起的跨站脚本攻击 (XSS) 窃取 cookie 的行为
 
-> http://bubkoo.com/2014/04/21/http-cookies-explained/
+> http://mertensming.github.io/2016/10/20/practice-cookie/
 > https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies
