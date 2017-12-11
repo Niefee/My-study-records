@@ -48,6 +48,10 @@ console.log('hello');
 //默认情况下，输入流是关闭的，要监听必须打开输入流
 process.stdin.resume();
 
+// 将一个文件导向标准输出
+fs.createReadStream('file.txt')
+  .pipe(process.stdout);
+
 //监听用户的输入数据
 process.stdin.on('data',function(chunk){
     console.log('用户输入了：'+chunk);
@@ -56,3 +60,49 @@ process.stdin.on('data',function(chunk){
 > [process属性](http://nodejs.jakeyu.top/#t135process)
 
 > [参考](http://www.cnblogs.com/vajoy/p/4783390.html)
+
+## process.argv、process.execPath、process.execArgv
+
+`process.argv`属性返回一个数组，由命令行执行脚本时的各个参数组成。它的第一个成员总是node，第二个成员是脚本文件名，其余成员是脚本文件的参数。
+```js
+> node argv.js a b c
+[ 'node', '/path/to/argv.js', 'a', 'b', 'c' ]
+```
+
+`process.execPath`属性返回执行当前脚本的Node二进制文件的绝对路径。
+```js
+> process.execPath
+'C:\\Program Files\\nodejs\\node.exe'
+```
+
+`process.execArgv`属性返回一个数组，成员是命令行下执行脚本时，在 Node 可执行文件与脚本文件之间的命令行参数。
+
+```js
+// file.js
+console.log(process.execArgv);
+
+// 命令行
+> node --harmony script.js --version
+// ['harmony']
+```
+
+## process.exit()
+
+`process.exit`方法用来退出当前进程。它可以接受一个数值参数，如果参数大于0，表示执行失败；如果等于0表示执行成功。
+
+>注意，process.exit()很多时候是不需要的。因为如果没有错误，一旦事件循环之中没有待完成的任务，Node 本来就会退出进程，
+
+## process.on()
+
+`process`对象部署了`EventEmitter`接口，可以使用on方法监听各种事件，并指定回调函数。
+```js
+process.on('uncaughtException', function(err){
+  console.error('got an error: %s', err.message);
+  process.exit(1);
+});
+
+setTimeout(function(){
+  throw new Error('fail');
+}, 100);
+```
+>http://javascript.ruanyifeng.com/nodejs/process.html#toc4
