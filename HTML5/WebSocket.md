@@ -52,9 +52,8 @@ TCP是主机对主机层的传输控制协议，提供可靠的连接服务，�
 ![TCP/IP](img/TCP5.png)
 
 >参考：
-1. http://www.jellythink.com/archives/705
-2. http://www.cnblogs.com/Jessy/p/3535612.html
-3. https://www.zhihu.com/question/24853633
+1. http://www.cnblogs.com/Jessy/p/3535612.html
+2. https://www.zhihu.com/question/24853633
 
 ## WebSocket简介
 
