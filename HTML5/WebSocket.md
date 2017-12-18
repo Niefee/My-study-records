@@ -206,3 +206,29 @@ WebSocket.CONNECTING|	0	|连接正在进行中，但还未建立
 WebSocket.OPEN	|1|	连接已建立，消息可以开始传递
 WebSocket.CLOSING	|2	|连接正在进行关闭
 WebSocket.CLOSED|	3	|连接已关闭
+
+### 连接池
+
+每一个连接都放到一个数组中，组成连接池。
+
+```js
+// 连接池
+var clients = [];
+
+wss.on('connection', function(ws) {
+    // 将该连接加入连接池
+    clients.push(ws);
+    ws.on('message', function(message) {
+        // 广播消息
+        clients.forEach(function(ws1){
+            if(ws1 !== ws) {
+                ws1.send(message);
+            }
+       })
+    });
+});
+```
+
+为了区分每个连接，可以添加`UUID` ，通用唯一识别码（Universally Unique Identifier）
+
+>http://www.jianshu.com/p/ea0a9a6311cf
