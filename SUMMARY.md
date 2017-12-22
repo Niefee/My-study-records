@@ -52,6 +52,7 @@
     * [Class](ECMAScript/Class.md)
     * [Decorator](ECMAScript/Decorator.md)
     * [Module](ECMAScript/Module.md)
+    * [ArrayBuffer](ECMAScript/ArrayBuffer.md)
 * [HTML5](HTML5/Directory.md)
     * [本地存储](HTML5/本地存储.md)
     * [SVG](HTML5/SVG.md)
