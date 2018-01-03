@@ -94,3 +94,7 @@ EventEmitter.prototype.on = EventEmitter.prototype.addListener;
 
 
 > [中文文档](http://nodejs.cn/api/events.html#events_events)
+
+EventEmitter与其他模块的关系图：
+
+![EventEmitter.jpg](img/EventEmitter.jpg)
