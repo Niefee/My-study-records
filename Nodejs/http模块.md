@@ -204,3 +204,20 @@ HTTP-Only 背后的意思是告之浏览器该 cookie 绝不能通过 JavaScript
 
 > http://mertensming.github.io/2016/10/20/practice-cookie/
 > https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies
+
+## http.Server
+
+```
+http = tcp服务器 + callback函数（里面最重要的就是http_parser）
+```
+
+http处理网络请求的能力来源于`net模块`与`Http_parser模块`。
+
+http.Server处理过程：
+
+1. 当客户端发起请求时，首先会进行TCP连接。
+2. 服务器端的`connection`监听事件，请求被发送到`socket`上。
+3. 使用`Http_parser模块`解析当前`socket`的连接请求。
+4. `http_parser`实例对象提供了解析数据的每个阶段的回调函数。
+
+> https://yi-love.github.io/blog/node.js/2017/03/21/node-http.html
