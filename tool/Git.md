@@ -1,17 +1,23 @@
-<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
 
 * [Git](#git)
-    * [Git命令](#git命令)
-        * [git init](#git-init)
-        * [git clone](#git-clone)
-        * [git add](#git-add)
-        * [git status](#git-status)
-        * [git commit](#git-commit)
-        * [git diff](#git-diff)
-        * [git push](#git-push)
-        * [git remote](#git-remote)
+	* [Git命令](#git命令)
+		* [git init](#git-init)
+		* [git clone](#git-clone)
+		* [git add](#git-add)
+		* [git status](#git-status)
+		* [git commit](#git-commit)
+		* [git diff](#git-diff)
+		* [git push](#git-push)
+		* [git remote](#git-remote)
+		* [查看远程仓库](#查看远程仓库)
+	* [本地拉取远程代码](#本地拉取远程代码)
+	* [本地向远程提交代码](#本地向远程提交代码)
 
-<!-- tocstop -->
+<!-- /code_chunk_output -->
+
 
 # Git
 
@@ -154,3 +160,15 @@ $ git add [file1] [file2] / [dir]
 # 提交暂存区到仓库区
 $ git commit -m [message]
 ```
+
+4. 推送到远程
+
+```bash
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+
+# 推送所有分支到远程仓库
+$ git push [remote] --all
+```
+
+>http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
