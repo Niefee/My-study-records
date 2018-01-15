@@ -140,28 +140,28 @@ git pull origin master
 
 ## 本地向远程提交代码
 
-1. 查看更改
+1.查看更改
 
 ```bash
 # 显示有变更的文件
 $ git status
 ```
 
-2. 添加修改到暂存区
+2.添加修改到暂存区
 
 ```bash
 # 添加指定文件到暂存区
 $ git add [file1] [file2] / [dir]
 ```
 
-3. 提交到仓库
+3.提交到仓库
 
 ```bash
 # 提交暂存区到仓库区
 $ git commit -m [message]
 ```
 
-4. 推送到远程
+4.推送到远程
 
 ```bash
 # 上传本地指定分支到远程仓库
