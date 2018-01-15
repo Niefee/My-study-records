@@ -19,6 +19,7 @@
     * [JSON](javascript/JSON.md)
     * [面向对象编程](javascript/面向对象编程.md)
     * [数据类型转换](javascript/数据类型转换.md)
+    * [二进制数据事件](javascript/二进制数据事件.md)
 * [Nodejs](Nodejs/Directory.md)
     * [HTTP服务器](Nodejs/HTTP服务器.md)
     * [基础笔记](Nodejs/基础笔记.md)
