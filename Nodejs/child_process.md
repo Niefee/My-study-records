@@ -6,6 +6,8 @@
 	* [进程及线程](#进程及线程)
 	* [Nodejs四种创建进程的方式](#nodejs四种创建进程的方式)
 		* [spawn()](#spawn)
+		* [exec/execFile](#execexecfile)
+		* [fork](#fork)
 
 <!-- /code_chunk_output -->
 
@@ -29,7 +31,7 @@ child_process.spawn(command[, args][, options])
 
 `spawn()`适合用在进程的输入、输出数据量比较大的情况（因为它支持以 `stream` 的使用方式），可以用于任何命令。
 
-`spawn()`方法用于从执行的命令创建一个新进程，命令的参数被做为数组传入，忽略参数时将传入一个空数组。
+`spawn()`方法用于从执行的命令创建一个新进程，命令的参数被作为数组传入，忽略参数时将传入一个空数组。
 
 ```js
 // child.js
@@ -104,7 +106,6 @@ child_process.exec(command[, options][, callback])
 child_process.execFile(file[, args][, options][, callback])
 ```
 `exec()`与`execFile()`会使用一个 Buffer 来存储进程执行后的标准输出结果，可以一次性在 callback 里面获取到。不太适合输出数据量大的场景。
-
 ```js
 // child.js
 console.log('child argv: ', process.argv);
@@ -174,7 +175,17 @@ console.log('child pid:', p.pid);
     'gid': 0
 }
 ```
+`exec()`会创建一个`shell`，效率可能稍慢。所以不支持 I/O 重定向和文件查找这样的行为。
 
+```js
+//  有输出
+cp.exec('find e:\\Data test.js',{}, function(err, stdout, stderr){
+    console.log(stdout);
+});
+
+// 报错
+cp.execFile('find', ['e:\\Data test.js'], function(err, stdout, stderr){})
+```
 ### fork
 
 语法：
