@@ -34,6 +34,7 @@
     * [timer](Nodejs/timer.md)
     * [net](Nodejs/net.md)
     * [child_process](Nodejs/child_process.md)
+    * [Cluster](Nodejs/Cluster.md)
 * [ECMAScript](ECMAScript/Directory.md)
     * [字符串](ECMAScript/字符串.md)
     * [ES6基础](ECMAScript/ES6基础.md)
