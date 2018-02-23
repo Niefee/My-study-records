@@ -4,3 +4,4 @@
 3. [爬虫技术](爬虫技术.md)
 4. [Linux命令](Linux命令.md)
 5. [nginx](nginx.md)
+6. [MySQL](MySQL.md)
