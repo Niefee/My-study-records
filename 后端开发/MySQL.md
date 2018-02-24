@@ -1,3 +1,27 @@
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+
+* [MySQL](#mysql)
+	* [数据库操作](#数据库操作)
+	* [数据库表操作](#数据库表操作)
+	* [MySQL数据类型](#mysql数据类型)
+		* [数字型](#数字型)
+		* [日期和时间类型](#日期和时间类型)
+		* [字符串类型](#字符串类型)
+	* [sql查询命令](#sql查询命令)
+		* [DISTINCT](#distinct)
+		* [ORDER BY](#order-by)
+		* [WHERE](#where)
+		* [IN](#in)
+		* [NOT IN](#not-in)
+		* [BETWEEN AND](#between-and)
+		* [LIKE](#like)
+		* [LIMIT](#limit)
+		* [IS NULL](#is-null)
+
+<!-- /code_chunk_output -->
+
 # MySQL
 
 `MySQL` 为关系型数据库(Relational Database Management System)，一个关系型数据库由一个或数个表格组成。
@@ -9,6 +33,7 @@
 ```js
 mysql –u用户名 [–h主机名或者IP地址,-P端口号] –p密码
 ```
+
 > –p密码选项不一定是要在最后；
 > –u、-h、-p后无空格。
 
@@ -121,3 +146,232 @@ MEDIUMBLOB|	0-16 777 215字节|	二进制形式的中等长度文本数据
 MEDIUMTEXT|	0-16 777 215字节	|中等长度文本数据
 LONGBLOB|	0-4 294 967 295字节	|二进制形式的极大文本数据
 LONGTEXT|	0-4 294 967 295字节	|极大文本数据
+
+>http://kmfree.me/2017/07/30/4_%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/MySQL/MySQL%E5%9F%BA%E7%A1%80/
+>https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md
+>http://www.runoob.com/mysql/mysql-tutorial.html
+
+## sql查询命令
+
+### DISTINCT
+
+当从表中查询数据时，您可能会得到重复的行。为了删除这些重复行，可以在`SELECT`语句中使用`DISTINCT` 子句。
+
+```sql
+SELECT  name FROM `test`
+
++------+
+| name |
++------+
+| tom  |
+| amy  |
+| tom  |
++------+
+
+SELECT DISTINCT name FROM `test`;
+
++------+
+| name |
++------+
+| tom  |
+| amy  |
++------+
+```
+
+> 如果查询多列数据，要每一个数据相同才会被删除。
+
+### ORDER BY
+
+语法：
+
+```sql
+SELECT column1, column2,...
+FROM tbl
+ORDER BY column1 [ASC|DESC], column2 [ASC|DESC],...
+```
+
+使用`ORDER BY`可以按照某个字段进行排序。
+使用`ASC`或`DESC`按照升序或者降序排列。
+
+```sql
+SELECT name FROM `test` GROUP BY name DESC;
+
++------+
+| name |
++------+
+| tom  |
+| mus  |
+| amy  |
++------+
+```
+
+> 默认是ASC升序。
+
+### WHERE 
+
+在查询语句中使用`WHERE`语句来设定查询条件。
+
+```sql
+SELECT * FROM test WHERE name='tom';
++-------------+------+-----+------+
+| id          | name | ps  | code |
++-------------+------+-----+------+
+| 00000000123 | tom  | abc | 2221 |
+| 00000000125 | tom  | abc | 0133 |
++-------------+------+-----+------+
+```
+
+> 可以结合使用AND或OR的逻辑运算符。
+
+自定义排序函数FIELD():
+
+```sql
+SELECT 
+    orderNumber, status
+FROM
+    orders
+ORDER BY FIELD(status,
+        'key_part1',
+        'key_part2');
+```
+
+
+### IN
+
+在`WHERE`子句中，筛选符合匹配的数据。
+
+```sql
+SELECT * FROM test WHERE name IN ('tom');
++-------------+------+-----+------+
+| id          | name | ps  | code |
++-------------+------+-----+------+
+| 00000000123 | tom  | abc | 2221 |
+| 00000000125 | tom  | abc | 0133 |
++-------------+------+-----+------+
+```
+
+带有子查询的MySQL IN
+
+```sql
+SELECT 
+    orderNumber, customerNumber, status, shippedDate
+FROM
+    orders
+WHERE
+    orderNumber IN (SELECT 
+            orderNumber
+        FROM
+            orderDetails
+        GROUP BY orderNumber
+        HAVING SUM(quantityOrdered * priceEach) > 60000);
+```
+
+运算顺序为：
+
+```sql
+-- 第一步
+SELECT 
+    orderNumber
+FROM
+    orderDetails
+GROUP BY orderNumber
+HAVING SUM(quantityOrdered * priceEach) > 60000;
+
+-- 第二步
+SELECT 
+    orderNumber, customerNumber, status, shippedDate
+FROM
+    orders
+WHERE
+    orderNumber IN (10165,10287,10310);
+```
+
+
+### NOT IN 
+
+与`IN`运算符相反。
+
+### BETWEEN AND
+
+`BETWEEN AND`判断某字段值是否在给定的范围内。
+
+```sql
+select * from where userId between 5 and 7;
+
+-- 等同于
+
+select * from user where userId >= 5 and userId <= 7;
+```
+
+### LIKE 
+
+`LIKE`操作符常用在模式匹配中查询数据。
+
+与LIKE操作符一起使用：百分比 %和下划线_。
+
+ - percent（%）通配符允许您匹配任何零个或多个字符的字符串。
+ - 下划线（_）通配符允许您匹配任何单个字符。
+
+
+```sql
+-- 查找m结尾的数据
+SELECT 
+    name
+FROM
+    employees
+WHERE
+    firstname LIKE '%m';
+```
+
+```sql
+-- 查找包含‘_20’字符的数据，ESCAPE 后面指定转义字符，默认为斜杠/
+SELECT 
+    productCode, productName
+FROM
+    products
+WHERE
+    productCode LIKE '%$_20%' ESCAPE '$';
+```
+
+### LIMIT
+
+`LIMIT`子句在`SELECT`语句中用于约束结果集中的行数。
+
+```sql
+SELECT
+    customernumber,
+    customername,
+    creditlimit
+FROM
+    customers
+ORDER BY
+    creditlimit DESC
+LIMIT 3;
+
++----------------+------------------------------+-------------+
+| customernumber | customername                 | creditlimit |
++----------------+------------------------------+-------------+
+|            141 | Euro+ Shopping Channel       |   227600.00 |
+|            124 | Mini Gifts Distributors Ltd. |   210500.00 |
+|            298 | Vida Sport, Ltd              |   141300.00 |
++----------------+------------------------------+-------------+
+```
+
+> 如果LIMIT后还有参数，代表偏移量，从0开始。
+
+### IS NULL 
+
+判断数据是否为空，为NULL则返回true。
+
+```sql
+SELECT 
+    customerName, 
+    country, 
+    salesrepemployeenumber
+FROM
+    customers
+WHERE
+    salesrepemployeenumber IS NULL;
+```
+
+> http://www.manongjc.com/mysql_basic/mysql-tutorial-basic.html
