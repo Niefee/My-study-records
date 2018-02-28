@@ -9,7 +9,7 @@
 		* [数字型](#数字型)
 		* [日期和时间类型](#日期和时间类型)
 		* [字符串类型](#字符串类型)
-	* [sql查询命令](#sql查询命令)
+	* [sql查询操作命令](#sql查询操作命令)
 		* [DISTINCT](#distinct)
 		* [ORDER BY](#order-by)
 		* [WHERE](#where)
@@ -19,6 +19,12 @@
 		* [LIKE](#like)
 		* [LIMIT](#limit)
 		* [IS NULL](#is-null)
+	* [数据分组与连接](#数据分组与连接)
+		* [GROUP BY](#group-by)
+	* [连接](#连接)
+		* [INNER JOIN](#inner-join)
+		* [LEFT JOIN](#left-join)
+		* [RIGHT JOIN](#right-join)
 
 <!-- /code_chunk_output -->
 
@@ -147,11 +153,11 @@ MEDIUMTEXT|	0-16 777 215字节	|中等长度文本数据
 LONGBLOB|	0-4 294 967 295字节	|二进制形式的极大文本数据
 LONGTEXT|	0-4 294 967 295字节	|极大文本数据
 
->http://kmfree.me/2017/07/30/4_%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/MySQL/MySQL%E5%9F%BA%E7%A1%80/
+>http://blog.csdn.net/lipengcn/article/details/51111667
 >https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md
 >http://www.runoob.com/mysql/mysql-tutorial.html
 
-## sql查询命令
+## sql查询操作命令
 
 ### DISTINCT
 
@@ -286,6 +292,7 @@ WHERE
     orderNumber IN (10165,10287,10310);
 ```
 
+>having子句在查询过程中慢于聚合语句(sum,min,max,avg,count).而where子句在查询过程中则快于聚合语。
 
 ### NOT IN 
 
@@ -375,3 +382,104 @@ WHERE
 ```
 
 > http://www.manongjc.com/mysql_basic/mysql-tutorial-basic.html
+
+## 数据分组与连接
+
+### GROUP BY
+
+`GROUP BY`是`SELECT`的可选部分，将数据按表达式进行分组。
+
+聚合函数允许我们执行某组行的计算并返回一个值。` GROUP BY`子句通常与聚合函数来执行计算，并为每个分组返回一个值。
+
+```sql
+SELECT status,count(*) as total  from orders GROUP BY `status` ;
+
++------------+----------+
+| status     | total    |
++------------+----------+
+| Cancelled  |        6 |
+| Disputed   |        3 |
+| In Process |        6 |
+| On Hold    |        4 |
+| Resolved   |        4 |
+| Shipped    |      303 |
++------------+----------+
+```
+
+
+## 连接
+
+### INNER JOIN
+
+产生的结果集中，是两者某字段的交集。可以简写成`join`;
+
+
+```sql
+-- Table A 是左边的表。
+-- Table B 是右边的表。
+id name       id  name
+-- ----       --  ----
+1  **Pirate**     1   Rutabaga
+2  Monkey         2   **Pirate**
+3  **Ninja**      3   Darth Vader
+4  Spaghetti      4   **Ninja**
+```
+
+```sql
+SELECT * FROM TableA
+INNER JOIN TableB
+ON TableA.name = TableB.name
+
+-- 结果:
+id  name       id   name
+--  ----       --   ----
+1   Pirate     2    Pirate
+3   Ninja      4    Ninja
+```
+
+![img/Inner_Join.png](img/Inner_Join.png)
+
+`JOIN`子句必须指定连接条件，连接条件的关键字`ON`在`INNER JOIN`语句之后。连接条件是用于在主表和其他表之间匹配行的条件。
+
+### LEFT JOIN
+
+产生表A的完全集，而B表中匹配的则有值，没有匹配的则以null值取代。
+```sql
+SELECT * FROM TableA
+LEFT JOIN TableB
+ON TableA.name = TableB.name
+
+-- 结果
+id  name       id    name
+--  ----       --    ----
+1   Pirate     2     Pirate
+2   Monkey     null  null
+3   Ninja      4     Ninja
+4   Spaghetti  null  null
+```
+![img/Left outer join.png](img/Left outer join.png)
+
+### RIGHT JOIN 
+
+产生表B的完全集，而A表中匹配的则有值，没有匹配的则以null值取代。
+
+```sql
+SELECT * FROM TableA
+RIGHT  JOIN TableB 
+ON TableA.name = TableB.name ORDER BY TableB.name;
+
+-- 结果
++------+-------------+----+-------------------+
+| id   | name        | id | name              |
++------+-------------+----+-------------------+
+| NULL | NULL        |  1 | Rutabaga          |
+|    4 | Pirate      |  2 | Pirate            |
+| NULL | NULL        |  3 | Darth Vader       |
+|    6 | Ninja       |  4 | Ninja             |
++------+-------------+----+-------------------+
+```
+
+> 在sql查询语句中，还有FULL JOIN，但MySQL中没有支持。
+> 具体可参考：https://code.ziqiangxuetang.com/sql/sql-join-full.html
+
+> 教程：http://www.manongjc.com/mysql_basic/mysql-tutorial-basic.html
