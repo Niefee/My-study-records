@@ -483,3 +483,31 @@ ON TableA.name = TableB.name ORDER BY TableB.name;
 > 具体可参考：https://code.ziqiangxuetang.com/sql/sql-join-full.html
 
 > 教程：http://www.manongjc.com/mysql_basic/mysql-tutorial-basic.html
+
+## 字段处理
+
+### 修改字段名
+
+```sql
+ALTER TABLE 表名 Change 旧属性名 新属性名 新数据类型;
+```
+
+### 修改字段的数据类型
+
+```sql
+ALTER TABLE 表名 MODIFY 属性名 新数据类型;
+```
+
+### 增加字段
+
+```sql
+ALTER TABLE 表名 ADD 属性名1 数据类型 [完整性约束条件] [FIRST | AFTER 属性名2];
+```
+
+### 删除字段
+
+```sql
+ALTER TABLE 表名 DROP 属性名;
+```
+
+> 参考：http://blog.csdn.net/lipengcn/article/details/51119535
