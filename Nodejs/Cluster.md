@@ -1,5 +1,14 @@
 # Cluster
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [Cluster](#cluster)
+	* [worker对象](#worker对象)
+
+<!-- /code_chunk_output -->
+
 nodejs是单进程单线程，在多核机器上无法充分利用性能。nodejs引入cluster模块，可以提供多进程编程力能。
 
 `cluster`模块通过`cluster.fork()`方法创建多个进程实例，而`cluster.fork()`内部又是通过`child_process.fork()`来创建子进程的。
