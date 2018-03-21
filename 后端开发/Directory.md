@@ -5,3 +5,4 @@
 4. [Linux命令](Linux命令.md)
 5. [nginx](nginx.md)
 6. [MySQL](MySQL.md)
+7. [深入浅出MySQL](深入浅出MySQL.md)
