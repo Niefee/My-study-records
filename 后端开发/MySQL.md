@@ -153,9 +153,9 @@ MEDIUMTEXT|	0-16 777 215字节	|中等长度文本数据
 LONGBLOB|	0-4 294 967 295字节	|二进制形式的极大文本数据
 LONGTEXT|	0-4 294 967 295字节	|极大文本数据
 
->http://blog.csdn.net/lipengcn/article/details/51111667
->https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md
->http://www.runoob.com/mysql/mysql-tutorial.html
+> http://blog.csdn.net/lipengcn/article/details/51111667
+> https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md
+> http://www.runoob.com/mysql/mysql-tutorial.html
 
 ## sql查询操作命令
 
