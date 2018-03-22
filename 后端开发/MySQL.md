@@ -153,9 +153,22 @@ MEDIUMTEXT|	0-16 777 215字节	|中等长度文本数据
 LONGBLOB|	0-4 294 967 295字节	|二进制形式的极大文本数据
 LONGTEXT|	0-4 294 967 295字节	|极大文本数据
 
+### 数据类型的属性解释
+
+NULL：数据列可包含NULL值；
+NOT NULL：数据列不允许包含NULL值；
+DEFAULT：默认值；
+PRIMARY：KEY 主键；
+AUTO_INCREMENT：自动递增，适用于整数类型；
+UNSIGNED：是指数值类型只能为正数；
+CHARACTER SET name：指定一个字符集；
+COMMENT：对表或者字段说明；
+
 > http://blog.csdn.net/lipengcn/article/details/51111667
->> https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md
->>> http://www.runoob.com/mysql/mysql-tutorial.html
+
+> https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md
+
+> http://www.runoob.com/mysql/mysql-tutorial.html
 
 ## sql查询操作命令
 
