@@ -2,29 +2,35 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 <!-- code_chunk_output -->
 
-* [MySQL](#mysql)
-	* [数据库操作](#数据库操作)
-	* [数据库表操作](#数据库表操作)
-	* [MySQL数据类型](#mysql数据类型)
-		* [数字型](#数字型)
-		* [日期和时间类型](#日期和时间类型)
-		* [字符串类型](#字符串类型)
-	* [sql查询操作命令](#sql查询操作命令)
-		* [DISTINCT](#distinct)
-		* [ORDER BY](#order-by)
-		* [WHERE](#where)
-		* [IN](#in)
-		* [NOT IN](#not-in)
-		* [BETWEEN AND](#between-and)
-		* [LIKE](#like)
-		* [LIMIT](#limit)
-		* [IS NULL](#is-null)
-	* [数据分组与连接](#数据分组与连接)
-		* [GROUP BY](#group-by)
-	* [连接](#连接)
-		* [INNER JOIN](#inner-join)
-		* [LEFT JOIN](#left-join)
-		* [RIGHT JOIN](#right-join)
+- [MySQL](#mysql)
+    - [数据库操作](#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C)
+    - [数据库表操作](#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%93%8D%E4%BD%9C)
+    - [MySQL数据类型](#mysql%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
+        - [数字型](#%E6%95%B0%E5%AD%97%E5%9E%8B)
+        - [日期和时间类型](#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B)
+        - [字符串类型](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B)
+        - [字段的约束条件](#%E5%AD%97%E6%AE%B5%E7%9A%84%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6)
+    - [sql查询操作命令](#sql%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4)
+        - [DISTINCT](#distinct)
+        - [ORDER BY](#order-by)
+        - [WHERE](#where)
+        - [IN](#in)
+        - [NOT IN](#not-in)
+        - [BETWEEN AND](#between-and)
+        - [LIKE](#like)
+        - [LIMIT](#limit)
+        - [IS NULL](#is-null)
+    - [数据分组与连接](#%E6%95%B0%E6%8D%AE%E5%88%86%E7%BB%84%E4%B8%8E%E8%BF%9E%E6%8E%A5)
+        - [GROUP BY](#group-by)
+    - [连接](#%E8%BF%9E%E6%8E%A5)
+        - [INNER JOIN](#inner-join)
+        - [LEFT JOIN](#left-join)
+        - [RIGHT JOIN](#right-join)
+    - [字段处理](#%E5%AD%97%E6%AE%B5%E5%A4%84%E7%90%86)
+        - [修改字段名](#%E4%BF%AE%E6%94%B9%E5%AD%97%E6%AE%B5%E5%90%8D)
+        - [修改字段的数据类型](#%E4%BF%AE%E6%94%B9%E5%AD%97%E6%AE%B5%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
+        - [增加字段](#%E5%A2%9E%E5%8A%A0%E5%AD%97%E6%AE%B5)
+        - [删除字段](#%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5)
 
 <!-- /code_chunk_output -->
 
@@ -153,16 +159,19 @@ MEDIUMTEXT|	0-16 777 215字节	|中等长度文本数据
 LONGBLOB|	0-4 294 967 295字节	|二进制形式的极大文本数据
 LONGTEXT|	0-4 294 967 295字节	|极大文本数据
 
-### 数据类型的属性解释
+### 字段的约束条件
 
  - NULL：数据列可包含NULL值；
  - NOT NULL：数据列不允许包含NULL值；
+ - ZREOFILL: 零填充，当数据的显示长度不够的时候可以使用前补0的效果填充至指定长度,字段会自动添加UNSIGNED
  - DEFAULT：默认值；
- - PRIMARY：KEY 主键；
+ - PRIMARY KEY：KEY 主键；
+ - UNIQUE KEY: 唯一性，一个表中可以有多个字段是唯一索引，同样的值不能重复，但是NULL值除外
  - AUTO_INCREMENT：自动递增，适用于整数类型；
  - UNSIGNED：是指数值类型只能为正数；
  - CHARACTER SET name：指定一个字符集；
  - COMMENT：对表或者字段说明；
+ - FOREIGN KEY: 外键约束；
 
 > http://blog.csdn.net/lipengcn/article/details/51111667
 
