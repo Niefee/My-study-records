@@ -105,4 +105,55 @@ ALTER 字段名称 DROP DEFAULT
 ALTER TABLE user ALTER age DROP DEFAULT;
 ```
 
-修改字段类型、字段属性
+修改字段名、字段类型、字段属性
+
+```sql
+ALTER TABLE tbl_name
+MODIFY 字段名称 字段类型 [字段属性] [FIRST | AFTER 字段名称]
+
+-- 或者
+ALTER TABLE tbl_name
+CHANGE 原字段名称 新字段名称 字段类型 字段属性 [FIRST | AFTER 字段名称]
+```
+
+添加主键
+
+```sql
+ALTER TABLE tbl_name
+ADD PRIMARY KEY(字段名称)
+
+-- eg
+ALTER TABLE user ADD PRIMARY KEY(id);
+```
+
+删除主键
+
+```sql
+ALTER TABLE tbl_name
+DROP PRIMARY KEY;
+```
+
+添加唯一主键
+
+```sql
+ALTER TABLE tbl_name
+ADD UNIQUE KEY|INDEX [index_name] (字段名称)
+```
+
+删除唯一主键
+
+```sql
+ALTER TABLE tbl DROP index_name;
+
+-- eg
+ALTER TABLE user DROP INDEX username;
+```
+
+修改表名
+
+```sql
+ALTER TABLE tbl_name 
+RENAME [TO|AS] new_tbl_name
+-- 或
+RENAME TABLE tbl_name TO new_tbl_name;
+```
