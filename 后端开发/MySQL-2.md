@@ -4,6 +4,7 @@
 - [深入浅出MySQL](#%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmysql)
     - [数据库相关操作](#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
     - [数据表](#%E6%95%B0%E6%8D%AE%E8%A1%A8)
+    - [数据操作](#%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C)
 
 <!-- /code_chunk_output -->
 
@@ -156,4 +157,23 @@ ALTER TABLE tbl_name
 RENAME [TO|AS] new_tbl_name
 -- 或
 RENAME TABLE tbl_name TO new_tbl_name;
+```
+
+重置自动增长的初始值
+
+```sql
+-- 要清空数据才会发挥作用
+ALTER TABLE tbl_name AUTO_INCREMENT=值
+```
+
+## 数据操作
+
+查询数据
+
+```sql
+SELECT select_expr,... FROM tbl_name
+[WHERE 条件]
+[GROUP BY {col_name|position} HAVING 二次筛选]
+[ORDER BY {col_name|position|expr} [ASC|DESC]]
+[LIMIT 限制结果集的显示条数]
 ```

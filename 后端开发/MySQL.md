@@ -90,7 +90,17 @@ desc student;
 +--------+----------+------+-----+---------+-------+
 
 #插入数据
-insert into student(id,name) values(1001,’zhangsan’);
+-- 不指定字段名称
+INSERT user VALUE(1001,'king');
+INSERT user VALUES(1001,'king');
+
+-- 指定字段
+insert into user(id,name) values(1001,’zhangsan’)[,(1002,lisi)];
+insert user set id=1001 ,name='zhangsan',;
+
+-- 获取其他表的数据插入
+insert student(name) select name from user;
+
 
 #查询数据
 select * from student; 
