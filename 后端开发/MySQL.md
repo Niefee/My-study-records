@@ -489,7 +489,7 @@ id  name       id    name
 3   Ninja      4     Ninja
 4   Spaghetti  null  null
 ```
-![img/Left outer join.png](img/Left outer join.png)
+![img/Left_Outer_Join.png](img/Left_Outer_Join.png)
 
 ### RIGHT JOIN 
 
