@@ -2,7 +2,6 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
-
 - [深入浅出MySQL数据库](#%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%BA%93)
     - [1.什么是数据库？](#1%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9F)
         - [数据库(Database)是按照数据结构来组织、存储和管理数据的仓库](#%E6%95%B0%E6%8D%AE%E5%BA%93database%E6%98%AF%E6%8C%89%E7%85%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9D%A5%E7%BB%84%E7%BB%87%E3%80%81%E5%AD%98%E5%82%A8%E5%92%8C%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BB%93%E5%BA%93)
@@ -522,7 +521,7 @@ SELECT 字段名称... FROM tbl_name2;
             * 代表一个任意字符
         * [字符集合]
             * [abc] [a-z] [0-9]
-        * [^字符集合]
+        * [\^字符集合]
             * 除了集合中的内容
         * s1|s2|s3
             * 匹配s1或者s2或者s3
@@ -583,5 +582,3 @@ SELECT 字段名称... FROM tbl_name2;
 * 检测表
 ### REPAIR TABLE tbl_name
 * 修复表
-
-*XMind: ZEN - Trial Version*
