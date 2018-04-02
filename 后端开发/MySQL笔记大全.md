@@ -55,8 +55,8 @@
     - [常用SQL语句](#%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5)
         - [查看上一步操作产生的警告信息](#%E6%9F%A5%E7%9C%8B%E4%B8%8A%E4%B8%80%E6%AD%A5%E6%93%8D%E4%BD%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF)
         - [mysql中的注释](#mysql%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A)
-        - [CHECK TABLE tbl_name](#check-table-tblname)
-        - [REPAIR TABLE tbl_name](#repair-table-tblname)
+        - [检查表](#检查表)
+        - [修复表](#修复表)
 
 <!-- /code_chunk_output -->
 
@@ -582,7 +582,7 @@ SELECT 字段名称... FROM tbl_name2;
 # 注释内容
 -- 注释内容
 ```
-### CHECK TABLE tbl_name
-* 检测表
-### REPAIR TABLE tbl_name
-* 修复表
+### 检测表
+* CHECK TABLE tbl_name
+### 修复表
+* REPAIR TABLE tbl_name
