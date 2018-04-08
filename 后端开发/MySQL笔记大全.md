@@ -60,6 +60,7 @@
 
 <!-- /code_chunk_output -->
 
+
 # 深入浅出MySQL数据库
 ## 1.什么是数据库？
 ### 数据库(Database)是按照数据结构来组织、存储和管理数据的仓库
@@ -85,10 +86,15 @@
             * 数据查询语言
         * DCL
             * 数据控制语言
+
+
 ## 2.MySQL相关操作
 ### 配置文件
+
 * my.cnf是MySQL的配置文件
+
 ### 登陆/退出MySQL
+
 * 登陆
     * mysql -uroot -p
     * mysql -uroot -proot
@@ -117,11 +123,17 @@
     * 命令行结束符默认使用;或者\g来结束
     * 可以通过help或者\h或者?加上相关关键字来查看手册
     * \c可以取消当前命令的执行
+
+
 ### SQL语句语法规范
+
 * 常用MySQL的关键字我们需要大写，库名、表名、字段名称等使用小写
 * SQL语句支持折行操作，拆分的时候不能把完整单词拆开
 * 数据库名称、表名称、字段名称不要使用MySQL的保留字，如果必须要使用，需要用反引号``将其括起来
+
+
 ### 常用SQL语句
+
 * SELECT USER()
     * 得到登陆的用户
 * SELECT VERSION()
@@ -130,8 +142,11 @@
     * 得到当前的日期时间
 * SELECT DATABASE()
     * 得到当前打开的数据库
+
+
 ## 3.数据库相关操作
 ### 创建数据库
+
 * CREATE {DATABASE|SCHEMA} db_name;
 * 检测数据库名称是否存在，不存在则创建
     * CREATE DATABASE [IF NOT EXISTS] db_name;
@@ -140,27 +155,44 @@
 * 注意
     * 数据库名称最好有意义
     * 名称不要包含特殊字符或者是MySQL关键字
+
+
 ### 查看当前服务器下全部数据库
+
 * SHOW DATABASES|SCHEMAS;
+* 
 ### 查看指定数据库的详细信息
+
 * SHOW CREATE DATABASE db_name;
+
 ### 修改指定数据库的编码方式
+
 * ALTER DATABASE db_name [DEFAULT] CHARACTER SET [=] charset;
+
 ### 打开指定数据库
+
 * USE db_name;
+
 ### 得到当前打开的数据库
+
 * SELECT DATABASE()|SCHEMA();
+
 ### 删除指定的数据库
+
 * DROP DATABASE db_name;
 * 如果数据库存在则删除
     * DROP DATABASE [IF EXISTS] db_name;
+
 ## 4.数据表相关操作
 ### 数据表
+
 * 是数据库最重要的组成部分之一，数据是保存在数据表中
 * 数据表由行(row)和列(column)来组成
 * 每个数据表中至少有一列，行可以有零行一行或者多行组成
 * 表名要求唯一，不要包含特殊字符，最好含义明确
+
 ### 创建表
+
 * CREATE TABLE [IF NOT EXISTS] tbl_name(
     字段名称 字段类型 [完整性约束条件],
     字段名称 字段类型 [完整性约束条件],
@@ -182,21 +214,31 @@
         * 唯一性，一个表中可以有多个字段是唯一索引，同样的值不能重复，但是NULL值除外
     * FOREIGN KEY
         * 外键约束
+
+
 ### 查看当前数据库下已有数据表
+
 * SHOW TABLES;
 * SHOW [FULL] TABLES [{FROM | IN} db_name]
     [LIKE 'pattern' | WHERE expr]
 
 
 ### 查看指定数据表的详细信息
+
 * SHOW CREATE TABLE tbl_name;
+
 ### 查看表结构
+
 * DESC tbl_name;
 * DESCRIBE tbl_name;
 * SHOW COLUMNS FROM tbl_name;
+
 ### 删除指定的数据表
+
 * DROP TABLE [IF EXISTS] tbl_name;
+
 ### 表结构相关操作
+
 * 添加字段
     * ALTER TABLE tbl_name 
 ADD 字段名称 字段属性 [完整性约束条件] [FIRST|AFTER 字段名称]
@@ -233,23 +275,34 @@ RENAME [TO|AS] new_tbl_name
     * RENAME TABLE tbl_name TO new_tbl_name;
 * 修改AUTO_INCREMENT的值
     * ALTER TABLE tbl_name AUTO_INCREMENT=值
+
 ## 5.MySQL中的数据类型
+
 ### 数值型
+
 * 整数型
-    * 
+![](img/mysql_int.jpg)
+
 * 浮点型
-    * 
+![](img/mysql_float.jpg)
+
+
 ### 字符串类型
-* 
+
+![](img/mysql_str.jpg)
+
 * CHAR效率高于VARCHAR,CHAR相当于拿空间换时间，VARCHAR拿时间换空间
 * CHAR默认存储数据的时候，后面会用空格填充到指定长度；而在检索的时候会去掉后面空格；VARCHAR在保存的时候不进行填充，尾部的空格会留下
 * TEXT列不能有默认值,检索的时候不存在大小写转换
+
+
 ### 日期时间类型
-* 
+![](img/mysql_time.jpg)
+
 ### 二进制类型
 ## 6.MySQL存储引擎
 ### MySQL架构图
-* 
+
 * MySQL是由SQL接口、解析器、优化器、缓存和存储引擎组成。
     * Connectors
         * 指的是不同语言与SQL的交互接口
@@ -269,7 +322,10 @@ RENAME [TO|AS] new_tbl_name
         * 查询缓存
     * Engine
         * 存储引擎
+
+
 ### MySQL存储引擎
+
 * 存储引擎就是指表的类型，存取和处理数据的方式。
 * 查看当前支持的存储引擎
     * SHOW ENGINES;
@@ -352,8 +408,11 @@ RENAME [TO|AS] new_tbl_name
             * .frm表结构文件
             * .ibd，数据和索引存储表空间中
         * 所有的表都需要创建主键，最好是配合上AUTO_INCREMENT,也可以放到经常查询的列作为主键
+
+
 ## 7.MySQL数据操作
 ### 添加记录
+
 * INSERT [INTO] tbl_name[(col_name,...)] {VALUE|VALUES}(VALUES...);
 * 不指定字段名称
     * INSERT tbl_name VALUE(value...)
@@ -368,11 +427,14 @@ RENAME [TO|AS] new_tbl_name
     * INSERT tbl_name[(字段名称,...)] VALUES(值,...),
         (值,....),
         (值,...)
+
 ### 修改记录
+
 * UPDATE tbl_name SET 字段名称=值,字段名称=值 [WHERE 条件]
 * 如果不添加条件，整个表中的记录都会被更新
 
 ### 删除记录
+
 * DELETE FROM tbl_name [WHERE 条件]
 * 如果不添加条件，表中所有记录都会被删除
 * DELETE 清空数据表的时候不会重置AUTO_INCREMENT的值，可以通过ALTER 语句将其重置为1
@@ -383,6 +445,7 @@ RENAME [TO|AS] new_tbl_name
 
 
 ### 查询记录
+
 * SELECT select_expr,... FROM tbl_name
 [WHERE 条件]
 [GROUP BY {col_name|position} HAVING 二次筛选]
@@ -450,7 +513,10 @@ RENAME [TO|AS] new_tbl_name
         * 显示结果集的前几条记录
     * LIMIT offset,row_count
         * 从offset开始，显示几条记录,offset从0开始
+
+
 ### 多表查询
+
 * 笛卡尔积的形式
 * 内连接的形式
     * 查询两个表中符合连接条件的记录
@@ -468,7 +534,10 @@ ON 连接条件
             RIGHT [OUTER] JOIN tbl_name2
             ON 条件;
         * 先显示右表中的全部记录，再去左表中查询复合条件的记录，不符合的以NULL代替
+
+
 ### 外键约束
+
 * 只有InnoDB存储引擎支持外键
 * 创建外键
     * 建表时指定外键
@@ -491,6 +560,7 @@ ON 连接条件
         * 动态删除外键
             * ALTER TABLE tbl_name
 DROP FOREIGN KEY fk_name;
+
 ### 特殊形式的查询
 
 * 子查询
@@ -499,6 +569,7 @@ DROP FOREIGN KEY fk_name;
     * 由IN引发的子查询
     * 由比较运算符引出子查询
     * 由EXISTS引发的子查询
+    ![](img/mysql_sq.jpg)
     * ANY SOME ALL
     * INSERT ... SELECT
     * CREATE ... SELECT
