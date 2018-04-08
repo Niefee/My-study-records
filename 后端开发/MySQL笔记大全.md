@@ -55,7 +55,7 @@
     - [常用SQL语句](#%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5)
         - [查看上一步操作产生的警告信息](#%E6%9F%A5%E7%9C%8B%E4%B8%8A%E4%B8%80%E6%AD%A5%E6%93%8D%E4%BD%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF)
         - [mysql中的注释](#mysql%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A)
-        - [检查表](#%E6%A3%80%E6%9F%A5%E8%A1%A8)
+        - [检测表](#%E6%A3%80%E6%B5%8B%E8%A1%A8)
         - [修复表](#%E4%BF%AE%E5%A4%8D%E8%A1%A8)
 
 <!-- /code_chunk_output -->
@@ -165,7 +165,7 @@
     字段名称 字段类型 [完整性约束条件],
     字段名称 字段类型 [完整性约束条件],
 	...
-)ENGINE=存储引擎 CHARSET=编码方式;
+    )ENGINE=存储引擎 CHARSET=编码方式;
     * UNSIGNED
         * 无符号，没有负数，从0开始
     * ZEROFILL
@@ -185,7 +185,9 @@
 ### 查看当前数据库下已有数据表
 * SHOW TABLES;
 * SHOW [FULL] TABLES [{FROM | IN} db_name]
-[LIKE 'pattern' | WHERE expr]
+    [LIKE 'pattern' | WHERE expr]
+
+
 ### 查看指定数据表的详细信息
 * SHOW CREATE TABLE tbl_name;
 ### 查看表结构
@@ -364,11 +366,12 @@ RENAME [TO|AS] new_tbl_name
     * INSERT tbl_name[(字段名称...)] SELECT 字段名称,... FROM  tbl_name [WHERE 条件]
 * 一次添加多条记录
     * INSERT tbl_name[(字段名称,...)] VALUES(值,...),
-(值,....),
-(值,...)
+        (值,....),
+        (值,...)
 ### 修改记录
 * UPDATE tbl_name SET 字段名称=值,字段名称=值 [WHERE 条件]
 * 如果不添加条件，整个表中的记录都会被更新
+
 ### 删除记录
 * DELETE FROM tbl_name [WHERE 条件]
 * 如果不添加条件，表中所有记录都会被删除
@@ -377,6 +380,8 @@ RENAME [TO|AS] new_tbl_name
     * TRUNCATE [TABLE] tbl_name;
         * 清除表中所有记录
         * 会重置AUTO_INCREMENT的值
+
+
 ### 查询记录
 * SELECT select_expr,... FROM tbl_name
 [WHERE 条件]
@@ -455,13 +460,13 @@ ON 连接条件
 * 外连接的形式
     * 左外连接
         * SELECT 字段名称,... FROM tbl_name1
-LEFT [OUTER] JOIN tbl_name2
-ON 条件;
+            LEFT [OUTER] JOIN tbl_name2
+            ON 条件;
         * 先显示左表中的全部记录，再去右表中查询复合条件的记录，不符合的以NULL代替
     * 右外连接
         * SELECT 字段名称,... FROM tbl_name1
- RIGHT [OUTER] JOIN tbl_name2
-ON 条件;
+            RIGHT [OUTER] JOIN tbl_name2
+            ON 条件;
         * 先显示右表中的全部记录，再去左表中查询复合条件的记录，不符合的以NULL代替
 ### 外键约束
 * 只有InnoDB存储引擎支持外键
@@ -481,12 +486,13 @@ ON 条件;
     * 动态添加外键
         * 动态添加外键
             * ALTER TABLE tbl_name
-[CONSTRAINT 外键名称] ADD FOREIGN KEY(外键字段) REFERENCES 主表(主键字段);
+                [CONSTRAINT 外键名称] ADD FOREIGN KEY(外键字段) REFERENCES 主表(主键字段);
             * 动态添加外键之前表中的记录一定合法的记录，没有脏值，否则外键添加不成功
         * 动态删除外键
             * ALTER TABLE tbl_name
 DROP FOREIGN KEY fk_name;
 ### 特殊形式的查询
+
 * 子查询
     * SELECT 字段名称 FROM tbl_name WHERE col_name=(SELECT col_name FROM tbl_name)
     * 内层语句查询的结果可以做为外层语句查询的条件
@@ -494,19 +500,18 @@ DROP FOREIGN KEY fk_name;
     * 由比较运算符引出子查询
     * 由EXISTS引发的子查询
     * ANY SOME ALL
-        * 
     * INSERT ... SELECT
     * CREATE ... SELECT
     * CREATE TABLE tbl_name LIKE tbl_name;
 * 联合查询
     * UNION
         * SELECT 字段名称,... FROM tbl_name1 
-UNION
-SELECT 字段名称... FROM tbl_name2;
+            UNION
+            SELECT 字段名称... FROM tbl_name2;
     * UNION ALL
         * SELECT 字段名称,... FROM tbl_name1 
-UNION ALL
-SELECT 字段名称... FROM tbl_name2;
+            UNION ALL
+            SELECT 字段名称... FROM tbl_name2;
     * UNION ALL 是简单的合并，UNION会去掉表中重复记录
 * 自身连接查询
     * 无限级分类的实现形式
@@ -536,6 +541,7 @@ SELECT 字段名称... FROM tbl_name2;
         * SELECT 字段名称,... FROM tbl_name WHERE 字段名称 REGEXP '匹配模式'
 ## 8.MYSQL常用函数
 ### 数学函数
+
 * CEIL()
     * 进一取整
 * FLOOR()
@@ -558,19 +564,28 @@ SELECT 字段名称... FROM tbl_name2;
     * 得到数字符号
 * EXP(X)
     * 计算e的x次方
+
+
 ### 字符串函数
 ### 日期时间函数
 ### 其它常用函数
+
 ## 9.图形化工具管理数据库
+
 ### BS
 * phpmyadmin
+
+
 ### CS
+
 * Sequel Pro
 * windows
     * SQLyog
     * navit for mysql
     * mysql front
     * mysql workbench
+
+
 ## 常用SQL语句
 ### 查看上一步操作产生的警告信息
 
@@ -584,5 +599,9 @@ SELECT 字段名称... FROM tbl_name2;
 ```
 ### 检测表
 * CHECK TABLE tbl_name
+
+
 ### 修复表
 * REPAIR TABLE tbl_name
+
+
