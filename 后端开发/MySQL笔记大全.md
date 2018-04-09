@@ -610,6 +610,7 @@ DROP FOREIGN KEY fk_name;
             * 前面的字符至少出现m次，最多出现n次
     * REGEXP '匹配方式'
         * SELECT 字段名称,... FROM tbl_name WHERE 字段名称 REGEXP '匹配模式'
+
 ## 8.MYSQL常用函数
 ### 数学函数
 
