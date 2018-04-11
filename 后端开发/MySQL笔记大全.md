@@ -1,18 +1,14 @@
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
 - [深入浅出MySQL数据库](#%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%BA%93)
-    - [1.什么是数据库？](#1%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9F)
+    - [1、什么是数据库？](#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9F)
         - [数据库(Database)是按照数据结构来组织、存储和管理数据的仓库](#%E6%95%B0%E6%8D%AE%E5%BA%93database%E6%98%AF%E6%8C%89%E7%85%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9D%A5%E7%BB%84%E7%BB%87%E3%80%81%E5%AD%98%E5%82%A8%E5%92%8C%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BB%93%E5%BA%93)
         - [常见数据库](#%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E5%BA%93)
         - [相关术语](#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD)
-    - [2.MySQL相关操作](#2mysql%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
+    - [2、MySQL相关操作](#2%E3%80%81mysql%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
         - [配置文件](#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
         - [登陆/退出MySQL](#%E7%99%BB%E9%99%86%E9%80%80%E5%87%BAmysql)
         - [SQL语句语法规范](#sql%E8%AF%AD%E5%8F%A5%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83)
         - [常用SQL语句](#%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5)
-    - [3.数据库相关操作](#3%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
+    - [3、数据库相关操作](#3%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
         - [创建数据库](#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93)
         - [查看当前服务器下全部数据库](#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E5%85%A8%E9%83%A8%E6%95%B0%E6%8D%AE%E5%BA%93)
         - [查看指定数据库的详细信息](#%E6%9F%A5%E7%9C%8B%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF)
@@ -20,7 +16,7 @@
         - [打开指定数据库](#%E6%89%93%E5%BC%80%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%BA%93)
         - [得到当前打开的数据库](#%E5%BE%97%E5%88%B0%E5%BD%93%E5%89%8D%E6%89%93%E5%BC%80%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93)
         - [删除指定的数据库](#%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93)
-    - [4.数据表相关操作](#4%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
+    - [4、数据表相关操作](#4%E3%80%81%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
         - [数据表](#%E6%95%B0%E6%8D%AE%E8%A1%A8)
         - [创建表](#%E5%88%9B%E5%BB%BA%E8%A1%A8)
         - [查看当前数据库下已有数据表](#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E5%B7%B2%E6%9C%89%E6%95%B0%E6%8D%AE%E8%A1%A8)
@@ -28,15 +24,15 @@
         - [查看表结构](#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84)
         - [删除指定的数据表](#%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E7%9A%84%E6%95%B0%E6%8D%AE%E8%A1%A8)
         - [表结构相关操作](#%E8%A1%A8%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
-    - [5.MySQL中的数据类型](#5mysql%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
+    - [5、MySQL中的数据类型](#5%E3%80%81mysql%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
         - [数值型](#%E6%95%B0%E5%80%BC%E5%9E%8B)
         - [字符串类型](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B)
         - [日期时间类型](#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B)
         - [二进制类型](#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%B1%BB%E5%9E%8B)
-    - [6.MySQL存储引擎](#6mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E)
+    - [6、MySQL存储引擎](#6%E3%80%81mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E)
         - [MySQL架构图](#mysql%E6%9E%B6%E6%9E%84%E5%9B%BE)
         - [MySQL存储引擎](#mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E)
-    - [7.MySQL数据操作](#7mysql%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C)
+    - [7、MySQL数据操作](#7%E3%80%81mysql%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C)
         - [添加记录](#%E6%B7%BB%E5%8A%A0%E8%AE%B0%E5%BD%95)
         - [修改记录](#%E4%BF%AE%E6%94%B9%E8%AE%B0%E5%BD%95)
         - [删除记录](#%E5%88%A0%E9%99%A4%E8%AE%B0%E5%BD%95)
@@ -44,12 +40,12 @@
         - [多表查询](#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2)
         - [外键约束](#%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F)
         - [特殊形式的查询](#%E7%89%B9%E6%AE%8A%E5%BD%A2%E5%BC%8F%E7%9A%84%E6%9F%A5%E8%AF%A2)
-    - [8.MYSQL常用函数](#8mysql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0)
+    - [8、MYSQL常用函数](#8%E3%80%81mysql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0)
         - [数学函数](#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0)
         - [字符串函数](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0)
         - [日期时间函数](#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0)
         - [其它常用函数](#%E5%85%B6%E5%AE%83%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0)
-    - [9.图形化工具管理数据库](#9%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E5%BA%93)
+    - [9、图形化工具管理数据库](#9%E3%80%81%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E5%BA%93)
         - [BS](#bs)
         - [CS](#cs)
     - [常用SQL语句](#%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5)
@@ -58,19 +54,24 @@
         - [检测表](#%E6%A3%80%E6%B5%8B%E8%A1%A8)
         - [修复表](#%E4%BF%AE%E5%A4%8D%E8%A1%A8)
 
-<!-- /code_chunk_output -->
-
 
 # 深入浅出MySQL数据库
-## 1.什么是数据库？
+
+## 1、什么是数据库？
+
 ### 数据库(Database)是按照数据结构来组织、存储和管理数据的仓库
+
 ### 常见数据库
+
+
 * Oracle
 * DB2
 * SQL Server
 * Postgre SQL
 * MySQL
+
 ### 相关术语
+
 * 数据库系统(Database System):DBS
     * 数据库(Database)
     * 数据库管理系统(Database Management System):DBMS
@@ -88,7 +89,7 @@
             * 数据控制语言
 
 
-## 2.MySQL相关操作
+## 2、MySQL相关操作
 ### 配置文件
 
 * my.cnf是MySQL的配置文件
@@ -144,7 +145,7 @@
     * 得到当前打开的数据库
 
 
-## 3.数据库相关操作
+## 3、数据库相关操作
 ### 创建数据库
 
 * CREATE {DATABASE|SCHEMA} db_name;
@@ -160,7 +161,7 @@
 ### 查看当前服务器下全部数据库
 
 * SHOW DATABASES|SCHEMAS;
-* 
+
 ### 查看指定数据库的详细信息
 
 * SHOW CREATE DATABASE db_name;
@@ -183,7 +184,7 @@
 * 如果数据库存在则删除
     * DROP DATABASE [IF EXISTS] db_name;
 
-## 4.数据表相关操作
+## 4、数据表相关操作
 ### 数据表
 
 * 是数据库最重要的组成部分之一，数据是保存在数据表中
@@ -276,7 +277,7 @@ RENAME [TO|AS] new_tbl_name
 * 修改AUTO_INCREMENT的值
     * ALTER TABLE tbl_name AUTO_INCREMENT=值
 
-## 5.MySQL中的数据类型
+## 5、MySQL中的数据类型
 
 ### 数值型
 
@@ -300,7 +301,7 @@ RENAME [TO|AS] new_tbl_name
 ![](img/mysql_time.jpg)
 
 ### 二进制类型
-## 6.MySQL存储引擎
+## 6、MySQL存储引擎
 ### MySQL架构图
 
 * MySQL是由SQL接口、解析器、优化器、缓存和存储引擎组成。
@@ -410,7 +411,7 @@ RENAME [TO|AS] new_tbl_name
         * 所有的表都需要创建主键，最好是配合上AUTO_INCREMENT,也可以放到经常查询的列作为主键
 
 
-## 7.MySQL数据操作
+## 7、MySQL数据操作
 ### 添加记录
 
 * INSERT [INTO] tbl_name[(col_name,...)] {VALUE|VALUES}(VALUES...);
@@ -611,7 +612,7 @@ DROP FOREIGN KEY fk_name;
     * REGEXP '匹配方式'
         * SELECT 字段名称,... FROM tbl_name WHERE 字段名称 REGEXP '匹配模式'
 
-## 8.MYSQL常用函数
+## 8、MYSQL常用函数
 ### 数学函数
 
 * CEIL()
@@ -642,7 +643,7 @@ DROP FOREIGN KEY fk_name;
 ### 日期时间函数
 ### 其它常用函数
 
-## 9.图形化工具管理数据库
+## 9、图形化工具管理数据库
 
 ### BS
 * phpmyadmin
