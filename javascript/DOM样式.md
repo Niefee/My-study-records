@@ -1,5 +1,3 @@
-[TOC]
-
 ##获取DOM节点样式
 
  - element.style
