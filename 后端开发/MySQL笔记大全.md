@@ -640,8 +640,121 @@ DROP FOREIGN KEY fk_name;
 
 
 ### 字符串函数
+
+ - CHAR_LENGTH():得到字符串的字符数
+ - LENGTH():返回字符串的字节长度
+
+```sql
+select char_length('你好啊');
++--------------------------+
+| char_length('你好啊')    |
++--------------------------+
+|                        3 |
++--------------------------+
+
+
+mysql> select length("你好啊");
++---------------------+
+| length("你好啊")    |
++---------------------+
+|                   9 |
++---------------------+
+```
+
+ - CONCAT(s1,s2,....):将字符串合并成一个字符串，含有`null`结果返回`null`。
+ - CONCAT_WS(x,s1,s2,s2....)：以指定分隔符拼接字符串(`x`)，含有`null`就转换成空字符。
+
+
+ - UPPER()| UCASE() LOWER()|LCASE(): 将字符串转换成大写或者小写 
+ - REVERSE(): 字符串的反转
+ - LEFT()|RIGHT(): 返回字符串的前几个字符或者后几个字符
+
+```sql
+SELECT LEFT('hello',2),RIGHT('hello',2);
+```
+
+ - LPAD()|RPAD(): 用字符串填充到指定长度
+
+```sql
+SELECT LPAD('abc',10,'?');
+```
+
+ - 去掉字符串两端/左边/右边的空格TRIM()|LTRIM()|RTRIM():
+ - REPEAT(): 重复指定的次数
+ - REPLACE(): 替代字符串
+
+```sql
+select replace('hello world', 'hello', 'hei');
++----------------------------------------+
+| replace('hello world', 'hello', 'hei') |
++----------------------------------------+
+| hei world                              |
++----------------------------------------+
+```
+
+ - SUBSTRING(str, start, to): 截取字符串
+
+```sql
+SELECT SUBSTRING('abcdefg',1,5);
+
+-- 从1开始
++--------------------------+
+| SUBSTRING('abcdefg',1,5) |
++--------------------------+
+| abcde                    |
++--------------------------+
+```
+
+ - STRCMP(str, str): 比较字符串的ASCII顺序。
+    第一个大于第二个返回`1`;
+    第一个小于第二个返回`-1`;
+    第一个等于第二个返回`0`;
+
+
 ### 日期时间函数
+
+```sql
+-- 返回当前日期
+SELECT CURDATE(),CURRENT_DATE();
+
+-- 返回当前时间
+SELECT CURTIME(),CURRENT_TIME();
+
+-- 返回当前的日期时间
+SELECT NOW(),CURRENT_TIMESTAMP(),SYSDATE();
+
+-- 返回日期中的月份和月份的名称
+SELECT MONTH('2017-02-19');
+SELECT MONTH(CURDATE()),MONTHNAME(CURDATE());
+
+-- 返回星期几
+SELECT DAYNAME(NOW());
+
+-- 返回一周内的第几天,0代表星期一
+SELECT DAYOFWEEK(NOW());
+SELECT WEEK(NOW());
+SELECT YEAR(NOW()),MONTH(NOW()),DAY(NOW()),HOUR(NOW()),MINUTE(NOW()),SECOND(NOW());
+
+-- DATEDIFF()计算两个日期相差的天数
+SELECT DATEDIFF('2017-03-06','2017-03-02');
+```
+
 ### 其它常用函数
+
+```sql
+-- 测试其它常用函数，版本、连接数
+SELECT VERSION(),CONNECTION_ID();
+
+SELECT USER(),CURRENT_USER(),SYSTEM_USER(),SESSION_USER();
+
+-- 得到上一步插入操作产生AUTO_INCREMENT的值
+SELECT LAST_INSERT_ID();
+
+SELECT MD5('king');
+SELECT SHA('king');
+-- PASSWORD():密码加密算法
+SELECT PASSWORD('root');
+```
 
 ## 9、图形化工具管理数据库
 
