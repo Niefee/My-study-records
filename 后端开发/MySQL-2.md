@@ -184,10 +184,41 @@ SELECT select_expr,... FROM tbl_name
 
 ## 事物处理
 
-### 事物条件
+### 事务条件
 
  - **原子性：** 一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。
  - **一致性：**在事务开始之前和事务结束以后，数据库的完整性没有被破坏。
  - **隔离性：**数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。
  - **持久性：**事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。
 
+> 可以接受事务的引擎中，都有`autocommit`选项，默认我们的操作都是自动提交，但可以设置`set autocommit = 0`取消。
+
+
+### 事务控制语句
+
+`BEGIN`或`START TRANSACTION`：显式地开启一个事务；
+
+`COMMIT`：也可以使用COMMIT WORK，不过二者是等价的。COMMIT会提交事务，并使已对数据库进行的所有修改称为永久性的；
+
+`ROLLBACK`：有可以使用ROLLBACK WORK，不过二者是等价的。回滚会结束用户的事务，并撤销正在进行的所有未提交的修改；
+
+`SAVEPOINT identifier`：SAVEPOINT允许在事务中创建一个保存点，一个事务中可以有多个SAVEPOINT；
+
+`RELEASE SAVEPOINT identifier`：删除一个事务的保存点，当没有指定的保存点时，执行该语句会抛出一个异常；
+
+`ROLLBACK TO identifier`：把事务回滚到标记点；
+
+`SET TRANSACTION`：用来设置事务的隔离级别。InnoDB存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ和SERIALIZABLE。
+
+
+### 事物顺序
+
+`BEGIN` 开始一个事务
+`ROLLBACK` 事务回滚
+`COMMIT` 事务确认
+
+> http://www.runoob.com/mysql/mysql-transaction.html
+
+### 事务隔离级别
+
+> http://xstarcd.github.io/wiki/MySQL/mysql_isolation_level.html
