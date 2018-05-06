@@ -745,6 +745,7 @@ SELECT YEAR(NOW()),MONTH(NOW()),DAY(NOW()),HOUR(NOW()),MINUTE(NOW()),SECOND(NOW(
 -- DATEDIFF()计算两个日期相差的天数
 SELECT DATEDIFF('2017-03-06','2017-03-02');
 ```
+> http://wiki.jikexueyuan.com/project/mysql/useful-functions/time-functions.html
 
 ### 其它常用函数
 
