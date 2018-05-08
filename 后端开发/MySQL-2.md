@@ -7,8 +7,8 @@
 	* [数据库相关操作](#数据库相关操作)
 	* [数据表](#数据表)
 	* [数据操作](#数据操作)
-	* [事物处理](#事物处理)
-		* [事物条件](#事物条件)
+	* [事务处理](#事务处理)
+		* [事务条件](#事务条件)
 
 <!-- /code_chunk_output -->
 
@@ -211,7 +211,7 @@ SELECT select_expr,... FROM tbl_name
 `SET TRANSACTION`：用来设置事务的隔离级别。InnoDB存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ和SERIALIZABLE。
 
 
-### 事物顺序
+### 事务顺序
 
 `BEGIN` 开始一个事务
 `ROLLBACK` 事务回滚
