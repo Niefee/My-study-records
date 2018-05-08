@@ -235,6 +235,6 @@ SELECT select_expr,... FROM tbl_name
  - 幻读：它的结果其实和不可重复读是一样的表现，差异就在于，不可重复读，主要是针对其他事务进行了编辑(update)和删除(delete)操作。而幻读主要是针对插入(insert)操作。也就是在一个事务生命周期内，会查询到另外一个事务新插入的数据。
  
 > http://www.cnblogs.com/zhoujinyi/p/3437475.html
-> https://www.jianshu.com/p/4ba118333a19
+  https://www.jianshu.com/p/4ba118333a19
  
 > http://xstarcd.github.io/wiki/MySQL/mysql_isolation_level.html
